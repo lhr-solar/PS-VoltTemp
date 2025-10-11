@@ -2,10 +2,13 @@
 #include <stdlib.h>
 
 #define devAddress 0x08
+
 #define BAT_HI 0x2A
 #define BAT_LO 0x2B
+
 #define memSize 1
 #define size 1
+
 #define timeout 100
 
 /* Private variables ---------------------------------------------------------*/
@@ -170,6 +173,7 @@ int main(){
   
   while(1){
     HAL_I2C_Mem_Read(&hi2c1, devAddress << 1, BAT_HI, memSize, &Read_Data, size, timeout);
+    HAL_I2C_Mem_Read()
     HAL_Delay(1);
     HAL_I2C_Mem_Read(&hi2c1, devAddress << 1, BAT_LO, memSize, &Read_Data, size, timeout);
     HAL_Delay(1);
