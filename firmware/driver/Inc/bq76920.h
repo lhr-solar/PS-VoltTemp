@@ -10,19 +10,40 @@
 #ifndef __BQ76920_
 #define __BQ76920_
 
+// Initialization functions
+//========================================
+// i2c init things
 void HAL_I2C_MspInit(I2C_HandleTypeDef*);
 void HAL_I2C_MspDeInit(I2C_HandleTypeDef*);
 void SystemClock_Config(void);
 void MX_I2C1_Init(void);
 void MX_GPIO_Init(void);
+// general init
 void Init_BQ76920(I2C_HandleTypeDef*);
-
-uint8_t bq76920_Read_1(uint16_t);
-uint16_t bq76920_Read(uint16_t,uint16_t);
-void bq76920_Write(uint16_t, uint8_t);
-
+// gets ADC info from chip.
 void get_ADC_Info();
-uint32_t get_Cell_Voltage(uint16_t);
+//========================================
+
+// Reading & Writing base functions
+//========================================
+// returns data from the bms,
+// input is the address.
+uint8_t bq76920_Read_1(uint16_t);
+
+// returns combined data from two, input is both.
+uint16_t bq76920_Read(uint16_t,uint16_t);
+
+// Writes to bms, input is address.
+void bq76920_Write(uint16_t, uint8_t);
+//========================================
+
+// Voltage related functions.
+//========================================
+// returns voltage of 1 cell, input is cell.
+uint32_t get_Voltage_1(uint16_t);
+// populates array with all voltages.
+void get_Voltage_All(uint32_t*);
+//========================================
 
 
 // I2C thingies 
@@ -49,10 +70,44 @@ uint32_t get_Cell_Voltage(uint16_t);
 //======================
 
 
-// Control & Protection
+// Control
 //======================
 #define SYS_CTRL1 0x04
 #define SYS_CTRL2 0x05
+
+#define HIGH = 0x01
+#define LOW  = 0x00
+
+#define READ  1
+#define WRITE 2
+
+// commands
+typedef enum{
+  //stat
+  CC_READY,
+  DEVICE_XREADY,
+  OVRD_ALERT,
+  UV,
+  OV,
+  SCD,
+  OCD,
+  // ctrl1
+  LOAD_PRESENT,
+  ADC_EN,
+  TEMP_SEL,
+  SHUT_A,
+  SHUT_B,
+  // ctrl2  
+  DELAY_DIS,
+  CC_EN,
+  CC_ONESHOT,
+  DSG_ON,
+  CHG_ON        
+} SysCommands;
+//======================
+
+// Protection
+//======================
 #define PROTECT1  0x06
 #define PROECT3   0x07
 #define OV_TRIP   0x09
@@ -109,6 +164,7 @@ uint32_t get_Cell_Voltage(uint16_t);
 // Entire module voltage
 #define BAT_HI    0x2A
 #define BAT_LO    0x2B
+#define BAT       0x2A2B
 //======================
 
 

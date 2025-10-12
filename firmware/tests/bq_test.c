@@ -14,6 +14,8 @@ uint32_t cell_Data[5];
 
 void Testing_Init(){
 
+HAL_Init();
+
 // Heartbeat pin on stm32l432kcu is PB3
 #ifdef STM32L432xx
     #define LED_PIN GPIO_PIN_3
@@ -44,19 +46,15 @@ void Testing_Init(){
 int main(){
   Testing_Init();
   Init_BQ76920(&hi2c1);
-  
   SystemClock_Config();
   HAL_MspInit();
   
+  
+
   while(1){
-    get_ADC_Info();
-
-    cell_Data[0] = get_Cell_Voltage(VC1);
-    cell_Data[1] = get_Cell_Voltage(VC2);
-    cell_Data[2] = get_Cell_Voltage(VC3);
-    cell_Data[3] = get_Cell_Voltage(VC4);
-    cell_Data[4] = get_Cell_Voltage(VC5);
-
+    
+    get_Voltage_All(cell_Data);
+    
     HAL_GPIO_TogglePin(LED_PORT, LED_PIN);
   }
 }
