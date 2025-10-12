@@ -78,8 +78,8 @@ void get_Voltage_All(uint32_t*);
 #define HIGH = 0x01
 #define LOW  = 0x00
 
-#define READ  1
-#define WRITE 2
+#define READ  0x00
+#define WRITE 0xFF
 
 // commands
 typedef enum{

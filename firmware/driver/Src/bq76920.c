@@ -208,19 +208,18 @@ uint8_t sys(uint8_t R_W, SysCommands Command, uint8_t state){
   
 
   // Read or write to sys.
-  if(state == READ){
+  if(R_W == READ){
     // we only care about the chosen bit
     // return its value to deal with in main code.
     return (bq76920_Read_1(reg) & bit);
   }else
-  if(state == WRITE){
+  if(R_W == WRITE){
     // if not reading, write.
-    bq76920_Write(reg, bit);
+    bq76920_Write(reg, (bit & state));
     return 0xFF; // we wrote :-)
-  }else return 0xF0; // if you return this, invalid input likely.
+  }else return 0xF0; // if you return this, :-(
 }
 //=====================================================================
-
 
 
 // Cell Voltage Commands
