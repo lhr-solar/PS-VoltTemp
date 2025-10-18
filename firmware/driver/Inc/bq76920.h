@@ -10,6 +10,76 @@
 #ifndef __BQ76920_
 #define __BQ76920_
 
+// Commands.
+//========================================
+// sys commands
+typedef enum{
+  //stat
+  CC_READY,
+  DEVICE_XREADY,
+  OVRD_ALERT,
+  UV,
+  OV,
+  SCD,
+  OCD,
+  // ctrl1
+  LOAD_PRESENT,
+  ADC_EN,
+  TEMP_SEL,
+  SHUT_A,
+  SHUT_B,
+  // ctrl2  
+  DELAY_DIS,
+  CC_EN,
+  CC_ONESHOT,
+  DSG_ON,
+  CHG_ON
+} SysCommands;
+
+// protect commands
+typedef enum{
+  //protect1
+  RSNS,
+  SCD_D1,
+  SCD_D0,
+  SCD_T2,
+  SCD_T1,
+  SCD_T0,
+  //protect2
+  OCD_D2,
+  OCD_D1,
+  OCD_D0,
+  OCD_T3,
+  OCD_T2,
+  OCD_T1,
+  OCD_T0,
+  //protect3
+  UV_D1,
+  UV_D0,
+  OV_D1,
+  OV_D0,
+  //OV_Trip
+  OV_T7,
+  OV_T6,
+  OV_T5,
+  OV_T4,
+  OV_T3,
+  OV_T2,
+  OV_T1,
+  OV_T0,
+  //UV_Trip
+  UV_T7,
+  UV_T6,
+  UV_T5,
+  UV_T4,
+  UV_T3,
+  UV_T2,
+  UV_T1,
+  UV_T0
+} ProtectCommands;
+//========================================
+
+
 // Initialization functions
 //========================================
 // i2c init things
@@ -24,17 +94,28 @@ void Init_BQ76920(I2C_HandleTypeDef*);
 void get_ADC_Info();
 //========================================
 
-// Reading & Writing base functions
+// Reading & Writing functions
 //========================================
+#define HIGH  0x01
+#define LOW   0x00
+#define READ  0x00
+#define WRITE 0xFF
 // returns data from the bms,
 // input is the address.
-uint8_t bq76920_Read_1(uint16_t);
-
+uint8_t bq76920_Read_1_Reg(uint16_t);
 // returns combined data from two, input is both.
 uint16_t bq76920_Read(uint16_t,uint16_t);
-
 // Writes to bms, input is address.
 void bq76920_Write(uint16_t, uint8_t);
+// read or write to one bit of the bms
+// r/w, register, what bit, desired high/low
+uint8_t bq76920_RW_1_bit(uint8_t, uint8_t, uint8_t, uint8_t);
+// Interact with Sys Registers
+uint8_t sys_Read(SysCommands);
+// Interact with Protect Registers
+uint8_t protect(uint8_t, ProtectCommands, uint8_t);
+
+void cell_Bal_Tgl(uint8_t);
 //========================================
 
 // Voltage related functions.
@@ -70,46 +151,17 @@ void get_Voltage_All(uint32_t*);
 //======================
 
 
-// Control
+// Sys Control
 //======================
 #define SYS_CTRL1 0x04
 #define SYS_CTRL2 0x05
-
-#define HIGH = 0x01
-#define LOW  = 0x00
-
-#define READ  0x00
-#define WRITE 0xFF
-
-// commands
-typedef enum{
-  //stat
-  CC_READY,
-  DEVICE_XREADY,
-  OVRD_ALERT,
-  UV,
-  OV,
-  SCD,
-  OCD,
-  // ctrl1
-  LOAD_PRESENT,
-  ADC_EN,
-  TEMP_SEL,
-  SHUT_A,
-  SHUT_B,
-  // ctrl2  
-  DELAY_DIS,
-  CC_EN,
-  CC_ONESHOT,
-  DSG_ON,
-  CHG_ON        
-} SysCommands;
 //======================
 
 // Protection
 //======================
 #define PROTECT1  0x06
-#define PROECT3   0x07
+#define PROTECT2  0x07
+#define PROTECT3  0x08
 #define OV_TRIP   0x09
 #define UV_TRIP   0x0A
 #define CC_CFG    0x0B
@@ -138,28 +190,9 @@ typedef enum{
 #define VC5_LO    0x15
 #define VC5       0x1415
 
-// Additional cells,
-// bq72920 doesn't have.
 #define VC6_HI    0x16
 #define VC6_LO    0x17
-#define VC7_HI    0x18
-#define VC7_LO    0x19
-#define VC8_HI    0x1A
-#define VC8_LO    0x1B
-#define VC9_HI    0x1C
-#define VC9_LO    0x1D
-#define VC10_HI   0x1E
-#define VC10_LO   0x1F
-#define VC11_HI   0x20
-#define VC11_LO   0x21
-#define VC12_HI   0x22
-#define VC12_LO   0x23
-#define VC13_HI   0x24
-#define VC13_LO   0x25
-#define VC14_HI   0x26
-#define VC14_LO   0x27
-#define VC15_HI   0x28
-#define VC15_LO   0x29
+#define VC6       0x1617
 
 // Entire module voltage
 #define BAT_HI    0x2A
@@ -169,10 +202,12 @@ typedef enum{
 
 
 // Thermistors
+// We do not use :(
 //======================
 #define TS1_HI    0x2C
 #define TS1_LO    0x2D
 
+// Not part of 76920
 #define TS2_HI    0x2E
 #define TS2_LO    0x2F
 #define TS3_HI    0x30
@@ -188,6 +223,7 @@ typedef enum{
 
 
 // ADC stuffs
+// Factory presets
 //======================
 #define ADCGAIN1  0x50
 #define ADCOFFSET 0x51

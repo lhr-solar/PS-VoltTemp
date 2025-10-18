@@ -9,7 +9,7 @@ I2C_HandleTypeDef hi2c1;
 uint16_t Write_Data = 0xEE;
 uint32_t Read_Data;
 
-uint32_t cell_Data[5];
+uint32_t cell_Data[6];
 
 
 void Testing_Init(){
@@ -41,6 +41,10 @@ HAL_Init();
 }
 
 
+uint8_t sysdat;
+uint8_t vc1_lo_d;
+uint8_t vc1_hi_d;
+uint32_t VC1_data;
 
 //==============================================================================================
 int main(){
@@ -50,10 +54,13 @@ int main(){
   HAL_MspInit();
   
   
-
   while(1){
     
     get_Voltage_All(cell_Data);
+    
+    vc1_hi_d = bq76920_Read_1_Reg(VC1_HI);
+    vc1_lo_d = bq76920_Read_1_Reg(VC1_LO);
+
     
     HAL_GPIO_TogglePin(LED_PORT, LED_PIN);
   }
