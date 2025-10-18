@@ -7550,7 +7550,25 @@
 			"NjIgLTIuMDU3NCkgKGVuZCA1LjY4OTYgLTEuNTQ5NCkoc3Ryb2tlICh3aWR0aCAwLjE1MjQpICh0"
 			"eXBlIHNvbGlkKSkobGF5ZXIgIkYuRmFiIiApKHV1aWQgIjRjN2VjNjQ5LTRlZmQtNDc0ZS04Nzdl"
 			"LTAzYThiNDA2YTA5MSIpKShmcF9saW5lIChzdGFydCA1LjY4OTYgLTEuNTQ5NCkgKGVuZCA1LjY4"
-			"OTYgMi4wNTc0KShzdHJva2UgKHdpZHRoIDAuMTUyNCkgKHR5cGUgc29saWQpKQ=="
+			"OTYgMi4wNTc0KShzdHJva2UgKHdpZHRoIDAuMTUyNCkgKHR5cGUgc29saWQpKQBVAGEAMwBVAFEA"
+			"agBYAEUANwBoAE4AVgBqAEEAOAA5AGEASgA4ADIAbABOAFcAagBxAG4AZgA3ADUAUgBlAGUAcAAx"
+			"AGQAZgBmAEkANgBHAEQAZgAyAEsASgAxAHcAdAB2ADMAeABUAE8AcgBuADkAbQBkAFQAdQBvAEkA"
+			"TQAxAFIATABZAEQARgBMAEcAOQBBAHAATwBwACsAcgA0AG4ATwBsAHMANAA0ACsAUwBUAGUATwBM"
+			"AFcAQwBTAGUAZgBhAHEAcwBkACsAYgBnAGoARABxAEUAZABkADIAcABGAFoANQAxADcAUAB0AGsA"
+			"eQBRAEoAcQBvADIAagBkAGwASgBxAHIAZQB1AEYAVgBnAGIAUQB6AEsANQBtADcARQBKAFYAawA1"
+			"AHUASgB5AGIAaQArAEIAeQBNAEoASQAxAEYAMQBPAFMAVgBHADcAOAB5AEYAMAA2AGEATABZAEkA"
+			"QgByADQATwBMAGcAUABqADQASQBwAGcAMgBNAEcASgBEAEkAMABzAFkAcwBtAEoAQgBUAEQAagBL"
+			"AG0AQQBZAFoAdwBKAEsARABsADgAdwBZAFEAVABzAFEAegBpAGgAbgBKAHUAaABOAGQAVQBvAC8A"
+			"KwBRAG4AQQA1AEgARwBkAHoAYwBlAE4AagBTAG0ARwBwAE4ARABlADEAZwBHAEkAeABxAEoAWQBW"
+			"ADQAUgBGAFkAeQBvAGQARQBRAG4AaAA0AFAATABLAE0AVABWAGoAdABhAHQAaABwAGgARQBjAEgA"
+			"SwB6ADEAcQB3AGMAbQAxADMAZwB2AFkAaQBIAFMARwBHAEoAMABSAHgAYgAyADEAdgBMAEIAbwBP"
+			"AGUAMQBJAFUAbABxAGsAcwB0AHQAVABUAGQAcwB0ADEAZAA5AE8ASwBFAGQAKwBpAFYANwB4ADcA"
+			"UwBRAGQAUAB0AFUAbgBUAE4AVgBqADEAcAA3AEoAeQBKAGQAUABQAFEAcQA4AFUARwBvAG4AcQBW"
+			"AG0AawB4ADEAawB2AFUAZQBWAFgAdwBvADQASgBnADEARABxAFYATgBHAHEANQBIADgAOQBRAHIA"
+			"cgBSADcANwA2AFcAVgA2ADkAZgB2AC8AcQBOADcAUAA1AEIAbwBtAHoAawByAEEAdQAxAG8ASABU"
+			"AFAANgBFAEoAMQB2AFoAcwBvADIAQgAvAFAAQgBPAGoAegBQAFIAQQBZAG4AQgBxADQAcgBRAHEA"
+			"NAByAHgAagBYAGcAYwBqADgAZgAyAEcAQQBvAEEAdwBnAG8AaQBpAHQAYwBsADQAWABWAEkASQBF"
+			"AEQAMgBnAGcAawA2AEkASQBjAFkAbQA0AHEAaABaAFMAQwBvAG0ASABtAE8AbA=="
 		)
 	)
 	(table
@@ -10137,121 +10155,6 @@
 			(project "BPS-Voltage_Temp_Board"
 				(path "/286f0d93-2a80-4abf-b115-d33410b730c4"
 					(reference "#PWR0105")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Mechanical:MountingHole_Pad")
-		(at 157.48 86.36 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "63e25313-be56-4881-aa9e-a7f1f35e7070")
-		(property "Reference" "MH2"
-			(at 160.02 83.8199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "MountingHole_Pad"
-			(at 160.02 86.3599 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "MountingHole:MountingHole_3.2mm_M3_Pad_TopBottom"
-			(at 157.48 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 157.48 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Mounting Hole with connection"
-			(at 157.48 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Id" ""
-			(at 157.48 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MANUFACTURER" ""
-			(at 157.48 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 157.48 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "PARTREV" ""
-			(at 157.48 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "STANDARD" ""
-			(at 157.48 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Vds" ""
-			(at 157.48 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "f66ac7b0-2780-4db6-82f0-1e244d34317d")
-		)
-		(instances
-			(project "BPS-Voltage_Temp_Board"
-				(path "/286f0d93-2a80-4abf-b115-d33410b730c4"
-					(reference "MH2")
 					(unit 1)
 				)
 			)
