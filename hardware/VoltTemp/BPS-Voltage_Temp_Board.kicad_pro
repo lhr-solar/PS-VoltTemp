@@ -514,7 +514,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "jlcpcb/gerber/",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "BPS-Voltage_Temp_Board.step",
