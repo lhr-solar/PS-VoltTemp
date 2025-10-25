@@ -89,17 +89,15 @@ void SystemClock_Config(void);
 void MX_I2C1_Init(void);
 void MX_GPIO_Init(void);
 // general init
-void Init_BQ76920(I2C_HandleTypeDef*);
+void Init_BQ76920(I2C_HandleTypeDef*, GPIO_TypeDef*, uint16_t, uint16_t);
 // gets ADC info from chip.
 void get_ADC_Info();
 //========================================
 
 // Reading & Writing functions
 //========================================
-#define HIGH  0x01
-#define LOW   0x00
-#define READ  0x00
-#define WRITE 0xFF
+#define HIGH 0x1
+#define LOW  0x0
 // returns data from the bms,
 // input is the address.
 uint8_t bq76920_Read_1_Reg(uint16_t);

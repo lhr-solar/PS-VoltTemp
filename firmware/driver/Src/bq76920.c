@@ -3,27 +3,42 @@
 #include <common.h>
 #include <stdlib.h>
 
+// Variables
+//================================
 I2C_HandleTypeDef I2C_handler;
 
+// Default I2C pins
+// PB6 -> SCL
+// PB7 -> SDA
+GPIO_TypeDef* I2C_GPIO = GPIOB;
+uint16_t I2C_SCL = GPIO_PIN_6;
+uint16_t I2C_SDA = GPIO_PIN_7;
+//================================
 
+// Init functions
+//========================================================================================================
+//========================================================================================================
 
 //=======================================================
 void HAL_I2C_MspInit(I2C_HandleTypeDef* hi2c){
   GPIO_InitTypeDef GPIO_InitStruct = {0};
   if(hi2c->Instance==I2C1){
-    __HAL_RCC_GPIOB_CLK_ENABLE();
+    
+    // enables the correct gpio clock.
+    //======================================================
+    if(I2C_GPIO == GPIOA)      __HAL_RCC_GPIOA_CLK_ENABLE();
 
-    /**I2C1 GPIO Configuration
-    PB6     ------> I2C1_SCL
-    PB7     ------> I2C1_SDA
-    */
+    else if(I2C_GPIO == GPIOB) __HAL_RCC_GPIOB_CLK_ENABLE();
 
-    GPIO_InitStruct.Pin = GPIO_PIN_6|GPIO_PIN_7;
+    else if(I2C_GPIO == GPIOC) __HAL_RCC_GPIOC_CLK_ENABLE();
+    //======================================================
+
+    GPIO_InitStruct.Pin = (I2C_SCL)|(I2C_SDA);
     GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
     GPIO_InitStruct.Pull = GPIO_PULLUP;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
     GPIO_InitStruct.Alternate = GPIO_AF4_I2C1;
-    HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
+    HAL_GPIO_Init(I2C_GPIO, &GPIO_InitStruct);
 
     /* Peripheral clock enable */
     __HAL_RCC_I2C1_CLK_ENABLE();
@@ -38,52 +53,12 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* hi2c){
 
     __HAL_RCC_I2C1_CLK_DISABLE();
 
-    /**I2C1 GPIO Configuration
-    PB6     ------> I2C1_SCL
-    PB7     ------> I2C1_SDA
-    */
-    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_6);
+    HAL_GPIO_DeInit(I2C_GPIO, I2C_SCL);
 
-    HAL_GPIO_DeInit(GPIOB, GPIO_PIN_7);
+    HAL_GPIO_DeInit(I2C_GPIO, I2C_SDA);
 
   }
 
-}
-//=======================================================
-
-//=======================================================
-void SystemClock_Config(void){
-
-  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-
-  // Configure the main internal regulator output voltage
-  __HAL_RCC_PWR_CLK_ENABLE();
-  __HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE3);
-
-  /** Initializes the RCC Oscillators according to the specified parameters
-  * in the RCC_OscInitTypeDef structure.
-  */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
-  RCC_OscInitStruct.HSIState = RCC_HSI_ON;
-  RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_NONE;
-  if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK){
-    Error_Handler();
-  }
-
-  // Initializes the CPU, AHB and APB buses clocks
-  RCC_ClkInitStruct.ClockType = RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_SYSCLK
-                              |RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2;
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_HSI;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
-
-  if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_0) != HAL_OK)
-  {
-    Error_Handler();
-  }
 }
 //=======================================================
 
@@ -104,51 +79,75 @@ void MX_I2C1_Init(void){
 }
 //=======================================================
 
+// auto-generated not used :-)
 //=======================================================
 void MX_GPIO_Init(void){
 
   /* GPIO Ports Clock Enable */
-  __HAL_RCC_GPIOB_CLK_ENABLE();
+  //======================================================
+  if(I2C_GPIO == GPIOA)      __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  else if(I2C_GPIO == GPIOB) __HAL_RCC_GPIOB_CLK_ENABLE();
+
+  else if(I2C_GPIO == GPIOC) __HAL_RCC_GPIOC_CLK_ENABLE();
+  //======================================================
 
 }
 //=======================================================
-
 
 // ADC gain and offset is set by the factory,
 // this function asks the chip what it is.
 //=================================================
 uint16_t ADC_gain = 365; // default 365.
-int32_t ADC_offset = 0;   // default 0, signed int8.
+int32_t ADC_offset = 0;  // default 0, offset can be signed.
 
 void get_ADC_Info(void){
   // Gain is a minimum of 365 uV, can be set higher
   uint8_t ADC_g_1 = bq76920_Read_1_Reg(ADCGAIN1);
   uint8_t ADC_g_2 = bq76920_Read_1_Reg(ADCGAIN2);
 
+  // ADC gain upper 2 MSB and lower 3 LSB are in diff regs.
+  // They are also offset weirdly,
+  // This offsets everything to the correct spot.
   ADC_gain += (((ADC_g_1 << 1) & 0x18) | ((ADC_g_2 >> 5) & 0x7));
 
   // ADC_offset is stored in mV on the bms chip.
-  // need to convert to uV for using in math.
+  // Need to convert to uV for using in voltage math.
   ADC_offset = (bq76920_Read_1_Reg(ADCOFFSET)*(1000));
 }
 //=================================================
 
-//=======================================================
-void Init_BQ76920(I2C_HandleTypeDef* i2c_ptr){
-  
+// General init that calls the others :-)
+// Input desired port and pins.
+//===============================================
+void Init_BQ76920(I2C_HandleTypeDef* i2c_ptr, GPIO_TypeDef * GPIO_port, uint16_t SCL_pin, uint16_t SDA_pin){
+  // sets vars to user input.
+  //=========================
   I2C_handler = *i2c_ptr;
+  I2C_GPIO = GPIO_port;
+  I2C_SCL = SCL_pin;
+  I2C_SDA = SDA_pin;
+  //=========================
 
   HAL_I2C_MspInit(&I2C_handler);
   MX_I2C1_Init();
+
+  // Pulls ADC info from the bms chip.
   get_ADC_Info();
 }
-//=======================================================
+//===============================================
+
+//========================================================================================================
+//========================================================================================================
+
 
 
 // Read and write functions.
 //========================================================================================================
+//========================================================================================================
 
-// Reads one address from the bms.
+// Reads & returns data from one register.
+// Input is the register.
 //=================================================
 uint8_t bq76920_Read_1_Reg(uint16_t Mem_Address){
   uint8_t read_Data;
@@ -157,56 +156,69 @@ uint8_t bq76920_Read_1_Reg(uint16_t Mem_Address){
 }
 //=================================================
 
-// Most reads require HI & LO,
+// Reads one bit from a specific register
+// Inputs are register and bit to read.
+//======================================================
+uint8_t bq76920_R_1_bit(uint8_t reg, uint8_t bit_dec){
+  return ((bq76920_Read_1_Reg(reg) >> (bit_dec))&(0x1));
+}
+//======================================================
+
+// Most reads require HI & LO registers,
 // This function collects both and combines them.
+// Inputs are both registers.
 //=================================================
 uint16_t bq76920_Read(uint16_t Mem_Add_1, uint16_t Mem_Add_2){
   uint16_t data_1 = bq76920_Read_1_Reg(Mem_Add_1);
   uint8_t  data_2 = bq76920_Read_1_Reg(Mem_Add_2);
-  // MSB is from first reading, LSB from second
-  // Data_2 is uint8 to prevent garbage.
+  // most significant are from reading 1.
+  // shift left and then concatenate reading 2.
   return ((data_1 << 8) | (data_2)); // :-)
 }
 //=================================================
 
-// Writes to the bms chip, input is address & data.
+// Writes to the bms chip.
+// Inputs are address & data.
 //===================================================
 void bq76920_Write(uint16_t Mem_Address, uint8_t Write_Data){
   HAL_I2C_Mem_Write(&I2C_handler, (DEV_ADD << 1), Mem_Address, MEM_SIZE, &Write_Data, DATA_SIZE, TIMEOUT);
 }
 //===================================================
 
-// Reads or writes one bit from a specific register
-// Input is r/w preference, register, bit in decimal, state
-// Returns information if you read, FF if you write
-//======================================================================
+// Writes to one bit in a specified register
+// Inputs are register, bit in decimal, state
+//==================================================================
 void bq76920_W_1_bit(uint8_t reg, uint8_t bit_dec, uint8_t state){
-  // write to register
-  //=================================================
-    // need different masks depending on whether you want to set or clear
     uint8_t current = bq76920_Read_1_Reg(reg); // acquire current info
     uint8_t new = current; // defaults to rewriting what was read.
-    // edit the read information.
+    
+    // need different masks depending on whether you want to set or clear
     if(state == HIGH)     new = (current |  (1 << bit_dec));  
     else if(state == LOW) new = (current & ~(1 << bit_dec));  
-    // write new information.
+    
+    // write to register.
     bq76920_Write(reg, new);
-  //=================================================
+  //==================================================================
 }
+//==================================================================
 
-uint8_t bq76920_R_1_bit(uint8_t reg, uint8_t bit_dec){
-  return ((bq76920_Read_1_Reg(reg) >> (bit_dec))&(0x1));
-}
-//======================================================================
+//========================================================================================================
+//========================================================================================================
+
 
 
 // Protection and control. 
 //========================================================================================================
+//========================================================================================================
 
 // Sys read and write
 //=====================================================================
+// Input is which "Command" to read from.
+// Details on datasheet (pgs. 29-32)
 uint8_t sys_Read(SysCommands Command){
-  // Return bit corresponding to command. 
+  // Return bit corresponding to command.
+  // Depending on which SYS command you want, a different register may be used.
+  // Read the correct bit from the correct register.
   switch(Command){
     // Sys Stat Commands
     //==============================================================
@@ -235,7 +247,11 @@ uint8_t sys_Read(SysCommands Command){
   return 0xff; // command that doesn't exist chosen :(
 }
 
+// Inputs are which "Command" to adjust and what to set the bit to. 
+// Details on datasheet (pgs. 29-32)
 void sys_Write(SysCommands Command, uint8_t State){
+  // Depending on which SYS command you want, a different register may be used.
+  // Write to the correct "command"
   switch(Command){
     // Sys Stat Commands
     //==============================================================
@@ -266,9 +282,12 @@ void sys_Write(SysCommands Command, uint8_t State){
 
 // Protection read / write
 //=====================================================================
-
+// Input is which "Command" to read from.
+// Details on datasheet (pgs. 32-35)
 uint8_t protect_Read(ProtectCommands Command){
-
+  // Return bit corresponding to command.
+  // Depending on which PROTECT command you want, a different register may be used.
+  // Read the correct bit from the correct register.
   switch(Command){
     // Protect1 Commands
     //==============================================================
@@ -317,8 +336,11 @@ uint8_t protect_Read(ProtectCommands Command){
   return 0xff; // :-(
 }
 
+// Inputs are which "Command" to adjust and what to set the bit to. 
+// Details on datasheet (pgs. 32-35)
 void protect_Write(ProtectCommands Command, uint8_t State){
-  
+  // Depending on which PROTECT command you want, a different register may be used.
+  // Write to the correct "command"
   switch(Command){
     // Protect1 Commands
     //==============================================================
@@ -366,19 +388,25 @@ void protect_Write(ProtectCommands Command, uint8_t State){
   };
 }
 //=====================================================================
+
 //========================================================================================================
+//========================================================================================================
+
+
 
 // Cell Voltage Commands
 //========================================================================================================
+//========================================================================================================
 
-// This function pulls chip reading and calculates actual voltage.
+// This function pulls cell reading and calculates actual voltage.
 //====================================================================
 uint32_t get_Voltage_1(uint16_t cell){
   // Cell is passed in as 0xabcd, this reads 0xab and 0xcd
-  uint16_t cell_Data = bq76920_Read((cell >> 8), (cell & 0xFF));
-  // Cell voltage = (ADC READING)*(GAIN) (in uV) + (ADC OFFSET) (in uV).
-  // ADC OFFSET CONVERTED TO uV WHEN READ DURING INIT.
-  return (((cell_Data)*(ADC_gain)) + ((ADC_offset)));
+  uint16_t ADC_reading = bq76920_Read((cell >> 8), (cell & 0xFF));
+  
+  // Cell voltage = (ADC READING)*(GAIN) + (ADC OFFSET)       (in uV).
+  // (ADC offset is converted from mV to uV during init).
+  return (((ADC_reading)*(ADC_gain)) + ((ADC_offset)));
 }
 //====================================================================
 
@@ -391,8 +419,9 @@ void get_Voltage_All(uint32_t* voltage_array){
   // VC4 is skipped, as it is the shorted cell for our application
   voltage_array[3] = get_Voltage_1(VC5);
 
-  voltage_array[5] = (4*get_Voltage_1(BAT));
+  voltage_array[4] = (4*get_Voltage_1(BAT));
 }
 //====================================================================
 
+//========================================================================================================
 //========================================================================================================
