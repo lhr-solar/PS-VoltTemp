@@ -113,7 +113,7 @@ void get_ADC_Info(void){
 
   // ADC_offset is stored in mV on the bms chip.
   // Need to convert to uV for using in voltage math.
-  ADC_offset = (bq76920_Read_1_Reg(ADCOFFSET)*(1000));
+  ADC_offset = ((int8_t)(bq76920_Read_1_Reg(ADCOFFSET)))*(1000);
 }
 //=================================================
 
@@ -294,7 +294,7 @@ uint8_t protect_Read(ProtectCommands Command){
     // Protect1 Commands
     //==============================================================
     case RSNS:    return bq76920_R_1_bit(PROTECT1, 7);
-    case SCD_D1:  return bq76920_R_1_bit(PROTECT1, 6);
+    case SCD_D1:  return bq76920_R_1_bit(PROTECT1, 4);
     case SCD_D0:  return bq76920_R_1_bit(PROTECT1, 3);
     case SCD_T2:  return bq76920_R_1_bit(PROTECT1, 2);
     case SCD_T1:  return bq76920_R_1_bit(PROTECT1, 1);

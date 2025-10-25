@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    bq76920.h
   * @author  UTSVT BPS - Clark Rucker
-  * @brief   Contains register maps for the bq726920 chip.
+  * @brief   Contains register maps for the bq76920 chip.
   * @date    10/11/2025
   ******************************************************************************
   */
@@ -106,12 +106,16 @@ uint16_t bq76920_Read(uint16_t,uint16_t);
 // Writes to bms, input is address.
 void bq76920_Write(uint16_t, uint8_t);
 // read or write to one bit of the bms
-// r/w, register, what bit, desired high/low
-uint8_t bq76920_RW_1_bit(uint8_t, uint8_t, uint8_t, uint8_t);
+
+
 // Interact with Sys Registers
 uint8_t sys_Read(SysCommands);
+void sys_Write(SysCommands, uint8_t);
+
 // Interact with Protect Registers
-uint8_t protect(uint8_t, ProtectCommands, uint8_t);
+uint8_t protect_Read(ProtectCommands);
+void protect_Write(ProtectCommands, uint8_t);
+
 
 void cell_Bal_Tgl(uint8_t);
 //========================================

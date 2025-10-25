@@ -93,6 +93,8 @@ int main(){
     get_Voltage_All(cell_Data);
     
     HAL_GPIO_TogglePin(LED_PORT, LED_PIN);
+    HAL_Delay(100);
+    
   }
 }
 //==============================================================================================
