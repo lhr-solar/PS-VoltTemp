@@ -243,6 +243,7 @@ uint8_t sys_Read(SysCommands Command){
     case CC_ONESHOT:    return bq76920_R_1_bit(SYS_CTRL2, 5);
     case DSG_ON:        return bq76920_R_1_bit(SYS_CTRL2, 1);
     case CHG_ON:        return bq76920_R_1_bit(SYS_CTRL2, 0);
+    default: return 0xff;
   }
   return 0xff; // command that doesn't exist chosen :(
 }
@@ -255,27 +256,28 @@ void sys_Write(SysCommands Command, uint8_t State){
   switch(Command){
     // Sys Stat Commands
     //==============================================================
-    case CC_READY:      bq76920_W_1_bit(SYS_STAT, 7, State);
-    case DEVICE_XREADY: bq76920_W_1_bit(SYS_STAT, 5, State);
-    case OVRD_ALERT:    bq76920_W_1_bit(SYS_STAT, 4, State);
-    case UV:            bq76920_W_1_bit(SYS_STAT, 3, State);
-    case OV:            bq76920_W_1_bit(SYS_STAT, 2, State);
-    case SCD:           bq76920_W_1_bit(SYS_STAT, 1, State);
-    case OCD:           bq76920_W_1_bit(SYS_STAT, 0, State);
+    case CC_READY:      bq76920_W_1_bit(SYS_STAT, 7, State); break;
+    case DEVICE_XREADY: bq76920_W_1_bit(SYS_STAT, 5, State); break;
+    case OVRD_ALERT:    bq76920_W_1_bit(SYS_STAT, 4, State); break;
+    case UV:            bq76920_W_1_bit(SYS_STAT, 3, State); break;
+    case OV:            bq76920_W_1_bit(SYS_STAT, 2, State); break;
+    case SCD:           bq76920_W_1_bit(SYS_STAT, 1, State); break;
+    case OCD:           bq76920_W_1_bit(SYS_STAT, 0, State); break;
     // Sys Control 1 Commands
     //==============================================================
-    case LOAD_PRESENT:  bq76920_W_1_bit(SYS_CTRL1, 7, State);
-    case ADC_EN:        bq76920_W_1_bit(SYS_CTRL1, 4, State);
-    case TEMP_SEL:      bq76920_W_1_bit(SYS_CTRL1, 3, State);
-    case SHUT_A:        bq76920_W_1_bit(SYS_CTRL1, 1, State);
-    case SHUT_B:        bq76920_W_1_bit(SYS_CTRL1, 0, State);
+    case LOAD_PRESENT:  bq76920_W_1_bit(SYS_CTRL1, 7, State); break;
+    case ADC_EN:        bq76920_W_1_bit(SYS_CTRL1, 4, State); break;
+    case TEMP_SEL:      bq76920_W_1_bit(SYS_CTRL1, 3, State); break;
+    case SHUT_A:        bq76920_W_1_bit(SYS_CTRL1, 1, State); break;
+    case SHUT_B:        bq76920_W_1_bit(SYS_CTRL1, 0, State); break;
     // Sys Control 2 Commands
     //==============================================================
-    case DELAY_DIS:     bq76920_W_1_bit(SYS_CTRL2, 7, State);
-    case CC_EN:         bq76920_W_1_bit(SYS_CTRL2, 6, State);
-    case CC_ONESHOT:    bq76920_W_1_bit(SYS_CTRL2, 5, State);
-    case DSG_ON:        bq76920_W_1_bit(SYS_CTRL2, 1, State);
-    case CHG_ON:        bq76920_W_1_bit(SYS_CTRL2, 0, State);
+    case DELAY_DIS:     bq76920_W_1_bit(SYS_CTRL2, 7, State); break;
+    case CC_EN:         bq76920_W_1_bit(SYS_CTRL2, 6, State); break;
+    case CC_ONESHOT:    bq76920_W_1_bit(SYS_CTRL2, 5, State); break;
+    case DSG_ON:        bq76920_W_1_bit(SYS_CTRL2, 1, State); break;
+    case CHG_ON:        bq76920_W_1_bit(SYS_CTRL2, 0, State); break;
+    default: break;
   }
 }
 //=====================================================================
@@ -332,6 +334,7 @@ uint8_t protect_Read(ProtectCommands Command){
     case UV_T2:   return bq76920_R_1_bit(UV_TRIP, 2);
     case UV_T1:   return bq76920_R_1_bit(UV_TRIP, 1);
     case UV_T0:   return bq76920_R_1_bit(UV_TRIP, 0);
+    default: return 0xff;
   };
   return 0xff; // :-(
 }
@@ -344,47 +347,48 @@ void protect_Write(ProtectCommands Command, uint8_t State){
   switch(Command){
     // Protect1 Commands
     //==============================================================
-    case RSNS:    bq76920_W_1_bit(PROTECT1, 7, State);
-    case SCD_D1:  bq76920_W_1_bit(PROTECT1, 4, State);
-    case SCD_D0:  bq76920_W_1_bit(PROTECT1, 3, State);
-    case SCD_T2:  bq76920_W_1_bit(PROTECT1, 2, State);
-    case SCD_T1:  bq76920_W_1_bit(PROTECT1, 1, State);
-    case SCD_T0:  bq76920_W_1_bit(PROTECT1, 0, State);
+    case RSNS:    bq76920_W_1_bit(PROTECT1, 7, State); break;
+    case SCD_D1:  bq76920_W_1_bit(PROTECT1, 4, State); break;
+    case SCD_D0:  bq76920_W_1_bit(PROTECT1, 3, State); break;
+    case SCD_T2:  bq76920_W_1_bit(PROTECT1, 2, State); break;
+    case SCD_T1:  bq76920_W_1_bit(PROTECT1, 1, State); break;
+    case SCD_T0:  bq76920_W_1_bit(PROTECT1, 0, State); break;
     // Protect2 Commands
     //==============================================================
-    case OCD_D2:  bq76920_W_1_bit(PROTECT2, 6, State);
-    case OCD_D1:  bq76920_W_1_bit(PROTECT2, 5, State);
-    case OCD_D0:  bq76920_W_1_bit(PROTECT2, 4, State);
-    case OCD_T3:  bq76920_W_1_bit(PROTECT2, 3, State);
-    case OCD_T2:  bq76920_W_1_bit(PROTECT2, 2, State);
-    case OCD_T1:  bq76920_W_1_bit(PROTECT2, 1, State);
-    case OCD_T0:  bq76920_W_1_bit(PROTECT2, 0, State);
+    case OCD_D2:  bq76920_W_1_bit(PROTECT2, 6, State); break;
+    case OCD_D1:  bq76920_W_1_bit(PROTECT2, 5, State); break;
+    case OCD_D0:  bq76920_W_1_bit(PROTECT2, 4, State); break;
+    case OCD_T3:  bq76920_W_1_bit(PROTECT2, 3, State); break;
+    case OCD_T2:  bq76920_W_1_bit(PROTECT2, 2, State); break;
+    case OCD_T1:  bq76920_W_1_bit(PROTECT2, 1, State); break;
+    case OCD_T0:  bq76920_W_1_bit(PROTECT2, 0, State); break;
     // Protect3 Commands
     //==============================================================
-    case UV_D1:   bq76920_W_1_bit(PROTECT3, 7, State);
-    case UV_D0:   bq76920_W_1_bit(PROTECT3, 6, State);
-    case OV_D1:   bq76920_W_1_bit(PROTECT3, 5, State);
-    case OV_D0:   bq76920_W_1_bit(PROTECT3, 4, State);
+    case UV_D1:   bq76920_W_1_bit(PROTECT3, 7, State); break;
+    case UV_D0:   bq76920_W_1_bit(PROTECT3, 6, State); break;
+    case OV_D1:   bq76920_W_1_bit(PROTECT3, 5, State); break;
+    case OV_D0:   bq76920_W_1_bit(PROTECT3, 4, State); break;
     // OV_Trip Commands
     //==============================================================
-    case OV_T7:   bq76920_W_1_bit(OV_TRIP, 7, State);
-    case OV_T6:   bq76920_W_1_bit(OV_TRIP, 6, State);
-    case OV_T5:   bq76920_W_1_bit(OV_TRIP, 5, State);
-    case OV_T4:   bq76920_W_1_bit(OV_TRIP, 4, State);
-    case OV_T3:   bq76920_W_1_bit(OV_TRIP, 3, State);
-    case OV_T2:   bq76920_W_1_bit(OV_TRIP, 2, State);
-    case OV_T1:   bq76920_W_1_bit(OV_TRIP, 1, State);
-    case OV_T0:   bq76920_W_1_bit(OV_TRIP, 0, State);
+    case OV_T7:   bq76920_W_1_bit(OV_TRIP, 7, State); break;
+    case OV_T6:   bq76920_W_1_bit(OV_TRIP, 6, State); break;
+    case OV_T5:   bq76920_W_1_bit(OV_TRIP, 5, State); break;
+    case OV_T4:   bq76920_W_1_bit(OV_TRIP, 4, State); break;
+    case OV_T3:   bq76920_W_1_bit(OV_TRIP, 3, State); break;
+    case OV_T2:   bq76920_W_1_bit(OV_TRIP, 2, State); break;
+    case OV_T1:   bq76920_W_1_bit(OV_TRIP, 1, State); break;
+    case OV_T0:   bq76920_W_1_bit(OV_TRIP, 0, State); break;
     // UV_Trip Commands
     //==============================================================
-    case UV_T7:   bq76920_W_1_bit(UV_TRIP, 7, State);
-    case UV_T6:   bq76920_W_1_bit(UV_TRIP, 6, State);
-    case UV_T5:   bq76920_W_1_bit(UV_TRIP, 5, State);
-    case UV_T4:   bq76920_W_1_bit(UV_TRIP, 4, State);
-    case UV_T3:   bq76920_W_1_bit(UV_TRIP, 3, State);
-    case UV_T2:   bq76920_W_1_bit(UV_TRIP, 2, State);
-    case UV_T1:   bq76920_W_1_bit(UV_TRIP, 1, State);
-    case UV_T0:   bq76920_W_1_bit(UV_TRIP, 0, State);
+    case UV_T7:   bq76920_W_1_bit(UV_TRIP, 7, State); break;
+    case UV_T6:   bq76920_W_1_bit(UV_TRIP, 6, State); break;
+    case UV_T5:   bq76920_W_1_bit(UV_TRIP, 5, State); break;
+    case UV_T4:   bq76920_W_1_bit(UV_TRIP, 4, State); break;
+    case UV_T3:   bq76920_W_1_bit(UV_TRIP, 3, State); break;
+    case UV_T2:   bq76920_W_1_bit(UV_TRIP, 2, State); break;
+    case UV_T1:   bq76920_W_1_bit(UV_TRIP, 1, State); break;
+    case UV_T0:   bq76920_W_1_bit(UV_TRIP, 0, State); break;
+    default: break;
   };
 }
 //=====================================================================
