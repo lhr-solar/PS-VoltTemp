@@ -1415,7 +1415,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://tools.molex.com/pdm_docs/sd/1053141108_sd.pdf"
 			(at 90.17 57.15 0)
 			(effects
 				(font
@@ -1431,6 +1431,14 @@
 					(size 1.27 1.27)
 				)
 				(hide yes)
+			)
+		)
+		(property "P/N" "538-105314-1108"
+			(at 90.17 57.15 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
 			)
 		)
 		(pin "4"
