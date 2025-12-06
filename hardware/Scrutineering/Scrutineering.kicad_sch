@@ -2064,7 +2064,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "UTSVT_Connectors:Banana_Jack_1_Pin_4mm"
+		(property "Footprint" "VoltTemp:5754"
 			(at 72.39 69.85 0)
 			(effects
 				(font
@@ -2091,7 +2091,7 @@
 				(hide yes)
 			)
 		)
-		(property "P/N" "105-2210-201"
+		(property "P/N" "575-4"
 			(at 72.39 69.85 0)
 			(effects
 				(font
@@ -2459,7 +2459,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "UTSVT_Connectors:Banana_Jack_1_Pin_4mm"
+		(property "Footprint" "VoltTemp:5754"
 			(at 140.97 86.36 0)
 			(effects
 				(font
@@ -2486,7 +2486,7 @@
 				(hide yes)
 			)
 		)
-		(property "P/N" "105-2210-201"
+		(property "P/N" "575-4"
 			(at 140.97 86.36 90)
 			(effects
 				(font
@@ -2699,7 +2699,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "UTSVT_Connectors:Banana_Jack_1_Pin_4mm"
+		(property "Footprint" "VoltTemp:5754"
 			(at 53.34 97.79 0)
 			(effects
 				(font
@@ -2726,7 +2726,7 @@
 				(hide yes)
 			)
 		)
-		(property "P/N" "105-2210-201"
+		(property "P/N" "575-4"
 			(at 53.34 97.79 90)
 			(effects
 				(font
@@ -2971,7 +2971,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "UTSVT_Connectors:Banana_Jack_1_Pin_4mm"
+		(property "Footprint" "VoltTemp:5754"
 			(at 54.61 52.07 0)
 			(effects
 				(font
@@ -2998,7 +2998,7 @@
 				(hide yes)
 			)
 		)
-		(property "P/N" "105-2210-201"
+		(property "P/N" "575-4"
 			(at 54.61 52.07 90)
 			(effects
 				(font
@@ -3406,7 +3406,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "UTSVT_Connectors:Banana_Jack_1_Pin_4mm"
+		(property "Footprint" "VoltTemp:5754"
 			(at 140.97 71.12 0)
 			(effects
 				(font
@@ -3433,7 +3433,7 @@
 				(hide yes)
 			)
 		)
-		(property "P/N" "105-2210-201"
+		(property "P/N" "575-4"
 			(at 140.97 71.12 90)
 			(effects
 				(font
@@ -3562,7 +3562,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "UTSVT_Connectors:Banana_Jack_1_Pin_4mm"
+		(property "Footprint" "VoltTemp:5754"
 			(at 72.39 116.84 0)
 			(effects
 				(font
@@ -3589,7 +3589,7 @@
 				(hide yes)
 			)
 		)
-		(property "P/N" "105-2210-201"
+		(property "P/N" "575-4"
 			(at 72.39 116.84 0)
 			(effects
 				(font
