@@ -1,4 +1,4 @@
-#include <stm32f4xx_hal.h>
+#include <stm32l4xx_hal.h>
 #include <common.h>
 #include <stdlib.h>
 #include <ADC.h>
@@ -40,8 +40,10 @@ void temp_init(ADC_InitTypeDef TEMP_ADC, ADC_HandleTypeDef* handle){
 
   xReadings = xQueueCreateStatic(QUEUE_LENGTH, ITEM_SIZE, qStorage, &xStaticQueue);
 
+
+  /*
   // init ADC
-  ADC_InitTypeDef adc_init_1 = {0};
+  const ADC_InitTypeDef adc_init_1 = {0};
 
   adc_init_1.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2;
   adc_init_1.Resolution = ADC_RESOLUTION_12B;
@@ -58,6 +60,8 @@ void temp_init(ADC_InitTypeDef TEMP_ADC, ADC_HandleTypeDef* handle){
   volatile adc_status_t s = adc_init(adc_init_1, ADC_Handle);
   s+=0;
   if (s != ADC_OK) Error_Handler();
+
+*/
 
   xTaskCreateStatic(task_temp_read,
                   "Read the temperature :^)",

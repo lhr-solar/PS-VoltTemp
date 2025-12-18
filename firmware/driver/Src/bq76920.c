@@ -1,4 +1,4 @@
-#include <stm32f4xx_hal.h>
+#include <stm32l4xx_hal.h>
 #include <bq76920.h>
 #include <common.h>
 #include <stdlib.h>
@@ -63,18 +63,30 @@ void HAL_I2C_MspDeInit(I2C_HandleTypeDef* hi2c){
 //=======================================================
 
 //=======================================================
-void MX_I2C1_Init(void){
-
+void MX_I2C1_Init(void)
+{
   I2C_handler.Instance = I2C1;
-  I2C_handler.Init.ClockSpeed = 100000;
-  I2C_handler.Init.DutyCycle = I2C_DUTYCYCLE_2;
+  I2C_handler.Init.Timing = 0x00100D14;
   I2C_handler.Init.OwnAddress1 = 0;
   I2C_handler.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
   I2C_handler.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
   I2C_handler.Init.OwnAddress2 = 0;
+  I2C_handler.Init.OwnAddress2Masks = I2C_OA2_NOMASK;
   I2C_handler.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
   I2C_handler.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
-  if (HAL_I2C_Init(&I2C_handler) != HAL_OK) Error_Handler();
+  if (HAL_I2C_Init(&I2C_handler) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_I2CEx_ConfigAnalogFilter(&I2C_handler, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_I2CEx_ConfigDigitalFilter(&I2C_handler, 0) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
 
 }
 //=======================================================
