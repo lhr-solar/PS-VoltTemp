@@ -6,7 +6,7 @@
 //--------------------------------------------------------------------------------
 // Pin configuration for LEDs and heartbeat
 #define HEARTBEAT_PORT     GPIOB
-#define HEARTBEAT_PIN      GPIO_PIN_3
+#define HEARTBEAT_PIN      GPIO_PIN_11
 
 #define PSOM_LED1_PORT     GPIOA
 #define PSOM_LED1_PIN      GPIO_PIN_7
