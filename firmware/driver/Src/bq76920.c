@@ -3,109 +3,7 @@
 #include <common.h>
 #include <stdlib.h>
 
-// Variables
-//================================
 I2C_HandleTypeDef I2C_handler;
-
-// Default I2C pins
-// PB6 -> SCL
-// PB7 -> SDA
-GPIO_TypeDef* I2C_GPIO = GPIOB;
-uint16_t I2C_SCL = GPIO_PIN_6;
-uint16_t I2C_SDA = GPIO_PIN_7;
-//================================
-
-// Init functions
-//========================================================================================================
-//========================================================================================================
-
-//=======================================================
-void HAL_I2C_MspInit(I2C_HandleTypeDef* hi2c){
-  GPIO_InitTypeDef GPIO_InitStruct = {0};
-  if(hi2c->Instance==I2C1){
-    
-    // enables the correct gpio clock.
-    //======================================================
-    if(I2C_GPIO == GPIOA)      __HAL_RCC_GPIOA_CLK_ENABLE();
-
-    else if(I2C_GPIO == GPIOB) __HAL_RCC_GPIOB_CLK_ENABLE();
-
-    else if(I2C_GPIO == GPIOC) __HAL_RCC_GPIOC_CLK_ENABLE();
-    //======================================================
-
-    GPIO_InitStruct.Pin = (I2C_SCL)|(I2C_SDA);
-    GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
-    GPIO_InitStruct.Pull = GPIO_PULLUP;
-    GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-    GPIO_InitStruct.Alternate = GPIO_AF4_I2C1;
-    HAL_GPIO_Init(I2C_GPIO, &GPIO_InitStruct);
-
-    /* Peripheral clock enable */
-    __HAL_RCC_I2C1_CLK_ENABLE();
-
-  }
-}
-//=======================================================
-
-//=======================================================
-void HAL_I2C_MspDeInit(I2C_HandleTypeDef* hi2c){
-  if(hi2c->Instance==I2C1){
-
-    __HAL_RCC_I2C1_CLK_DISABLE();
-
-    HAL_GPIO_DeInit(I2C_GPIO, I2C_SCL);
-
-    HAL_GPIO_DeInit(I2C_GPIO, I2C_SDA);
-
-  }
-
-}
-//=======================================================
-
-//=======================================================
-void MX_I2C1_Init(void)
-{
-  I2C_handler.Instance = I2C1;
-  I2C_handler.Init.Timing = 0x00100D14;
-  I2C_handler.Init.OwnAddress1 = 0;
-  I2C_handler.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
-  I2C_handler.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
-  I2C_handler.Init.OwnAddress2 = 0;
-  I2C_handler.Init.OwnAddress2Masks = I2C_OA2_NOMASK;
-  I2C_handler.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
-  I2C_handler.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
-  if (HAL_I2C_Init(&I2C_handler) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_I2CEx_ConfigAnalogFilter(&I2C_handler, I2C_ANALOGFILTER_ENABLE) != HAL_OK)
-  {
-    Error_Handler();
-  }
-  if (HAL_I2CEx_ConfigDigitalFilter(&I2C_handler, 0) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-
-}
-//=======================================================
-
-// auto-generated not used :-)
-//=======================================================
-void MX_GPIO_Init(void){
-
-  /* GPIO Ports Clock Enable */
-  //======================================================
-  if(I2C_GPIO == GPIOA)      __HAL_RCC_GPIOA_CLK_ENABLE();
-
-  else if(I2C_GPIO == GPIOB) __HAL_RCC_GPIOB_CLK_ENABLE();
-
-  else if(I2C_GPIO == GPIOC) __HAL_RCC_GPIOC_CLK_ENABLE();
-  //======================================================
-
-}
-//=======================================================
 
 // ADC gain and offset is set by the factory,
 // this function asks the chip what it is.
@@ -129,30 +27,15 @@ void get_ADC_Info(void){
 }
 //=================================================
 
-// General init that calls the others :-)
-// Input desired port and pins.
+// Assigns I2C handler and gets chip info
 //===============================================
-void Init_BQ76920(I2C_HandleTypeDef* i2c_ptr, GPIO_TypeDef * GPIO_port, uint16_t SCL_pin, uint16_t SDA_pin){
-  // sets vars to user input.
-  //=========================
+void Init_BQ76920(I2C_HandleTypeDef* i2c_ptr){
   I2C_handler = *i2c_ptr;
-  I2C_GPIO = GPIO_port;
-  I2C_SCL = SCL_pin;
-  I2C_SDA = SDA_pin;
-  //=========================
-
-  HAL_I2C_MspInit(&I2C_handler);
-  MX_I2C1_Init();
 
   // Pulls ADC info from the bms chip.
   get_ADC_Info();
 }
 //===============================================
-
-//========================================================================================================
-//========================================================================================================
-
-
 
 // Read and write functions.
 //========================================================================================================

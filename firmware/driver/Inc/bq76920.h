@@ -80,16 +80,8 @@ typedef enum{
 //========================================
 
 
-// Initialization functions
-//========================================
-// i2c init things
-void HAL_I2C_MspInit(I2C_HandleTypeDef*);
-void HAL_I2C_MspDeInit(I2C_HandleTypeDef*);
-void SystemClock_Config(void);
-void MX_I2C1_Init(void);
-void MX_GPIO_Init(void);
-// general init
-void Init_BQ76920(I2C_HandleTypeDef*, GPIO_TypeDef*, uint16_t, uint16_t);
+// Initialization function
+void Init_BQ76920(I2C_HandleTypeDef* i2c_ptr);
 // gets ADC info from chip.
 void get_ADC_Info();
 //========================================
