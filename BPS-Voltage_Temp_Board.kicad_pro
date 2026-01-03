@@ -48,7 +48,7 @@
         "silk_text_thickness": 0.1,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.3
+          "min_clearance": 0.5
         }
       },
       "diff_pair_dimensions": [
@@ -101,14 +101,13 @@
         "padstack": "warning",
         "pth_inside_courtyard": "ignore",
         "shorting_items": "error",
-        "silk_edge_clearance": "ignore",
+        "silk_edge_clearance": "warning",
         "silk_over_copper": "warning",
         "silk_overlap": "warning",
         "skew_out_of_range": "error",
         "solder_mask_bridge": "error",
         "starved_thermal": "error",
-        "text_height": "ignore",
-        "text_on_edge_cuts": "error",
+        "text_height": "warning",
         "text_thickness": "warning",
         "through_hole_pad_without_hole": "error",
         "too_many_vias": "error",
@@ -124,11 +123,11 @@
       },
       "rules": {
         "max_error": 0.005,
-        "min_clearance": 0.127,
+        "min_clearance": 0.0,
         "min_connection": 0.0,
         "min_copper_edge_clearance": 0.5,
         "min_groove_width": 0.0,
-        "min_hole_clearance": 0.254,
+        "min_hole_clearance": 0.25,
         "min_hole_to_hole": 0.25,
         "min_microvia_diameter": 0.2,
         "min_microvia_drill": 0.1,
@@ -137,46 +136,47 @@
         "min_text_height": 0.8,
         "min_text_thickness": 0.08,
         "min_through_hole_diameter": 0.3,
-        "min_track_width": 0.127,
-        "min_via_annular_width": 0.13,
+        "min_track_width": 0.0,
+        "min_via_annular_width": 0.1,
         "min_via_diameter": 0.5,
-        "solder_mask_to_copper_clearance": 0.005,
+        "solder_mask_to_copper_clearance": 0.0,
         "use_height_for_length_calcs": true
       },
       "teardrop_options": [
         {
-          "td_onpadsmd": true,
+          "td_onpthpad": true,
           "td_onroundshapesonly": false,
-          "td_ontrackend": true,
-          "td_onviapad": true
+          "td_onsmdpad": true,
+          "td_ontrackend": false,
+          "td_onvia": true
         }
       ],
       "teardrop_parameters": [
         {
           "td_allow_use_two_tracks": true,
-          "td_curve_segcount": 1,
+          "td_curve_segcount": 0,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
-          "td_maxheight": 4.0,
-          "td_maxlen": 2.0,
-          "td_on_pad_in_zone": true,
+          "td_maxheight": 2.0,
+          "td_maxlen": 1.0,
+          "td_on_pad_in_zone": false,
           "td_target_name": "td_round_shape",
-          "td_width_to_size_filter_ratio": 1.0
+          "td_width_to_size_filter_ratio": 0.9
         },
         {
           "td_allow_use_two_tracks": true,
-          "td_curve_segcount": 1,
+          "td_curve_segcount": 0,
           "td_height_ratio": 1.0,
-          "td_length_ratio": 0.6,
-          "td_maxheight": 4.0,
-          "td_maxlen": 4.0,
-          "td_on_pad_in_zone": true,
+          "td_length_ratio": 0.5,
+          "td_maxheight": 2.0,
+          "td_maxlen": 1.0,
+          "td_on_pad_in_zone": false,
           "td_target_name": "td_rect_shape",
-          "td_width_to_size_filter_ratio": 1.0
+          "td_width_to_size_filter_ratio": 0.9
         },
         {
           "td_allow_use_two_tracks": true,
-          "td_curve_segcount": 1,
+          "td_curve_segcount": 0,
           "td_height_ratio": 1.0,
           "td_length_ratio": 0.5,
           "td_maxheight": 2.0,
@@ -469,7 +469,7 @@
   },
   "meta": {
     "filename": "BPS-Voltage_Temp_Board.kicad_pro",
-    "version": 1
+    "version": 3
   },
   "net_settings": {
     "classes": [
@@ -484,6 +484,7 @@
         "microvia_drill": 0.1,
         "name": "Default",
         "pcb_color": "rgba(0, 0, 0, 0.000)",
+        "priority": 2147483647,
         "schematic_color": "rgba(0, 0, 0, 0.000)",
         "track_width": 0.2,
         "via_diameter": 0.6,
@@ -492,7 +493,7 @@
       }
     ],
     "meta": {
-      "version": 3
+      "version": 4
     },
     "net_colors": null,
     "netclass_assignments": null,
@@ -503,7 +504,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "jlcpcb/gerber/",
+      "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "BPS-Voltage_Temp_Board.step",
@@ -630,56 +631,14 @@
           "label": "MAXIMUM_PACKAGE_HEIGHT",
           "name": "MAXIMUM_PACKAGE_HEIGHT",
           "show": false
-        },
-        {
-          "group_by": false,
-          "label": "Mouser Price/Stock",
-          "name": "Mouser Price/Stock",
-          "show": false
-        },
-        {
-          "group_by": false,
-          "label": "Manufacturer_Name",
-          "name": "Manufacturer_Name",
-          "show": false
-        },
-        {
-          "group_by": false,
-          "label": "PN",
-          "name": "PN",
-          "show": false
-        },
-        {
-          "group_by": false,
-          "label": "Vf",
-          "name": "Vf",
-          "show": false
-        },
-        {
-          "group_by": false,
-          "label": "p/n",
-          "name": "p/n",
-          "show": false
-        },
-        {
-          "group_by": false,
-          "label": "If",
-          "name": "If",
-          "show": false
-        },
-        {
-          "group_by": false,
-          "label": "Sim.Pins",
-          "name": "Sim.Pins",
-          "show": false
         }
       ],
       "filter_string": "",
       "group_symbols": true,
       "include_excluded_from_bom": false,
       "name": "",
-      "sort_asc": false,
-      "sort_field": "P/N"
+      "sort_asc": true,
+      "sort_field": "Reference"
     },
     "connection_grid_size": 50.0,
     "drawing": {
@@ -709,14 +668,6 @@
       "version": 1
     },
     "net_format_name": "",
-    "ngspice": {
-      "fix_include_paths": true,
-      "meta": {
-        "version": 0
-      },
-      "model_mode": 4,
-      "workbook_filename": ""
-    },
     "page_layout_descr_file": "",
     "plot_directory": "",
     "space_save_all_events": true,
@@ -735,48 +686,8 @@
       "Root"
     ],
     [
-      "2e07b969-5a9c-4ef1-ba45-fc31f1004d05",
-      "VoltageSense"
-    ],
-    [
-      "28ab9f86-06e3-4025-a371-5e4e53853fdc",
-      "VoltageConn"
-    ],
-    [
-      "735139e3-8e5f-472a-8a6a-59a0bef23c37",
-      "TemperatureConn"
-    ],
-    [
-      "b98a0b4d-b474-46e4-af8f-719e1bb91bc9",
-      "TemperatureFilters"
-    ],
-    [
-      "305db25e-0e18-41b2-b157-490c9c9ed149",
-      "TemperatureFilter0"
-    ],
-    [
-      "eab5a88a-8eae-40be-bde5-afb3b6331798",
-      "TemperatureFilter1"
-    ],
-    [
-      "0b6a6f29-4cfd-471f-918e-165d9124c249",
-      "TemperatureFilter2"
-    ],
-    [
-      "4a5d6278-49ce-4bbe-b320-bfc4455852c3",
-      "TemperatureFilter3"
-    ],
-    [
-      "775d633a-ad93-41b4-ac5c-f8bf894051fa",
-      "FaultIndicators"
-    ],
-    [
-      "0071554d-4281-4843-9531-44fa66f109f1",
-      "TemperatureFilter4"
-    ],
-    [
-      "051c440a-b126-4eea-9726-285e58bc5f85",
-      "ScrutineeringConn"
+      "adc1f895-cab9-4230-a5f1-9bf4007b39c0",
+      "Thermistor town"
     ]
   ],
   "text_variables": {}
