@@ -8798,7 +8798,7 @@
 			)
 		)
 		(property "PN" ""
-			(at 0 0 -90)
+			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
@@ -8812,7 +8812,7 @@
 			)
 		)
 		(property "p/n" ""
-			(at 0 0 -90)
+			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
@@ -8826,7 +8826,7 @@
 			)
 		)
 		(property "Id" ""
-			(at 0 0 -90)
+			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
@@ -8840,7 +8840,7 @@
 			)
 		)
 		(property "MANUFACTURER" ""
-			(at 0 0 -90)
+			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
@@ -8854,7 +8854,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 0 0 -90)
+			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
@@ -8868,7 +8868,7 @@
 			)
 		)
 		(property "PARTREV" ""
-			(at 0 0 -90)
+			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
@@ -8882,7 +8882,7 @@
 			)
 		)
 		(property "STANDARD" ""
-			(at 0 0 -90)
+			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
@@ -8896,7 +8896,7 @@
 			)
 		)
 		(property "Vds" ""
-			(at 0 0 -90)
+			(at 0 0 270)
 			(unlocked yes)
 			(layer "B.Fab")
 			(hide yes)
@@ -9985,6 +9985,46 @@
 		(layer "F.Cu")
 		(net 13)
 		(uuid "df67be72-2a9b-4611-be67-786fa575354b")
+	)
+	(segment
+		(start 99.68 80.42)
+		(end 97.75 82.35)
+		(width 0.4)
+		(layer "B.Cu")
+		(net 14)
+		(uuid "1f843255-ec29-4ab7-b59c-991279958a19")
+	)
+	(segment
+		(start 105.38505 96.25)
+		(end 108.1249 98.98985)
+		(width 0.4)
+		(layer "B.Cu")
+		(net 14)
+		(uuid "a97075c8-d145-4079-b1a3-941bfe5355d8")
+	)
+	(segment
+		(start 101 96.25)
+		(end 105.38505 96.25)
+		(width 0.4)
+		(layer "B.Cu")
+		(net 14)
+		(uuid "ee5fc19d-2049-41e7-ad05-3aadc7e42ab4")
+	)
+	(segment
+		(start 97.75 82.35)
+		(end 97.75 93)
+		(width 0.4)
+		(layer "B.Cu")
+		(net 14)
+		(uuid "f003bf38-4772-47b6-aef6-c888d3886f6e")
+	)
+	(segment
+		(start 97.75 93)
+		(end 101 96.25)
+		(width 0.4)
+		(layer "B.Cu")
+		(net 14)
+		(uuid "f8980a64-1b51-4567-b468-8e5f39709e7d")
 	)
 	(segment
 		(start 109.21605 101.45395)
