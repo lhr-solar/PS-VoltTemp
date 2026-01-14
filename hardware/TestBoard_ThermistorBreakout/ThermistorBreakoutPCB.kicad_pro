@@ -101,6 +101,7 @@
         "solder_mask_bridge": "error",
         "starved_thermal": "error",
         "text_height": "warning",
+        "text_on_edge_cuts": "error",
         "text_thickness": "warning",
         "through_hole_pad_without_hole": "error",
         "too_many_vias": "error",
@@ -132,7 +133,7 @@
         "min_track_width": 0.0,
         "min_via_annular_width": 0.1,
         "min_via_diameter": 0.5,
-        "solder_mask_to_copper_clearance": 0.0,
+        "solder_mask_to_copper_clearance": 0.005,
         "use_height_for_length_calcs": true
       },
       "teardrop_options": [
@@ -485,7 +486,7 @@
       "gencad": "",
       "idf": "",
       "netlist": "",
-      "plot": "",
+      "plot": "jlcpcb",
       "pos_files": "",
       "specctra_dsn": "",
       "step": "",
@@ -629,22 +630,6 @@
     [
       "ebbd7a1b-aa13-4a56-b37e-152a573f8929",
       "Root"
-    ],
-    [
-      "46f7fb6c-b937-4c29-8f4c-854a9c0cd76d",
-      "Temperature1"
-    ],
-    [
-      "71b1b01f-49a8-431c-af86-7095831d9727",
-      "Temperature2"
-    ],
-    [
-      "de02e9e2-7c82-4079-9637-5f5e58ea92af",
-      "Temperature3"
-    ],
-    [
-      "6809265c-95c3-4e60-b5dc-3b181eb78e67",
-      "Temperature4"
     ]
   ],
   "text_variables": {}

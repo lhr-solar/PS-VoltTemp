@@ -112,7 +112,7 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Connector_Generic:Conn_01x02"
+		(symbol "Connector_Generic:Conn_01x03"
 			(pin_names
 				(offset 1.016)
 				(hide yes)
@@ -121,14 +121,14 @@
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "J"
-				(at 0 2.54 0)
+				(at 0 5.08 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "Conn_01x02"
+			(property "Value" "Conn_01x03"
 				(at 0 -5.08 0)
 				(effects
 					(font
@@ -154,7 +154,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
 				(at 0 0 0)
 				(effects
 					(font
@@ -181,9 +181,9 @@
 					(hide yes)
 				)
 			)
-			(symbol "Conn_01x02_1_1"
+			(symbol "Conn_01x03_1_1"
 				(rectangle
-					(start -1.27 1.27)
+					(start -1.27 3.81)
 					(end 1.27 -3.81)
 					(stroke
 						(width 0.254)
@@ -191,159 +191,6 @@
 					)
 					(fill
 						(type background)
-					)
-				)
-				(rectangle
-					(start -1.27 0.127)
-					(end 0 -0.127)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -2.413)
-					(end 0 -2.667)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at -5.08 0 0)
-					(length 3.81)
-					(name "Pin_1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -2.54 0)
-					(length 3.81)
-					(name "Pin_2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
-		(symbol "Connector_Generic:Conn_01x06"
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "J"
-				(at 0 7.62 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "Conn_01x06"
-				(at 0 -10.16 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "connector"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "Connector*:*_1x??_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Conn_01x06_1_1"
-				(rectangle
-					(start -1.27 6.35)
-					(end 1.27 -8.89)
-					(stroke
-						(width 0.254)
-						(type default)
-					)
-					(fill
-						(type background)
-					)
-				)
-				(rectangle
-					(start -1.27 5.207)
-					(end 0 4.953)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
 					)
 				)
 				(rectangle
@@ -379,30 +226,8 @@
 						(type none)
 					)
 				)
-				(rectangle
-					(start -1.27 -4.953)
-					(end 0 -5.207)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(rectangle
-					(start -1.27 -7.493)
-					(end 0 -7.747)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
 				(pin passive line
-					(at -5.08 5.08 0)
+					(at -5.08 2.54 0)
 					(length 3.81)
 					(name "Pin_1"
 						(effects
@@ -420,7 +245,7 @@
 					)
 				)
 				(pin passive line
-					(at -5.08 2.54 0)
+					(at -5.08 0 0)
 					(length 3.81)
 					(name "Pin_2"
 						(effects
@@ -438,7 +263,7 @@
 					)
 				)
 				(pin passive line
-					(at -5.08 0 0)
+					(at -5.08 -2.54 0)
 					(length 3.81)
 					(name "Pin_3"
 						(effects
@@ -455,86 +280,29 @@
 						)
 					)
 				)
-				(pin passive line
-					(at -5.08 -2.54 0)
-					(length 3.81)
-					(name "Pin_4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "4"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -5.08 0)
-					(length 3.81)
-					(name "Pin_5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "5"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at -5.08 -7.62 0)
-					(length 3.81)
-					(name "Pin_6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 			)
 			(embedded_fonts no)
 		)
-		(symbol "power:GNDA"
-			(power)
+		(symbol "Device:R_US"
 			(pin_numbers
 				(hide yes)
 			)
 			(pin_names
 				(offset 0)
-				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "#PWR"
-				(at 0 -6.35 0)
+			(property "Reference" "R"
+				(at 2.54 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Value" "GNDA"
-				(at 0 -3.81 0)
+			(property "Value" "R_US"
+				(at -2.54 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -542,6 +310,15 @@
 				)
 			)
 			(property "Footprint" ""
+				(at 1.016 -0.254 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
 				(at 0 0 0)
 				(effects
 					(font
@@ -550,7 +327,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" ""
+			(property "Description" "Resistor, US symbol"
 				(at 0 0 0)
 				(effects
 					(font
@@ -559,7 +336,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
+			(property "ki_keywords" "R res resistor"
 				(at 0 0 0)
 				(effects
 					(font
@@ -568,7 +345,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "global power"
+			(property "ki_fp_filters" "R_*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -577,10 +354,58 @@
 					(hide yes)
 				)
 			)
-			(symbol "GNDA_0_1"
+			(symbol "R_US_0_1"
 				(polyline
 					(pts
-						(xy 0 0) (xy 0 -1.27) (xy 1.27 -1.27) (xy 0 -2.54) (xy -1.27 -1.27) (xy 0 -1.27)
+						(xy 0 2.286) (xy 0 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 2.286) (xy 1.016 1.905) (xy 0 1.524) (xy -1.016 1.143) (xy 0 0.762)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 0.762) (xy 1.016 0.381) (xy 0 0) (xy -1.016 -0.381) (xy 0 -0.762)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -0.762) (xy 1.016 -1.143) (xy 0 -1.524) (xy -1.016 -1.905) (xy 0 -2.286)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -2.286) (xy 0 -2.54)
 					)
 					(stroke
 						(width 0)
@@ -591,10 +416,10 @@
 					)
 				)
 			)
-			(symbol "GNDA_1_1"
-				(pin power_in line
-					(at 0 0 270)
-					(length 0)
+			(symbol "R_US_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
 					(name "~"
 						(effects
 							(font
@@ -610,36 +435,52 @@
 						)
 					)
 				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 			)
 			(embedded_fonts no)
 		)
-		(symbol "power:VDDA"
-			(power)
+		(symbol "Device:Thermistor"
 			(pin_numbers
 				(hide yes)
 			)
 			(pin_names
 				(offset 0)
-				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "#PWR"
-				(at 0 -3.81 0)
+			(property "Reference" "TH"
+				(at 2.54 1.27 90)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(hide yes)
 				)
 			)
-			(property "Value" "VDDA"
-				(at 0 3.556 0)
+			(property "Value" "Thermistor"
+				(at -2.54 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify bottom)
 				)
 			)
 			(property "Footprint" ""
@@ -651,7 +492,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" ""
+			(property "Datasheet" "~"
 				(at 0 0 0)
 				(effects
 					(font
@@ -660,7 +501,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Power symbol creates a global label with name \"VDDA\""
+			(property "Description" "Temperature dependent resistor"
 				(at 0 0 0)
 				(effects
 					(font
@@ -669,7 +510,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "global power"
+			(property "ki_keywords" "R res thermistor"
 				(at 0 0 0)
 				(effects
 					(font
@@ -678,37 +519,33 @@
 					(hide yes)
 				)
 			)
-			(symbol "VDDA_0_1"
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Thermistor_0_1"
 				(polyline
 					(pts
-						(xy -0.762 1.27) (xy 0 2.54)
+						(xy -1.905 3.175) (xy -1.905 1.905) (xy 1.905 -1.905) (xy 1.905 -3.175) (xy 1.905 -3.175)
 					)
 					(stroke
-						(width 0)
+						(width 0.254)
 						(type default)
 					)
 					(fill
 						(type none)
 					)
 				)
-				(polyline
-					(pts
-						(xy 0 2.54) (xy 0.762 1.27)
-					)
+				(rectangle
+					(start -1.016 2.54)
+					(end 1.016 -2.54)
 					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 0 0) (xy 0 2.54)
-					)
-					(stroke
-						(width 0)
+						(width 0.2032)
 						(type default)
 					)
 					(fill
@@ -716,10 +553,10 @@
 					)
 				)
 			)
-			(symbol "VDDA_1_1"
-				(pin power_in line
-					(at 0 0 90)
-					(length 0)
+			(symbol "Thermistor_1_1"
+				(pin passive line
+					(at 0 5.08 270)
+					(length 2.54)
 					(name "~"
 						(effects
 							(font
@@ -735,346 +572,194 @@
 						)
 					)
 				)
+				(pin passive line
+					(at 0 -5.08 90)
+					(length 2.54)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 			)
 			(embedded_fonts no)
 		)
 	)
 	(junction
-		(at 132.08 78.74)
+		(at 151.765 69.215)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "0e659b8d-c014-46b7-9bc6-5b6a55780ce1")
+		(uuid "2c93e4cb-c495-448d-91d0-844aef8119d5")
 	)
 	(junction
-		(at 82.55 77.47)
+		(at 138.43 81.915)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "b5a6fbae-72ad-42bf-853d-7b9e049dbe6d")
+		(uuid "bfa16166-e421-49fc-b067-ab91a7ed8cd1")
 	)
 	(junction
-		(at 133.35 46.99)
+		(at 151.765 94.615)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "d849b74c-3f65-46c8-9c12-6ab53b4588ba")
+		(uuid "c9b36fdd-d58c-4958-810d-6a75595cf27a")
 	)
 	(junction
-		(at 83.82 45.72)
+		(at 132.715 81.915)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "e4da5ab1-31c7-4f70-a1d5-36d57394a03b")
+		(uuid "faf8c577-20d0-4730-94b4-664282af2e39")
 	)
 	(wire
 		(pts
-			(xy 114.3 120.65) (xy 115.57 119.38)
+			(xy 151.765 69.215) (xy 151.765 79.375)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "10fd5850-ad78-4e2a-ad54-d0a9d090c956")
+		(uuid "13f0ec86-7755-4358-9753-7f86a77179a4")
 	)
 	(wire
 		(pts
-			(xy 129.54 46.99) (xy 133.35 46.99)
+			(xy 132.715 69.215) (xy 151.765 69.215)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "13f07bef-952b-44c6-a868-add77193353e")
+		(uuid "15fe562b-6058-4769-89fc-d5cc8b528341")
 	)
 	(wire
 		(pts
-			(xy 82.55 77.47) (xy 95.25 77.47)
+			(xy 138.43 81.915) (xy 151.765 81.915)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3a94029c-4572-4f6f-a4b9-50d88af7c12f")
+		(uuid "19bb1cd3-9659-4301-bfb5-bb417895f735")
 	)
 	(wire
 		(pts
-			(xy 96.52 109.22) (xy 116.84 109.22)
+			(xy 132.715 80.645) (xy 132.715 81.915)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3b8ac004-bc61-4f23-be46-446a6443bdea")
+		(uuid "19c9fe0e-0b92-40f5-a5c3-c88e1ae8dce2")
 	)
 	(wire
 		(pts
-			(xy 147.32 109.22) (xy 148.59 110.49)
+			(xy 151.765 84.455) (xy 151.765 94.615)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "3eee8472-0352-48c4-b19c-278f3a6cb260")
+		(uuid "1fdf7bc7-8234-4048-9a57-53c38adca52f")
 	)
 	(wire
 		(pts
-			(xy 114.3 121.92) (xy 114.3 120.65)
+			(xy 132.715 94.615) (xy 132.715 92.075)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "48c9a681-19d6-46d5-ab8d-ceee2da95283")
+		(uuid "30aed088-0e33-460b-938a-43f0df19ee6d")
 	)
 	(wire
 		(pts
-			(xy 96.52 111.76) (xy 116.84 111.76)
+			(xy 132.715 81.915) (xy 132.715 84.455)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5160462b-6bb4-48cb-9d51-409c3690650b")
+		(uuid "68250edc-9cc8-4e94-a8cc-ebe99251eeb7")
 	)
 	(wire
 		(pts
-			(xy 96.52 114.3) (xy 116.84 114.3)
+			(xy 132.715 81.915) (xy 138.43 81.915)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5c9572b7-a088-4cd8-9e41-a5603c4b2827")
+		(uuid "9d32886b-70ab-493f-9b1d-0cce646780d9")
 	)
 	(wire
 		(pts
-			(xy 133.35 46.99) (xy 144.78 46.99)
+			(xy 132.715 69.215) (xy 132.715 70.485)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "5d8ccc4e-9146-4bd1-a496-93a249fdb901")
+		(uuid "a9d6ab8a-7e06-476a-aca6-a08f4eb2b8e4")
 	)
 	(wire
 		(pts
-			(xy 147.32 115.57) (xy 147.32 114.3)
+			(xy 151.765 94.615) (xy 132.715 94.615)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "6890db9c-5338-42d8-8ce3-1caec071eb89")
+		(uuid "d3d1061a-e853-4b6a-b1ee-9985165afb2b")
 	)
-	(wire
-		(pts
-			(xy 147.32 114.3) (xy 148.59 113.03)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "6fbb72ed-78ff-4c7f-9b5a-c1d5e7e215a1")
-	)
-	(wire
-		(pts
-			(xy 83.82 45.72) (xy 95.25 45.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "753122f3-4942-451b-882f-c7fab91ac024")
-	)
-	(wire
-		(pts
-			(xy 114.3 104.14) (xy 114.3 105.41)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7cc492f0-c5b6-4373-8cfe-5896a12547f8")
-	)
-	(wire
-		(pts
-			(xy 80.01 45.72) (xy 83.82 45.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "8d679cc4-ea58-4aff-8e88-c3ac373730bc")
-	)
-	(wire
-		(pts
-			(xy 129.54 78.74) (xy 132.08 78.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "97e6e87f-ecaf-4b4e-b7ae-d81d878cc03b")
-	)
-	(wire
-		(pts
-			(xy 80.01 77.47) (xy 82.55 77.47)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9b97a465-b518-41d8-bb0b-68c6f0959621")
-	)
-	(wire
-		(pts
-			(xy 115.57 119.38) (xy 116.84 119.38)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a1aeb65d-163a-485a-bc36-cacf3e96ac04")
-	)
-	(wire
-		(pts
-			(xy 115.57 106.68) (xy 114.3 105.41)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a5c56371-65d9-402b-809e-f6e4147075ff")
-	)
-	(wire
-		(pts
-			(xy 116.84 106.68) (xy 115.57 106.68)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c2341d2e-532c-4df1-821f-a28053d74b4b")
-	)
-	(wire
-		(pts
-			(xy 96.52 116.84) (xy 116.84 116.84)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c83e1937-e60a-4f65-8b8e-91fbadac6322")
-	)
-	(wire
-		(pts
-			(xy 147.32 107.95) (xy 147.32 109.22)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d032404c-17d6-43bb-935a-9687061cdac3")
-	)
-	(wire
-		(pts
-			(xy 132.08 78.74) (xy 144.78 78.74)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "d04aed23-e5b4-4f6b-a196-e60f72829ece")
-	)
-	(label "Temperature2"
-		(at 96.52 111.76 0)
+	(label "VDD"
+		(at 151.765 79.375 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "073594a9-5da1-4530-922a-25f169659085")
+		(uuid "17c7531e-60b8-4da6-b539-c00c23f4b3cb")
 	)
-	(label "Temperature2"
-		(at 129.54 46.99 0)
+	(label "TEMP"
+		(at 151.765 81.915 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "0ce865a4-37bc-402c-a33b-9478a36a3819")
+		(uuid "25a3bf12-3d5a-4e60-8425-35f0821f13ff")
 	)
-	(label "Temperature3"
-		(at 80.01 77.47 0)
+	(label "GND"
+		(at 151.765 84.455 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left bottom)
+			(justify right bottom)
 		)
-		(uuid "13109ba0-ac6d-4841-b08e-14b4bee81daf")
-	)
-	(label "Temperature4"
-		(at 96.52 116.84 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "3ace2ec4-83ef-4f06-b86a-da156cca4b0b")
-	)
-	(label "Temperature4"
-		(at 129.54 78.74 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "b178d51e-82fe-4e09-a14b-4b0b436a76d9")
-	)
-	(label "Temperature1"
-		(at 96.52 109.22 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "e7dcda5b-0cf9-4133-a855-eb1aa8b18350")
-	)
-	(label "Temperature3"
-		(at 96.52 114.3 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f0b9a8e6-854a-45b4-a582-44c21229adf6")
-	)
-	(label "Temperature1"
-		(at 80.01 45.72 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f231224e-7d76-46e9-b3d6-4bfc8f7f04f7")
+		(uuid "275e3f28-7b39-4131-b684-b76535687a17")
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x06")
-		(at 121.92 111.76 0)
+		(lib_id "Connector_Generic:Conn_01x03")
+		(at 156.845 81.915 0)
+		(mirror x)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1d48e008-e1f4-44dd-8c81-59ebbaaf6b00")
-		(property "Reference" "J8"
-			(at 124.46 111.7599 0)
+		(uuid "08768359-0662-4ac0-afca-6acad247b5f4")
+		(property "Reference" "J1"
+			(at 160.02 83.1851 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1082,8 +767,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Conn_01x06"
-			(at 124.46 114.2999 0)
+		(property "Value" "Conn_01x03"
+			(at 160.02 80.6451 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1091,8 +776,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "VoltTemp:1053131106"
-			(at 121.92 111.76 0)
+		(property "Footprint" "Scrutineering:CONN_SD-105309-100_03_MOL"
+			(at 156.845 81.915 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1101,7 +786,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 121.92 111.76 0)
+			(at 156.845 81.915 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1109,8 +794,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 121.92 111.76 0)
+		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 156.845 81.915 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1118,498 +803,14 @@
 				(hide yes)
 			)
 		)
-		(property "P/N" "1053131106"
-			(at 121.92 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "1a2ea1e4-4410-4dc3-a98f-e94e9f3b92be")
-		)
-		(pin "6"
-			(uuid "4790768e-91c1-49e5-ac85-3188e1cfd892")
+		(pin "2"
+			(uuid "f1a649ad-bb7e-4f2c-8dcd-9fbfb345f46c")
 		)
 		(pin "3"
-			(uuid "d830b623-57f5-4e85-8e75-3d8bbc31bf7b")
-		)
-		(pin "5"
-			(uuid "8b3703e4-d327-4c8d-ba56-ad51e3da0e14")
-		)
-		(pin "4"
-			(uuid "0aa5a621-994d-45bb-845f-619905c3b3ee")
-		)
-		(pin "2"
-			(uuid "3ed6be9c-18e8-4bde-b8dc-a1762ae0e952")
-		)
-		(instances
-			(project "ThermistorBreakoutPCB"
-				(path "/ebbd7a1b-aa13-4a56-b37e-152a573f8929"
-					(reference "J8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 82.55 77.47 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "2c44bcca-a3b6-44bd-a1e9-d4b6ae948596")
-		(property "Reference" "TP8"
-			(at 92.456 81.788 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 92.456 79.248 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Keystone_5005-5009_Compact"
-			(at 77.47 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 77.47 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 82.55 77.47 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
+			(uuid "ef25bfb4-e799-4ec0-9dac-724612555c45")
 		)
 		(pin "1"
-			(uuid "ef439093-584d-4b84-a73d-8d716a936660")
-		)
-		(instances
-			(project "ThermistorBreakoutPCB"
-				(path "/ebbd7a1b-aa13-4a56-b37e-152a573f8929"
-					(reference "TP8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 133.35 46.99 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "41003ae6-45f9-42ca-93f6-5d62af0f013c")
-		(property "Reference" "TP10"
-			(at 143.256 51.308 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 143.256 48.768 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Keystone_5005-5009_Compact"
-			(at 128.27 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 128.27 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 133.35 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "837d0e8d-41fe-4379-a80e-ad9a01415a94")
-		)
-		(instances
-			(project "ThermistorBreakoutPCB"
-				(path "/ebbd7a1b-aa13-4a56-b37e-152a573f8929"
-					(reference "TP10")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:VDDA")
-		(at 147.32 107.95 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "5621396e-88f7-4c5a-89d2-476eb42f2bc3")
-		(property "Reference" "#PWR010"
-			(at 147.32 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "VDDA"
-			(at 147.32 102.87 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 147.32 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 147.32 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VDDA\""
-			(at 147.32 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "b661bed7-165b-4969-abed-462361d6d3d6")
-		)
-		(instances
-			(project "ThermistorBreakoutPCB"
-				(path "/ebbd7a1b-aa13-4a56-b37e-152a573f8929"
-					(reference "#PWR010")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 132.08 78.74 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "950cf94b-50ab-46ce-8538-0611611fddce")
-		(property "Reference" "TP9"
-			(at 141.986 83.058 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "TestPoint"
-			(at 141.986 80.518 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "TestPoint:TestPoint_Keystone_5005-5009_Compact"
-			(at 127 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 127 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "test point"
-			(at 132.08 78.74 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "9056f999-659a-4fa8-a609-5f9e906560b1")
-		)
-		(instances
-			(project "ThermistorBreakoutPCB"
-				(path "/ebbd7a1b-aa13-4a56-b37e-152a573f8929"
-					(reference "TP9")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GNDA")
-		(at 114.3 121.92 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "9f644518-1780-4eea-89cd-ba1a878b68d9")
-		(property "Reference" "#PWR013"
-			(at 114.3 128.27 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GNDA"
-			(at 114.3 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 114.3 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 114.3 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
-			(at 114.3 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a8c8d41c-5ad2-438a-b6d1-6f25e2ea6107")
-		)
-		(instances
-			(project "ThermistorBreakoutPCB"
-				(path "/ebbd7a1b-aa13-4a56-b37e-152a573f8929"
-					(reference "#PWR013")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:VDDA")
-		(at 114.3 104.14 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "afde3a14-b99c-44c9-b021-1d894840c6b9")
-		(property "Reference" "#PWR014"
-			(at 114.3 107.95 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "VDDA"
-			(at 114.3 99.06 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 114.3 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 114.3 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"VDDA\""
-			(at 114.3 104.14 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "692a6b48-ef58-4d85-b1f7-5d66c9215bde")
-		)
-		(instances
-			(project "ThermistorBreakoutPCB"
-				(path "/ebbd7a1b-aa13-4a56-b37e-152a573f8929"
-					(reference "#PWR014")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x02")
-		(at 153.67 110.49 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b1bea656-dca8-4d81-b9c6-8855d51e5070")
-		(property "Reference" "J1"
-			(at 156.21 110.4899 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Conn_01x02"
-			(at 156.21 113.0299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x02_P2.54mm_Vertical"
-			(at 153.67 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 153.67 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 153.67 110.49 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "bad088d9-1cd4-490e-a252-36dda0fbf619")
-		)
-		(pin "2"
-			(uuid "93835627-2f53-4728-9604-1ad62882d467")
+			(uuid "7d92261b-74dd-4394-af0c-d3010256d2f6")
 		)
 		(instances
 			(project ""
@@ -1621,82 +822,16 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GNDA")
-		(at 147.32 115.57 0)
+		(lib_id "Device:Thermistor")
+		(at 132.715 75.565 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "cccf0eba-2295-4f3b-99da-2d1f73ec202c")
-		(property "Reference" "#PWR09"
-			(at 147.32 121.92 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GNDA"
-			(at 147.32 120.65 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 147.32 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 147.32 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GNDA\" , analog ground"
-			(at 147.32 115.57 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "a87940de-b03d-4c6e-ac16-447bc8d1253a")
-		)
-		(instances
-			(project "ThermistorBreakoutPCB"
-				(path "/ebbd7a1b-aa13-4a56-b37e-152a573f8929"
-					(reference "#PWR09")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector:TestPoint")
-		(at 83.82 45.72 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "e11887ea-5178-4af1-922e-dfbdf83e66f2")
-		(property "Reference" "TP11"
-			(at 93.726 50.038 0)
+		(uuid "223bcc32-230c-4adb-8cf7-f70581337c1f")
+		(property "Reference" "TH1"
+			(at 135.89 73.025 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1704,8 +839,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "TestPoint"
-			(at 93.726 47.498 0)
+		(property "Value" "ERTJ1VR104FM"
+			(at 135.89 75.565 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1713,8 +848,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Keystone_5005-5009_Compact"
-			(at 78.74 45.72 0)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+			(at 132.715 75.565 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1723,7 +858,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 78.74 45.72 0)
+			(at 132.715 75.565 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1731,8 +866,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "test point"
-			(at 83.82 45.72 0)
+		(property "Description" "Temperature dependent resistor"
+			(at 132.715 75.565 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1741,54 +876,32 @@
 			)
 		)
 		(pin "1"
-			(uuid "bf6e3f87-eabd-4c09-9b05-db59f948b8bf")
+			(uuid "06ff2fd4-0612-4a04-b377-e7d72c27eb56")
+		)
+		(pin "2"
+			(uuid "328e0f4d-e966-482f-aeb7-c53b343c886c")
 		)
 		(instances
-			(project "ThermistorBreakoutPCB"
+			(project ""
 				(path "/ebbd7a1b-aa13-4a56-b37e-152a573f8929"
-					(reference "TP11")
+					(reference "TH1")
 					(unit 1)
 				)
 			)
 		)
 	)
-	(sheet
-		(at 95.25 38.1)
-		(size 31.242 16.764)
+	(symbol
+		(lib_id "Device:R_US")
+		(at 132.715 88.265 0)
+		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "46f7fb6c-b937-4c29-8f4c-854a9c0cd76d")
-		(property "Sheetname" "Temperature1"
-			(at 95.25 37.3884 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "thermistorDivider.kicad_sch"
-			(at 95.25 55.4486 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(pin "temp_out" output
-			(at 95.25 45.72 180)
-			(uuid "3a6845f5-e1d5-40ce-ad48-42344d3dd90c")
+		(uuid "460caef3-0523-4387-bbf3-eeb77891c6fe")
+		(property "Reference" "R1"
+			(at 134.62 86.9949 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1796,103 +909,136 @@
 				(justify left)
 			)
 		)
+		(property "Value" "6.49k"
+			(at 134.62 89.5349 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder"
+			(at 133.731 88.519 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 132.715 88.265 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, US symbol"
+			(at 132.715 88.265 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "a6ed8ff5-2216-409c-ac18-3fce224d0aaa")
+		)
+		(pin "1"
+			(uuid "b10eb8ac-0d4a-4180-8542-50e65fc1fcd6")
+		)
 		(instances
-			(project "ThermistorBreakoutPCB"
+			(project ""
 				(path "/ebbd7a1b-aa13-4a56-b37e-152a573f8929"
-					(page "2")
+					(reference "R1")
+					(unit 1)
 				)
 			)
 		)
 	)
-	(sheet
-		(at 144.78 71.12)
-		(size 31.242 16.764)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 138.43 81.915 180)
+		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "6809265c-95c3-4e60-b5dc-3b181eb78e67")
-		(property "Sheetname" "Temperature4"
-			(at 144.78 70.4084 0)
+		(uuid "63d9b91f-5e5c-46d2-96c9-e3771eabe999")
+		(property "Reference" "TP3"
+			(at 140.97 83.9469 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left bottom)
+				(justify right)
 			)
 		)
-		(property "Sheetfile" "thermistorDivider.kicad_sch"
-			(at 144.78 88.4686 0)
+		(property "Value" "TestPoint"
+			(at 140.97 86.4869 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left top)
+				(justify right)
 			)
 		)
-		(pin "temp_out" output
-			(at 144.78 78.74 180)
-			(uuid "c7240787-fc28-47d2-85c4-d3bd45521a8b")
+		(property "Footprint" "TestPoint:TestPoint_Pad_2.0x2.0mm"
+			(at 133.35 81.915 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(hide yes)
 			)
+		)
+		(property "Datasheet" "~"
+			(at 133.35 81.915 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 138.43 81.915 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3b2a7f79-7b3d-4eef-9b60-f9d6b18029b6")
 		)
 		(instances
-			(project "ThermistorBreakoutPCB"
+			(project ""
 				(path "/ebbd7a1b-aa13-4a56-b37e-152a573f8929"
-					(page "5")
+					(reference "TP3")
+					(unit 1)
 				)
 			)
 		)
 	)
-	(sheet
-		(at 144.78 39.37)
-		(size 31.242 16.764)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 151.765 94.615 270)
+		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "71b1b01f-49a8-431c-af86-7095831d9727")
-		(property "Sheetname" "Temperature2"
-			(at 144.78 38.6584 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "thermistorDivider.kicad_sch"
-			(at 144.78 56.7186 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(pin "temp_out" output
-			(at 144.78 46.99 180)
-			(uuid "c19f4543-f290-48fe-920e-1aa14beee946")
+		(uuid "c935c2e5-8a51-4896-8328-8fe3fe5bcd68")
+		(property "Reference" "TP1"
+			(at 157.48 93.3449 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1900,51 +1046,66 @@
 				(justify left)
 			)
 		)
+		(property "Value" "TestPoint"
+			(at 157.48 95.8849 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_2.0x2.0mm"
+			(at 151.765 99.695 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 151.765 99.695 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 151.765 94.615 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3b2a7f79-7b3d-4eef-9b60-f9d6b18029b6")
+		)
 		(instances
-			(project "ThermistorBreakoutPCB"
+			(project ""
 				(path "/ebbd7a1b-aa13-4a56-b37e-152a573f8929"
-					(page "3")
+					(reference "TP1")
+					(unit 1)
 				)
 			)
 		)
 	)
-	(sheet
-		(at 95.25 69.85)
-		(size 31.242 16.764)
+	(symbol
+		(lib_id "Connector:TestPoint")
+		(at 151.765 69.215 270)
+		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(stroke
-			(width 0.1524)
-			(type solid)
-		)
-		(fill
-			(color 0 0 0 0.0000)
-		)
-		(uuid "de02e9e2-7c82-4079-9637-5f5e58ea92af")
-		(property "Sheetname" "Temperature3"
-			(at 95.25 69.1384 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-			)
-		)
-		(property "Sheetfile" "thermistorDivider.kicad_sch"
-			(at 95.25 87.1986 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left top)
-			)
-		)
-		(pin "temp_out" output
-			(at 95.25 77.47 180)
-			(uuid "44a3d89e-6309-4f7f-84a3-ebfc9bf2cbae")
+		(uuid "cd3d5c21-85eb-4cc6-9b22-77edada8adcb")
+		(property "Reference" "TP2"
+			(at 157.48 67.9449 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1952,10 +1113,50 @@
 				(justify left)
 			)
 		)
+		(property "Value" "TestPoint"
+			(at 157.48 70.4849 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "TestPoint:TestPoint_Pad_2.0x2.0mm"
+			(at 151.765 74.295 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 151.765 74.295 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "test point"
+			(at 151.765 69.215 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3b2a7f79-7b3d-4eef-9b60-f9d6b18029b6")
+		)
 		(instances
-			(project "ThermistorBreakoutPCB"
+			(project ""
 				(path "/ebbd7a1b-aa13-4a56-b37e-152a573f8929"
-					(page "4")
+					(reference "TP2")
+					(unit 1)
 				)
 			)
 		)
