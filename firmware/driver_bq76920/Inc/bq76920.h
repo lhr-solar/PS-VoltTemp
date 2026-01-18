@@ -6,9 +6,14 @@
   * @date    10/11/2025
   ******************************************************************************
   */
-
+#include <stm32l4xx_hal.h>
+#include <common.h>
+#include <stdlib.h>
+  
 #ifndef __BQ76920_
 #define __BQ76920_
+
+
 
 // Commands.
 //========================================
@@ -80,10 +85,21 @@ typedef enum{
 //========================================
 
 
+// Init things
+//========================================
 // Initialization function
-void Init_BQ76920(I2C_HandleTypeDef* i2c_ptr);
+void Init_BQ76920();
 // gets ADC info from chip.
 void get_ADC_Info();
+
+typedef enum{ 
+    VOLTTEMP_OK,
+    VOLTTEMP_INIT_FAIL,
+    VOLTTEMP_ADC_FAIL,
+    VOLTTEMP_QUEUE_FULL,
+    VOLTTEMP_CAN_SEND_FAIL
+} VoltTempStatus;
+
 //========================================
 
 // Reading & Writing functions

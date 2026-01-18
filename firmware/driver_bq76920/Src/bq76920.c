@@ -2,6 +2,7 @@
 #include <bq76920.h>
 #include <common.h>
 #include <stdlib.h>
+#include "inits.h"
 
 I2C_HandleTypeDef I2C_handler;
 
@@ -27,11 +28,10 @@ void get_ADC_Info(void){
 }
 //=================================================
 
-// Assigns I2C handler and gets chip info
+// Gets chip info
 //===============================================
-void Init_BQ76920(I2C_HandleTypeDef* i2c_ptr){
-  I2C_handler = *i2c_ptr;
-
+void Init_BQ76920(){
+  I2C_handler = hi2c1;
   // Pulls ADC info from the bms chip.
   get_ADC_Info();
 }
