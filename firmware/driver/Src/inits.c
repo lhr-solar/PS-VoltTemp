@@ -11,7 +11,7 @@
 // HAL & I2C inits
 //================================================================================
 I2C_HandleTypeDef hi2c1;
-UART_HandleTypeDef huart1;
+UART_HandleTypeDef huasrt1;
 
 #ifdef STM32L431xx
 /**
@@ -154,18 +154,31 @@ void HAL_UART_MspGPIOInit(UART_HandleTypeDef* huart){
 }
 
 void UART_Init(void){
+RCC_PeriphCLKInitTypeDef PeriphClkInit = { 0 };
+ /** Initializes the peripherals clock
+  */
+  PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_USART1;
+  PeriphClkInit.Usart1ClockSelection = RCC_USART1CLKSOURCE_PCLK2;
+  if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /* Peripheral clock enable */
+  __HAL_RCC_USART1_CLK_ENABLE();
+  
   // Init UART printf
-  huart1.Instance = USART1;
-  huart1.Init.BaudRate = 115200;
-  huart1.Init.WordLength = UART_WORDLENGTH_8B;
-  huart1.Init.StopBits = UART_STOPBITS_1;
-  huart1.Init.Parity = UART_PARITY_NONE;
-  huart1.Init.Mode = UART_MODE_TX_RX;
-  huart1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  huart1.Init.OverSampling = UART_OVERSAMPLING_16;
-  huart1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
-  huart1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
-  if (HAL_UART_Init(&huart1) != HAL_OK)
+  huasrt1.Instance = USART1;
+  huasrt1.Init.BaudRate = 115200;
+  huasrt1.Init.WordLength = UART_WORDLENGTH_8B;
+  huasrt1.Init.StopBits = UART_STOPBITS_1;
+  huasrt1.Init.Parity = UART_PARITY_NONE;
+  huasrt1.Init.Mode = UART_MODE_TX_RX;
+  huasrt1.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+  huasrt1.Init.OverSampling = UART_OVERSAMPLING_16;
+  huasrt1.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+  huasrt1.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+  if (HAL_UART_Init(&huasrt1) != HAL_OK)
   {
     Error_Handler();
   }

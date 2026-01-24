@@ -8,6 +8,7 @@
 #include "inits.h"
 #include "FreeRTOS.h"
 #include "printf.h"
+#include "UART.h"
 
 uint32_t* cell_data;
 
@@ -15,7 +16,7 @@ StaticTask_t xTaskBuffer;
 StackType_t xStack[ 200 ];
 
 void Task_ReadBQ(void *pvParameters) {
-  printf_init(&huart1);
+  printf_init(husart1);
   while(1) {
     get_Voltage_All(cell_data);
     
@@ -38,7 +39,7 @@ int main() {
   // turn on psom leds to show volttemp number
   volttemp_led_on();
 
-  HAL_UART_MspGPIOInit(&huart1);
+  HAL_UART_MspGPIOInit(husart1);
   UART_Init();
 
   // init the chip with these i2c pins.

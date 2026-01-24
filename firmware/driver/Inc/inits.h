@@ -9,4 +9,4 @@ void UART_Init(void);
 
 extern I2C_HandleTypeDef hi2c1;
 extern I2C_HandleTypeDef I2C_handler;
-extern UART_HandleTypeDef huart1;
+extern UART_HandleTypeDef huasrt1;
