@@ -9,10 +9,56 @@
 #include <stm32l4xx_hal.h>
 #include <common.h>
 #include <stdlib.h>
+#include <stdint.h>
+
+#include "FreeRTOS.h"
+#include "semphr.h"
   
 #ifndef __BQ76920_
 #define __BQ76920_
 
+
+// Task based I2C things
+//========================================
+typedef struct {
+    I2C_HandleTypeDef* hi2c;        // STM32 HAL I2C handle
+    uint16_t dev_addr;              // HAL convention: 7-bit address << 1
+    SemaphoreHandle_t i2c_complete; // Semaphore to signal I2C transaction complete
+} BQ76920_HandleTypeDef;
+
+// I2C Response Timeout
+#ifndef BQ76920_I2C_TIMEOUT
+#define BQ76920_I2C_TIMEOUT 100u // 100ms default
+#endif
+
+// I2C Operation Types
+typedef enum {
+    BQ76920_OP_WRITE,
+    BQ76920_OP_READ
+} BQ76920_I2C_OP;
+
+// I2C Message Struct
+typedef struct {
+    BQ76920_HandleTypeDef* chip;    // Chip to send to
+    BQ76920_I2C_OP operation;       // Read/Write operation
+    uint8_t reg_addr;               // Register address
+    uint8_t write_data;             // Data to write (only used for write operations)
+    uint8_t* read_data;             // Pointer for storing read data (only used for read operations)
+    uint8_t semaphore_index;        // Index of semaphore handle in pool
+} BQ76920_I2C_Message;
+
+#ifndef BQ76920_QUEUE_LENGTH
+#define BQ76920_QUEUE_LENGTH 10                             // Message queue length
+#endif
+
+#define BQ76920_QUEUE_ITEM_SIZE sizeof(BQ76920_I2C_Message) // Size of queue item (message)
+#define BQ76920_SEMAPHORE_POOL_SIZE BQ76920_QUEUE_LENGTH    // Number of caller semaphores (max concurrent I2C requests)
+
+// Device status
+typedef enum {
+    BQ76920_OK,
+    BQ76920_ERR,
+} BQ76920_Status;
 
 
 // Commands.
