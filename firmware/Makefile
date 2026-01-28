@@ -19,14 +19,15 @@ TEST ?= main
 PROJECT_TARGET ?= stm32l431cbt
 
 # source and include directories
-PROJECT_C_INCLUDES = $(wildcard */Inc)
+PROJECT_C_INCLUDES = $(wildcard */Inc) $(wildcard */inc) $(wildcard */include)
 PROJECT_C_SOURCES = $(wildcard */Src/*.c)
+
 
 # build directories
 PROJECT_BUILD_DIR = build
 BUILD_MAKEFILE_DIR = Embedded-Sharepoint
 
-# generate paths
+# generate paths	
 MAKEFILE_DIR = $(shell dirname $(realpath $(lastword $(MAKEFILE_LIST))))
 
 PROJECT_MAIN_DIR ?= core/Src/main

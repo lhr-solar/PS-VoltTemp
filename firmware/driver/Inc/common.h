@@ -15,3 +15,5 @@ struct VoltTempConfig {
 };
 
 void gpio_clock_enable(uint32_t port);
+
+void Error_Handler(void);

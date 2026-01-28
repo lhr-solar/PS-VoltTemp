@@ -38,7 +38,6 @@ void set_heartbeat_led(State pin_state){
     HAL_GPIO_WritePin(HEARTBEAT_PORT, HEARTBEAT_PIN, (pin_state == ON) ? GPIO_PIN_SET : GPIO_PIN_RESET);
 }
 
-
 void volttemp_led_on(void){
     // Turn off all LEDs first
     HAL_GPIO_WritePin(PSOM_LED1_PORT, PSOM_LED1_PIN, GPIO_PIN_RESET);
