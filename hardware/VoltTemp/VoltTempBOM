@@ -20,7 +20,7 @@
 "R1,R37,R41,R42,R49","8.2kΩ","ERA-3AED822V ","https://www.mouser.com/ProductDetail/Panasonic/ERA-3AED822V?qs=yocZuyCaXdPY%252BoKbtgBWEA%3D%3D&srsltid=AfmBOoqNGSzjo0BSOm8a05aF1OD2DC1DEesdZm6KpS4h-eMhVajjmgo9","Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder","5",""
 "U1,U3","EL3H7","EL3H7(D)(TA)-VG","https://www.digikey.com/en/products/detail/everlight-electronics-co-ltd/EL3H7-D-TA-VG/2692979","UTSVT_ICs:EL3H7","2",""
 "R31","4.3k","CRCW06034K30FKTA ","~","Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder","1",""
-"R3,R4,R5","2kΩ","CRCW06032K10FKEA ","https://www.mouser.com/ProductDetail/Vishay/CRCW06032K10FKEA?qs=cjTnrCMxNphZSCVQf3SAdw%3D%3D&srsltid=AfmBOorOC4BWYpAOAhvjdpaHX4uvl1OcCtwTs7-YTigvTUFQWXChE7U4","Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,Resistor_SMD:R_0805_2012Metric","3",""
+"R3,R4,R5","2kΩ","CRCW06032K10FKEA ","https://www.mouser.com/ProductDetail/Vishay/CRCW06032K10FKEA?qs=cjTnrCMxNphZSCVQf3SAdw%3D%3D&srsltid=AfmBOorOC4BWYpAOAhvjdpaHX4uvl1OcCtwTs7-YTigvTUFQWXChE7U4","Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder","3",""
 "R8,R12","1kΩ","CRCW06031K00FKEI ","~","Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder","2",""
 "R9,R10,R11,R13,R14,R15","10kΩ","CRCW060310K0FKEI ","~","Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder","6",""
 "R18,R19","120","CRCW0603120RFKEC ","~","Resistor_SMD:R_0603_1608Metric_Pad0.98x0.95mm_HandSolder","2",""
