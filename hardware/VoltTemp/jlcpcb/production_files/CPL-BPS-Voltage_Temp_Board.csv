@@ -63,7 +63,6 @@ J4,Conn_01x05,nanofit_01x05,47.0334,-24.192705,180.0,top
 J5,Logic_Analyzer,CONN_SFH11-xxxC-D05-ST-XX_SUL,63.93,-87.32,90.0,top
 J8,Conn_01x06,1053131106,95.6334,-39.192705,180.0,top
 J9,Conn_01x03,1053131103,108.7334,-39.184599,180.0,top
-LOGO1,Dr. Hallock,Hallock_Image_Small,34.58325,-85.55,0.0,top
 R1,8.2kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,49.1875,-30.95,180.0,top
 R10,10kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,61.0,-55.6,0.0,top
 R11,10kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,65.5,-54.1,0.0,top
@@ -80,7 +79,7 @@ R25,0Ω,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,80.5125,-47.5,90.0,top
 R26,0Ω,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,80.5125,-51.0,90.0,top
 R27,0Ω,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,80.5125,-57.8,90.0,top
 R28,0Ω,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,80.5125,-61.2,90.0,top
-R3,3.3kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,66.1,-63.0,90.0,top
+R3,2kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,66.1,-63.0,90.0,top
 R30,0Ω,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,80.5125,-54.4,90.0,top
 R31,4.3k,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,71.8,-67.9,0.0,top
 R34,27kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,45.6875,-30.95,180.0,top
@@ -89,7 +88,7 @@ R36,2.7kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,43.8025,-41.2875,-90.0,to
 R37,8.2kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,74.4475,-30.925,180.0,top
 R38,27kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,70.9475,-30.925,180.0,top
 R39,2.7kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,69.0625,-37.5125,-90.0,top
-R4,1kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,67.7,-63.0125,-90.0,top
+R4,2kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,67.7,-63.0125,-90.0,top
 R40,2.7kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,69.0625,-41.2625,-90.0,top
 R41,8.2kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,65.9,-30.9,180.0,top
 R42,8.2kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,57.5834,-30.925,180.0,top
@@ -100,7 +99,7 @@ R46,2.7kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,52.1984,-37.5125,-90.0,to
 R47,2.7kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,60.515,-41.2375,-90.0,top
 R48,2.7kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,52.1984,-41.2625,-90.0,top
 R49,8.2kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,83.15,-30.9,180.0,top
-R5,2kΩ,R_0805_2012Metric,48.9025,-61.7,0.0,top
+R5,2kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,48.8875,-61.6,0.0,top
 R50,27kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,79.65,-30.9,180.0,top
 R51,2.7kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,77.765,-37.4875,-90.0,top
 R52,2.7kΩ,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,77.765,-41.2375,-90.0,top
