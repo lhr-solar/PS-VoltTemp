@@ -10,6 +10,27 @@
 #include "printf.h"
 #include "UART.h"
 
+
+// Testing procedure for REV B 
+// 
+// For the pre-assembled boards, the first test will be seeing if REGOUT is working correctly.
+// If it is, we should be getting the steady 3.3, as opposed to random values jumping around.
+
+// Assuming it is steady, the next step is to test each board with the known working code,
+// that is the code with no task implementation.
+//
+// Once each board is verified alone, we need to test them together; in theory they should just work as normal.
+//
+// After we know multiple volt-temps can work together, we need to finish implementing the task compatible code.
+// (I was unable to finish this the other workday sadly)
+//
+// Upon finishing that code, we should repeat the steps of testing each volt temp and then chaining them together.
+//
+// After we have several volt-temps working, with the tasks, we should make any final tweaks needed before ordering
+// the remaining boards :-)
+
+
+
 uint32_t *cell_data;
 
 StaticTask_t xTaskBuffer;
