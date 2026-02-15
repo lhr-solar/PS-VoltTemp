@@ -57,16 +57,32 @@ void Init_Task(void *argument)
   vTaskDelete(NULL);
 }
 
+uint32_t cell_Data[6];
+
+
 void Task_ReadBQ(void *pvParameters)
 {
+
+  get_ADC_Info();
+
   while (1)
   {
-    // get_Voltage_All(cell_data);
-    printf("Hello, Hello\n");
+    get_Voltage_All(cell_Data);
+    
+    printf("\033[H");
+    printf("Voltage Readings:\r\n");
+    printf("Cell 1: %ld\r\n",cell_Data[0]);
+    printf("Cell 2: %ld\r\n",cell_Data[1]);
+    printf("Cell 3: %ld\r\n",cell_Data[2]);
+    printf("Cell 4: %ld\r\n",cell_Data[3]);
+    printf("Total_: %ld\r\n",cell_Data[4]);
+
     HAL_GPIO_TogglePin(HEARTBEAT_PORT, HEARTBEAT_PIN);
     vTaskDelay(pdMS_TO_TICKS(100));
   }
 }
+
+
 
 int main()
 {
@@ -86,7 +102,7 @@ int main()
   mx_uart_init();
 
   // init the chip with these i2c pins.
- // Init_BQ76920();
+  Init_BQ76920();
 
   xTaskCreateStatic(Init_Task,
                     "Init Task",
@@ -98,7 +114,7 @@ int main()
 
   xTaskCreateStatic(Task_ReadBQ,
                     "BQ Test",
-                    configMINIMAL_STACK_SIZE,
+                    512,
                     NULL,
                     tskIDLE_PRIORITY + 2,
                     xStack,

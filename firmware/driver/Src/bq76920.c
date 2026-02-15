@@ -8,227 +8,17 @@
 
 I2C_HandleTypeDef I2C_handler;
 
-// Semaphore handling things, copied from fan drivers.
+// Semaphore & mutex handling things
+//========================================================================================================
+//========================================================================================================
+SemaphoreHandle_t I2C_semaphore;
+StaticSemaphore_t I2C_semaphore_buffer_pool;
+
+SemaphoreHandle_t I2C_mutex;
+StaticSemaphore_t I2C_mutex_buffer_pool;
 //========================================================================================================
 //========================================================================================================
 
-// Buffers for static semaphores
-StaticSemaphore_t worker_semaphore_buffer;
-StaticSemaphore_t caller_semaphore_buffer_pool[BQ76920_SEMAPHORE_POOL_SIZE];
-// Semaphore handles for caller
-SemaphoreHandle_t caller_semaphore_handle_pool[BQ76920_SEMAPHORE_POOL_SIZE];
-// Status array to track semaphore usage
-volatile bool caller_semaphore_in_use[BQ76920_SEMAPHORE_POOL_SIZE] = {false};
-// Mutex for protecting the pool usage array
-StaticSemaphore_t caller_semaphore_pool_usage_buffer;
-SemaphoreHandle_t caller_semaphore_pool_usage_mutex;
-
-// Queue of I2C messages to be sent to the BQ76920
-QueueHandle_t BQ76920_I2C_Queue;
-// Array to use as the queue's storage area
-uint8_t ucQueueStorageArea[BQ76920_QUEUE_LENGTH * BQ76920_QUEUE_ITEM_SIZE];
-// Variable to hold the queue's data structure
-static StaticQueue_t BQ76920Queue;
-
-// Task buffer for I2C worker
-StaticTask_t BQ76920_I2C_TaskBuffer;
-// Task stack for I2C worker
-StackType_t BQ76920_I2C_TaskStack[configMINIMAL_STACK_SIZE];
-
-
-// Helper function to acquire a free semaphore index from the pool
-// Returns the index (0 to N-1) or -1 if the pool is full.
-static int8_t prvAcquireFreeSemaphore(void)
-{
-  int8_t index = -1;
-
-  if (xSemaphoreTake(caller_semaphore_pool_usage_mutex, portMAX_DELAY) == pdTRUE)
-  {
-    for (int i = 0; i < BQ76920_SEMAPHORE_POOL_SIZE; i++)
-    {
-      if (caller_semaphore_in_use[i] == false)
-      {
-        caller_semaphore_in_use[i] = true; // Mark as in use
-        index = i;
-        break;
-      }
-    }
-    xSemaphoreGive(caller_semaphore_pool_usage_mutex); // Release the mutex
-  }
-  return index;
-}
-
-// Helper function to return a semaphore to the pool
-static void prvReturnSemaphore(uint8_t index)
-{
-  if (xSemaphoreTake(caller_semaphore_pool_usage_mutex, portMAX_DELAY) == pdTRUE)
-  {
-    caller_semaphore_in_use[index] = false;            // Mark as free
-    xSemaphoreGive(caller_semaphore_pool_usage_mutex); // Release the mutex
-  }
-}
-
-BQ76920_Status BQ76920_ReadReg(BQ76920_HandleTypeDef *chip, uint8_t reg, uint8_t *data)
-{
-  // Acquire semaphore from the pool
-  int8_t index = prvAcquireFreeSemaphore();
-  if (index < 0)
-  {
-    // Pool full (Queue likely full too)
-    return BQ76920_ERR;
-  }
-  SemaphoreHandle_t complete = caller_semaphore_handle_pool[index];
-  if (complete == NULL)
-  {
-    return BQ76920_ERR;
-  }
-
-  // Ensure semaphore is taken
-  xSemaphoreTake(complete, 0);
-
-  // Pack message struct
-  BQ76920_I2C_Message msg = {
-      .chip = chip,
-      .operation = BQ76920_OP_READ,
-      .reg_addr = reg,
-      .write_data = 0,
-      .read_data = data,
-      .semaphore_index = (uint8_t)index,
-  };
-
-  if (xQueueSend(BQ76920_I2C_Queue, &msg, 0) != pdTRUE)
-  {
-    // Error if queue is full
-    prvReturnSemaphore(index);
-    return BQ76920_ERR;
-  }
-
-  // Wait for the worker task to signal completion
-  if (xSemaphoreTake(complete, pdMS_TO_TICKS(BQ76920_I2C_TIMEOUT * 2)) != pdTRUE)
-  {
-    // Timeout waiting for worker to finish the I2C operation
-    prvReturnSemaphore(index);
-    return BQ76920_ERR;
-  }
-
-  prvReturnSemaphore(index);
-  return BQ76920_OK;
-}
-
-BQ76920_Status BQ76920_WriteReg(BQ76920_HandleTypeDef *chip, uint8_t reg, uint8_t data)
-{
-  // Acquire semaphore from the pool
-  int8_t index = prvAcquireFreeSemaphore();
-  if (index < 0)
-  {
-    // Pool full (Queue likely full too)
-    return BQ76920_ERR;
-  }
-  SemaphoreHandle_t complete = caller_semaphore_handle_pool[index];
-  if (complete == NULL)
-  {
-    return BQ76920_ERR;
-  }
-
-  // Ensure semaphore is taken
-  xSemaphoreTake(complete, 0);
-
-  // Pack message struct
-  BQ76920_I2C_Message msg = {
-      .chip = chip,
-      .operation = BQ76920_OP_WRITE,
-      .reg_addr = reg,
-      .write_data = data,
-      .read_data = NULL,
-      .semaphore_index = (uint8_t)index,
-  };
-
-  if (xQueueSend(BQ76920_I2C_Queue, &msg, 0) != pdTRUE)
-  {
-    // Error if queue is full
-    prvReturnSemaphore(index);
-    return BQ76920_ERR;
-  }
-
-  // Wait for the worker task to signal completion
-  if (xSemaphoreTake(complete, pdMS_TO_TICKS(BQ76920_I2C_TIMEOUT * 2)) != pdTRUE)
-  {
-    // Timeout waiting for worker to finish the I2C operation
-    prvReturnSemaphore(index);
-    return BQ76920_ERR;
-  }
-
-  prvReturnSemaphore(index);
-  return BQ76920_OK;
-}
-
-// Worker task to consume messages from the queue and send on I2C bus
-void BQ76920_I2C_Worker_Task(void *pvParameters)
-{
-  BQ76920_I2C_Message msg = {0};
-  BQ76920_Status status = BQ76920_OK;
-
-  while (1)
-  {
-    // Block until message enters the queue
-    if (xQueueReceive(BQ76920_I2C_Queue, &msg, portMAX_DELAY) == pdTRUE)
-    {
-      // Retrieve the correct semaphore handle using the index
-      SemaphoreHandle_t complete = caller_semaphore_handle_pool[msg.semaphore_index];
-      status = BQ76920_OK;
-
-      if (msg.operation == BQ76920_OP_WRITE)
-      {
-        // Perform write operation
-        // Buffer so we don't pull a stupid
-        uint8_t tx_buffer[2] = {msg.reg_addr, msg.write_data};
-        // Transmit register + data
-        if (HAL_I2C_Master_Transmit_IT(msg.chip->hi2c, msg.chip->dev_addr, tx_buffer, 2) != HAL_OK)
-        {
-          status = BQ76920_ERR;
-        }
-        // Wait for ISR to signal completion
-        if ((status == BQ76920_OK) && (xSemaphoreTake(msg.chip->i2c_complete, pdMS_TO_TICKS(BQ76920_I2C_TIMEOUT)) != pdTRUE))
-        {
-          status = BQ76920_ERR;
-        }
-      }
-      else if (msg.operation == BQ76920_OP_READ)
-      {
-        // Perform read operation
-        // Transmit register to read
-        if (HAL_I2C_Master_Transmit_IT(msg.chip->hi2c, msg.chip->dev_addr, &msg.reg_addr, 1) != HAL_OK)
-        {
-          status = BQ76920_ERR;
-        }
-
-        // Wait for ISR to signal completion
-        if ((status == BQ76920_OK) && (xSemaphoreTake(msg.chip->i2c_complete, pdMS_TO_TICKS(BQ76920_I2C_TIMEOUT))) != pdTRUE)
-        {
-          status = BQ76920_ERR;
-        }
-
-        // Receive response
-        if ((status == BQ76920_OK) && (HAL_I2C_Master_Receive_IT(msg.chip->hi2c, msg.chip->dev_addr, msg.read_data, 1)) != HAL_OK)
-        {
-          status = BQ76920_ERR;
-        }
-
-        // Wait for ISR to signal completion
-        if ((status == BQ76920_OK) && (xSemaphoreTake(msg.chip->i2c_complete, pdMS_TO_TICKS(BQ76920_I2C_TIMEOUT)) != pdTRUE))
-        {
-          status = BQ76920_ERR;
-        }
-      }
-
-      // Signal to the calling task that I2C transaction has finished
-      xSemaphoreGive(complete);
-    }
-  }
-}
-
-//========================================================================================================
-//========================================================================================================
 
 // ADC gain and offset is set by the factory,
 // this function asks the chip what it is.
@@ -260,14 +50,56 @@ void Init_BQ76920()
   I2C_handler = hi2c1;
   // Pulls ADC info from the bms chip.
 
-  // Create RTOS queue
-    BQ76920_I2C_Queue = xQueueCreateStatic(BQ76920_QUEUE_LENGTH, BQ76920_QUEUE_ITEM_SIZE, ucQueueStorageArea, &BQ76920Queue);
-    if (BQ76920_I2C_Queue == NULL) Error_Handler();
+  I2C_semaphore = xSemaphoreCreateBinaryStatic(&I2C_semaphore_buffer_pool);
+  configASSERT(I2C_semaphore != NULL);
 
-
-  get_ADC_Info();
+  I2C_mutex = xSemaphoreCreateMutexStatic(&I2C_mutex_buffer_pool);
+  
 }
 //===============================================
+
+/**
+  * @brief This function handles I2C1 event interrupt.
+  */
+void I2C1_EV_IRQHandler(void) {
+    /* USER CODE BEGIN I2C1_EV_IRQn 0 */
+
+    /* USER CODE END I2C1_EV_IRQn 0 */
+    HAL_I2C_EV_IRQHandler(&hi2c1);
+    /* USER CODE BEGIN I2C1_EV_IRQn 1 */
+
+    /* USER CODE END I2C1_EV_IRQn 1 */
+}
+
+/**
+  * @brief This function handles I2C1 error interrupt.
+  */
+void I2C1_ER_IRQHandler(void) {
+    /* USER CODE BEGIN I2C1_ER_IRQn 0 */
+
+    /* USER CODE END I2C1_ER_IRQn 0 */
+    HAL_I2C_ER_IRQHandler(&hi2c1);
+    /* USER CODE BEGIN I2C1_ER_IRQn 1 */
+
+    /* USER CODE END I2C1_ER_IRQn 1 */
+}
+
+void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef *hi2c1){
+  BaseType_t xBQHigherPriorityTaskWoken = pdFALSE;
+
+  xSemaphoreGiveFromISR(I2C_semaphore, &xBQHigherPriorityTaskWoken);
+
+  portYIELD_FROM_ISR(xBQHigherPriorityTaskWoken);
+}
+
+void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c1){
+  BaseType_t xBQHigherPriorityTaskWoken = pdFALSE;
+  
+  xSemaphoreGiveFromISR(I2C_semaphore, &xBQHigherPriorityTaskWoken);
+  
+  portYIELD_FROM_ISR(xBQHigherPriorityTaskWoken);
+}
+
 
 // Read and write functions.
 //========================================================================================================
@@ -276,11 +108,24 @@ void Init_BQ76920()
 // Reads & returns data from one register.
 // Input is the register.
 //=================================================
+static uint8_t read_Data;
+
 uint8_t bq76920_Read_1_Reg(uint16_t Mem_Address)
 {
-  uint8_t read_Data;
-  HAL_I2C_Mem_Read(&I2C_handler, (DEV_ADD << 1), Mem_Address, MEM_SIZE, &read_Data, DATA_SIZE, TIMEOUT);
-  return (read_Data);
+
+  HAL_StatusTypeDef transmit_status;
+
+  if(xSemaphoreTake(I2C_mutex, pdMS_TO_TICKS(100)) != pdTRUE) return 0;
+  
+    transmit_status =  HAL_I2C_Mem_Read_IT(&hi2c1, (DEV_ADD << 1), Mem_Address, I2C_MEMADD_SIZE_8BIT, &read_Data, DATA_SIZE);
+  
+    if(xSemaphoreTake(I2C_semaphore, pdMS_TO_TICKS(100)) != pdTRUE) return 0;
+
+    if(transmit_status != HAL_OK) return 0;
+
+  xSemaphoreGive(I2C_mutex);
+
+ return (read_Data);
 }
 //=================================================
 
@@ -312,7 +157,11 @@ uint16_t bq76920_Read(uint16_t Mem_Add_1, uint16_t Mem_Add_2)
 //===================================================
 void bq76920_Write(uint16_t Mem_Address, uint8_t Write_Data)
 {
-  HAL_I2C_Mem_Write(&I2C_handler, (DEV_ADD << 1), Mem_Address, MEM_SIZE, &Write_Data, DATA_SIZE, TIMEOUT);
+
+
+  HAL_I2C_Mem_Write_IT(&I2C_handler, (DEV_ADD << 1), Mem_Address, MEM_SIZE, &Write_Data, DATA_SIZE);
+
+
 }
 //===================================================
 

@@ -12,6 +12,7 @@
 StackType_t Task_Init_Stack_Array[ TASK_INIT_STACK_SIZE ];
 StaticTask_t Task_Init_Buffer;
 
+/*
 int main(void) {
 
   // initialize the HAL and system clock
@@ -42,3 +43,5 @@ int main(void) {
     
     return 0;
 }
+
+*/
