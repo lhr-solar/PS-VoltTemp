@@ -29,10 +29,6 @@
 // After we have several volt-temps working, with the tasks, we should make any final tweaks needed before ordering
 // the remaining boards :-)
 
-
-
-uint32_t *cell_data;
-
 StaticTask_t xTaskBuffer;
 StackType_t xStack[configMINIMAL_STACK_SIZE];
 

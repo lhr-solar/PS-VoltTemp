@@ -8,14 +8,142 @@
 
 I2C_HandleTypeDef I2C_handler;
 
-// Semaphore & mutex handling things
+
+
+
+// I2C Interrupts 
 //========================================================================================================
+//========================================================================================================
+
+
+// Semaphore and mutex decl.
 //========================================================================================================
 SemaphoreHandle_t I2C_semaphore;
 StaticSemaphore_t I2C_semaphore_buffer_pool;
 
 SemaphoreHandle_t I2C_mutex;
 StaticSemaphore_t I2C_mutex_buffer_pool;
+//========================================================================================================
+
+
+void I2C1_EV_IRQHandler(void){HAL_I2C_EV_IRQHandler(&hi2c1);}
+
+void I2C1_ER_IRQHandler(void){HAL_I2C_ER_IRQHandler(&hi2c1);}
+
+
+void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef *hi2c1){
+  BaseType_t xBQHigherPriorityTaskWoken = pdFALSE;
+
+  xSemaphoreGiveFromISR(I2C_semaphore, &xBQHigherPriorityTaskWoken);
+
+  portYIELD_FROM_ISR(xBQHigherPriorityTaskWoken);
+}
+
+void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c1){
+  BaseType_t xBQHigherPriorityTaskWoken = pdFALSE;
+  
+  xSemaphoreGiveFromISR(I2C_semaphore, &xBQHigherPriorityTaskWoken);
+  
+  portYIELD_FROM_ISR(xBQHigherPriorityTaskWoken);
+}
+//========================================================================================================
+//========================================================================================================
+
+
+// Read and write functions.
+//========================================================================================================
+//========================================================================================================
+
+// Reads & returns data from one register.
+// Input is the register.
+//=================================================
+static uint8_t read_Data;
+
+uint8_t bq76920_Read_1_Reg(uint16_t Mem_Address){
+  HAL_StatusTypeDef tx_status;
+
+  if(xSemaphoreTake(I2C_mutex, pdMS_TO_TICKS(100)) != pdTRUE) return 0;
+  
+  tx_status =  HAL_I2C_Mem_Read_IT(&hi2c1, (DEV_ADD << 1),
+		 			 Mem_Address, I2C_MEMADD_SIZE_8BIT,
+					 &read_Data, DATA_SIZE);
+  
+  if((tx_status == HAL_OK) && (xSemaphoreTake(I2C_semaphore, pdMS_TO_TICKS(100)) != pdTRUE)){
+    xSemaphoreGive(I2C_mutex);
+    return 0;
+  }
+
+  xSemaphoreGive(I2C_mutex);
+  return (read_Data);
+}
+//=================================================
+
+// Reads one bit from a specific register
+// Inputs are register and bit to read.
+//======================================================
+uint8_t bq76920_R_1_bit(uint8_t reg, uint8_t bit_dec)
+{
+  return ((bq76920_Read_1_Reg(reg) >> (bit_dec)) & (0x1));
+}
+//======================================================
+
+// Most reads require HI & LO registers,
+// This function collects both and combines them.
+// Inputs are both registers.
+//=================================================
+uint16_t bq76920_Read(uint16_t Mem_Add_1, uint16_t Mem_Add_2)
+{
+  uint16_t data_1 = bq76920_Read_1_Reg(Mem_Add_1);
+  uint8_t data_2 = bq76920_Read_1_Reg(Mem_Add_2);
+  // most significant are from reading 1.
+  // shift left and then concatenate reading 2.
+  return ((data_1 << 8) | (data_2)); // :-)
+}
+//=================================================
+
+// Writes to the bms chip.
+// Inputs are address & data.
+//===================================================
+void bq76920_Write(uint16_t Mem_Address, uint8_t Write_Data)
+{
+  HAL_StatusTypeDef tx_status;
+
+  if(xSemaphoreTake(I2C_mutex, pdMS_TO_TICKS(100)) != pdTRUE) return;
+  
+  tx_status =  HAL_I2C_Mem_Write_IT(&hi2c1, (DEV_ADD << 1),
+		 		    Mem_Address, I2C_MEMADD_SIZE_8BIT,
+			            &read_Data, DATA_SIZE);
+  
+  if((tx_status == HAL_OK) && (xSemaphoreTake(I2C_semaphore, pdMS_TO_TICKS(100)) != pdTRUE)){
+    xSemaphoreGive(I2C_mutex);
+    return;
+  }
+
+  xSemaphoreGive(I2C_mutex);
+  return;
+}
+//===================================================
+
+// Writes to one bit in a specified register
+// Inputs are register, bit in decimal, state
+//==================================================================
+void bq76920_W_1_bit(uint8_t reg, uint8_t bit_dec, uint8_t state)
+{
+  uint8_t current = bq76920_Read_1_Reg(reg); // acquire current info
+  uint8_t new = current;                     // defaults to rewriting what was read.
+
+  // need different masks depending on whether you want to set or clear
+  if (state == HIGH)
+    new = (current | (1 << bit_dec));
+  else if (state == LOW)
+    new = (current & ~(1 << bit_dec));
+
+  // write to register.
+  bq76920_Write(reg, new);
+  //==================================================================
+}
+//==================================================================
+
 //========================================================================================================
 //========================================================================================================
 
@@ -58,135 +186,7 @@ void Init_BQ76920()
 }
 //===============================================
 
-/**
-  * @brief This function handles I2C1 event interrupt.
-  */
-void I2C1_EV_IRQHandler(void) {
-    /* USER CODE BEGIN I2C1_EV_IRQn 0 */
 
-    /* USER CODE END I2C1_EV_IRQn 0 */
-    HAL_I2C_EV_IRQHandler(&hi2c1);
-    /* USER CODE BEGIN I2C1_EV_IRQn 1 */
-
-    /* USER CODE END I2C1_EV_IRQn 1 */
-}
-
-/**
-  * @brief This function handles I2C1 error interrupt.
-  */
-void I2C1_ER_IRQHandler(void) {
-    /* USER CODE BEGIN I2C1_ER_IRQn 0 */
-
-    /* USER CODE END I2C1_ER_IRQn 0 */
-    HAL_I2C_ER_IRQHandler(&hi2c1);
-    /* USER CODE BEGIN I2C1_ER_IRQn 1 */
-
-    /* USER CODE END I2C1_ER_IRQn 1 */
-}
-
-void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef *hi2c1){
-  BaseType_t xBQHigherPriorityTaskWoken = pdFALSE;
-
-  xSemaphoreGiveFromISR(I2C_semaphore, &xBQHigherPriorityTaskWoken);
-
-  portYIELD_FROM_ISR(xBQHigherPriorityTaskWoken);
-}
-
-void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c1){
-  BaseType_t xBQHigherPriorityTaskWoken = pdFALSE;
-  
-  xSemaphoreGiveFromISR(I2C_semaphore, &xBQHigherPriorityTaskWoken);
-  
-  portYIELD_FROM_ISR(xBQHigherPriorityTaskWoken);
-}
-
-
-// Read and write functions.
-//========================================================================================================
-//========================================================================================================
-
-// Reads & returns data from one register.
-// Input is the register.
-//=================================================
-static uint8_t read_Data;
-
-uint8_t bq76920_Read_1_Reg(uint16_t Mem_Address)
-{
-
-  HAL_StatusTypeDef transmit_status;
-
-  if(xSemaphoreTake(I2C_mutex, pdMS_TO_TICKS(100)) != pdTRUE) return 0;
-  
-    transmit_status =  HAL_I2C_Mem_Read_IT(&hi2c1, (DEV_ADD << 1), Mem_Address, I2C_MEMADD_SIZE_8BIT, &read_Data, DATA_SIZE);
-  
-    if(xSemaphoreTake(I2C_semaphore, pdMS_TO_TICKS(100)) != pdTRUE) return 0;
-
-    if(transmit_status != HAL_OK) return 0;
-
-  xSemaphoreGive(I2C_mutex);
-
- return (read_Data);
-}
-//=================================================
-
-// Reads one bit from a specific register
-// Inputs are register and bit to read.
-//======================================================
-uint8_t bq76920_R_1_bit(uint8_t reg, uint8_t bit_dec)
-{
-  return ((bq76920_Read_1_Reg(reg) >> (bit_dec)) & (0x1));
-}
-//======================================================
-
-// Most reads require HI & LO registers,
-// This function collects both and combines them.
-// Inputs are both registers.
-//=================================================
-uint16_t bq76920_Read(uint16_t Mem_Add_1, uint16_t Mem_Add_2)
-{
-  uint16_t data_1 = bq76920_Read_1_Reg(Mem_Add_1);
-  uint8_t data_2 = bq76920_Read_1_Reg(Mem_Add_2);
-  // most significant are from reading 1.
-  // shift left and then concatenate reading 2.
-  return ((data_1 << 8) | (data_2)); // :-)
-}
-//=================================================
-
-// Writes to the bms chip.
-// Inputs are address & data.
-//===================================================
-void bq76920_Write(uint16_t Mem_Address, uint8_t Write_Data)
-{
-
-
-  HAL_I2C_Mem_Write_IT(&I2C_handler, (DEV_ADD << 1), Mem_Address, MEM_SIZE, &Write_Data, DATA_SIZE);
-
-
-}
-//===================================================
-
-// Writes to one bit in a specified register
-// Inputs are register, bit in decimal, state
-//==================================================================
-void bq76920_W_1_bit(uint8_t reg, uint8_t bit_dec, uint8_t state)
-{
-  uint8_t current = bq76920_Read_1_Reg(reg); // acquire current info
-  uint8_t new = current;                     // defaults to rewriting what was read.
-
-  // need different masks depending on whether you want to set or clear
-  if (state == HIGH)
-    new = (current | (1 << bit_dec));
-  else if (state == LOW)
-    new = (current & ~(1 << bit_dec));
-
-  // write to register.
-  bq76920_Write(reg, new);
-  //==================================================================
-}
-//==================================================================
-
-//========================================================================================================
-//========================================================================================================
 
 // Protection and control.
 //========================================================================================================
