@@ -30,7 +30,7 @@
 // the remaining boards :-)
 
 StaticTask_t xTaskBuffer;
-StackType_t xStack[512];
+StackType_t xStack[2048];
 
 StaticTask_t initTaskBuffer;
 StackType_t initTaskStack[512];
@@ -75,17 +75,18 @@ void Task_ReadBQ(void *pvParameters)
     printf("Total : %ld.%.3ld [V]\r\n",cell_Data[4]/1000000,(cell_Data[4]%1000000)/1000);
     */
 
-    reg_data = bq76920_Read_1_Reg(SYS_CTRL1);
+    bq76920_Read_1_Reg(SYS_CTRL1,&reg_data);
 
     printf("RegData  %d\r\n",reg_data);
     
     uint8_t write;
     if(reg_data==24)write = 0;
     else write = 1;
+    //sys_Write(TEMP_SEL,write);
     bq76920_W_1_bit(SYS_CTRL1,3,write);
 
     HAL_GPIO_TogglePin(HEARTBEAT_PORT, HEARTBEAT_PIN);
-    vTaskDelay(pdMS_TO_TICKS(100));
+    vTaskDelay(pdMS_TO_TICKS(200));
   }
 }
 
@@ -121,7 +122,7 @@ int main()
 
   xTaskCreateStatic(Task_ReadBQ,
                     "BQ Test",
-                    512,
+                    2048,
                     NULL,
                     tskIDLE_PRIORITY + 2,
                     xStack,

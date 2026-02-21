@@ -26,40 +26,12 @@ typedef struct {
     SemaphoreHandle_t i2c_complete; // Semaphore to signal I2C transaction complete
 } BQ76920_HandleTypeDef;
 
-// I2C Response Timeout
-#ifndef BQ76920_I2C_TIMEOUT
-#define BQ76920_I2C_TIMEOUT 100u // 100ms default
-#endif
-
-// I2C Operation Types
-typedef enum {
-    BQ76920_OP_WRITE,
-    BQ76920_OP_READ
-} BQ76920_I2C_OP;
-
-// I2C Message Struct
-typedef struct {
-    BQ76920_HandleTypeDef* chip;    // Chip to send to
-    BQ76920_I2C_OP operation;       // Read/Write operation
-    uint8_t reg_addr;               // Register address
-    uint8_t write_data;             // Data to write (only used for write operations)
-    uint8_t* read_data;             // Pointer for storing read data (only used for read operations)
-    uint8_t semaphore_index;        // Index of semaphore handle in pool
-} BQ76920_I2C_Message;
-
-#ifndef BQ76920_QUEUE_LENGTH
-#define BQ76920_QUEUE_LENGTH 10                             // Message queue length
-#endif
-
-#define BQ76920_QUEUE_ITEM_SIZE sizeof(BQ76920_I2C_Message) // Size of queue item (message)
-#define BQ76920_SEMAPHORE_POOL_SIZE BQ76920_QUEUE_LENGTH    // Number of caller semaphores (max concurrent I2C requests)
 
 // Device status
 typedef enum {
-    BQ76920_OK,
-    BQ76920_ERR,
+    BQ_OK,
+    BQ_ERR,
 } BQ76920_Status;
-
 
 // Commands.
 //========================================
@@ -154,13 +126,13 @@ typedef enum{
 #define LOW  0x0
 // returns data from the bms,
 // input is the address.
-uint8_t bq76920_Read_1_Reg(uint16_t);
+BQ76920_Status bq76920_Read_1_Reg(uint16_t,uint8_t*);
 // returns combined data from two, input is both.
-uint16_t bq76920_Read(uint16_t,uint16_t);
+BQ76920_Status bq76920_Read(uint16_t,uint16_t, uint16_t*);
 // Writes to bms, input is address.
-void bq76920_Write(uint16_t, uint8_t);
+BQ76920_Status bq76920_Write(uint16_t, uint8_t);
 // read or write to one bit of the bms
-void bq76920_W_1_bit(uint8_t, uint8_t, uint8_t);
+BQ76920_Status bq76920_W_1_bit(uint8_t, uint8_t, uint8_t);
 
 // Interact with Sys Registers
 uint8_t sys_Read(SysCommands);

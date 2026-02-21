@@ -9,12 +9,9 @@
 I2C_HandleTypeDef I2C_handler;
 
 
-
-
 // I2C Interrupts 
 //========================================================================================================
 //========================================================================================================
-
 
 // Semaphore and mutex decl.
 //========================================================================================================
@@ -65,26 +62,33 @@ void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c1){
 // Reads & returns data from one register.
 // Input is the register.
 //=================================================
-static uint8_t read_Data;
-
-uint8_t bq76920_Read_1_Reg(uint16_t Mem_Address){
+BQ76920_Status bq76920_Read_1_Reg(uint16_t Mem_Address, uint8_t* read_Data){
   HAL_StatusTypeDef rx_status;
 
-  if(xSemaphoreTake(I2C_mutex, pdMS_TO_TICKS(100)) != pdTRUE) return 0;
+  // acquire mutex
+  if(xSemaphoreTake(I2C_mutex, pdMS_TO_TICKS(100)) != pdTRUE) return BQ_ERR;
   
+  // ask politely to read
   rx_status =  HAL_I2C_Mem_Read_IT(&hi2c1, (DEV_ADD << 1),
 		 			 Mem_Address, I2C_MEMADD_SIZE_8BIT,
-					 &read_Data, DATA_SIZE);
+					 read_Data, DATA_SIZE);
  
+  // make sure read was ok
   if(rx_status == HAL_OK){
     // check for timeout
-    if(xSemaphoreTake(I2C_semaphore, pdMS_TO_TICKS(100)) != pdTRUE){xSemaphoreGive(I2C_mutex); return 0;}
-  
-  }else Error_Handler();
+    if(xSemaphoreTake(I2C_semaphore, pdMS_TO_TICKS(100)) != pdTRUE){
+      xSemaphoreGive(I2C_mutex);
+      HAL_I2C_Master_Abort_IT(&hi2c1,(DEV_ADD << 1));
+      return BQ_ERR;
+    }
+  }else{
+    xSemaphoreGive(I2C_mutex);
+    return BQ_ERR;
+  } 
 
+  // give up mutex & return
   xSemaphoreGive(I2C_mutex);
-
-  return (read_Data);
+  return BQ_OK;
 }
 //=================================================
 
@@ -92,7 +96,8 @@ uint8_t bq76920_Read_1_Reg(uint16_t Mem_Address){
 // Inputs are register and bit to read.
 //======================================================
 uint8_t bq76920_R_1_bit(uint8_t reg, uint8_t bit_dec){
-  return ((bq76920_Read_1_Reg(reg) >> (bit_dec)) & (0x1));
+  uint8_t read_val; bq76920_Read_1_Reg(reg, &read_val);
+  return ((read_val >> (bit_dec)) & (0x1));
 }
 //======================================================
 
@@ -100,19 +105,21 @@ uint8_t bq76920_R_1_bit(uint8_t reg, uint8_t bit_dec){
 // This function collects both and combines them.
 // Inputs are both registers.
 //=================================================
-uint16_t bq76920_Read(uint16_t Mem_Add_1, uint16_t Mem_Add_2)
+BQ76920_Status bq76920_Read(uint16_t Mem_Add_1, uint16_t Mem_Add_2, uint16_t* data)
 {
-  uint16_t data_1 = bq76920_Read_1_Reg(Mem_Add_1);
-  uint8_t data_2 = bq76920_Read_1_Reg(Mem_Add_2);
+  uint8_t data_1; bq76920_Read_1_Reg(Mem_Add_1, &data_1);
+  uint8_t data_2; bq76920_Read_1_Reg(Mem_Add_2, &data_2);
   // most significant are from reading 1.
   // shift left and then concatenate reading 2.
-  return ((data_1 << 8) | (data_2)); // :-)
+  *data = (data_1 << 8) | (data_2);
+  return BQ_OK; // :-)
 }
 //=================================================
 
 // Writes to the bms chip.
 // Inputs are address & data.
 //===================================================
+// CRC function for writing
 unsigned char CRC8(unsigned char *ptr, unsigned char len,unsigned char key){
 	unsigned char i;
 	unsigned char crc=0;
@@ -136,11 +143,17 @@ unsigned char CRC8(unsigned char *ptr, unsigned char len,unsigned char key){
 	return(crc);
 }
 
-static uint8_t crc_input[3];
-static uint8_t write_data[3];
+
  
-void bq76920_Write(uint16_t Mem_Address, uint8_t new_data){
+BQ76920_Status bq76920_Write(uint16_t Mem_Address, uint8_t new_data){
   HAL_StatusTypeDef tx_status;
+
+  // acquire semaphore
+  if(xSemaphoreTake(I2C_mutex, pdMS_TO_TICKS(100)) != pdTRUE) return BQ_ERR;
+
+  // perform the CRC things
+  uint8_t crc_input[3];
+  uint8_t write_data[3];
 
   crc_input[0] = (DEV_ADD << 1); 
   crc_input[1] = Mem_Address;
@@ -148,20 +161,28 @@ void bq76920_Write(uint16_t Mem_Address, uint8_t new_data){
 
   write_data[0] = new_data;
   write_data[1] = CRC8(crc_input, 3, 0x07);
-  
-  if(xSemaphoreTake(I2C_mutex, pdMS_TO_TICKS(100)) != pdTRUE) return;
 
+  // politely ask to write
   tx_status =  HAL_I2C_Mem_Write_IT(&hi2c1, (DEV_ADD << 1),
 		 		    Mem_Address, I2C_MEMADD_SIZE_8BIT,
 			      write_data, 2);
 
-  if((tx_status == HAL_OK) && (xSemaphoreTake(I2C_semaphore, pdMS_TO_TICKS(100)) != pdTRUE)){
-     if(xSemaphoreTake(I2C_semaphore, pdMS_TO_TICKS(100)) != pdTRUE){xSemaphoreGive(I2C_mutex); return;}
-  }
+  // make sure write was ok
+  if(tx_status == HAL_OK){
+    // check for timeout
+    if(xSemaphoreTake(I2C_semaphore, pdMS_TO_TICKS(100)) != pdTRUE){
+      xSemaphoreGive(I2C_mutex);
+      HAL_I2C_Master_Abort_IT(&hi2c1,(DEV_ADD << 1));
+      return BQ_ERR;
+    }
+  }else{
+    xSemaphoreGive(I2C_mutex);
+    return BQ_ERR;
+  } 
 
+  // return mutex and status
   xSemaphoreGive(I2C_mutex);
-
-  return;
+  return BQ_OK;
 }
 //===================================================
 
@@ -169,8 +190,9 @@ void bq76920_Write(uint16_t Mem_Address, uint8_t new_data){
 // Writes to one bit in a specified register
 // Inputs are register, bit in decimal, state
 //==================================================================
-void bq76920_W_1_bit(uint8_t reg, uint8_t bit_dec, uint8_t state){
-  uint8_t current = bq76920_Read_1_Reg(reg); // acquire current info
+BQ76920_Status bq76920_W_1_bit(uint8_t reg, uint8_t bit_dec, uint8_t state){
+  uint8_t current; 
+  if(bq76920_Read_1_Reg(reg, &current) != BQ_OK) return BQ_ERR; // acquire current info
   uint8_t new = current;                     // defaults to rewriting what was read.
 
   // need different masks depending on whether you want to set or clear
@@ -181,6 +203,7 @@ void bq76920_W_1_bit(uint8_t reg, uint8_t bit_dec, uint8_t state){
 
   // write to register.
   bq76920_Write(reg, new);
+  return BQ_OK;
   //==================================================================
 }
 //==================================================================
@@ -194,21 +217,24 @@ void bq76920_W_1_bit(uint8_t reg, uint8_t bit_dec, uint8_t state){
 //=================================================
 uint16_t ADC_gain = 365; // default 365.
 int32_t ADC_offset = 0;  // default 0, offset can be signed.
+uint8_t ADC_of_reading = 0;
 
 void get_ADC_Info(void)
 {
   // Gain is a minimum of 365 uV, can be set higher
-  uint8_t ADC_g_1 = bq76920_Read_1_Reg(ADCGAIN1);
-  uint8_t ADC_g_2 = bq76920_Read_1_Reg(ADCGAIN2);
+  uint8_t ADC_g_1; bq76920_Read_1_Reg(ADCGAIN1, &ADC_g_1);
+  uint8_t ADC_g_2; bq76920_Read_1_Reg(ADCGAIN2, &ADC_g_2);
 
   // ADC gain upper 2 MSB and lower 3 LSB are in diff regs.
   // They are also offset weirdly,
   // This offsets everything to the correct spot.
-  ADC_gain += (((ADC_g_1 << 1) & 0x18) | ((ADC_g_2 >> 5) & 0x7));
+  ADC_gain = 365 + (((ADC_g_1 << 1) & 0x18) | ((ADC_g_2 >> 5) & 0x7));
 
   // ADC_offset is stored in mV on the bms chip.
   // Need to convert to uV for using in voltage math.
-  ADC_offset = ((int8_t)(bq76920_Read_1_Reg(ADCOFFSET))) * (1000);
+  bq76920_Read_1_Reg(ADCOFFSET, &ADC_of_reading);
+  
+  ADC_offset = (int8_t)ADC_of_reading * (1000);
 }
 //=================================================
 
@@ -589,7 +615,7 @@ void protect_Write(ProtectCommands Command, uint8_t State)
 uint32_t get_Voltage_1(uint16_t cell)
 {
   // Cell is passed in as 0xabcd, this reads 0xab and 0xcd
-  uint16_t ADC_reading = bq76920_Read((cell >> 8), (cell & 0xFF));
+  uint16_t ADC_reading; bq76920_Read((cell >> 8), (cell & 0xFF), &ADC_reading);
 
   // Cell voltage = (ADC READING)*(GAIN) + (ADC OFFSET)       (in uV).
   // (ADC offset is converted from mV to uV during init).
