@@ -66,13 +66,11 @@ void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c1){
 // Input is the register.
 //=================================================
 static uint8_t read_Data;
-bool mutex_aquired = false; 
 
 uint8_t bq76920_Read_1_Reg(uint16_t Mem_Address){
   HAL_StatusTypeDef rx_status;
 
-  if(!mutex_aquired)
-    if(xSemaphoreTake(I2C_mutex, pdMS_TO_TICKS(100)) != pdTRUE) return 0;
+  if(xSemaphoreTake(I2C_mutex, pdMS_TO_TICKS(100)) != pdTRUE) return 0;
   
   rx_status =  HAL_I2C_Mem_Read_IT(&hi2c1, (DEV_ADD << 1),
 		 			 Mem_Address, I2C_MEMADD_SIZE_8BIT,
@@ -84,7 +82,7 @@ uint8_t bq76920_Read_1_Reg(uint16_t Mem_Address){
   
   }else Error_Handler();
 
-  if(!mutex_aquired) xSemaphoreGive(I2C_mutex);
+  xSemaphoreGive(I2C_mutex);
 
   return (read_Data);
 }
@@ -115,37 +113,65 @@ uint16_t bq76920_Read(uint16_t Mem_Add_1, uint16_t Mem_Add_2)
 // Writes to the bms chip.
 // Inputs are address & data.
 //===================================================
-static uint8_t new;
+unsigned char CRC8(unsigned char *ptr, unsigned char len,unsigned char key){
+	unsigned char i;
+	unsigned char crc=0;
+	while(len--!=0)
+	{
+		for(i=0x80; i!=0; i/=2)
+		{
+			if((crc & 0x80) != 0)
+			{
+				crc *= 2;
+				crc ^= key;
+			}
+			else
+				crc *= 2;
 
-void bq76920_Write(uint16_t Mem_Address)
-{
+			if((*ptr & i)!=0)
+				crc ^= key;
+		}
+		ptr++;
+	}
+	return(crc);
+}
 
+static uint8_t crc_input[3];
+static uint8_t write_data[3];
+ 
+void bq76920_Write(uint16_t Mem_Address, uint8_t new_data){
   HAL_StatusTypeDef tx_status;
+
+  crc_input[0] = (DEV_ADD << 1); 
+  crc_input[1] = Mem_Address;
+  crc_input[2] = new_data;
+
+  write_data[0] = new_data;
+  write_data[1] = CRC8(crc_input, 3, 0x07);
   
+  if(xSemaphoreTake(I2C_mutex, pdMS_TO_TICKS(100)) != pdTRUE) return;
+
   tx_status =  HAL_I2C_Mem_Write_IT(&hi2c1, (DEV_ADD << 1),
 		 		    Mem_Address, I2C_MEMADD_SIZE_8BIT,
-			            &new, DATA_SIZE);
-  
+			      write_data, 2);
+
   if((tx_status == HAL_OK) && (xSemaphoreTake(I2C_semaphore, pdMS_TO_TICKS(100)) != pdTRUE)){
-    return;
+     if(xSemaphoreTake(I2C_semaphore, pdMS_TO_TICKS(100)) != pdTRUE){xSemaphoreGive(I2C_mutex); return;}
   }
+
+  xSemaphoreGive(I2C_mutex);
 
   return;
 }
 //===================================================
 
+
 // Writes to one bit in a specified register
 // Inputs are register, bit in decimal, state
 //==================================================================
-
-
 void bq76920_W_1_bit(uint8_t reg, uint8_t bit_dec, uint8_t state){
-  // grab mutex for whole r/w call thing
-  if(xSemaphoreTake(I2C_mutex, pdMS_TO_TICKS(100)) != pdTRUE) return;
-  mutex_aquired = true;
-
   uint8_t current = bq76920_Read_1_Reg(reg); // acquire current info
-  new = current;                     // defaults to rewriting what was read.
+  uint8_t new = current;                     // defaults to rewriting what was read.
 
   // need different masks depending on whether you want to set or clear
   if (state == HIGH)
@@ -154,10 +180,7 @@ void bq76920_W_1_bit(uint8_t reg, uint8_t bit_dec, uint8_t state){
     new = (current & ~(1 << bit_dec));
 
   // write to register.
-  bq76920_Write(reg);
-
-  xSemaphoreGive(I2C_mutex);
-  mutex_aquired = false;
+  bq76920_Write(reg, new);
   //==================================================================
 }
 //==================================================================

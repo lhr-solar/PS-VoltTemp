@@ -30,7 +30,7 @@
 // the remaining boards :-)
 
 StaticTask_t xTaskBuffer;
-StackType_t xStack[configMINIMAL_STACK_SIZE];
+StackType_t xStack[512];
 
 StaticTask_t initTaskBuffer;
 StackType_t initTaskStack[512];
@@ -79,7 +79,10 @@ void Task_ReadBQ(void *pvParameters)
 
     printf("RegData  %d\r\n",reg_data);
     
-    bq76920_W_1_bit(SYS_CTRL1,3,1);
+    uint8_t write;
+    if(reg_data==24)write = 0;
+    else write = 1;
+    bq76920_W_1_bit(SYS_CTRL1,3,write);
 
     HAL_GPIO_TogglePin(HEARTBEAT_PORT, HEARTBEAT_PIN);
     vTaskDelay(pdMS_TO_TICKS(100));
