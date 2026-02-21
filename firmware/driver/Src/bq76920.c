@@ -39,6 +39,14 @@ void HAL_I2C_MemRxCpltCallback(I2C_HandleTypeDef *hi2c1){
   portYIELD_FROM_ISR(xBQHigherPriorityTaskWoken);
 }
 
+void HAL_I2C_MemTxCpltCallback(I2C_HandleTypeDef *hi2c1){
+  BaseType_t xBQHigherPriorityTaskWoken = pdFALSE;
+
+  xSemaphoreGiveFromISR(I2C_semaphore, &xBQHigherPriorityTaskWoken);
+
+  portYIELD_FROM_ISR(xBQHigherPriorityTaskWoken);
+}
+
 void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c1){
   BaseType_t xBQHigherPriorityTaskWoken = pdFALSE;
   
@@ -58,22 +66,26 @@ void HAL_I2C_ErrorCallback(I2C_HandleTypeDef *hi2c1){
 // Input is the register.
 //=================================================
 static uint8_t read_Data;
+bool mutex_aquired = false; 
 
 uint8_t bq76920_Read_1_Reg(uint16_t Mem_Address){
-  HAL_StatusTypeDef tx_status;
+  HAL_StatusTypeDef rx_status;
 
-  if(xSemaphoreTake(I2C_mutex, pdMS_TO_TICKS(100)) != pdTRUE) return 0;
+  if(!mutex_aquired)
+    if(xSemaphoreTake(I2C_mutex, pdMS_TO_TICKS(100)) != pdTRUE) return 0;
   
-  tx_status =  HAL_I2C_Mem_Read_IT(&hi2c1, (DEV_ADD << 1),
+  rx_status =  HAL_I2C_Mem_Read_IT(&hi2c1, (DEV_ADD << 1),
 		 			 Mem_Address, I2C_MEMADD_SIZE_8BIT,
 					 &read_Data, DATA_SIZE);
+ 
+  if(rx_status == HAL_OK){
+    // check for timeout
+    if(xSemaphoreTake(I2C_semaphore, pdMS_TO_TICKS(100)) != pdTRUE){xSemaphoreGive(I2C_mutex); return 0;}
   
-  if((tx_status == HAL_OK) && (xSemaphoreTake(I2C_semaphore, pdMS_TO_TICKS(100)) != pdTRUE)){
-    xSemaphoreGive(I2C_mutex);
-    return 0;
-  }
+  }else Error_Handler();
 
-  xSemaphoreGive(I2C_mutex);
+  if(!mutex_aquired) xSemaphoreGive(I2C_mutex);
+
   return (read_Data);
 }
 //=================================================
@@ -81,8 +93,7 @@ uint8_t bq76920_Read_1_Reg(uint16_t Mem_Address){
 // Reads one bit from a specific register
 // Inputs are register and bit to read.
 //======================================================
-uint8_t bq76920_R_1_bit(uint8_t reg, uint8_t bit_dec)
-{
+uint8_t bq76920_R_1_bit(uint8_t reg, uint8_t bit_dec){
   return ((bq76920_Read_1_Reg(reg) >> (bit_dec)) & (0x1));
 }
 //======================================================
@@ -104,22 +115,21 @@ uint16_t bq76920_Read(uint16_t Mem_Add_1, uint16_t Mem_Add_2)
 // Writes to the bms chip.
 // Inputs are address & data.
 //===================================================
-void bq76920_Write(uint16_t Mem_Address, uint8_t Write_Data)
-{
-  HAL_StatusTypeDef tx_status;
+static uint8_t new;
 
-  if(xSemaphoreTake(I2C_mutex, pdMS_TO_TICKS(100)) != pdTRUE) return;
+void bq76920_Write(uint16_t Mem_Address)
+{
+
+  HAL_StatusTypeDef tx_status;
   
   tx_status =  HAL_I2C_Mem_Write_IT(&hi2c1, (DEV_ADD << 1),
 		 		    Mem_Address, I2C_MEMADD_SIZE_8BIT,
-			            &read_Data, DATA_SIZE);
+			            &new, DATA_SIZE);
   
   if((tx_status == HAL_OK) && (xSemaphoreTake(I2C_semaphore, pdMS_TO_TICKS(100)) != pdTRUE)){
-    xSemaphoreGive(I2C_mutex);
     return;
   }
 
-  xSemaphoreGive(I2C_mutex);
   return;
 }
 //===================================================
@@ -127,10 +137,15 @@ void bq76920_Write(uint16_t Mem_Address, uint8_t Write_Data)
 // Writes to one bit in a specified register
 // Inputs are register, bit in decimal, state
 //==================================================================
-void bq76920_W_1_bit(uint8_t reg, uint8_t bit_dec, uint8_t state)
-{
+
+
+void bq76920_W_1_bit(uint8_t reg, uint8_t bit_dec, uint8_t state){
+  // grab mutex for whole r/w call thing
+  if(xSemaphoreTake(I2C_mutex, pdMS_TO_TICKS(100)) != pdTRUE) return;
+  mutex_aquired = true;
+
   uint8_t current = bq76920_Read_1_Reg(reg); // acquire current info
-  uint8_t new = current;                     // defaults to rewriting what was read.
+  new = current;                     // defaults to rewriting what was read.
 
   // need different masks depending on whether you want to set or clear
   if (state == HIGH)
@@ -139,7 +154,10 @@ void bq76920_W_1_bit(uint8_t reg, uint8_t bit_dec, uint8_t state)
     new = (current & ~(1 << bit_dec));
 
   // write to register.
-  bq76920_Write(reg, new);
+  bq76920_Write(reg);
+
+  xSemaphoreGive(I2C_mutex);
+  mutex_aquired = false;
   //==================================================================
 }
 //==================================================================

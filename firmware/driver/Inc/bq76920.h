@@ -158,9 +158,9 @@ uint8_t bq76920_Read_1_Reg(uint16_t);
 // returns combined data from two, input is both.
 uint16_t bq76920_Read(uint16_t,uint16_t);
 // Writes to bms, input is address.
-void bq76920_Write(uint16_t, uint8_t);
+void bq76920_Write(uint16_t);
 // read or write to one bit of the bms
-
+void bq76920_W_1_bit(uint8_t, uint8_t, uint8_t);
 
 // Interact with Sys Registers
 uint8_t sys_Read(SysCommands);

@@ -33,7 +33,7 @@ StaticTask_t xTaskBuffer;
 StackType_t xStack[configMINIMAL_STACK_SIZE];
 
 StaticTask_t initTaskBuffer;
-StackType_t initTaskStack[configMINIMAL_STACK_SIZE];
+StackType_t initTaskStack[512];
 
 // Initialize UART and EMC2305
 void Init_Task(void *argument)
@@ -54,7 +54,7 @@ void Init_Task(void *argument)
 }
 
 uint32_t cell_Data[6];
-
+uint8_t reg_data;
 
 void Task_ReadBQ(void *pvParameters)
 {
@@ -63,15 +63,23 @@ void Task_ReadBQ(void *pvParameters)
 
   while (1)
   {
-    get_Voltage_All(cell_Data);
     
+    get_Voltage_All(cell_Data);
+    /*
     printf("\033[H");
     printf("Voltage Readings:\r\n");
-    printf("Cell 1: %ld\r\n",cell_Data[0]);
-    printf("Cell 2: %ld\r\n",cell_Data[1]);
-    printf("Cell 3: %ld\r\n",cell_Data[2]);
-    printf("Cell 4: %ld\r\n",cell_Data[3]);
-    printf("Total_: %ld\r\n",cell_Data[4]);
+    printf("Cell 1: %ld.%.3ld  [V]\r\n",cell_Data[0]/1000000,(cell_Data[0]%1000000)/1000);
+    printf("Cell 2: %ld.%.3ld  [V]\r\n",cell_Data[1]/1000000,(cell_Data[1]%1000000)/1000);
+    printf("Cell 3: %ld.%.3ld  [V]\r\n",cell_Data[2]/1000000,(cell_Data[2]%1000000)/1000);
+    printf("Cell 4: %ld.%.3ld  [V]\r\n",cell_Data[3]/1000000,(cell_Data[3]%1000000)/1000);
+    printf("Total : %ld.%.3ld [V]\r\n",cell_Data[4]/1000000,(cell_Data[4]%1000000)/1000);
+    */
+
+    reg_data = bq76920_Read_1_Reg(SYS_CTRL1);
+
+    printf("RegData  %d\r\n",reg_data);
+    
+    bq76920_W_1_bit(SYS_CTRL1,3,1);
 
     HAL_GPIO_TogglePin(HEARTBEAT_PORT, HEARTBEAT_PIN);
     vTaskDelay(pdMS_TO_TICKS(100));
