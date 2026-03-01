@@ -1,4 +1,5 @@
 #include "temp_read.h"
+#include "inits.h"
 
 /** ================================================================
  *  Local Variables
@@ -35,68 +36,119 @@ static StaticQueue_t xStaticQueue_temp5;
  * - Called by HAL_ADC_Init().
  */
  void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc) {
-    GPIO_InitTypeDef ADC1_5_InitStruct = {0};
-    GPIO_InitTypeDef ADC1_7_InitStruct = {0};
-    GPIO_InitTypeDef ADC1_9_InitStruct = {0};
-    GPIO_InitTypeDef ADC1_10_InitStruct = {0};
-    GPIO_InitTypeDef ADC1_11_InitStruct = {0};
+    GPIO_InitTypeDef GPIO_InitStruct = {0};
     RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
+    if(hadc->Instance==ADC1)
+    {
+        /* USER CODE BEGIN ADC1_MspInit 0 */
 
-    if(hadc->Instance==ADC1) {
+        /* USER CODE END ADC1_MspInit 0 */
+
     /** Initializes the peripherals clock
      */
-    PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC;
-    PeriphClkInit.AdcClockSelection = RCC_ADCCLKSOURCE_PLLSAI1;
-    PeriphClkInit.PLLSAI1.PLLSAI1Source = RCC_PLLSOURCE_MSI;
-    PeriphClkInit.PLLSAI1.PLLSAI1M = 1;
-    PeriphClkInit.PLLSAI1.PLLSAI1N = 16;
-    PeriphClkInit.PLLSAI1.PLLSAI1P = RCC_PLLP_DIV7;
-    PeriphClkInit.PLLSAI1.PLLSAI1Q = RCC_PLLQ_DIV2;
-    PeriphClkInit.PLLSAI1.PLLSAI1R = RCC_PLLR_DIV2;
-    PeriphClkInit.PLLSAI1.PLLSAI1ClockOut = RCC_PLLSAI1_ADC1CLK;
-    if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK) {
-      Error_Handler();
-    }
+        PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC;
+        PeriphClkInit.AdcClockSelection = RCC_ADCCLKSOURCE_PLLSAI1;
+        PeriphClkInit.PLLSAI1.PLLSAI1Source = RCC_PLLSOURCE_HSE;
+        PeriphClkInit.PLLSAI1.PLLSAI1M = 1;
+        PeriphClkInit.PLLSAI1.PLLSAI1N = 8;
+        PeriphClkInit.PLLSAI1.PLLSAI1P = RCC_PLLP_DIV7;
+        PeriphClkInit.PLLSAI1.PLLSAI1Q = RCC_PLLQ_DIV2;
+        PeriphClkInit.PLLSAI1.PLLSAI1R = RCC_PLLR_DIV2;
+        PeriphClkInit.PLLSAI1.PLLSAI1ClockOut = RCC_PLLSAI1_ADC1CLK;
+        if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK)
+        {
+        Error_Handler();
+        }
 
-    /* Peripheral clock enable */
-    __HAL_RCC_ADC_CLK_ENABLE();
+        /* Peripheral clock enable */
+        __HAL_RCC_ADC_CLK_ENABLE();
 
-    /**ADC1 GPIO Configuration
-    PA0     ------> ADC1_IN5
-    PA2     ------> ADC1_IN7
-    PA4     ------> ADC1_IN9
-    PA5     ------> ADC1_IN10
-    PA6     ------> ADC1_IN11
-    */
-    __HAL_RCC_GPIOA_CLK_ENABLE();
-    ADC1_5_InitStruct.Pin = TEMP5_PIN;
-    ADC1_5_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
-    ADC1_5_InitStruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(TEMP5_PORT, &ADC1_5_InitStruct);
+        __HAL_RCC_GPIOA_CLK_ENABLE();
+        __HAL_RCC_GPIOB_CLK_ENABLE();
+        /**ADC1 GPIO Configuration
+        PA0     ------> ADC1_IN5
+        PA2     ------> ADC1_IN7
+        PA4     ------> ADC1_IN9
+        PA5     ------> ADC1_IN10
+        PA6     ------> ADC1_IN11
+        PB1     ------> ADC1_IN16
+        */
+        GPIO_InitStruct.Pin = GPIO_PIN_0|GPIO_PIN_2|GPIO_PIN_4|GPIO_PIN_5
+                            |GPIO_PIN_6;
+        GPIO_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
+        GPIO_InitStruct.Pull = GPIO_NOPULL;
+        HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-    ADC1_7_InitStruct.Pin = TEMP3_PIN;
-    ADC1_7_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
-    ADC1_7_InitStruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(TEMP3_PORT, &ADC1_7_InitStruct);
+        GPIO_InitStruct.Pin = GPIO_PIN_1;
+        GPIO_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
+        GPIO_InitStruct.Pull = GPIO_NOPULL;
+        HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
-    ADC1_9_InitStruct.Pin = TEMP2_PIN;
-    ADC1_9_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
-    ADC1_9_InitStruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(TEMP2_PORT, &ADC1_9_InitStruct);
+        /* ADC1 interrupt Init */
+        HAL_NVIC_SetPriority(ADC1_IRQn, 5, 0);
+        HAL_NVIC_EnableIRQ(ADC1_IRQn);
+    // GPIO_InitTypeDef ADC1_5_InitStruct = {0};
+    // GPIO_InitTypeDef ADC1_7_InitStruct = {0};
+    // GPIO_InitTypeDef ADC1_9_InitStruct = {0};
+    // GPIO_InitTypeDef ADC1_10_InitStruct = {0};
+    // GPIO_InitTypeDef ADC1_11_InitStruct = {0};
+    // RCC_PeriphCLKInitTypeDef PeriphClkInit = {0};
 
-    ADC1_10_InitStruct.Pin = TEMP1_PIN;
-    ADC1_10_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
-    ADC1_10_InitStruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(TEMP1_PORT, &ADC1_10_InitStruct);
+    // if(hadc->Instance==ADC1) {
+    // /** Initializes the peripherals clock
+    //  */
+    // PeriphClkInit.PeriphClockSelection = RCC_PERIPHCLK_ADC;
+    // PeriphClkInit.AdcClockSelection = RCC_ADCCLKSOURCE_PLLSAI1;
+    // PeriphClkInit.PLLSAI1.PLLSAI1Source = RCC_PLLSOURCE_MSI;
+    // PeriphClkInit.PLLSAI1.PLLSAI1M = 1;
+    // PeriphClkInit.PLLSAI1.PLLSAI1N = 16;
+    // PeriphClkInit.PLLSAI1.PLLSAI1P = RCC_PLLP_DIV7;
+    // PeriphClkInit.PLLSAI1.PLLSAI1Q = RCC_PLLQ_DIV2;
+    // PeriphClkInit.PLLSAI1.PLLSAI1R = RCC_PLLR_DIV2;
+    // PeriphClkInit.PLLSAI1.PLLSAI1ClockOut = RCC_PLLSAI1_ADC1CLK;
+    // if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInit) != HAL_OK) {
+    //   Error_Handler();
+    // }
 
-    ADC1_11_InitStruct.Pin = TEMP4_PIN;
-    ADC1_11_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
-    ADC1_11_InitStruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(TEMP4_PORT, &ADC1_11_InitStruct);
+    // /* Peripheral clock enable */
+    // __HAL_RCC_ADC_CLK_ENABLE();
 
-    /* ADC1 interrupt Init: PRIO MUST BE AT LEAST 5 */
-    HAL_NVIC_SetPriority(ADC1_IRQn, configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY, 0);
-    HAL_NVIC_EnableIRQ(ADC1_IRQn);
+    // /**ADC1 GPIO Configuration
+    // PA0     ------> ADC1_IN5
+    // PA2     ------> ADC1_IN7
+    // PA4     ------> ADC1_IN9
+    // PA5     ------> ADC1_IN10
+    // PA6     ------> ADC1_IN11
+    // */
+    // __HAL_RCC_GPIOA_CLK_ENABLE();
+    // ADC1_5_InitStruct.Pin = TEMP5_PIN;
+    // ADC1_5_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
+    // ADC1_5_InitStruct.Pull = GPIO_NOPULL;
+    // HAL_GPIO_Init(TEMP5_PORT, &ADC1_5_InitStruct);
+
+    // ADC1_7_InitStruct.Pin = TEMP3_PIN;
+    // ADC1_7_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
+    // ADC1_7_InitStruct.Pull = GPIO_NOPULL;
+    // HAL_GPIO_Init(TEMP3_PORT, &ADC1_7_InitStruct);
+
+    // ADC1_9_InitStruct.Pin = TEMP2_PIN;
+    // ADC1_9_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
+    // ADC1_9_InitStruct.Pull = GPIO_NOPULL;
+    // HAL_GPIO_Init(TEMP2_PORT, &ADC1_9_InitStruct);
+
+    // ADC1_10_InitStruct.Pin = TEMP1_PIN;
+    // ADC1_10_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
+    // ADC1_10_InitStruct.Pull = GPIO_NOPULL;
+    // HAL_GPIO_Init(TEMP1_PORT, &ADC1_10_InitStruct);
+
+    // ADC1_11_InitStruct.Pin = TEMP4_PIN;
+    // ADC1_11_InitStruct.Mode = GPIO_MODE_ANALOG_ADC_CONTROL;
+    // ADC1_11_InitStruct.Pull = GPIO_NOPULL;
+    // HAL_GPIO_Init(TEMP4_PORT, &ADC1_11_InitStruct);
+
+    // /* ADC1 interrupt Init: PRIO MUST BE AT LEAST 5 */
+    // HAL_NVIC_SetPriority(ADC1_IRQn, configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY, 0);
+    // HAL_NVIC_EnableIRQ(ADC1_IRQn);
   }
 }
 
@@ -161,22 +213,24 @@ static bool VoltTemp_ADC_Init() {
     /* ================ ADC Init Struct ================ */
     ADC_InitTypeDef init = {0};
 
-    init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV2; /* ADC clock: synchronous */
-    init.Resolution = ADC_RESOLUTION_12B;           /* 12 bit ADC */
+    /** Common config
+     */
+    
+    init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
+    init.Resolution = ADC_RESOLUTION_12B;
     init.DataAlign = ADC_DATAALIGN_RIGHT;
     init.ScanConvMode = ADC_SCAN_DISABLE;
     init.EOCSelection = ADC_EOC_SINGLE_CONV;
     init.LowPowerAutoWait = DISABLE;
-    init.ContinuousConvMode = DISABLE;              /* Single Conversion */
+    init.ContinuousConvMode = DISABLE;
     init.NbrOfConversion = 1;
     init.DiscontinuousConvMode = DISABLE;
-    init.DMAContinuousRequests = DISABLE;
-    init.Overrun = ADC_OVR_DATA_OVERWRITTEN;    // Overwrites data on overrun: vs ADC_OVR_DATA_PRESERVED
-    init.OversamplingMode = DISABLE;
-
-    /* Software triggered conversion */
     init.ExternalTrigConv = ADC_SOFTWARE_START;
     init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+    init.DMAContinuousRequests = DISABLE;
+    init.Overrun = ADC_OVR_DATA_OVERWRITTEN;
+    init.OversamplingMode = DISABLE;
+    
 
     /* Initialize ADC */
     volatile adc_status_t s = adc_init(&init, hadc1);
@@ -198,7 +252,7 @@ temp_status_t temp_init() {
     /* HAL_Init should be run before this is called */
 
     // Initialize GPIO
-    MX_GPIO_Init();
+    //Temp_GPIO_Init();
 
     // Init ADC
     if (!VoltTemp_ADC_Init()) return TEMP_INIT_FAIL;
@@ -207,12 +261,28 @@ temp_status_t temp_init() {
 }
 
 int32_t VoltTemp_ADCToTemp(uint16_t adc_val) {
-    // TODO
+
+    // 0.2V - 3.2V corresponds to 10C - 85C
+
+    // 0-4095 ADC value corresponds to 
+
+    // Returns temperature in CENTIDEGREES C for fixed point precision (e.g. 2534 = 25.34C)
+
     // Get signed ADC value in terms of reference point; scale for fixed point math
-    int32_t adc_signed = ((int32_t)adc_val*1000) - AMPERES_ADC_VREF_SCALED;
-    // Convert to mA using intermediate scaling (see comments in Amperes.h)
-    int32_t current_mA = (int32_t) (((int64_t) adc_signed * AMPERES_CONV_NUM_SCALED) / ((int64_t)AMPERES_CONV_DEN_SCALED));
-    return current_mA;
+    if (adc_val <= ADC_MIN)
+        return TEMP_MIN_CENTI;
+
+    if (adc_val >= ADC_MAX)
+        return TEMP_MIN_CENTI + TEMP_RANGE_CENTI;
+
+    int32_t delta_adc = adc_val - ADC_MIN;
+
+    // Linear interpolation:
+    // T = Tmin + (delta_adc * TempRange) / ADCrange
+    int32_t temp = TEMP_MIN_CENTI +
+                    (delta_adc * TEMP_RANGE_CENTI) / ADC_RANGE;
+
+    return temp;
 }
 
 temp_status_t VoltTemp_StartADC(bool clearQueue, uint8_t temp_select) {
@@ -238,18 +308,24 @@ temp_status_t VoltTemp_StartADC(bool clearQueue, uint8_t temp_select) {
 
 temp_status_t VoltTemp_GetReading(uint8_t temp_select, TempMsg_t *message, TickType_t ticksToWait) {
     // Get ADC value from queue
-    QueueHandle_t queue = NULL;
-    switch(temp_select) {
-        case 1: queue = temp1_queue; break;
-        case 2: queue = temp2_queue; break;
-        case 3: queue = temp3_queue; break;
-        case 4: queue = temp4_queue; break;
-        case 5: queue = temp5_queue; break;
-    }
-    if (xQueueReceive(queue, &(message->adc_voltage), ticksToWait) != pdPASS) { 
-        return TEMP_ADC_READ_FAIL;
-    }
-    message->current_data = VoltTemp_ADCToTemp(message->adc_voltage);
+    // QueueHandle_t* queue = NULL;
+    // switch(temp_select) {
+    //     case 1: queue = &temp1_queue; break;
+    //     case 2: queue = &temp2_queue; break;
+    //     case 3: queue = &temp3_queue; break;
+    //     case 4: queue = &temp4_queue; break;
+    //     case 5: queue = &temp5_queue; break;
+    // }
+    xQueueReceive(temp1_queue, &(message->adc_voltage), ticksToWait);
+    xQueueReceive(temp2_queue, &(message->adc_voltage), ticksToWait);
+    xQueueReceive(temp3_queue, &(message->adc_voltage), ticksToWait);
+    xQueueReceive(temp4_queue, &(message->adc_voltage), ticksToWait);
+    xQueueReceive(temp5_queue, &(message->adc_voltage), ticksToWait);
+    
+    // if (xQueueReceive(temp1_queue, &(message->adc_voltage), ticksToWait) != pdPASS) { 
+    //     return TEMP_ADC_READ_FAIL;
+    // }
+    //message->current_data = VoltTemp_ADCToTemp(message->adc_voltage);
     return TEMP_OK;
 }
 

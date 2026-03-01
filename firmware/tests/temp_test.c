@@ -1,39 +1,110 @@
-#include "stm32xx_hal.h"
+#include <stm32l4xx_hal.h>
+#include <bq76920.h>
+#include <common.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include "leds.h"
 #include "temp_read.h"
+#include "pinConfig.h"
+#include "inits.h"
+#include "FreeRTOS.h"
+#include "printf.h"
+#include "UART.h"
 
 StaticTask_t xBlinkyTaskBuffer;
-StackType_t xBlinkyStack[ 200 ];
+StackType_t xBlinkyStack[configMINIMAL_STACK_SIZE];
 StaticTask_t xQueueTaskBuffer;
-StackType_t xQueueStack[ 200 ];
+StackType_t xQueueStack[ 512 ];
+StackType_t xInitStack[configMINIMAL_STACK_SIZE];
+StaticTask_t initTaskBuffer;
 
 void ADC_Task(void *pvParameters) {
-    TempMsg_t message;
-    TickType_t xLastWakeTime = xTaskGetTickCount();
+    TempMsg_t message = {0};
+ //   TickType_t xLastWakeTime = xTaskGetTickCount();
 
     while (1) {
         // Start ADC reading
-        // Reset queue to prevent race condition (data already in queue and task does not wake up)
-        if (VoltTemp_StartADC(true, 1) != TEMP_OK) {
-           // Error_Handler();
+        printf("ADC Task started\r\n");
+        //Reset queue to prevent race condition (data already in queue and task does not wake up)
+        if (VoltTemp_StartADC(false, TEMP1) != TEMP_OK) {
+            Error_Handler();
         };
+        printf("ADC1 started\r\n");
 
-        // Block until we receive data in queue
-        if (VoltTemp_GetReading(1, &message, portMAX_DELAY) == TEMP_OK) {
+        if (VoltTemp_StartADC(false, TEMP2) != TEMP_OK) {
+            Error_Handler();
+        };
+        printf("ADC2 started\r\n");
+
+        if (VoltTemp_StartADC(false, TEMP3) != TEMP_OK) {
+            Error_Handler();
+        };
+        printf("ADC3 started\r\n");
+
+        if (VoltTemp_StartADC(false, TEMP4) != TEMP_OK) {
+            Error_Handler();
+        };
+        printf("ADC4 started\r\n");
+
+        if (VoltTemp_StartADC(false, TEMP5) != TEMP_OK) {
+            Error_Handler();
+        };
+        printf("ADC5 started\r\n");
+
+        //Block until we receive data in queue
+        
+        if (VoltTemp_GetReading(TEMP1, &message, pdMS_TO_TICKS(100)) != TEMP_OK) {
+            printf("Failed to get reading\r\n");
+            Error_Handler();
+        } else {
+            printf("Reading success\r\n");
             // Convert data to current measurent
             message.current_data = VoltTemp_ADCToTemp(message.adc_voltage);
         }
         
-        HAL_GPIO_TogglePin(TEMP_GPIO_PORT, TEMP_CHARGE_PIN);
-        vTaskDelayUntil(&xLastWakeTime, pdMS_TO_TICKS(1000));
+        HAL_GPIO_TogglePin(PSOM_LED1_PORT, PSOM_LED1_PIN);
+        printf("Temp: %ld C\r\n", message.current_data);
+        printf("ADC Voltage: %d\r\n", message.adc_voltage);
+        vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }
 
 void Task_Blinky(void *pvParameters) {
     while (1) {
-        HAL_GPIO_TogglePin(TEMP_GPIO_PORT, TEMP_HB_PIN);
+        HAL_GPIO_TogglePin(PSOM_LED2_PORT, PSOM_LED2_PIN);
         vTaskDelay(pdMS_TO_TICKS(500));
     }
 }
+
+void Init_Task(void *argument)
+{
+    // Init UART printf
+    husart1->Init.BaudRate = 115200;
+    husart1->Init.WordLength = UART_WORDLENGTH_8B;
+    husart1->Init.StopBits = UART_STOPBITS_1;
+    husart1->Init.Parity = UART_PARITY_NONE;
+    husart1->Init.Mode = UART_MODE_TX_RX;
+    husart1->Init.HwFlowCtl = UART_HWCONTROL_NONE;
+    husart1->Init.OverSampling = UART_OVERSAMPLING_16;
+
+    printf_init(husart1);
+
+    temp_init();
+
+    toggle_heartbeat();
+    printf("Starting VoltTemp Test\r\n");
+    vTaskDelay(pdMS_TO_TICKS(500));
+    toggle_heartbeat();
+    
+
+
+
+    //   printf("Starting VoltTemp Test\r\n");
+
+    // Task kills itself
+    vTaskDelete(NULL);
+}
+
 
 // void Test_Queue(void *pvParameters) {
 //     int val = 3000;
@@ -44,11 +115,32 @@ void Task_Blinky(void *pvParameters) {
 // }
 
 int main() {
-    HAL_Init();
+    // initialize the HAL and system clock
+    if (HAL_Init() != HAL_OK)
+        Error_Handler();
     SystemClock_Config();
+
+    __HAL_RCC_SYSCFG_CLK_ENABLE();
+    __HAL_RCC_PWR_CLK_ENABLE();
+
+    leds_init();
+    // turn on psom leds to show volttemp number
+    volttemp_led_on();
+
+    mx_uart_init();
+    
     
     //if(temp_init() == TEMP_INIT_FAIL) Error_Handler();
-    temp_init();
+    
+    xTaskCreateStatic(
+        Init_Task,
+        "Init Task",
+        configMINIMAL_STACK_SIZE,
+        NULL,
+        tskIDLE_PRIORITY + 3,
+        xInitStack,
+        &initTaskBuffer
+    );
 
     xTaskCreateStatic(
         ADC_Task,
@@ -63,24 +155,18 @@ int main() {
     xTaskCreateStatic(
         Task_Blinky,
         "Blinky",
-        200,
+        configMINIMAL_STACK_SIZE,
         (void*) 1,
-        tskIDLE_PRIORITY+3,
+        tskIDLE_PRIORITY+1,
         xBlinkyStack,
         &xBlinkyTaskBuffer
     );
 
-    // xTaskCreateStatic(
-    //     Test_Queue,
-    //     "Queue Send",
-    //     200,
-    //     (void*) 1,
-    //     tskIDLE_PRIORITY+4,
-    //     xQueueStack,
-    //     &xQueueTaskBuffer
-    // );
-
     vTaskStartScheduler();
+
+    while (1)
+    {
+    }
 
     return 0;
 }
