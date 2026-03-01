@@ -4,7 +4,7 @@
 #include "pinConfig.h"
 #include <ADC.h>
 
-#define QUEUE_LENGTH    2
+#define QUEUE_LENGTH    3
 #define ITEM_SIZE       sizeof( uint16_t )
 
 typedef enum {

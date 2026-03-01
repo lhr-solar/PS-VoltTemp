@@ -19,7 +19,11 @@ StackType_t xInitStack[configMINIMAL_STACK_SIZE];
 StaticTask_t initTaskBuffer;
 
 void ADC_Task(void *pvParameters) {
-    TempMsg_t message = {0};
+    TempMsg_t message1 = {0};
+    TempMsg_t message2 = {0};
+    TempMsg_t message3 = {0};
+    TempMsg_t message4 = {0};
+    TempMsg_t message5 = {0};
  //   TickType_t xLastWakeTime = xTaskGetTickCount();
 
     while (1) {
@@ -53,18 +57,70 @@ void ADC_Task(void *pvParameters) {
 
         //Block until we receive data in queue
         
-        if (VoltTemp_GetReading(TEMP1, &message, pdMS_TO_TICKS(100)) != TEMP_OK) {
-            printf("Failed to get reading\r\n");
+        if (VoltTemp_GetReading(TEMP1, &message1, pdMS_TO_TICKS(100)) != TEMP_OK) {
+            printf("Failed to get reading 1\r\n");
             Error_Handler();
         } else {
-            printf("Reading success\r\n");
+            printf("Reading 1 success\r\n");
             // Convert data to current measurent
-            message.current_data = VoltTemp_ADCToTemp(message.adc_voltage);
+            message1.current_data = VoltTemp_ADCToTemp(message1.adc_voltage);
         }
         
+        
+        printf("Temp: %ld C\r\n", message1.current_data);
+        printf("ADC1 Voltage: %d\r\n", message1.adc_voltage);
+
+        if (VoltTemp_GetReading(TEMP2, &message2, pdMS_TO_TICKS(100)) != TEMP_OK) {
+            printf("Failed to get reading 2\r\n");
+            Error_Handler();
+        } else {
+            printf("Reading 2 success\r\n");
+            // Convert data to current measurent
+            message2.current_data = VoltTemp_ADCToTemp(message2.adc_voltage);
+        }
+
+        printf("Temp2: %ld C\r\n", message2.current_data);
+        printf("ADC2 Voltage: %d\r\n", message2.adc_voltage);
+
+        if (VoltTemp_GetReading(TEMP3, &message3, pdMS_TO_TICKS(100)) != TEMP_OK) {
+            printf("Failed to get reading 3\r\n");
+            Error_Handler();
+        } else {
+            printf("Reading 3 success\r\n");
+            // Convert data to current measurent
+            message3.current_data = VoltTemp_ADCToTemp(message3.adc_voltage);
+        }
+
+        printf("Temp3: %ld C\r\n", message3.current_data);
+        printf("ADC3 Voltage: %d\r\n", message3.adc_voltage);
+
+        if (VoltTemp_GetReading(TEMP4, &message4, pdMS_TO_TICKS(100)) != TEMP_OK) {
+            printf("Failed to get reading 4\r\n");
+            Error_Handler();
+        } else {
+            printf("Reading 4 success\r\n");
+            // Convert data to current measurent
+            message4.current_data = VoltTemp_ADCToTemp(message4.adc_voltage);
+        }
+
+        printf("Temp4: %ld C\r\n", message4.current_data);
+        printf("ADC4 Voltage: %d\r\n", message4.adc_voltage);
+
+        if (VoltTemp_GetReading(TEMP5, &message5, pdMS_TO_TICKS(100)) != TEMP_OK) {
+            printf("Failed to get reading 5\r\n");
+            Error_Handler();
+        } else {
+            printf("Reading 5 success\r\n");
+            // Convert data to current measurent
+            message5.current_data = VoltTemp_ADCToTemp(message5.adc_voltage);
+        }
+
+        printf("Temp5: %ld C\r\n", message5.current_data);
+        printf("ADC5 Voltage: %d\r\n", message5.adc_voltage);
+
+
+
         HAL_GPIO_TogglePin(PSOM_LED1_PORT, PSOM_LED1_PIN);
-        printf("Temp: %ld C\r\n", message.current_data);
-        printf("ADC Voltage: %d\r\n", message.adc_voltage);
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }

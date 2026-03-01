@@ -316,11 +316,13 @@ temp_status_t VoltTemp_GetReading(uint8_t temp_select, TempMsg_t *message, TickT
     //     case 4: queue = &temp4_queue; break;
     //     case 5: queue = &temp5_queue; break;
     // }
-    xQueueReceive(temp1_queue, &(message->adc_voltage), ticksToWait);
-    xQueueReceive(temp2_queue, &(message->adc_voltage), ticksToWait);
-    xQueueReceive(temp3_queue, &(message->adc_voltage), ticksToWait);
-    xQueueReceive(temp4_queue, &(message->adc_voltage), ticksToWait);
-    xQueueReceive(temp5_queue, &(message->adc_voltage), ticksToWait);
+    switch(temp_select) {
+        case 1: xQueueReceive(temp1_queue, &(message->adc_voltage), ticksToWait); break;
+        case 2: xQueueReceive(temp2_queue, &(message->adc_voltage), ticksToWait); break;
+        case 3: xQueueReceive(temp3_queue, &(message->adc_voltage), ticksToWait); break;
+        case 4: xQueueReceive(temp4_queue, &(message->adc_voltage), ticksToWait); break;
+        case 5: xQueueReceive(temp5_queue, &(message->adc_voltage), ticksToWait); break;
+    }
     
     // if (xQueueReceive(temp1_queue, &(message->adc_voltage), ticksToWait) != pdPASS) { 
     //     return TEMP_ADC_READ_FAIL;
