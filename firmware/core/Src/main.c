@@ -1,6 +1,5 @@
-#include "FreeRTOS.h" /* Must come first. */
 #include "tasks.h"
-#include <stm32l4xx_hal.h>
+#include <stm32xx_hal.h>
 #include <bq76920.h>
 #include <common.h>
 #include <stdlib.h>

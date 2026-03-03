@@ -19,7 +19,7 @@
 //================================================================================
 
 
-// Pin configuration for BQ I2C
+// Pin configuration for BQ I2C (I2C1 on PSOM)
 //================================================================================
 #define I2C_PORT            GPIOB
 #define I2C_SCL_PIN         GPIO_PIN_6

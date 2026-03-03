@@ -1,12 +1,12 @@
-#include <stm32l4xx_hal.h>
+#include <stm32xx_hal.h>
 #include <bq76920.h>
+#include <bq72920_registers.h>
 #include <common.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include "leds.h"
 #include "pinConfig.h"
 #include "inits.h"
-#include "FreeRTOS.h"
 #include "printf.h"
 #include "UART.h"
 
@@ -38,15 +38,7 @@ StackType_t initTaskStack[512];
 // Initialize UART and EMC2305
 void Init_Task(void *argument)
 {
-  // Init UART printf
-  husart1->Init.BaudRate = 115200;
-  husart1->Init.WordLength = UART_WORDLENGTH_8B;
-  husart1->Init.StopBits = UART_STOPBITS_1;
-  husart1->Init.Parity = UART_PARITY_NONE;
-  husart1->Init.Mode = UART_MODE_TX_RX;
-  husart1->Init.HwFlowCtl = UART_HWCONTROL_NONE;
-  husart1->Init.OverSampling = UART_OVERSAMPLING_16;
-
+  UART_Init();
   printf_init(husart1);
 
   // Task kills itself
@@ -64,8 +56,9 @@ void Task_ReadBQ(void *pvParameters)
   while (1)
   {
     
-    get_Voltage_All(cell_Data);
-    /*
+    get_Voltage_All(cell_Data, BQ_DELAY);
+    
+    #ifdef BQ_PRINT_READINGS
     printf("\033[H");
     printf("Voltage Readings:\r\n");
     printf("Cell 1: %ld.%.3ld  [V]\r\n",cell_Data[0]/1000000,(cell_Data[0]%1000000)/1000);
@@ -73,9 +66,9 @@ void Task_ReadBQ(void *pvParameters)
     printf("Cell 3: %ld.%.3ld  [V]\r\n",cell_Data[2]/1000000,(cell_Data[2]%1000000)/1000);
     printf("Cell 4: %ld.%.3ld  [V]\r\n",cell_Data[3]/1000000,(cell_Data[3]%1000000)/1000);
     printf("Total : %ld.%.3ld [V]\r\n",cell_Data[4]/1000000,(cell_Data[4]%1000000)/1000);
-    */
+    #endif
 
-    bq76920_Read_1_Reg(SYS_CTRL1,&reg_data);
+    bq76920_Read_1_Reg(SYS_CTRL1,&reg_data,pdMS_TO_TICKS(100));
 
     printf("RegData  %d\r\n",reg_data);
     
@@ -83,7 +76,7 @@ void Task_ReadBQ(void *pvParameters)
     if(reg_data==24)write = 0;
     else write = 1;
     //sys_Write(TEMP_SEL,write);
-    bq76920_W_1_bit(SYS_CTRL1,3,write);
+    bq76920_W_1_bit(SYS_CTRL1,3,write, BQ_DELAY);
 
     HAL_GPIO_TogglePin(HEARTBEAT_PORT, HEARTBEAT_PIN);
     vTaskDelay(pdMS_TO_TICKS(200));

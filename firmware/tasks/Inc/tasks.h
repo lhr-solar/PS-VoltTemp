@@ -1,7 +1,5 @@
-#ifndef TASKS_H
-#define TASKS_H
+#pragma once
 
-#include "FreeRTOS.h" /* Must come first. */
 #include "stm32xx_hal.h"
 #include "common.h"
 
@@ -20,5 +18,3 @@ void volttemp_task(void *pvParameters);
 #define TASK_INIT_STACK_SIZE            configMINIMAL_STACK_SIZE
 
 void Task_Init();
-
-#endif

@@ -19,7 +19,7 @@ TEST ?= main
 PROJECT_TARGET ?= stm32l431cbt
 
 # source and include directories
-PROJECT_C_INCLUDES = $(wildcard */Inc) $(wildcard */inc) $(wildcard */include)
+PROJECT_C_INCLUDES = $(wildcard */Inc)
 PROJECT_C_SOURCES = $(wildcard */Src/*.c)
 
 
