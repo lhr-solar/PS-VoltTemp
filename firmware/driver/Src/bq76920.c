@@ -157,7 +157,7 @@ static BQ76920_Status_t bq76920_Write(uint16_t Mem_Address, uint8_t new_data, Ti
 
 // Writes to one bit in a specified register
 // Inputs are register, bit in decimal, state
-BQ76920_Status_t bq76920_W_1_bit(uint8_t reg, uint8_t bit_dec, uint8_t state, TickType_t delay_ticks)
+static BQ76920_Status_t bq76920_W_1_bit(uint8_t reg, uint8_t bit_dec, uint8_t state, TickType_t delay_ticks)
 {
   uint8_t current;
   if (bq76920_Read_1_Reg(reg, &current, delay_ticks) != BQ_OK)

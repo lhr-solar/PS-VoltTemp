@@ -120,27 +120,69 @@ void get_ADC_Info();
 // returns data from the bms,
 // input is the address.
 
+/**
+ * @brief  Reads from a BQ76920 Register.
+ * @param  Mem Address on BMS chip
+ * @param  Pointer to where data will be stored
+ * @return OK If successful, ERR otherwise
+ */
+BQ76920_Status_t bq76920_Read_1_Reg(uint16_t Mem_Address, uint8_t *read_Data, TickType_t delay_ticks);
 
-// make sure to indicate that read err returns xff
-BQ76920_Status_t bq76920_Read_1_Reg(uint16_t, uint8_t *, TickType_t);
-// returns combined data from two, input is both.
-BQ76920_Status_t bq76920_Read(uint16_t, uint16_t, uint16_t *, TickType_t);
+/**
+ * @brief  Returns combined data from two mem addresses, many require a HI & LO
+ * @param  First mem address
+ * @param  Second mem address
+ * @param  Pointer to where data will be stored
+ * @return OK If successful, ERR otherwise
+ */
+BQ76920_Status_t bq76920_Read(uint16_t Mem_Add_1, uint16_t Mem_Add_2, uint16_t *data, TickType_t delay_ticks);
 
-// read or write to one bit of the bms
-BQ76920_Status_t bq76920_W_1_bit(uint8_t, uint8_t, uint8_t, TickType_t);
+/**
+ * @brief  Read from Sys registers, abstracts which register out to only require command.
+ * @param  Command to read status of
+ * @param  delay for read mutex acquisition
+ * @return val of register if successfull, 0xff otherwise
+ */
+uint8_t sys_Read(SysCommands_t Command, TickType_t delay_ticks);
 
-// Interact with Sys Registers
-uint8_t sys_Read(SysCommands_t, TickType_t);
-void sys_Write(SysCommands_t, uint8_t, TickType_t);
+/**
+ * @brief  Write to Sys registers, abstracts which register out to only require command.
+ * @param  Command to write to
+ * @param  State to set command to
+ * @param  delay for write mutex acquisition
+ */
+void sys_Write(SysCommands_t Command, uint8_t State, TickType_t delay_ticks);
 
-// Interact with Protect Registers
-uint8_t protect_Read(ProtectCommands_t, TickType_t);
-void protect_Write(ProtectCommands_t, uint8_t, TickType_t);
+/**
+ * @brief  Read from Protect registers, abstracts which register out to only require command.
+ * @param  Command to read status of
+ * @param  delay for read mutex acquisition
+ * @return val of register if successfull, 0xff otherwise
+ */
+uint8_t protect_Read(ProtectCommands_t Command, TickType_t delay_ticks);
 
-// Voltage related functions.
+/**
+ * @brief  Write to Protect registers, abstracts which register out to only require command.
+ * @param  Command to write to
+ * @param  State to set command to
+ * @param  delay for write mutex acquisition
+ */
+void protect_Write(ProtectCommands_t Command, uint8_t State, TickType_t delay_ticks);
 
-// returns voltage of 1 cell, input is cell.
-uint32_t get_Voltage_Cell(uint16_t, TickType_t);
-// populates array with all voltages.
-BQ76920_Status_t get_Voltage_All(uint32_t *, TickType_t);
+
+/**
+ * @brief  Acquire the voltage of one cell.
+ * @param  Which cell to read
+ * @param  delay for write mutex acquisition
+ * @return Reading from the cell
+ */
+uint32_t get_Voltage_Cell(uint16_t cell, TickType_t delay_ticks);
+
+/**
+ * @brief  Acquire the voltage of all cells.
+ * @param  Pointer to array that holds cell readings
+ * @param  delay for write mutex acquisition
+ * @return OK if successful, ERR otherwise
+ */
+BQ76920_Status_t get_Voltage_All(uint32_t *voltage_array, TickType_t delay_ticks);
 
