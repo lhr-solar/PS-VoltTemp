@@ -49,8 +49,8 @@ typedef struct {
 #define ADC_MIN     229
 #define ADC_MAX     3988
 
-#define TEMP_MIN_CENTI   1000    // 10.00°C
-#define TEMP_RANGE_CENTI 7500    // 75.00°C
+#define TEMP_MIN_CENTI   10000    // 10.00°C
+#define TEMP_RANGE_CENTI 75000    // 75.00°C
 #define ADC_RANGE        (ADC_MAX - ADC_MIN)
 
 extern QueueHandle_t temp1_queue;

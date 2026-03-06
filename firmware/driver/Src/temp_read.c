@@ -1,5 +1,6 @@
 #include "temp_read.h"
 #include "inits.h"
+#include "thermistor_lut.h"
 
 /** ================================================================
  *  Local Variables
@@ -272,14 +273,8 @@ int32_t VoltTemp_ADCToTemp(uint16_t adc_val)
     if (adc_val >= ADC_MAX)
         return TEMP_MIN_CENTI + TEMP_RANGE_CENTI;
 
-    int32_t delta_adc = adc_val - ADC_MIN;
-
-    // Linear interpolation:
-    // T = Tmin + (delta_adc * TempRange) / ADCrange
-    int32_t temp = TEMP_MIN_CENTI +
-                   (delta_adc * TEMP_RANGE_CENTI) / ADC_RANGE;
-
-    return temp;
+    // LUT 
+    return thermistor_lut[adc_val];
 }
 
 temp_status_t VoltTemp_StartADC(bool clearQueue, uint8_t temp_select)
