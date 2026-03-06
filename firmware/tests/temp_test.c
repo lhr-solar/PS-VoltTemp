@@ -63,12 +63,12 @@ void ADC_Task(void *pvParameters) {
         } else {
             printf("Reading 1 success\r\n");
             // Convert data to current measurent
-            message1.current_data = VoltTemp_ADCToTemp(message1.adc_voltage);
+            message1.current_data = VoltTemp_ADCToTemp(message1.adc_counts);
         }
         
         
         printf("Temp: %ld C\r\n", message1.current_data);
-        printf("ADC1 Voltage: %d\r\n", message1.adc_voltage);
+        printf("ADC1 Counts: %d\r\n", message1.adc_counts);
 
         if (VoltTemp_GetReading(TEMP2, &message2, pdMS_TO_TICKS(100)) != TEMP_OK) {
             printf("Failed to get reading 2\r\n");
@@ -76,11 +76,11 @@ void ADC_Task(void *pvParameters) {
         } else {
             printf("Reading 2 success\r\n");
             // Convert data to current measurent
-            message2.current_data = VoltTemp_ADCToTemp(message2.adc_voltage);
+            message2.current_data = VoltTemp_ADCToTemp(message2.adc_counts);
         }
 
         printf("Temp2: %ld C\r\n", message2.current_data);
-        printf("ADC2 Voltage: %d\r\n", message2.adc_voltage);
+        printf("ADC2 Counts: %d\r\n", message2.adc_counts);
 
         if (VoltTemp_GetReading(TEMP3, &message3, pdMS_TO_TICKS(100)) != TEMP_OK) {
             printf("Failed to get reading 3\r\n");
@@ -88,11 +88,11 @@ void ADC_Task(void *pvParameters) {
         } else {
             printf("Reading 3 success\r\n");
             // Convert data to current measurent
-            message3.current_data = VoltTemp_ADCToTemp(message3.adc_voltage);
+            message3.current_data = VoltTemp_ADCToTemp(message3.adc_counts);
         }
 
         printf("Temp3: %ld C\r\n", message3.current_data);
-        printf("ADC3 Voltage: %d\r\n", message3.adc_voltage);
+        printf("ADC3 Counts: %d\r\n", message3.adc_counts);
 
         if (VoltTemp_GetReading(TEMP4, &message4, pdMS_TO_TICKS(100)) != TEMP_OK) {
             printf("Failed to get reading 4\r\n");
@@ -100,11 +100,11 @@ void ADC_Task(void *pvParameters) {
         } else {
             printf("Reading 4 success\r\n");
             // Convert data to current measurent
-            message4.current_data = VoltTemp_ADCToTemp(message4.adc_voltage);
+            message4.current_data = VoltTemp_ADCToTemp(message4.adc_counts);
         }
 
         printf("Temp4: %ld C\r\n", message4.current_data);
-        printf("ADC4 Voltage: %d\r\n", message4.adc_voltage);
+        printf("ADC4 Counts: %d\r\n", message4.adc_counts);
 
         if (VoltTemp_GetReading(TEMP5, &message5, pdMS_TO_TICKS(100)) != TEMP_OK) {
             printf("Failed to get reading 5\r\n");
@@ -112,11 +112,11 @@ void ADC_Task(void *pvParameters) {
         } else {
             printf("Reading 5 success\r\n");
             // Convert data to current measurent
-            message5.current_data = VoltTemp_ADCToTemp(message5.adc_voltage);
+            message5.current_data = VoltTemp_ADCToTemp(message5.adc_counts);
         }
 
         printf("Temp5: %ld C\r\n", message5.current_data);
-        printf("ADC5 Voltage: %d\r\n", message5.adc_voltage);
+        printf("ADC5 Counts: %d\r\n", message5.adc_counts);
 
 
 

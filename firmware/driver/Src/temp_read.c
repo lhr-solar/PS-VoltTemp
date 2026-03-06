@@ -307,11 +307,12 @@ temp_status_t VoltTemp_StartADC(bool clearQueue, uint8_t temp_select)
         }
     }
 
+    ADC_ChannelConfTypeDef sConfig = {0};
+
     switch (temp_select)
     {
     case TEMP1:
         // Create sConfig struct
-        ADC_ChannelConfTypeDef sConfig = {0};
         sConfig.Channel = TEMP1_ADC_CHANNEL;
         sConfig.Rank = ADC_REGULAR_RANK_1;
         sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
@@ -321,22 +322,50 @@ temp_status_t VoltTemp_StartADC(bool clearQueue, uint8_t temp_select)
         if (adc_read(hadc1, &sConfig, temp1_queue) != ADC_OK)
             return TEMP_ADC_START_FAIL;
         break;
-    // case 2:
-    //     if (adc_read(TEMP2_ADC_CHANNEL, TEMP_SAMPLE_TIME, hadc1, temp2_queue) != ADC_OK)
-    //         return TEMP_ADC_START_FAIL;
-    //     break;
-    // case 3:
-    //     if (adc_read(TEMP3_ADC_CHANNEL, TEMP_SAMPLE_TIME, hadc1, temp3_queue) != ADC_OK)
-    //         return TEMP_ADC_START_FAIL;
-    //     break;
-    // case 4:
-    //     if (adc_read(TEMP4_ADC_CHANNEL, TEMP_SAMPLE_TIME, hadc1, temp4_queue) != ADC_OK)
-    //         return TEMP_ADC_START_FAIL;
-    //     break;
-    // case 5:
-    //     if (adc_read(TEMP5_ADC_CHANNEL, TEMP_SAMPLE_TIME, hadc1, temp5_queue) != ADC_OK)
-    //         return TEMP_ADC_START_FAIL;
-    //     break;
+    case TEMP2:
+        // Create sConfig struct
+        sConfig.Channel = TEMP2_ADC_CHANNEL;
+        sConfig.Rank = ADC_REGULAR_RANK_1;
+        sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
+        sConfig.SingleDiff = ADC_SINGLE_ENDED;
+        sConfig.OffsetNumber = ADC_OFFSET_NONE;
+        sConfig.Offset = 0;
+        if (adc_read(hadc1, &sConfig, temp2_queue) != ADC_OK)
+            return TEMP_ADC_START_FAIL;
+        break;
+    case TEMP3:
+        // Create sConfig struct
+        sConfig.Channel = TEMP3_ADC_CHANNEL;
+        sConfig.Rank = ADC_REGULAR_RANK_1;
+        sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
+        sConfig.SingleDiff = ADC_SINGLE_ENDED;
+        sConfig.OffsetNumber = ADC_OFFSET_NONE;
+        sConfig.Offset = 0;
+        if (adc_read(hadc1, &sConfig, temp3_queue) != ADC_OK)
+            return TEMP_ADC_START_FAIL;
+        break;
+    case TEMP4:
+        // Create sConfig struct
+        sConfig.Channel = TEMP4_ADC_CHANNEL;
+        sConfig.Rank = ADC_REGULAR_RANK_1;
+        sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
+        sConfig.SingleDiff = ADC_SINGLE_ENDED;
+        sConfig.OffsetNumber = ADC_OFFSET_NONE;
+        sConfig.Offset = 0;
+        if (adc_read(hadc1, &sConfig, temp4_queue) != ADC_OK)
+            return TEMP_ADC_START_FAIL;
+        break;
+    case TEMP5:
+        // Create sConfig struct
+        sConfig.Channel = TEMP5_ADC_CHANNEL;
+        sConfig.Rank = ADC_REGULAR_RANK_1;
+        sConfig.SamplingTime = ADC_SAMPLETIME_2CYCLES_5;
+        sConfig.SingleDiff = ADC_SINGLE_ENDED;
+        sConfig.OffsetNumber = ADC_OFFSET_NONE;
+        sConfig.Offset = 0;
+        if (adc_read(hadc1, &sConfig, temp5_queue) != ADC_OK)
+            return TEMP_ADC_START_FAIL;
+        break;
     default:
         // TODO return proper error
         break;
@@ -346,38 +375,30 @@ temp_status_t VoltTemp_StartADC(bool clearQueue, uint8_t temp_select)
 
 temp_status_t VoltTemp_GetReading(uint8_t temp_select, TempMsg_t *message, TickType_t ticksToWait)
 {
-    // Get ADC value from queue
-    // QueueHandle_t* queue = NULL;
-    // switch(temp_select) {
-    //     case 1: queue = &temp1_queue; break;
-    //     case 2: queue = &temp2_queue; break;
-    //     case 3: queue = &temp3_queue; break;
-    //     case 4: queue = &temp4_queue; break;
-    //     case 5: queue = &temp5_queue; break;
-    // }
     switch (temp_select)
     {
+        // TODO: error handle queue recv
     case TEMP1:
-        xQueueReceive(temp1_queue, &(message->adc_voltage), ticksToWait);
+        xQueueReceive(temp1_queue, &(message->adc_counts), ticksToWait);
         break;
     case TEMP2:
-        xQueueReceive(temp2_queue, &(message->adc_voltage), ticksToWait);
+        xQueueReceive(temp2_queue, &(message->adc_counts), ticksToWait);
         break;
     case TEMP3:
-        xQueueReceive(temp3_queue, &(message->adc_voltage), ticksToWait);
+        xQueueReceive(temp3_queue, &(message->adc_counts), ticksToWait);
         break;
     case TEMP4:
-        xQueueReceive(temp4_queue, &(message->adc_voltage), ticksToWait);
+        xQueueReceive(temp4_queue, &(message->adc_counts), ticksToWait);
         break;
     case TEMP5:
-        xQueueReceive(temp5_queue, &(message->adc_voltage), ticksToWait);
+        xQueueReceive(temp5_queue, &(message->adc_counts), ticksToWait);
         break;
     }
 
-    // if (xQueueReceive(temp1_queue, &(message->adc_voltage), ticksToWait) != pdPASS) {
+    // if (xQueueReceive(temp1_queue, &(message->adc_counts), ticksToWait) != pdPASS) {
     //     return TEMP_ADC_READ_FAIL;
     // }
-    // message->current_data = VoltTemp_ADCToTemp(message->adc_voltage);
+    // message->current_data = VoltTemp_ADCToTemp(message->adc_counts);
     return TEMP_OK;
 }
 

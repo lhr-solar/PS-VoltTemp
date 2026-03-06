@@ -31,7 +31,7 @@ enum {
 
 typedef struct {
     int32_t current_data;   // signed, 32 bit
-    uint16_t adc_voltage;   // unsigned, 12 bit
+    uint16_t adc_counts;   // unsigned, 12 bit
 } TempMsg_t;
 
 /** ================================================================
