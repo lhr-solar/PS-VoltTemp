@@ -1,6 +1,5 @@
 import numpy as np
 
-# Thermistor table (ERTJ1VR) ratio R/R25
 temps_C = np.array([
 -40,-35,-30,-25,-20,-15,-10,-5,0,5,10,15,20,25,30,35,40,45,50,55,60,
 65,70,75,80,85,90,95,100,105,110,115,120,125,130,135,140,145,150
@@ -20,35 +19,34 @@ Vref = 3.3
 gain = 1.8
 ADC_MAX = 4095
 
-# Convert temperature table to ADC counts
 counts = []
 
 for ratio in ratios:
     Rth = ratio * R25
 
+    # divider (thermistor on top)
     Vnode = Vref * (R_fixed / (Rth + R_fixed))
+
     Vadc = gain * Vnode
+    Vadc = min(Vadc, Vref)
 
     adc = (Vadc / Vref) * ADC_MAX
     counts.append(adc)
 
 counts = np.array(counts)
 
-# Clamp ADC to valid range
-counts = np.clip(counts, 0, ADC_MAX)
+# temperatures must increase for interpolation
+temps_sorted = temps_C
+counts_sorted = counts
 
-# Sort so interpolation works
-order = np.argsort(counts)
-counts_sorted = counts[order]
-temps_sorted = temps_C[order]
-
-# Build ADC -> temperature LUT
+# ADC axis
 adc_range = np.arange(0, ADC_MAX + 1)
 
-temps_interp = np.interp(adc_range, counts_sorted, temps_sorted)
+# invert mapping (ADC -> temperature)
+lut_C = np.interp(adc_range, counts_sorted, temps_sorted)
 
-# convert to milliCelsius
-lut_mC = (temps_interp * 1000).astype(int)
+# convert to milliC
+lut_mC = (lut_C * 1000).astype(int)
 
 # Example lookup
 def adc_to_temp_mC(adc):
