@@ -309,7 +309,7 @@ temp_status_t VoltTemp_StartADC(bool clearQueue, uint8_t temp_select)
 
     switch (temp_select)
     {
-    case 1:
+    case TEMP1:
         // Create sConfig struct
         ADC_ChannelConfTypeDef sConfig = {0};
         sConfig.Channel = TEMP1_ADC_CHANNEL;
@@ -357,19 +357,19 @@ temp_status_t VoltTemp_GetReading(uint8_t temp_select, TempMsg_t *message, TickT
     // }
     switch (temp_select)
     {
-    case 1:
+    case TEMP1:
         xQueueReceive(temp1_queue, &(message->adc_voltage), ticksToWait);
         break;
-    case 2:
+    case TEMP2:
         xQueueReceive(temp2_queue, &(message->adc_voltage), ticksToWait);
         break;
-    case 3:
+    case TEMP3:
         xQueueReceive(temp3_queue, &(message->adc_voltage), ticksToWait);
         break;
-    case 4:
+    case TEMP4:
         xQueueReceive(temp4_queue, &(message->adc_voltage), ticksToWait);
         break;
-    case 5:
+    case TEMP5:
         xQueueReceive(temp5_queue, &(message->adc_voltage), ticksToWait);
         break;
     }
