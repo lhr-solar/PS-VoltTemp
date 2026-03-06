@@ -11,23 +11,15 @@
 #include "UART.h"
 
 
-// Testing procedure for REV B 
+// Testing procedure for REV B boards
 // 
-// For the pre-assembled boards, the first test will be seeing if REGOUT is working correctly.
-// If it is, we should be getting the steady 3.3, as opposed to random values jumping around.
-
-// Assuming it is steady, the next step is to test each board with the known working code,
-// that is the code with no task implementation.
-//
-// Once each board is verified alone, we need to test them together; in theory they should just work as normal.
-//
-// After we know multiple volt-temps can work together, we need to finish implementing the task compatible code.
-// (I was unable to finish this the other workday sadly)
-//
-// Upon finishing that code, we should repeat the steps of testing each volt temp and then chaining them together.
-//
-// After we have several volt-temps working, with the tasks, we should make any final tweaks needed before ordering
-// the remaining boards :-)
+// In order to test voltage readings:
+//  Define BQ_PRINT_READINGS
+//  Flash to a VoltTemp PSOM
+//  Connect VoltTemp to the volttemp test pcb (resistor ladder)
+//    INPUT VOLTAGE SHOULD BE ~13-14 V
+//  Use screen or putty to observe readings (make sure to use 115200 speed)
+//  Should print out individual cell readings & total module voltage.
 
 StaticTask_t xTaskBuffer;
 StackType_t xStack[2048];
@@ -41,7 +33,7 @@ void Init_Task(void *argument)
   UART_Init();
   printf_init(husart1);
 
-  // Task kills itself
+  // Task kills itself :(
   vTaskDelete(NULL);
 }
 
@@ -56,9 +48,11 @@ void Task_ReadBQ(void *pvParameters)
   while (1)
   {
     
+    #define BQ_PRINT_READINGS
+
+    #ifdef BQ_PRINT_READINGS
     get_Voltage_All(cell_Data, BQ_DELAY);
     
-    #ifdef BQ_PRINT_READINGS
     printf("\033[H");
     printf("Voltage Readings:\r\n");
     printf("Cell 1: %ld.%.3ld  [V]\r\n",cell_Data[0]/1000000,(cell_Data[0]%1000000)/1000);
@@ -68,6 +62,9 @@ void Task_ReadBQ(void *pvParameters)
     printf("Total : %ld.%.3ld [V]\r\n",cell_Data[4]/1000000,(cell_Data[4]%1000000)/1000);
     #endif
 
+
+
+    #ifdef BQ_PRINT_REG_TEST
     bq76920_Read_1_Reg(SYS_CTRL1,&reg_data,pdMS_TO_TICKS(100));
 
     printf("RegData  %d\r\n",reg_data);
@@ -77,6 +74,8 @@ void Task_ReadBQ(void *pvParameters)
     else write = 1;
     //sys_Write(TEMP_SEL,write);
     bq76920_W_1_bit(SYS_CTRL1,3,write, BQ_DELAY);
+    #endif
+	
 
     HAL_GPIO_TogglePin(HEARTBEAT_PORT, HEARTBEAT_PIN);
     vTaskDelay(pdMS_TO_TICKS(200));

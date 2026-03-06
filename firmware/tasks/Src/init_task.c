@@ -4,7 +4,7 @@
 // For volttemp
 StaticTask_t volttempt_task_buffer;
 StackType_t  volttemp_task_stack[configMINIMAL_STACK_SIZE];
-/*
+
 void Task_Init(){
     
     //Init BQ chip.
@@ -23,4 +23,3 @@ void Task_Init(){
    // Delete Init Task
     vTaskDelete(NULL);
 }
-    */
