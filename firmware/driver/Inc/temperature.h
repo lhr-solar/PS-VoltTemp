@@ -24,13 +24,14 @@ typedef enum {
     TEMP_INVALID_CHANNEL,
 } temp_status_t;
 
-enum {
+typedef enum {
     TEMP1 = 0,
     TEMP2,
     TEMP3,
     TEMP4,
     TEMP5,
-};
+    NUM_THERMISTORS,
+} thermistor_t;
 
 typedef struct {
     int32_t temperature;   // signed, 32 bit, millicelsius
@@ -55,8 +56,10 @@ extern QueueHandle_t temp5_queue;
 
 // TODO: doc comments
 
-temp_status_t temp_init();
+temp_status_t Temp_Init();
 
-temp_status_t VoltTemp_StartADC(bool clearQueue, uint8_t temp_select);
+temp_status_t Temp_StartADC(bool clearQueue, uint8_t temp_select);
 
-temp_status_t VoltTemp_GetReading(uint8_t temp_select, TempMsg_t* message, TickType_t ticksToWait);
+temp_status_t Temp_GetSingleReading(uint8_t temp_select, TempMsg_t* message, TickType_t ticksToWait);
+
+temp_status_t Temp_GetAllReadings(TempMsg_t* messages, TickType_t ticksToWait);

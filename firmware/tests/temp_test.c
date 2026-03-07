@@ -29,34 +29,34 @@ void ADC_Task(void* pvParameters) {
         // Start ADC reading
         printf("ADC Task started\r\n");
         //Reset queue to prevent race condition (data already in queue and task does not wake up)
-        if (VoltTemp_StartADC(false, TEMP1) != TEMP_OK) {
+        if (Temp_StartADC(false, TEMP1) != TEMP_OK) {
             Error_Handler();
         };
         printf("ADC1 started\r\n");
 
-        if (VoltTemp_StartADC(false, TEMP2) != TEMP_OK) {
+        if (Temp_StartADC(false, TEMP2) != TEMP_OK) {
             Error_Handler();
         };
         printf("ADC2 started\r\n");
 
-        if (VoltTemp_StartADC(false, TEMP3) != TEMP_OK) {
+        if (Temp_StartADC(false, TEMP3) != TEMP_OK) {
             Error_Handler();
         };
         printf("ADC3 started\r\n");
 
-        if (VoltTemp_StartADC(false, TEMP4) != TEMP_OK) {
+        if (Temp_StartADC(false, TEMP4) != TEMP_OK) {
             Error_Handler();
         };
         printf("ADC4 started\r\n");
 
-        if (VoltTemp_StartADC(false, TEMP5) != TEMP_OK) {
+        if (Temp_StartADC(false, TEMP5) != TEMP_OK) {
             Error_Handler();
         };
         printf("ADC5 started\r\n");
 
         // Block until we receive data in queue
 
-        if (VoltTemp_GetReading(TEMP1, &message1, pdMS_TO_TICKS(100)) != TEMP_OK) {
+        if (Temp_GetSingleReading(TEMP1, &message1, pdMS_TO_TICKS(100)) != TEMP_OK) {
             printf("Failed to get reading 1\r\n");
             Error_Handler();
         }
@@ -68,7 +68,7 @@ void ADC_Task(void* pvParameters) {
         printf("Temp: %ld C\r\n", message1.temperature);
         printf("ADC1 Counts: %d\r\n", message1.adc_counts);
 
-        if (VoltTemp_GetReading(TEMP2, &message2, pdMS_TO_TICKS(100)) != TEMP_OK) {
+        if (Temp_GetSingleReading(TEMP2, &message2, pdMS_TO_TICKS(100)) != TEMP_OK) {
             printf("Failed to get reading 2\r\n");
             Error_Handler();
         }
@@ -79,7 +79,7 @@ void ADC_Task(void* pvParameters) {
         printf("Temp2: %ld C\r\n", message2.temperature);
         printf("ADC2 Counts: %d\r\n", message2.adc_counts);
 
-        if (VoltTemp_GetReading(TEMP3, &message3, pdMS_TO_TICKS(100)) != TEMP_OK) {
+        if (Temp_GetSingleReading(TEMP3, &message3, pdMS_TO_TICKS(100)) != TEMP_OK) {
             printf("Failed to get reading 3\r\n");
             Error_Handler();
         }
@@ -90,7 +90,7 @@ void ADC_Task(void* pvParameters) {
         printf("Temp3: %ld C\r\n", message3.temperature);
         printf("ADC3 Counts: %d\r\n", message3.adc_counts);
 
-        if (VoltTemp_GetReading(TEMP4, &message4, pdMS_TO_TICKS(100)) != TEMP_OK) {
+        if (Temp_GetSingleReading(TEMP4, &message4, pdMS_TO_TICKS(100)) != TEMP_OK) {
             printf("Failed to get reading 4\r\n");
             Error_Handler();
         }
@@ -101,7 +101,7 @@ void ADC_Task(void* pvParameters) {
         printf("Temp4: %ld C\r\n", message4.temperature);
         printf("ADC4 Counts: %d\r\n", message4.adc_counts);
 
-        if (VoltTemp_GetReading(TEMP5, &message5, pdMS_TO_TICKS(100)) != TEMP_OK) {
+        if (Temp_GetSingleReading(TEMP5, &message5, pdMS_TO_TICKS(100)) != TEMP_OK) {
             printf("Failed to get reading 5\r\n");
             Error_Handler();
         }
@@ -128,7 +128,7 @@ void Init_Task(void* argument) {
     // Init UART printf
     UART_Init();
 
-    temp_init();
+    Temp_Init();
 
     toggle_heartbeat();
     printf("Starting Temperature Test\r\n");
