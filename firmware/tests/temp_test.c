@@ -29,7 +29,7 @@ void ADC_Task(void* pvParameters) {
         else if (status == TEMP_ADC_START_FAIL) {
             printf("Failed Start ADC Start\r\n");
         }
-        
+
         printf("\r\n");
         printf("All ADC Readings Started...");
 
@@ -61,7 +61,7 @@ void ADC_Task(void* pvParameters) {
 
 void Task_Blinky(void* pvParameters) {
     while (1) {
-        // HAL_GPIO_TogglePin(PSOM_LED2_PORT, PSOM_LED2_PIN);
+        HAL_GPIO_TogglePin(PSOM_LED2_PORT, PSOM_LED2_PIN);
         vTaskDelay(pdMS_TO_TICKS(500));
     }
 }

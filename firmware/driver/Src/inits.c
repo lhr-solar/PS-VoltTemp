@@ -89,9 +89,9 @@ void mx_i2c_init(void) {
   HAL_GPIO_Init(I2C_PORT, &GPIO_InitStruct);
 
   // I2C Interrupt Init
-  HAL_NVIC_SetPriority(I2C1_EV_IRQn, 5, 0);
+  HAL_NVIC_SetPriority(I2C1_EV_IRQn, configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY, 0);
   HAL_NVIC_EnableIRQ(I2C1_EV_IRQn);
-  HAL_NVIC_SetPriority(I2C1_ER_IRQn, 5, 0);
+  HAL_NVIC_SetPriority(I2C1_ER_IRQn, configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY, 0);
   HAL_NVIC_EnableIRQ(I2C1_ER_IRQn);
 
   /* Peripheral clock enable */

@@ -14,6 +14,7 @@
 // Constants for conversion from counts to mV
 #define MAX_ADC_VOLTAGE_MV 3300
 #define MAX_ADC_COUNTS 4095
+#define MAX_PLAUSIBLE_ADC_MV 2738
 
 // Return type of all user-exposed temperature functions
 typedef enum {
@@ -28,6 +29,7 @@ typedef enum {
     TEMP_INTERRUPT_ERROR,
     TEMP_QUEUE_FULL,
     TEMP_INVALID_CHANNEL,
+    TEMP_OUT_OF_RANGE,
 } temp_status_t;
 
 // Available thermistors. TEMP1 to TEMP4 are broken out on flex. TEMP5 is an extra connection, unused on battery.
