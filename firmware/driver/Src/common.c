@@ -20,3 +20,10 @@ void gpio_clock_enable(uint32_t port){
             break;
     }
 }
+
+void Error_Handler(void)
+{
+  while (1)
+  {
+  }
+}

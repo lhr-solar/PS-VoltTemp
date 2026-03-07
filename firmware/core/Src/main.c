@@ -1,31 +1,19 @@
-#include "FreeRTOS.h" /* Must come first. */
-#include "stm32xx_hal.h"
 #include "tasks.h"
+#include <stm32xx_hal.h>
+#include <bq76920.h>
+#include <common.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include "leds.h"
+#include "pinConfig.h"
+#include "inits.h"
 
-StackType_t Task_Init_Stack_Array[ TASK_INIT_STACK_SIZE ];
-StaticTask_t Task_Init_Buffer;
+// TODO
+// Implement actual main for temp & bq
 
 int main(void) {
 
-    HAL_MspInit();
-    SystemClock_Config();
-
-    xTaskCreateStatic(
-                    Task_Init,
-                    "Init Task",
-                    configMINIMAL_STACK_SIZE,
-                    (void*)NULL,
-                    TASK_INIT_PRIO,
-                    Task_Init_Stack_Array,
-                    &Task_Init_Buffer
-   );
-
-    // Start the scheduler
-    vTaskStartScheduler();
-
-    while(1){
-
-    }
+    while(1){}
     
     return 0;
 }
