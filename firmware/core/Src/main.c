@@ -11,9 +11,12 @@
 // TODO
 // Implement actual main for temp & bq
 
+/*
 int main(void) {
 
     while(1){}
     
     return 0;
 }
+
+*/

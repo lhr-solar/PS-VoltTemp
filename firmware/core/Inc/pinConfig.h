@@ -19,11 +19,30 @@
 //================================================================================
 
 
-// Pin configuration for BQ I2C (I2C1 on PSOM)
+// Pin configuration for BQ I2C
 //================================================================================
 #define I2C_PORT            GPIOB
 #define I2C_SCL_PIN         GPIO_PIN_6
 #define I2C_SDA_PIN         GPIO_PIN_7
+//================================================================================
+
+// Pin configuration for ADC 
+//================================================================================
+// Temp 1 = ADC1_IN10 = PA5 
+#define TEMP1_PORT            GPIOA
+#define TEMP1_PIN             GPIO_PIN_5
+// Temp 2 = ADC1_IN9 = PA4
+#define TEMP2_PORT            GPIOA
+#define TEMP2_PIN             GPIO_PIN_4
+// Temp 3 = ADC1_IN7 = PA2
+#define TEMP3_PORT            GPIOA
+#define TEMP3_PIN             GPIO_PIN_2
+// Temp 4 = ADC1_IN11 = PA6
+#define TEMP4_PORT            GPIOA
+#define TEMP4_PIN             GPIO_PIN_6
+// Temp 5 = OPAMP1_VINP / ADC1_IN5 = PA0
+#define TEMP5_PORT            GPIOA
+#define TEMP5_PIN             GPIO_PIN_0
 //================================================================================
 
 // USART pins for PSOM

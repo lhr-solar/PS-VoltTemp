@@ -34,6 +34,10 @@ static void heartbeat_init(void){
     HAL_GPIO_Init(HEARTBEAT_PORT, &led_config);
 }
 
+void toggle_heartbeat(void){
+    HAL_GPIO_TogglePin(HEARTBEAT_PORT, HEARTBEAT_PIN);
+}
+
 void set_heartbeat_led(State pin_state){
     HAL_GPIO_WritePin(HEARTBEAT_PORT, HEARTBEAT_PIN, (pin_state == ON) ? GPIO_PIN_SET : GPIO_PIN_RESET);
 }
