@@ -2,19 +2,37 @@
 
 #include "stm32xx_hal.h"
 #include "common.h"
+#include <BPSCAN_can_msgs.h>
 
 
 // BQ Task
-extern StaticTask_t volttempt_task_buffer;
-extern StackType_t  volttemp_task_stack[configMINIMAL_STACK_SIZE];
+#define configVOLTTEMP_STACK_SIZE 2048
 #define VOLTTEMP_PRIO    tskIDLE_PRIORITY + 1
-#define VOLTTEMP_DELAY   pdMS_TO_TICKS(100)
+#define VOLTTEMP_DELAY   pdMS_TO_TICKS(300)
 
-void volttemp_task(void *pvParameters);
-
+void task_ReadVoltage(void *pvParameters);
 
 // Init Tasks
 #define TASK_INIT_PRIO                  tskIDLE_PRIORITY + 1
 #define TASK_INIT_STACK_SIZE            configMINIMAL_STACK_SIZE
 
-void Task_Init();
+void task_Init();
+
+
+
+
+typedef union  {
+bps_voltage_temperature_0_t vt1;
+bps_voltage_temperature_1_t vt2;
+bps_voltage_temperature_2_t vt3;
+bps_voltage_temperature_3_t vt4;
+bps_voltage_temperature_4_t vt5;
+bps_voltage_temperature_5_t vt6;
+bps_voltage_temperature_6_t vt7;
+bps_voltage_temperature_7_t vt8;
+} CAN_struct_t;
+
+
+extern CAN_struct_t Can_struct;
+
+extern uint16_t cell_readings[5];

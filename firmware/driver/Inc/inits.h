@@ -10,3 +10,6 @@ extern I2C_HandleTypeDef hi2c1;
 void mx_uart_init(void);
 void UART_Init(void);
 extern UART_HandleTypeDef* husart1;
+
+// Enable CAN for leader communication
+void mx_CAN_init(void);

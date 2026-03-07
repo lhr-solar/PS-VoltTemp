@@ -562,19 +562,19 @@ uint32_t get_Voltage_Cell(uint16_t cell, TickType_t delay_ticks)
 }
 
 // Populates an array with cell voltages.
-BQ76920_Status_t get_Voltage_All(uint32_t *voltage_array, TickType_t delay_ticks)
+BQ76920_Status_t get_Voltage_All(uint16_t *voltage_array, TickType_t delay_ticks)
 {
   // make sure valid pointer
   if (voltage_array == NULL)
     return BQ_ERR;
 
-  voltage_array[0] = get_Voltage_Cell(VC1, delay_ticks);
-  voltage_array[1] = get_Voltage_Cell(VC2, delay_ticks);
-  voltage_array[2] = get_Voltage_Cell(VC3, delay_ticks);
+  voltage_array[0] = (uint16_t)(get_Voltage_Cell(VC1, delay_ticks) / BQ_MICRO_TO_MILLI);
+  voltage_array[1] = (uint16_t)(get_Voltage_Cell(VC2, delay_ticks) / BQ_MICRO_TO_MILLI);
+  voltage_array[2] = (uint16_t)(get_Voltage_Cell(VC3, delay_ticks) / BQ_MICRO_TO_MILLI);
   // VC4 is skipped, as it is the shorted cell for our application
-  voltage_array[3] = get_Voltage_Cell(VC5, delay_ticks);
+  voltage_array[3] = (uint16_t)(get_Voltage_Cell(VC5, delay_ticks) / BQ_MICRO_TO_MILLI);
 
-  voltage_array[4] = (4 * get_Voltage_Cell(BAT, delay_ticks));
+  voltage_array[4] = ((uint16_t)((4 * get_Voltage_Cell(BAT, delay_ticks)) / (BQ_MICRO_TO_MILLI*10)));
 
   return BQ_OK;
 }

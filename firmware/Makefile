@@ -13,6 +13,8 @@ YELLOW=\033[0;33m
 NC=\033[0m # No Color
 #---------------------------------
 
+# Define the C_DEFS variable using the value of VOLTTEMP
+PROJECT_MACROS += VOLTTEMP_$(VOLTTEMP)
 
 # Project Configuration ----------
 TEST ?= main
@@ -54,7 +56,7 @@ export PROJECT_TARGET
 export PROJECT_C_SOURCES
 export PROJECT_C_INCLUDES
 export PROJECT_BUILD_DIR
-
+export PROJECT_MACROS
 
 #-------------------------------
 # Clang
@@ -95,6 +97,7 @@ else
 endif
 	$(BEAR_PREFIX) $(MAKE) -C $(BUILD_MAKEFILE_DIR) VERBOSE=1 all -j
 	@echo "${BLUE}Compiled! Splendid! Jolly Good!!${NC}"
+
 #---------------------------------
 
 

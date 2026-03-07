@@ -7,6 +7,7 @@
 #include "pinConfig.h"
 #include "inits.h"
 #include "config.h"
+#include "CAN.h"
 
 // HAL & I2C inits
 //================================================================================
@@ -170,4 +171,34 @@ void UART_Init(void)
   husart1->Init.Mode = UART_MODE_TX_RX;
   husart1->Init.HwFlowCtl = UART_HWCONTROL_NONE;
   husart1->Init.OverSampling = UART_OVERSAMPLING_16;
+}
+
+
+void mx_CAN_init() {
+    /* Create CAN filter */
+    /* For production, reject all incoming IDs */
+    CAN_FilterTypeDef  sFilterConfig;
+    sFilterConfig.FilterBank = 0;
+    sFilterConfig.FilterActivation = DISABLE;
+
+    /* CAN1 Init Struct */
+    // Baud rate is 250 kbit/s
+    hcan1->Init.Prescaler = 20;
+    hcan1->Init.SyncJumpWidth = CAN_SJW_1TQ;
+    hcan1->Init.TimeSeg1 = CAN_BS1_13TQ;
+    hcan1->Init.TimeSeg2 = CAN_BS2_2TQ;
+    hcan1->Init.Mode = CAN_MODE_NORMAL;   // TODO: change for testing
+    hcan1->Init.TimeTriggeredMode = DISABLE;
+    hcan1->Init.AutoBusOff = DISABLE;
+    hcan1->Init.AutoWakeUp = DISABLE;
+    hcan1->Init.AutoRetransmission = ENABLE;
+    hcan1->Init.ReceiveFifoLocked = DISABLE;
+
+    // If TransmitFifoPriority is disabled, the hardware selects the mailbox based on the message ID priority. 
+    // If enabled, the hardware uses a FIFO mechanism to select the mailbox based on the order of transmission requests.
+    hcan1->Init.TransmitFifoPriority = ENABLE;
+
+    /* Initialize CAN1 */
+    if (can_init(hcan1, &sFilterConfig) != CAN_OK) Error_Handler();
+    
 }

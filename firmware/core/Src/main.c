@@ -10,10 +10,20 @@
 
 // TODO
 // Implement actual main for temp & bq
+StaticTask_t taskInitBuffer;
+StackType_t taskInitStack[configMINIMAL_STACK_SIZE];
 
 int main(void) {
+  xTaskCreateStatic(task_Init,
+                    "Init Task",
+                    configMINIMAL_STACK_SIZE,
+                    NULL,
+                    tskIDLE_PRIORITY + 1,
+                    taskInitStack,
+                    &taskInitBuffer);
 
-    while(1){}
+    vTaskStartScheduler();
     
+    while(1){} 
     return 0;
 }

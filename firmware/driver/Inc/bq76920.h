@@ -171,7 +171,7 @@ void protect_Write(ProtectCommands_t Command, uint8_t State, TickType_t delay_ti
 
 
 /**
- * @brief  Acquire the voltage of one cell.
+ * @brief  Acquire the voltage of one cell, microvolts.
  * @param  Which cell to read
  * @param  delay for write mutex acquisition
  * @return Reading from the cell
@@ -179,10 +179,12 @@ void protect_Write(ProtectCommands_t Command, uint8_t State, TickType_t delay_ti
 uint32_t get_Voltage_Cell(uint16_t cell, TickType_t delay_ticks);
 
 /**
- * @brief  Acquire the voltage of all cells.
+ * @brief  Acquire the voltage of all cells; converts to millivolts.
  * @param  Pointer to array that holds cell readings
  * @param  delay for write mutex acquisition
  * @return OK if successful, ERR otherwise
  */
-BQ76920_Status_t get_Voltage_All(uint32_t *voltage_array, TickType_t delay_ticks);
+BQ76920_Status_t get_Voltage_All(uint16_t *voltage_array, TickType_t delay_ticks);
+
+#define BQ_MICRO_TO_MILLI 100
 
