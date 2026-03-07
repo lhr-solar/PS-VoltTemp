@@ -126,15 +126,7 @@ void Task_Blinky(void* pvParameters) {
 
 void Init_Task(void* argument) {
     // Init UART printf
-    husart1->Init.BaudRate = 115200;
-    husart1->Init.WordLength = UART_WORDLENGTH_8B;
-    husart1->Init.StopBits = UART_STOPBITS_1;
-    husart1->Init.Parity = UART_PARITY_NONE;
-    husart1->Init.Mode = UART_MODE_TX_RX;
-    husart1->Init.HwFlowCtl = UART_HWCONTROL_NONE;
-    husart1->Init.OverSampling = UART_OVERSAMPLING_16;
-
-    printf_init(husart1);
+    UART_Init();
 
     temp_init();
 

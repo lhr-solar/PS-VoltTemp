@@ -27,11 +27,11 @@ StackType_t xStack[2048];
 StaticTask_t initTaskBuffer;
 StackType_t initTaskStack[512];
 
-// Initialize UART and EMC2305
+// Initialize UART
 void Init_Task(void *argument)
 {
+  // Init UART printf
   UART_Init();
-  printf_init(husart1);
 
   // Task kills itself :(
   vTaskDelete(NULL);
