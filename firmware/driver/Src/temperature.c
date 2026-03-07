@@ -155,6 +155,11 @@ static int32_t ADCToTemp(uint16_t adc_val) {
 }
 
 temp_status_t Temp_StartADC(bool clearQueue, thermistor_t temp_select) {
+    HAL_GPIO_TogglePin(PSOM_LED2_PORT, PSOM_LED2_PIN);
+    vTaskDelay(500);
+    HAL_GPIO_TogglePin(PSOM_LED2_PORT, PSOM_LED2_PIN);
+    vTaskDelay(500);
+    HAL_GPIO_TogglePin(PSOM_LED2_PORT, PSOM_LED2_PIN);
     // Clear queue if requested
     if (clearQueue)
     {
