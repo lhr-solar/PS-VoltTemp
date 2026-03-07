@@ -29,6 +29,8 @@ void ADC_Task(void* pvParameters) {
         else if (status == TEMP_ADC_START_FAIL) {
             printf("Failed Start ADC Start\r\n");
         }
+        
+        printf("\r\n");
         printf("All ADC Readings Started...");
 
         // Block until we receive data in queue
@@ -39,7 +41,7 @@ void ADC_Task(void* pvParameters) {
             Error_Handler();
         }
         else {
-            printf("Reading Success\r\n");
+            printf("Reading Success\r\n\r\n");
         }
 
         // Print all temps
