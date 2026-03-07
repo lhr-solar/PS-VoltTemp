@@ -75,7 +75,7 @@ temp_status_t Temp_Init();
  * @param  temp_select Which thermistor to start, e.g. TEMP2
  * @return OK if successful, see temp_status_t otherwise
  */
-temp_status_t Temp_StartADC(bool clearQueue, thermistor_t temp_select);
+temp_status_t Temp_StartSingleADC(bool clearQueue, thermistor_t temp_select);
 
 /**
  * @brief  Starts ADC reading for all configured thermistors (TEMP1 to TEMP4)
