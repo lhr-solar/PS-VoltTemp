@@ -59,12 +59,40 @@ extern QueueHandle_t temp5_queue;
 
 // TODO: doc comments
 
+/**
+ * @brief  Initializes ADC queues and calls adc_init for HAL initialization
+ * @return OK if successful, see temp_status_t otherwise
+ */
 temp_status_t Temp_Init();
 
-temp_status_t Temp_StartADC(bool clearQueue, uint8_t temp_select);
+/**
+ * @brief  Start ADC reading for the selected thermistor
+ * @param  clearQueue Clear the ADC queue if true
+ * @param  temp_select Which thermistor to start, e.g. TEMP2
+ * @return OK if successful, see temp_status_t otherwise
+ */
+temp_status_t Temp_StartADC(bool clearQueue, thermistor_t temp_select);
 
+/**
+ * @brief  Starts ADC reading for all configured thermistors (TEMP1 to TEMP4)
+ * @param  clearQueue Clear the ADC queue if true
+ * @return OK if successful, see temp_status_t otherwise
+ */
 temp_status_t Temp_StartAllADC(bool clearQueue);
 
-temp_status_t Temp_GetSingleReading(uint8_t temp_select, TempMsg_t* message, TickType_t ticksToWait);
+/**
+ * @brief  Receieve one thermistor's ADC reading from the queue
+ * @param  temp_select Which thermistor to recieve, e.g. TEMP2
+ * @param  message Pointer to struct to fill with ADC counts, raw voltage, and converted temperature
+ * @param  ticksToWait How long to block on the queue, in ticks
+ * @return OK if successful, see temp_status_t otherwise
+ */
+temp_status_t Temp_GetSingleReading(thermistor_t temp_select, TempMsg_t* message, TickType_t ticksToWait);
 
+/**
+ * @brief  Receieve all configured thermistors' ADC readings from the queue (TEMP1 to TEMP4)
+ * @param  messages Array of pointers to structs to fill with ADC counts, raw voltage, and converted temperature
+ * @param  ticksToWait How long to block on each queue, in ticks
+ * @return OK if successful, see temp_status_t otherwise
+ */
 temp_status_t Temp_GetAllReadings(TempMsg_t* messages, TickType_t ticksToWait);

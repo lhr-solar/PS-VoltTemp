@@ -2,12 +2,9 @@
 #include "inits.h"
 #include "thermistor_lut.h"
 
-/** ================================================================
- *  Local Variables
- * ================================================================ */
- /** Temp Queues to store ADC conversions
-  * - Can hold 10 elements for on the fly averaging.
-  */
+/** Temp Queues to store ADC conversions
+ * - Can hold 10 elements for on the fly averaging.
+ */
 QueueHandle_t temp1_queue;
 QueueHandle_t temp2_queue;
 QueueHandle_t temp3_queue;
@@ -25,18 +22,12 @@ static StaticQueue_t xStaticQueue_temp2;
 static StaticQueue_t xStaticQueue_temp3;
 static StaticQueue_t xStaticQueue_temp4;
 static StaticQueue_t xStaticQueue_temp5;
-// uint8_t adc_qStorage[ADC_QUEUE_LENGTH * ADC_ITEM_SIZE];
-// static StaticQueue_t xStaticQueue_adc;
 
-/** ================================================================
- *  Local Init Functions
- * ================================================================ */
-
- /**
-  * @brief Initialize ADC pin, clock, and interrupt.
-  * - Fails if clock config fails.
-  * - Called by HAL_ADC_Init().
-  */
+/**
+ * @brief Initialize ADC pin, clock, and interrupt.
+ * - Fails if clock config fails.
+ * - Called by HAL_ADC_Init().
+ */
 void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc) {
     GPIO_InitTypeDef GPIO_InitStruct = { 0 };
     RCC_PeriphCLKInitTypeDef PeriphClkInit = { 0 };
