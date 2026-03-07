@@ -1,8 +1,11 @@
-#include <stm32l4xx_hal.h>
-#include <common.h>
+#pragma once
+
 #include <stdlib.h>
+
+#include "stm32xx_hal.h"
+#include "common.h"
 #include "pinConfig.h"
-#include <ADC.h>
+#include "ADC.h"
 
 #define QUEUE_LENGTH    3
 #define ITEM_SIZE       sizeof( uint16_t )
@@ -18,6 +21,7 @@ typedef enum {
     TEMP_INTERRUPT_TIMEOUT,
     TEMP_INTERRUPT_ERROR,
     TEMP_QUEUE_FULL,
+    TEMP_INVALID_CHANNEL,
 } temp_status_t;
 
 enum {
