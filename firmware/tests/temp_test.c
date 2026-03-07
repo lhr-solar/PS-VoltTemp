@@ -1,10 +1,10 @@
-#include <stm32l4xx_hal.h>
-#include <bq76920.h>
-#include <common.h>
 #include <stdlib.h>
 #include <stdio.h>
+
+#include "stm32l4xx_hal.h"
+#include "common.h"
 #include "leds.h"
-#include "temp_read.h"
+#include "temperature.h"
 #include "pinConfig.h"
 #include "inits.h"
 #include "FreeRTOS.h"
@@ -14,17 +14,16 @@
 StaticTask_t xBlinkyTaskBuffer;
 StackType_t xBlinkyStack[configMINIMAL_STACK_SIZE];
 StaticTask_t xQueueTaskBuffer;
-StackType_t xQueueStack[ 512 ];
+StackType_t xQueueStack[512];
 StackType_t xInitStack[configMINIMAL_STACK_SIZE];
 StaticTask_t initTaskBuffer;
 
-void ADC_Task(void *pvParameters) {
-    TempMsg_t message1 = {0};
-    TempMsg_t message2 = {0};
-    TempMsg_t message3 = {0};
-    TempMsg_t message4 = {0};
-    TempMsg_t message5 = {0};
- //   TickType_t xLastWakeTime = xTaskGetTickCount();
+void ADC_Task(void* pvParameters) {
+    TempMsg_t message1 = { 0 };
+    TempMsg_t message2 = { 0 };
+    TempMsg_t message3 = { 0 };
+    TempMsg_t message4 = { 0 };
+    TempMsg_t message5 = { 0 };
 
     while (1) {
         // Start ADC reading
@@ -55,85 +54,77 @@ void ADC_Task(void *pvParameters) {
         };
         printf("ADC5 started\r\n");
 
-        //Block until we receive data in queue
-        
+        // Block until we receive data in queue
+
         if (VoltTemp_GetReading(TEMP1, &message1, pdMS_TO_TICKS(100)) != TEMP_OK) {
             printf("Failed to get reading 1\r\n");
             Error_Handler();
-        } else {
-            printf("Reading 1 success\r\n");
-            // Convert data to current measurent
-            message1.current_data = VoltTemp_ADCToTemp(message1.adc_counts);
         }
-        
-        
-        printf("Temp: %ld C\r\n", message1.current_data);
+        else {
+            printf("Reading 1 success\r\n");
+        }
+
+
+        printf("Temp: %ld C\r\n", message1.temperature);
         printf("ADC1 Counts: %d\r\n", message1.adc_counts);
 
         if (VoltTemp_GetReading(TEMP2, &message2, pdMS_TO_TICKS(100)) != TEMP_OK) {
             printf("Failed to get reading 2\r\n");
             Error_Handler();
-        } else {
+        }
+        else {
             printf("Reading 2 success\r\n");
-            // Convert data to current measurent
-            message2.current_data = VoltTemp_ADCToTemp(message2.adc_counts);
         }
 
-        printf("Temp2: %ld C\r\n", message2.current_data);
+        printf("Temp2: %ld C\r\n", message2.temperature);
         printf("ADC2 Counts: %d\r\n", message2.adc_counts);
 
         if (VoltTemp_GetReading(TEMP3, &message3, pdMS_TO_TICKS(100)) != TEMP_OK) {
             printf("Failed to get reading 3\r\n");
             Error_Handler();
-        } else {
+        }
+        else {
             printf("Reading 3 success\r\n");
-            // Convert data to current measurent
-            message3.current_data = VoltTemp_ADCToTemp(message3.adc_counts);
         }
 
-        printf("Temp3: %ld C\r\n", message3.current_data);
+        printf("Temp3: %ld C\r\n", message3.temperature);
         printf("ADC3 Counts: %d\r\n", message3.adc_counts);
 
         if (VoltTemp_GetReading(TEMP4, &message4, pdMS_TO_TICKS(100)) != TEMP_OK) {
             printf("Failed to get reading 4\r\n");
             Error_Handler();
-        } else {
+        }
+        else {
             printf("Reading 4 success\r\n");
-            // Convert data to current measurent
-            message4.current_data = VoltTemp_ADCToTemp(message4.adc_counts);
         }
 
-        printf("Temp4: %ld C\r\n", message4.current_data);
+        printf("Temp4: %ld C\r\n", message4.temperature);
         printf("ADC4 Counts: %d\r\n", message4.adc_counts);
 
         if (VoltTemp_GetReading(TEMP5, &message5, pdMS_TO_TICKS(100)) != TEMP_OK) {
             printf("Failed to get reading 5\r\n");
             Error_Handler();
-        } else {
+        }
+        else {
             printf("Reading 5 success\r\n");
-            // Convert data to current measurent
-            message5.current_data = VoltTemp_ADCToTemp(message5.adc_counts);
         }
 
-        printf("Temp5: %ld C\r\n", message5.current_data);
+        printf("Temp5: %ld C\r\n", message5.temperature);
         printf("ADC5 Counts: %d\r\n", message5.adc_counts);
-
-
 
         HAL_GPIO_TogglePin(PSOM_LED1_PORT, PSOM_LED1_PIN);
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
 }
 
-void Task_Blinky(void *pvParameters) {
+void Task_Blinky(void* pvParameters) {
     while (1) {
         HAL_GPIO_TogglePin(PSOM_LED2_PORT, PSOM_LED2_PIN);
         vTaskDelay(pdMS_TO_TICKS(500));
     }
 }
 
-void Init_Task(void *argument)
-{
+void Init_Task(void* argument) {
     // Init UART printf
     husart1->Init.BaudRate = 115200;
     husart1->Init.WordLength = UART_WORDLENGTH_8B;
@@ -148,27 +139,13 @@ void Init_Task(void *argument)
     temp_init();
 
     toggle_heartbeat();
-    printf("Starting VoltTemp Test\r\n");
+    printf("Starting Temperature Test\r\n");
     vTaskDelay(pdMS_TO_TICKS(500));
     toggle_heartbeat();
-    
-
-
-
-    //   printf("Starting VoltTemp Test\r\n");
 
     // Task kills itself
     vTaskDelete(NULL);
 }
-
-
-// void Test_Queue(void *pvParameters) {
-//     int val = 3000;
-//     while (1) {
-//         xQueueSend(adc_queue, &val, 0);
-//         vTaskDelay(pdMS_TO_TICKS(1000));
-//     }
-// }
 
 int main() {
     // initialize the HAL and system clock
@@ -184,10 +161,7 @@ int main() {
     volttemp_led_on();
 
     mx_uart_init();
-    
-    
-    //if(temp_init() == TEMP_INIT_FAIL) Error_Handler();
-    
+
     xTaskCreateStatic(
         Init_Task,
         "Init Task",
@@ -202,8 +176,8 @@ int main() {
         ADC_Task,
         "ADC Task",
         512,
-        (void*) 1,
-        tskIDLE_PRIORITY+2,
+        (void*)1,
+        tskIDLE_PRIORITY + 2,
         xQueueStack,
         &xQueueTaskBuffer
     );
@@ -212,8 +186,8 @@ int main() {
         Task_Blinky,
         "Blinky",
         configMINIMAL_STACK_SIZE,
-        (void*) 1,
-        tskIDLE_PRIORITY+1,
+        (void*)1,
+        tskIDLE_PRIORITY + 1,
         xBlinkyStack,
         &xBlinkyTaskBuffer
     );

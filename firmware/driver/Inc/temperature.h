@@ -18,20 +18,19 @@ typedef enum {
     TEMP_INTERRUPT_TIMEOUT,
     TEMP_INTERRUPT_ERROR,
     TEMP_QUEUE_FULL,
-
 } temp_status_t;
 
 enum {
-    TEMP1,
+    TEMP1 = 0,
     TEMP2,
     TEMP3,
     TEMP4,
-    TEMP5
+    TEMP5,
 };
 
 typedef struct {
-    int32_t current_data;   // signed, 32 bit
-    uint16_t adc_counts;   // unsigned, 12 bit
+    int32_t temperature;   // signed, 32 bit, millicelsius
+    uint16_t adc_counts;   // unsigned, 12 bit, counts
 } TempMsg_t;
 
 /** ================================================================
@@ -42,16 +41,7 @@ typedef struct {
 #define TEMP3_ADC_CHANNEL ADC_CHANNEL_7
 #define TEMP2_ADC_CHANNEL ADC_CHANNEL_9
 #define TEMP1_ADC_CHANNEL ADC_CHANNEL_10
-#define TEMP_SAMPLE_TIME ADC_SAMPLETIME_47CYCLES_5
-
-// In Theory Values (100% based)
-
-#define ADC_MIN     229
-#define ADC_MAX     3988
-
-#define TEMP_MIN_CENTI   10000    // 10.00°C
-#define TEMP_RANGE_CENTI 75000    // 75.00°C
-#define ADC_RANGE        (ADC_MAX - ADC_MIN)
+#define TEMP_SAMPLE_TIME ADC_SAMPLETIME_2CYCLES_5
 
 extern QueueHandle_t temp1_queue;
 extern QueueHandle_t temp2_queue;
@@ -59,14 +49,10 @@ extern QueueHandle_t temp3_queue;
 extern QueueHandle_t temp4_queue;
 extern QueueHandle_t temp5_queue;
 
+// TODO: doc comments
+
 temp_status_t temp_init();
 
 temp_status_t VoltTemp_StartADC(bool clearQueue, uint8_t temp_select);
 
-temp_status_t VoltTemp_GetReading(uint8_t temp_select, TempMsg_t *message, TickType_t ticksToWait);
-
-int32_t VoltTemp_ADCToTemp(uint16_t adc_val);
-
-
-
-
+temp_status_t VoltTemp_GetReading(uint8_t temp_select, TempMsg_t* message, TickType_t ticksToWait);
