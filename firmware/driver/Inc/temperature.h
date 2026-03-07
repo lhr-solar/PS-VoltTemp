@@ -7,11 +7,15 @@
 #include "pinConfig.h"
 #include "ADC.h"
 
+// ADC Queue Config
 #define QUEUE_LENGTH    3
 #define ITEM_SIZE       sizeof( uint16_t )
+
+// Constants for conversion from counts to mV
 #define MAX_ADC_VOLTAGE_MV 3300
 #define MAX_ADC_COUNTS 4095
 
+// Return type of all user-exposed temperature functions
 typedef enum {
     TEMP_OK,
     TEMP_INIT_FAIL,
@@ -26,6 +30,7 @@ typedef enum {
     TEMP_INVALID_CHANNEL,
 } temp_status_t;
 
+// Available thermistors. TEMP1 to TEMP4 are broken out on flex. TEMP5 is an extra connection, unused on battery.
 typedef enum {
     TEMP1 = 0,
     TEMP2,
@@ -35,20 +40,21 @@ typedef enum {
     NUM_THERMISTORS,
 } thermistor_t;
 
+// Message type filled by GetReading functions
 typedef struct {
     int32_t temperature;   // millicelsius
     uint16_t adc_counts;   // counts (12-bit)
     uint16_t raw_voltage;  // millivolts
 } TempMsg_t;
 
-/** ================================================================
- *  ADC (12 bit)
- * ================================================================ */
+// ADC Channels
 #define TEMP5_ADC_CHANNEL ADC_CHANNEL_5
 #define TEMP4_ADC_CHANNEL ADC_CHANNEL_11
 #define TEMP3_ADC_CHANNEL ADC_CHANNEL_7
 #define TEMP2_ADC_CHANNEL ADC_CHANNEL_9
 #define TEMP1_ADC_CHANNEL ADC_CHANNEL_10
+
+// Sample Time
 #define TEMP_SAMPLE_TIME ADC_SAMPLETIME_2CYCLES_5
 
 extern QueueHandle_t temp1_queue;
@@ -56,8 +62,6 @@ extern QueueHandle_t temp2_queue;
 extern QueueHandle_t temp3_queue;
 extern QueueHandle_t temp4_queue;
 extern QueueHandle_t temp5_queue;
-
-// TODO: doc comments
 
 /**
  * @brief  Initializes ADC queues and calls adc_init for HAL initialization
