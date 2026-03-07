@@ -46,7 +46,11 @@ void ADC_Task(void* pvParameters) {
         for (thermistor_t i = TEMP1; i < NUM_THERMISTORS - 1; i++) {
             printf("TEMP %u: %ld mC\r\n", i + 1, messages[i].temperature);
             printf("ADC Counts: %d\r\n", messages[i].adc_counts);
+            printf("Raw Voltage: %d mV\r\n", messages[i].raw_voltage);
+            printf("\r\n");
         }
+
+        printf("-------------------------------------------------------------\r\n");
 
         HAL_GPIO_TogglePin(PSOM_LED1_PORT, PSOM_LED1_PIN);
         vTaskDelay(pdMS_TO_TICKS(1000));

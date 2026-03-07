@@ -294,6 +294,9 @@ temp_status_t Temp_GetSingleReading(thermistor_t temp_select, TempMsg_t* message
     // Store converted millicelsius value in message struct
     message->temperature = ADCToTemp(message->adc_counts);
 
+    // Store raw mV
+    message->raw_voltage = (message->adc_counts * MAX_ADC_VOLTAGE_MV) / MAX_ADC_COUNTS;
+
     return TEMP_OK;
 }
 

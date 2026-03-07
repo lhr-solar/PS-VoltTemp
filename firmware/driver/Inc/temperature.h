@@ -9,6 +9,8 @@
 
 #define QUEUE_LENGTH    3
 #define ITEM_SIZE       sizeof( uint16_t )
+#define MAX_ADC_VOLTAGE_MV 3300
+#define MAX_ADC_COUNTS 4095
 
 typedef enum {
     TEMP_OK,
@@ -34,8 +36,9 @@ typedef enum {
 } thermistor_t;
 
 typedef struct {
-    int32_t temperature;   // signed, 32 bit, millicelsius
-    uint16_t adc_counts;   // unsigned, 12 bit, counts
+    int32_t temperature;   // millicelsius
+    uint16_t adc_counts;   // counts (12-bit)
+    uint16_t raw_voltage;  // millivolts
 } TempMsg_t;
 
 /** ================================================================
