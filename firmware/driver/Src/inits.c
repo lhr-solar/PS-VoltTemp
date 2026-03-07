@@ -1,4 +1,4 @@
-#include <stm32l4xx_hal.h>
+#include <stm32xx_hal.h>
 #include <bq76920.h>
 #include <common.h>
 #include <stdlib.h>
@@ -12,7 +12,6 @@
 //================================================================================
 I2C_HandleTypeDef hi2c1;
 
-#ifdef STM32L431xx
 /**
  * @brief System Clock Configuration
  * @retval None
@@ -59,11 +58,9 @@ void SystemClock_Config(void)
     Error_Handler();
   }
 }
-#endif
 
 void mx_i2c_init(void)
 {
-#ifdef STM32L431xx
   // initialize I2C pins on PSOM
   GPIO_InitTypeDef GPIO_InitStruct = {0};
   RCC_PeriphCLKInitTypeDef ClkInit = {0};
@@ -129,7 +126,6 @@ void mx_i2c_init(void)
   {
     Error_Handler();
   }
-#endif
 }
 //================================================================================
 
@@ -166,7 +162,7 @@ void mx_uart_init(void)
 
 void UART_Init(void)
 {
-  // Init UART printf
+  // Init UART for printf
   husart1->Init.BaudRate = 115200;
   husart1->Init.WordLength = UART_WORDLENGTH_8B;
   husart1->Init.StopBits = UART_STOPBITS_1;

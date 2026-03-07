@@ -1985,7 +1985,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "UTSVT_Connectors:105313-2102"
+		(property "Footprint" "UTSVT_Connectors:Molex_Nano-Fit_105309-xx02_1x02_P2.50mm_Vertical"
 			(at 163.83 77.47 0)
 			(effects
 				(font
@@ -2012,7 +2012,7 @@
 				(hide yes)
 			)
 		)
-		(property "P/N" "1053131102"
+		(property "P/N" "1053091202"
 			(at 163.83 77.47 0)
 			(effects
 				(font
@@ -2064,7 +2064,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "UTSVT_Connectors:Banana_Jack_1_Pin_4mm"
+		(property "Footprint" "VoltTemp:5754"
 			(at 72.39 69.85 0)
 			(effects
 				(font
@@ -2091,7 +2091,7 @@
 				(hide yes)
 			)
 		)
-		(property "P/N" "105-2210-201"
+		(property "P/N" "575-4"
 			(at 72.39 69.85 0)
 			(effects
 				(font
@@ -2138,7 +2138,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Scrutineering:nanofit_02x04"
+		(property "Footprint" "Scrutineering:CONN_SD-105310-100_08_MOL"
 			(at 71.12 87.63 0)
 			(effects
 				(font
@@ -2165,7 +2165,7 @@
 				(hide yes)
 			)
 		)
-		(property "P/N" "1053141108"
+		(property "P/N" "1053101308"
 			(at 71.12 87.63 0)
 			(effects
 				(font
@@ -2362,7 +2362,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Scrutineering:nanofit_02x04"
+		(property "Footprint" "Scrutineering:CONN_SD-105310-100_08_MOL"
 			(at 71.12 43.18 0)
 			(effects
 				(font
@@ -2389,7 +2389,7 @@
 				(hide yes)
 			)
 		)
-		(property "P/N" "1053141108"
+		(property "P/N" "1053101308"
 			(at 71.12 43.18 0)
 			(effects
 				(font
@@ -2459,7 +2459,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "UTSVT_Connectors:Banana_Jack_1_Pin_4mm"
+		(property "Footprint" "VoltTemp:5754"
 			(at 140.97 86.36 0)
 			(effects
 				(font
@@ -2486,7 +2486,7 @@
 				(hide yes)
 			)
 		)
-		(property "P/N" "105-2210-201"
+		(property "P/N" "575-4"
 			(at 140.97 86.36 90)
 			(effects
 				(font
@@ -2535,7 +2535,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "VoltTemp:1053131103"
+		(property "Footprint" "Scrutineering:CONN_SD-105309-100_03_MOL"
 			(at 109.22 87.63 0)
 			(effects
 				(font
@@ -2562,7 +2562,7 @@
 				(hide yes)
 			)
 		)
-		(property "P/N" "1053131103"
+		(property "P/N" "1053091103"
 			(at 109.22 87.63 0)
 			(effects
 				(font
@@ -2617,7 +2617,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "VoltTemp:1053131103"
+		(property "Footprint" "Scrutineering:CONN_SD-105309-100_03_MOL"
 			(at 109.22 43.18 0)
 			(effects
 				(font
@@ -2644,7 +2644,7 @@
 				(hide yes)
 			)
 		)
-		(property "P/N" "1053131103"
+		(property "P/N" "1053091103"
 			(at 109.22 43.18 0)
 			(effects
 				(font
@@ -2699,7 +2699,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "UTSVT_Connectors:Banana_Jack_1_Pin_4mm"
+		(property "Footprint" "VoltTemp:5754"
 			(at 53.34 97.79 0)
 			(effects
 				(font
@@ -2726,7 +2726,7 @@
 				(hide yes)
 			)
 		)
-		(property "P/N" "105-2210-201"
+		(property "P/N" "575-4"
 			(at 53.34 97.79 90)
 			(effects
 				(font
@@ -2971,7 +2971,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "UTSVT_Connectors:Banana_Jack_1_Pin_4mm"
+		(property "Footprint" "VoltTemp:5754"
 			(at 54.61 52.07 0)
 			(effects
 				(font
@@ -2998,7 +2998,7 @@
 				(hide yes)
 			)
 		)
-		(property "P/N" "105-2210-201"
+		(property "P/N" "575-4"
 			(at 54.61 52.07 90)
 			(effects
 				(font
@@ -3406,7 +3406,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "UTSVT_Connectors:Banana_Jack_1_Pin_4mm"
+		(property "Footprint" "VoltTemp:5754"
 			(at 140.97 71.12 0)
 			(effects
 				(font
@@ -3433,7 +3433,7 @@
 				(hide yes)
 			)
 		)
-		(property "P/N" "105-2210-201"
+		(property "P/N" "575-4"
 			(at 140.97 71.12 90)
 			(effects
 				(font
@@ -3562,7 +3562,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "UTSVT_Connectors:Banana_Jack_1_Pin_4mm"
+		(property "Footprint" "VoltTemp:5754"
 			(at 72.39 116.84 0)
 			(effects
 				(font
@@ -3589,7 +3589,7 @@
 				(hide yes)
 			)
 		)
-		(property "P/N" "105-2210-201"
+		(property "P/N" "575-4"
 			(at 72.39 116.84 0)
 			(effects
 				(font
@@ -3753,7 +3753,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "UTSVT_Connectors:105313-2102"
+		(property "Footprint" "UTSVT_Connectors:Molex_Nano-Fit_105309-xx02_1x02_P2.50mm_Vertical"
 			(at 185.42 69.85 0)
 			(effects
 				(font
@@ -3780,7 +3780,7 @@
 				(hide yes)
 			)
 		)
-		(property "P/N" "1053131102"
+		(property "P/N" "1053091202"
 			(at 185.42 69.85 0)
 			(effects
 				(font
