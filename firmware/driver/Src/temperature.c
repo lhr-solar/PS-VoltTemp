@@ -82,7 +82,7 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc) {
         HAL_GPIO_Init(GPIOB, &GPIO_InitStruct);
 
         /* ADC1 interrupt Init */
-        HAL_NVIC_SetPriority(ADC1_IRQn, configMAX_SYSCALL_INTERRUPT_PRIORITY, 0);
+        HAL_NVIC_SetPriority(ADC1_IRQn, configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY, 0);
         HAL_NVIC_EnableIRQ(ADC1_IRQn);
     }
 }
@@ -154,12 +154,7 @@ static int32_t ADCToTemp(uint16_t adc_val) {
     return thermistor_lut[adc_val];
 }
 
-temp_status_t Temp_StartADC(bool clearQueue, thermistor_t temp_select) {
-    HAL_GPIO_TogglePin(PSOM_LED2_PORT, PSOM_LED2_PIN);
-    vTaskDelay(500);
-    HAL_GPIO_TogglePin(PSOM_LED2_PORT, PSOM_LED2_PIN);
-    vTaskDelay(500);
-    HAL_GPIO_TogglePin(PSOM_LED2_PORT, PSOM_LED2_PIN);
+temp_status_t Temp_StartSingleADC(bool clearQueue, thermistor_t temp_select) {
     // Clear queue if requested
     if (clearQueue)
     {
@@ -247,6 +242,18 @@ temp_status_t Temp_StartADC(bool clearQueue, thermistor_t temp_select) {
     default:
         return TEMP_INVALID_CHANNEL;
     }
+    return TEMP_OK;
+}
+
+temp_status_t Temp_StartAllADC(bool clearQueue) {
+    // Read first 4 thermistors (only 4 on the segment, 5th is extra sooo)
+    for (thermistor_t i = TEMP1; i < NUM_THERMISTORS - 1; i++) {
+        temp_status_t status = Temp_StartSingleADC(clearQueue, i);
+        if (status != TEMP_OK) {
+            return status;
+        }
+    }
+
     return TEMP_OK;
 }
 

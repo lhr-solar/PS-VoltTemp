@@ -60,6 +60,8 @@ temp_status_t Temp_Init();
 
 temp_status_t Temp_StartADC(bool clearQueue, uint8_t temp_select);
 
+temp_status_t Temp_StartAllADC(bool clearQueue);
+
 temp_status_t Temp_GetSingleReading(uint8_t temp_select, TempMsg_t* message, TickType_t ticksToWait);
 
 temp_status_t Temp_GetAllReadings(TempMsg_t* messages, TickType_t ticksToWait);

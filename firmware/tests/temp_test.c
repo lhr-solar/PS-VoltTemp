@@ -19,102 +19,34 @@ StackType_t xInitStack[configMINIMAL_STACK_SIZE];
 StaticTask_t initTaskBuffer;
 
 void ADC_Task(void* pvParameters) {
-    TempMsg_t message1 = { 0 };
-    // TempMsg_t message2 = { 0 };
-    // TempMsg_t message3 = { 0 };
-    // TempMsg_t message4 = { 0 };
-    // TempMsg_t message5 = { 0 };
-
     while (1) {
         // Start ADC reading
-        printf("ADC Task started\r\n");
         // Reset queue to prevent race condition (data already in queue and task does not wake up)
-        temp_status_t status = Temp_StartADC(false, TEMP1);
+        temp_status_t status = Temp_StartAllADC(false);
         if (status == TEMP_INVALID_CHANNEL) {
-            printf("Invalid channel\r\n");
+            printf("Invalid Channel\r\n");
         }
         else if (status == TEMP_ADC_START_FAIL) {
             printf("Failed Start ADC Start\r\n");
         }
-        printf("ADC1 started\r\n");
-
-        // if (Temp_StartADC(false, TEMP2) != TEMP_OK) {
-        //     Error_Handler();
-        // };
-        // printf("ADC2 started\r\n");
-
-        // if (Temp_StartADC(false, TEMP3) != TEMP_OK) {
-        //     Error_Handler();
-        // };
-        // printf("ADC3 started\r\n");
-
-        // if (Temp_StartADC(false, TEMP4) != TEMP_OK) {
-        //     Error_Handler();
-        // };
-        // printf("ADC4 started\r\n");
-
-        // if (Temp_StartADC(false, TEMP5) != TEMP_OK) {
-        //     Error_Handler();
-        // };
-        // printf("ADC5 started\r\n");
+        printf("All ADC Readings Started...");
 
         // Block until we receive data in queue
+        TempMsg_t messages[4] = { 0 };
 
-        if (Temp_GetSingleReading(TEMP1, &message1, pdMS_TO_TICKS(100)) != TEMP_OK) {
-            printf("Failed to get reading 1\r\n");
+        if (Temp_GetAllReadings(messages, pdMS_TO_TICKS(100)) != TEMP_OK) {
+            printf("Failed to get all readings\r\n");
             Error_Handler();
         }
         else {
-            printf("Reading 1 success\r\n");
+            printf("Reading Success\r\n");
         }
 
-
-        printf("Temp: %ld C\r\n", message1.temperature);
-        printf("ADC1 Counts: %d\r\n", message1.adc_counts);
-
-        // if (Temp_GetSingleReading(TEMP2, &message2, pdMS_TO_TICKS(100)) != TEMP_OK) {
-        //     printf("Failed to get reading 2\r\n");
-        //     Error_Handler();
-        // }
-        // else {
-        //     printf("Reading 2 success\r\n");
-        // }
-
-        // printf("Temp2: %ld C\r\n", message2.temperature);
-        // printf("ADC2 Counts: %d\r\n", message2.adc_counts);
-
-        // if (Temp_GetSingleReading(TEMP3, &message3, pdMS_TO_TICKS(100)) != TEMP_OK) {
-        //     printf("Failed to get reading 3\r\n");
-        //     Error_Handler();
-        // }
-        // else {
-        //     printf("Reading 3 success\r\n");
-        // }
-
-        // printf("Temp3: %ld C\r\n", message3.temperature);
-        // printf("ADC3 Counts: %d\r\n", message3.adc_counts);
-
-        // if (Temp_GetSingleReading(TEMP4, &message4, pdMS_TO_TICKS(100)) != TEMP_OK) {
-        //     printf("Failed to get reading 4\r\n");
-        //     Error_Handler();
-        // }
-        // else {
-        //     printf("Reading 4 success\r\n");
-        // }
-
-        // printf("Temp4: %ld C\r\n", message4.temperature);
-        // printf("ADC4 Counts: %d\r\n", message4.adc_counts);
-
-        // if (Temp_GetSingleReading(TEMP5, &message5, pdMS_TO_TICKS(100)) != TEMP_OK) {
-        //     printf("Failed to get reading 5\r\n");
-        //     Error_Handler();
-        // }
-        // else {
-        //     printf("Reading 5 success\r\n");
-        // }
-
-        // printf("Temp5: %ld C\r\n", message5.temperature);
-        // printf("ADC5 Counts: %d\r\n", message5.adc_counts);
+        // Print all temps
+        for (thermistor_t i = TEMP1; i < NUM_THERMISTORS - 1; i++) {
+            printf("TEMP %u: %ld mC\r\n", i + 1, messages[i].temperature);
+            printf("ADC Counts: %d\r\n", messages[i].adc_counts);
+        }
 
         HAL_GPIO_TogglePin(PSOM_LED1_PORT, PSOM_LED1_PIN);
         vTaskDelay(pdMS_TO_TICKS(1000));
