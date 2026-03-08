@@ -44,13 +44,14 @@ void task_Init(){
   // Init CAN
   HAL_CAN_MspInit(hcan1);
   mx_CAN_init();
+  vt_CAN_start();
 
   /* ================= START TASKS ================= */
   xTaskCreateStatic(task_ReadVoltage,
                   "BQ Test",
                   configVOLTTEMP_STACK_SIZE,
                   NULL,
-                  tskIDLE_PRIORITY + 2,
+                  tskIDLE_PRIORITY + 3,
                   volt_temp_Stack,
                   &volt_temp_TaskBuffer);
 

@@ -58,8 +58,8 @@ VoltTempStatus_t vt_assemble_can_msg(CAN_struct_t* CAN_struct, CAN_TxHeaderTypeD
   TX_data[3] = (uint8_t) CAN_struct->CURRENT_VT.BPS_Voltage_Tap_Data;
   TX_data[4] = (uint8_t) CAN_struct->CURRENT_VT.BPS_Temperature_Tap_Data;
   TX_data[5] = (uint8_t) CAN_struct->CURRENT_VT.BPS_Temperature_Tap_RawV;
-  TX_data[6] = (uint8_t) 
-  TX_data[7] = (uint8_t) 
+  TX_data[6] = (uint8_t) 1;
+  TX_data[7] = (uint8_t) 1;
   return VOLTTEMP_OK;
 }
 

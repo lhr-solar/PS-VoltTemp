@@ -16,3 +16,4 @@ extern UART_HandleTypeDef* husart1;
 void mx_CAN_init(void);
 void HAL_CAN_MspInit(CAN_HandleTypeDef* hcan);
 extern CAN_HandleTypeDef* hcan1;
+void vt_CAN_start(void);

@@ -16,6 +16,7 @@ typedef enum{
 #define VT_TAP_COUNT 4
 #define VOLTTEMP_MSG_DLC 7
 
+
 VoltTempStatus_t vt_send_can_msg(CAN_struct_t* CAN_struct, TickType_t ticksToWait);
 
 VoltTempStatus_t vt_assemble_can_msg(CAN_struct_t* CAN_struct, CAN_TxHeaderTypeDef* tx_header, uint8_t* tx_data);
