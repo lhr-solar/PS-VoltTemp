@@ -26,6 +26,13 @@
 #define I2C_SDA_PIN         GPIO_PIN_7
 //================================================================================
 
+// Pin configuration for BQ CAN 
+//================================================================================
+#define CAN_PORT            GPIOB
+#define CAN_RX              GPIO_PIN_8
+#define CAN_TX              GPIO_PIN_9
+//================================================================================
+
 // USART pins for PSOM
 #define USART_PORT GPIOA
 #define USART_TX_PIN GPIO_PIN_9

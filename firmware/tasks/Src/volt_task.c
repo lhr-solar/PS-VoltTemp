@@ -11,8 +11,10 @@
 #include "inits.h"
 #include "printf.h"
 #include "UART.h"
+#include "volttemp.h"
 
 uint16_t cell_readings[5];
+BQ76920_Status_t BQ_STATUS = BQ_OK;
 
 void task_ReadVoltage(void *pvParameters)
 {
@@ -22,7 +24,7 @@ void task_ReadVoltage(void *pvParameters)
   while (1)
   {
 
-    get_Voltage_All(cell_readings, BQ_DELAY);
+    if(get_Voltage_All(cell_readings, BQ_DELAY) != BQ_OK) BQ_STATUS = BQ_ERR;
     
     //#define BQ_PRINT_READINGS
     #ifdef BQ_PRINT_READINGS
@@ -35,7 +37,6 @@ void task_ReadVoltage(void *pvParameters)
     printf("Total : %u  \r\n",cell_readings[4]);
     #endif
 
-    HAL_GPIO_TogglePin(HEARTBEAT_PORT, HEARTBEAT_PIN);
     vTaskDelay(VOLTTEMP_DELAY);
   }
 }

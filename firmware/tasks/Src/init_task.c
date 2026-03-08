@@ -15,6 +15,9 @@
 StaticTask_t volt_temp_TaskBuffer;
 StackType_t volt_temp_Stack[configVOLTTEMP_STACK_SIZE];
 
+StaticTask_t volt_temp_can_TaskBuffer;
+StackType_t volt_temp_can_Stack[configVOLTTEMP_STACK_SIZE];
+
 void task_Init(){
 
   // initialize the HAL and system clock
@@ -39,6 +42,7 @@ void task_Init(){
   Init_BQ76920();
 
   // Init CAN
+  HAL_CAN_MspInit(hcan1);
   mx_CAN_init();
 
   /* ================= START TASKS ================= */
@@ -49,6 +53,14 @@ void task_Init(){
                   tskIDLE_PRIORITY + 2,
                   volt_temp_Stack,
                   &volt_temp_TaskBuffer);
+
+    xTaskCreateStatic(task_SendMessage,
+                  "BQ Test",
+                  configVOLTTEMP_STACK_SIZE,
+                  NULL,
+                  tskIDLE_PRIORITY + 2,
+                  volt_temp_can_Stack,
+                  &volt_temp_can_TaskBuffer);
   
   
   // Task kills itself :(

@@ -21,9 +21,10 @@ void task_SendMessage(void *pvParameters)
 {
   while (1)
   {
-    vt_send_can_msg(&Can_struct);
+    vt_send_can_msg(&Can_struct, CAN_DELAY);
 
-    vTaskDelay(VOLTTEMP_DELAY);
+    HAL_GPIO_TogglePin(HEARTBEAT_PORT, HEARTBEAT_PIN);
+    vTaskDelay(CAN_DELAY);
   }
 }
 

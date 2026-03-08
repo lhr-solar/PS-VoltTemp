@@ -3,23 +3,23 @@
 #include "stm32xx_hal.h"
 #include "common.h"
 #include <BPSCAN_can_msgs.h>
+#include "bq76920.h"
 
 
 // BQ Task
 #define configVOLTTEMP_STACK_SIZE 2048
 #define VOLTTEMP_PRIO    tskIDLE_PRIORITY + 1
 #define VOLTTEMP_DELAY   pdMS_TO_TICKS(300)
+#define CAN_DELAY pdMS_TO_TICKS(10)
 
 void task_ReadVoltage(void *pvParameters);
+void task_SendMessage(void *pvParameters);
 
 // Init Tasks
 #define TASK_INIT_PRIO                  tskIDLE_PRIORITY + 1
 #define TASK_INIT_STACK_SIZE            configMINIMAL_STACK_SIZE
 
 void task_Init();
-
-
-
 
 typedef union  {
 bps_voltage_temperature_0_t vt1;

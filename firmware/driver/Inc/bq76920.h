@@ -30,6 +30,8 @@ typedef enum
   BQ_ERR,
 } BQ76920_Status_t;
 
+extern BQ76920_Status_t BQ_STATUS;
+
 // Commands
 
 // sys commands
