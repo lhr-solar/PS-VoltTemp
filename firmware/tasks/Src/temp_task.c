@@ -1,8 +1,8 @@
-#include <stm32l4xx_hal.h>
-#include <common.h>
-#include <stdlib.h>
-#include <ADC.h>
-#include <temp_read.h>
+#include "stm32l4xx_hal.h"
+#include "common.h"
+#include "stdlib.h"
+#include "ADC.h"
+#include "temperature.h"
 
 /*
 void task_temp_read(void *pvParameters){

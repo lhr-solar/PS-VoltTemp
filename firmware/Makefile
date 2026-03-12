@@ -21,7 +21,7 @@ TEST ?= main
 PROJECT_TARGET ?= stm32l431cbt
 
 # source and include directories
-PROJECT_C_INCLUDES = $(wildcard */Inc)
+PROJECT_C_INCLUDES = $(wildcard */Inc) $(wildcard */inc) $(wildcard */include)
 PROJECT_C_SOURCES = $(wildcard */Src/*.c)
 
 
@@ -91,13 +91,12 @@ ifndef VOLTTEMP
 	$(error VOLTTEMP is not defined. Please provide a volttemp to build for. Run make help for more information.)
 endif
 ifneq ($(TEST), main)
-	@echo "Making ${PURPLE}$(PROJECT_TARGET)${NC}build for ${BLUE}TEST=${PURPLE} ${TEST}${NC}"
+	@echo -e "Making ${PURPLE}$(PROJECT_TARGET)${NC}build for ${BLUE}TEST=${PURPLE} ${TEST}${NC}"
 else
-	@echo "Making ${PURPLE}$(PROJECT_TARGET)${NC}build with ${ORANGE}no test.${NC}"
+	@echo -e "Making ${PURPLE}$(PROJECT_TARGET)${NC}build with ${ORANGE}no test.${NC}"
 endif
 	$(BEAR_PREFIX) $(MAKE) -C $(BUILD_MAKEFILE_DIR) VERBOSE=1 all -j
-	@echo "${BLUE}Compiled! Splendid! Jolly Good!!${NC}"
-
+	@echo -e "${BLUE}Compiled! Splendid! Jolly Good!!${NC}"
 #---------------------------------
 
 
@@ -111,9 +110,9 @@ flash:
 help:
 	@echo "Format: ${ORANGE}make ${GREEN}VOLTTEMP=${PURPLE}<volttemp target (0-7)>${NC} ${BLUE}TEST=${PURPLE}<Test name>${NC}"
 
-	@echo "${BLUE}TEST${NC}( OPTIONAL ):"
-	@echo "- If you want to run a test, specify ${BLUE}TEST=${PURPLE}<Test name>${NC}, with ${PURPLE}<Test name>${NC}"
-	@echo "   being the exact name of the test file ${RED} without${NC} the .c suffix.\n"
+	@echo -e "${BLUE}TEST${NC}( OPTIONAL ):"
+	@echo -e "- If you want to run a test, specify ${BLUE}TEST=${PURPLE}<Test name>${NC}, with ${PURPLE}<Test name>${NC}"
+	@echo -e "   being the exact name of the test file ${RED} without${NC} the .c suffix.\n"
 #-------------- 
 # Documentation
 # .PHONY: docs

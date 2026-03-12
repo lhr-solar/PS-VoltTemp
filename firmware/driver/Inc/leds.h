@@ -10,3 +10,5 @@ void leds_init(void);
 void set_heartbeat_led(State pin_state);
 
 void volttemp_led_on(void);
+
+void toggle_heartbeat(void);
