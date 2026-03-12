@@ -14,7 +14,7 @@ NC=\033[0m # No Color
 #---------------------------------
 
 # Define the C_DEFS variable using the value of VOLTTEMP
-PROJECT_MACROS += VOLTTEMP_$(VOLTTEMP)
+PROJECT_MACROS = VOLTTEMP_$(VOLTTEMP) USART1_TX_QUEUE_SIZE=100
 
 # Project Configuration ----------
 TEST ?= main

@@ -10,6 +10,7 @@
 #include "printf.h"
 #include "UART.h"
 #include "tasks.h"
+#include "canbus.h"
 
 // Buffers for tasks
 StaticTask_t volt_temp_TaskBuffer;
@@ -42,9 +43,7 @@ void task_Init(){
   Init_BQ76920();
 
   // Init CAN
-  HAL_CAN_MspInit(hcan1);
-  mx_CAN_init();
-  vt_CAN_start();
+  canbus_init();
 
   /* ================= START TASKS ================= */
   xTaskCreateStatic(task_ReadVoltage,

@@ -4,10 +4,12 @@
 //--------------------------------------------------------------------------------
 // Battery Pack layout
 #ifndef NUM_BATTERY_MODULES
-#define NUM_BATTERY_MODULES             32      // Number of battery modules
+#define NUM_BATTERY_MODULES                 32      // Number of battery modules
 #endif
 
-#define NUM_TOTAL_VOLTTEMP               8      // Total number of VoltTemp Boards
+#define NUM_TOTAL_VOLTTEMP                  8      // Total number of VoltTemp Boards
+
+#define NUM_THERMISTORS_PER_VOLTTEMP        4       // Number of thermistors that a volttemp reads
 
 //--------------------------------------------------------------------------------
 
