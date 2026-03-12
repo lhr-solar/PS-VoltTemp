@@ -13,7 +13,7 @@
 StaticTask_t taskInitBuffer;
 StackType_t taskInitStack[configMINIMAL_STACK_SIZE];
 
-/*
+
 int main(void) {
   xTaskCreateStatic(task_Init,
                     "Init Task",
@@ -29,4 +29,3 @@ int main(void) {
     return 0;
 }
 
-*/

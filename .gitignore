@@ -37,7 +37,6 @@ build/
 .vscode/
 .vscode/compile_commands.json
 
-
 # Python virtual envioronment
 .venv/
 .venv
