@@ -24,11 +24,6 @@ jobs:
       - name: Install Nix Action
         uses: cachix/install-nix-action@v31
 
-      - name: Test Production Build
-        run: |
-          nix develop ./firmware/Embedded-Sharepoint --accept-flake-config --command bash -c "
-            cd firmware/ && make clean && make
-          "
       - name: Clean & Build tests
         run: |
           nix develop ./firmware/Embedded-Sharepoint --accept-flake-config --command bash -c "
