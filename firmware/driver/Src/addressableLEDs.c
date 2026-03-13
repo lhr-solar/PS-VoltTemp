@@ -1,9 +1,5 @@
 #include "addressableLEDs.h"
 
-#define MAX_NUM_ADDRESSABLE_LEDS 8
-
-
-
 #define WS2812B_ISR_PRIO (configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY+4)
 
 void MX_DMA_Init(void);
@@ -12,8 +8,8 @@ void HAL_TIM_PWM_MspInit(TIM_HandleTypeDef* tim_pwmHandle);
 void HAL_TIM_MspPostInit(TIM_HandleTypeDef* timHandle);
 void HAL_TIM_PWM_MspDeInit(TIM_HandleTypeDef* tim_pwmHandle);
 
-static uint8_t ledData[MAX_NUM_ADDRESSABLE_LEDS][NUMBER_PWM_DATA_ELEMENTS];
-static uint16_t pwmData[(24 * MAX_NUM_ADDRESSABLE_LEDS) + WS2812_RESET_TIME];
+static uint8_t ledData[NUM_ADDRESSABLE_LEDS][NUMBER_PWM_DATA_ELEMENTS];
+static uint16_t pwmData[(24 * NUM_ADDRESSABLE_LEDS) + WS2812_RESET_TIME];
 static ws2812b_handle_t wsHandle;
 
 TIM_HandleTypeDef htim2;
@@ -34,7 +30,7 @@ ws2812b_status_t addressableLEDInit(){
         pwmData,
         &htim2,
         TIM_CHANNEL_3,
-        MAX_NUM_ADDRESSABLE_LEDS
+        NUM_ADDRESSABLE_LEDS
     );
 
     return stat;

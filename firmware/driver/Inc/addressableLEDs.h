@@ -7,6 +7,7 @@
 #define NO_FAULT_COLOR WS2812B_SOLID_GREEN
 
 #define NUM_ROW_LEDS 4
+#define NUM_ADDRESSABLE_LEDS 8
 
 typedef enum{
     MODULE_0_TEMP_LED = 0,
@@ -17,7 +18,10 @@ typedef enum{
     MODULE_1_VOLTAGE_LED,
     MODULE_2_VOLTAGE_LED,
     MODULE_3_VOLTAGE_LED,
+    NUMBER_MODULE_STATUS_LEDs
 }addressable_led_idx;
+
+_Static_assert(NUM_ADDRESSABLE_LEDS >= NUMBER_MODULE_STATUS_LEDs, "NUM_ADDRESSABLE_LEDS and addressable_led_idx do not match");
 
 
 ws2812b_status_t addressableLEDInit();
