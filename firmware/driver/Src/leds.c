@@ -81,9 +81,9 @@ void volttemp_led_on(void){
     HAL_GPIO_WritePin(PSOM_LED3_PORT, PSOM_LED3_PIN, GPIO_PIN_SET);     // 1
 
     #elif defined(VOLTTEMP_6)
-    HAL_GPIO_WritePin(PSOM_LED1_PORT, PSOM_LED1_PIN, GPIO_PIN_SET);     // 1
+    HAL_GPIO_WritePin(PSOM_LED1_PORT, PSOM_LED1_PIN, GPIO_PIN_RESET);   // 0
     HAL_GPIO_WritePin(PSOM_LED2_PORT, PSOM_LED2_PIN, GPIO_PIN_SET);     // 1
-    HAL_GPIO_WritePin(PSOM_LED3_PORT, PSOM_LED3_PIN, GPIO_PIN_RESET);   // 0
+    HAL_GPIO_WritePin(PSOM_LED3_PORT, PSOM_LED3_PIN, GPIO_PIN_SET);     // 1
 
     #elif defined(VOLTTEMP_7)
     HAL_GPIO_WritePin(PSOM_LED1_PORT, PSOM_LED1_PIN, GPIO_PIN_SET);     // 1

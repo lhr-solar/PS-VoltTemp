@@ -57,7 +57,6 @@ static uint8_t getCellRegister(uint8_t index, uint16_t *cellRegister){
       break;
     default:
       return 0;
-      break;
   }  
   return 1;
 } 

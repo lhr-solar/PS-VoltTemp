@@ -568,7 +568,7 @@ BQ76920_Status_t update_Cell_Voltage(uint16_t cell, uint16_t *voltageMeasurement
 
   // Make sure we're reading a correct cell
   if(cell == VC1 || cell == VC2 || cell == VC3 || cell == VC4 || cell == VC5 || cell == BAT){
-    *voltageMeasurement = (uint16_t)(get_Voltage_Cell(VC1, delay_ticks) / BQ_MICRO_TO_MILLI);
+    *voltageMeasurement = (uint16_t)(get_Voltage_Cell(cell, delay_ticks) / BQ_MICRO_TO_MILLI);
     return BQ_OK;
   }
   return BQ_ERR;

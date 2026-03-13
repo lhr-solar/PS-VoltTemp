@@ -45,7 +45,7 @@ can_status_t canbus_send(CAN_TxHeaderTypeDef* header, uint8_t data[], TickType_t
     return can_send(voltTempCAN, header, data, delay_ticks);
 }
 
-can_status_t canbus_recieve(uint16_t id, CAN_RxHeaderTypeDef* header, uint8_t data[], TickType_t delay_ticks){
+can_status_t canbus_receive(uint16_t id, CAN_RxHeaderTypeDef* header, uint8_t data[], TickType_t delay_ticks){
   
   return can_recv(voltTempCAN, id, header, data, delay_ticks);
 
