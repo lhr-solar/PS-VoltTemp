@@ -51,7 +51,7 @@ void Task_ReadBQ(void *pvParameters)
     #define BQ_PRINT_READINGS
 
     #ifdef BQ_PRINT_READINGS
-    get_Voltage_All(cell_Data, BQ_DELAY);
+    get_Voltage_All(cell_Data, BQ_TIMEOUT_TICKS);
     
     printf("\033[H");
     printf("Voltage Readings:\r\n");
@@ -73,7 +73,7 @@ void Task_ReadBQ(void *pvParameters)
     if(reg_data==24)write = 0;
     else write = 1;
     //sys_Write(TEMP_SEL,write);
-    bq76920_W_1_bit(SYS_CTRL1,3,write, BQ_DELAY);
+    bq76920_W_1_bit(SYS_CTRL1,3,write, BQ_TIMEOUT_TICKS);
     #endif
 	
 
