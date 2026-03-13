@@ -70,8 +70,13 @@ static void initVoltageMsgHeader(CAN_TxHeaderTypeDef *voltageMsgHeader){
 }
 
 static void packVoltageMessage(bps_voltage_arr_t msg, uint8_t msgArr[8]){
+  // 0th byte is the tap ID
   msgArr[0] = (msg.BPS_Tap_idx);
+
+  // 2nd and 3rd(msb) bytes are the voltage data
   memcpy(&msgArr[1], &(msg.BPS_Voltage_Tap_Data), sizeof(uint16_t));
+
+  // 4th byte is the BQ fault
   msgArr[3] =  (msg.BPS_VoltTemp_BQ_Fault);
 }
 
@@ -104,7 +109,7 @@ void task_ReadVoltage(void *pvParameters)
             cell_readings[i] = cellVoltageStorage;
           } 
 
-          // no need to send CAN message for top module voltage
+          // no need to send CAN message for total module voltage
           if(cellRegister != BAT){
 
             voltageMsg.BPS_Tap_idx = tapIdxArr[(i)];
@@ -115,7 +120,9 @@ void task_ReadVoltage(void *pvParameters)
             // send max 16 bit number if BQ fault
             voltageMsg.BPS_Voltage_Tap_Data = (cellReadStatus == BQ_OK) ? cell_readings[i] : (0xFFFF);
 
+            // pack the voltageMsg struct into bytes to send over CAN
             packVoltageMessage(voltageMsg, voltageMsgData);
+            
             canbus_send(&voltageMsgHeader, voltageMsgData, BQ_TIMEOUT_TICKS);
 
           }

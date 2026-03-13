@@ -16,6 +16,8 @@ typedef struct {
     uint16_t BPS_Temperature_Tap_RawV;
 } bps_temperature_arr_t;
 
+#define TEMPERTURE_READ_TIMEOUT_TICKS pdMS_TO_TICKS(100)
+
 #define TEMPERATURE_PRINTF_PERIOD_MS 20000
 #define TEMPERATURE_PRINTF_COUNT  (TEMPERATURE_PRINTF_PERIOD_MS/TEMPERATURE_THREAD_PERIOD_MS)
 
@@ -28,9 +30,17 @@ static void initTemperatureMsgHeader(CAN_TxHeaderTypeDef *temperatureMsgHeader){
 }
 
 static void packTemperatureMessage(bps_temperature_arr_t msg, uint8_t msgArr[8]){
+
+  // first 5 bits of the 0th byte is the tap index
   msgArr[0] = ((msg.BPS_Tap_idx)) & (0x1F);
+
+  // remaining bits in 0th byte is fault
   msgArr[0] |= ((msg.BPS_Temperature_Tap_Fault & 0x07) << 5);
+
+  // bytes 1-4(msb) is temperature data
   memcpy(&msgArr[1], &(msg.BPS_Temperature_Tap_Data), sizeof(int32_t));
+
+  // bytes 5-6(msb) is the raw mV voltage
   memcpy(&msgArr[5], &(msg.BPS_Temperature_Tap_RawV), sizeof(uint16_t));
 }
 
@@ -58,7 +68,7 @@ void task_temp_read(void *pvParameters){
     else{
       
       // the delay we wait for should be shorter than the period of the can send task
-      if (Temp_GetAllReadings(messages, pdMS_TO_TICKS(100)) != TEMP_OK) {
+      if (Temp_GetAllReadings(messages, TEMPERTURE_READ_TIMEOUT_TICKS) != TEMP_OK) {
         // printf("Failed to get all readings\r\n");
         // Error_Handler();
       }
@@ -81,8 +91,10 @@ void task_temp_read(void *pvParameters){
       temperatureMsg.BPS_Temperature_Tap_Data = messages[i].temperature;
       temperatureMsg.BPS_Temperature_Tap_RawV = messages[i].raw_voltage;
 
+      // pack temperatureMsg data into byte array to send over CAN
       packTemperatureMessage(temperatureMsg, temperatureMsgData);
-      canbus_send(&tempertaureMsgHeader, temperatureMsgData, pdMS_TO_TICKS(100));
+      
+      canbus_send(&tempertaureMsgHeader, temperatureMsgData, TEMPERTURE_READ_TIMEOUT_TICKS);
     }
 
     vTaskDelay(pdMS_TO_TICKS(TEMPERATURE_THREAD_PERIOD_MS));
