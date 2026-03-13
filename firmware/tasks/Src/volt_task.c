@@ -22,7 +22,7 @@ uint16_t cell_readings[5];
 
 BQ76920_Status_t BQ_STATUS = BQ_OK;
 
-#define VOLTAGE_PRINT_DEBUG_PERIOD_MS 5000
+#define VOLTAGE_PRINT_DEBUG_PERIOD_MS 10000
 #define VOLTAGE_PRINT_DEBUG_COUNT (VOLTAGE_PRINT_DEBUG_PERIOD_MS / VOLTTEMP_THREAD_DELAY_MS)
  
 static uint8_t getCellRegister(uint8_t index, uint16_t *cellRegister){
@@ -100,6 +100,8 @@ void task_ReadVoltage(void *pvParameters)
     }
 
     printDebugCounter++;
+
+    toggle_heartbeat();
 
     vTaskDelay(pdMS_TO_TICKS(VOLTTEMP_THREAD_DELAY_MS));
   }

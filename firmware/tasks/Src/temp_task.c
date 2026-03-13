@@ -7,7 +7,7 @@
 #include "canbus.h"
 #include "printf.h"
 
-#define TEMPERATURE_PRINTF_PERIOD_MS 10000
+#define TEMPERATURE_PRINTF_PERIOD_MS 20000
 #define TEMPERATURE_PRINTF_COUNT  (TEMPERATURE_PRINTF_PERIOD_MS/TEMPERATURE_THREAD_PERIOD_MS)
 
 void task_temp_read(void *pvParameters){
@@ -38,8 +38,6 @@ void task_temp_read(void *pvParameters){
         printf("-------------------------------------------------------------\r\n");
         for (thermistor_t i = TEMP1; i < NUM_THERMISTORS - 1; i++) {
             printf("TEMP %u: %ld mC\r\n", i + 1, messages[i].temperature);
-            printf("ADC Counts: %d\r\n", messages[i].adc_counts);
-            printf("Raw Voltage: %d mV\r\n", messages[i].raw_voltage);
         }
         printf("-------------------------------------------------------------\r\n");
         printDebugCounter = 0;
