@@ -61,7 +61,9 @@ void task_Init(){
                   TEMPERATURE_MON_PRIO,
                   temperature_monitor_Stack,
                   &temperature_monitor_TaskBuffer);
+                  
 
+#if (CAN_USB_MIRROR_ENABLED == 1)
   xTaskCreateStatic(task_printSlcan,
                   "Slcan transmit task",
                   slcanPrintStackSize,
@@ -69,6 +71,7 @@ void task_Init(){
                   SLCAN_PRINT_PRIO,
                   slcan_print_Stack,
                   &slcan_print_TaskBuffer);
+#endif /*(CAN_USB_MIRROR_ENABLED == 1)*/
   
   // Task kills itself :(
   vTaskDelete(NULL);

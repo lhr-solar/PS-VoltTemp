@@ -47,7 +47,7 @@ void can_tx_print_slcan(const can_tx_payload_t payload)
 }
 
 void can_tx_callback_hook(CAN_HandleTypeDef* hcan, const can_tx_payload_t* payload) {
-    
+#if (CAN_USB_MIRROR_ENABLED == 1)
     BaseType_t higherPriorityTaskWoken = pdFALSE;
 
     if(canTxTelemetryQueue != NULL){
@@ -60,7 +60,8 @@ void can_tx_callback_hook(CAN_HandleTypeDef* hcan, const can_tx_payload_t* paylo
 
     }
     // don't yield at the end of this since the rest of the ISR needs to run
-    
+#endif /*(CAN_USB_MIRROR_ENABLED == 1)*/
+
 }
 
 
