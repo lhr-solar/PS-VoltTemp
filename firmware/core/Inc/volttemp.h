@@ -11,13 +11,13 @@ typedef enum{
     VOLTTEMP_CAN_SEND_FAIL
 } VoltTempStatus_t;
 
-#define VT_TAP_COUNT 4
 #define VOLTTEMP_MSG_DLC 7
 
 #ifdef VOLTTEMP_0
     #define VOLTTEMP_CAN_MSG_IG     CAN_ID_BPS_VOLTAGE_TEMPERATURE_ARR_0
     #define CURRENT_VT              vt0
     #define VOLTTEMP_CAN_MSG_DLC    CAN_DLC_BPS_VOLTAGE_TEMPERATURE_ARR_0
+    // static uint8_t tapIdxArr[NUM_VOLTAGES_PER_VOLTTEMP] = {0, 1, 2, 3};
 #elif defined(VOLTTEMP_1)
     #define VOLTTEMP_CAN_MSG_IG     CAN_ID_BPS_VOLTAGE_TEMPERATURE_ARR_1
     #define CURRENT_VT              vt1

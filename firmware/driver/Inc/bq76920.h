@@ -184,9 +184,18 @@ uint32_t get_Voltage_Cell(uint16_t cell, TickType_t delay_ticks);
  * @brief  Acquire the voltage of all cells; converts to millivolts.
  * @param  Pointer to array that holds cell readings
  * @param  delay for write mutex acquisition
- * @return OK if successful, ERR otherwise
+ * @return BQ_OK if successful, BQ_ERR otherwise
  */
 BQ76920_Status_t get_Voltage_All(uint16_t *voltage_array, TickType_t delay_ticks);
+
+/**
+ * @brief  Acquire the voltage for a specified cell; converts to millivolts.
+ * @param  cell the cell being read
+ * @param  voltageMeasurement pointer to the return variable
+ * @param  delay for write mutex acquisition
+ * @return BQ_OK if successful, BQ_ERR otherwise
+ */
+BQ76920_Status_t update_Cell_Voltage(uint16_t cell, uint16_t *voltageMeasurement, TickType_t delay_ticks);
 
 #define BQ_MICRO_TO_MILLI 100
 

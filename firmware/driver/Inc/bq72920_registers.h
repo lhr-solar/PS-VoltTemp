@@ -13,7 +13,7 @@
 #define DATA_SIZE_DOUBLE 0x02
 #define TIMEOUT 0x64
 // Delay for mutex acquisition
-#define BQ_DELAY pdMS_TO_TICKS(100)
+#define BQ_TIMEOUT_TICKS pdMS_TO_TICKS(100)
 //======================
 
 // System Status

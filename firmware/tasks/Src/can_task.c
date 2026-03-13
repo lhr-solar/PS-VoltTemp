@@ -31,8 +31,7 @@ static void packVoltTempCanMsg(CAN_struct_t *Can_struct, uint8_t *tx_data){
 
 void task_SendMessage(void *pvParameters)
 {
-
-
+  
   CAN_TxHeaderTypeDef tx_header = {0};
 
   initVoltTempCanHeader(&tx_header);

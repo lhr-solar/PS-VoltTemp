@@ -184,7 +184,7 @@ uint8_t ADC_of_reading = 0;
 
 void get_ADC_Info(void)
 {
-  TickType_t delay_ticks = BQ_DELAY;
+  TickType_t delay_ticks = BQ_TIMEOUT_TICKS;
   // Gain is a minimum of 365 uV, can be set higher
   uint8_t ADC_g_1;
   if (bq76920_Read_1_Reg(ADCGAIN1, &ADC_g_1, delay_ticks) != BQ_OK)
@@ -559,6 +559,19 @@ uint32_t get_Voltage_Cell(uint16_t cell, TickType_t delay_ticks)
   // Cell voltage = (ADC READING)*(GAIN) + (ADC OFFSET)       (in uV).
   // (ADC offset is converted from mV to uV during init).
   return (((ADC_reading) * (ADC_gain)) + ((ADC_offset)));
+}
+
+BQ76920_Status_t update_Cell_Voltage(uint16_t cell, uint16_t *voltageMeasurement, TickType_t delay_ticks){
+  if(voltageMeasurement == NULL){
+    return BQ_ERR;
+  }
+
+  // Make sure we're reading a correct cell
+  if(cell == VC1 || cell == VC2 || cell == VC3 || cell == VC4 || cell == VC5 || cell == BAT){
+    *voltageMeasurement = (uint16_t)(get_Voltage_Cell(VC1, delay_ticks) / BQ_MICRO_TO_MILLI);
+    return BQ_OK;
+  }
+  return BQ_ERR;
 }
 
 // Populates an array with cell voltages.
