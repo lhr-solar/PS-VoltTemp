@@ -1,8 +1,8 @@
 #include "tasks.h"
 #include "bq76920.h"
 #include <stm32xx_hal.h>
-#include <bq76920.h>
 #include <bq72920_registers.h>
+#include "leds.h"
 #include <common.h>
 #include <stdlib.h>
 #include <stdio.h>

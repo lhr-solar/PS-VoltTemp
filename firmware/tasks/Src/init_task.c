@@ -1,16 +1,13 @@
 #include <stm32xx_hal.h>
-#include <bq76920.h>
-#include <bq72920_registers.h>
+#include "tasks.h"
 #include <common.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include "leds.h"
 #include "pinConfig.h"
+#include "leds.h"
 #include "inits.h"
-#include "printf.h"
-#include "UART.h"
-#include "tasks.h"
 #include "canbus.h"
+#include "printf.h" 
 
 // Buffers for tasks
 StaticTask_t voltage_monitor_TaskBuffer;
@@ -19,6 +16,8 @@ StackType_t voltage_monitor_Stack[voltageMonitorStackSize];
 StaticTask_t temperature_monitor_TaskBuffer;
 StackType_t temperature_monitor_Stack[temperatureMonitorStackSize];
 
+StaticTask_t slcan_print_TaskBuffer;
+StackType_t slcan_print_Stack[slcanPrintStackSize];
 
 void task_Init(){
 
@@ -62,6 +61,14 @@ void task_Init(){
                   TEMPERATURE_MON_PRIO,
                   temperature_monitor_Stack,
                   &temperature_monitor_TaskBuffer);
+
+  xTaskCreateStatic(task_printSlcan,
+                  "Slcan transmit task",
+                  slcanPrintStackSize,
+                  NULL,
+                  SLCAN_PRINT_PRIO,
+                  slcan_print_Stack,
+                  &slcan_print_TaskBuffer);
   
   // Task kills itself :(
   vTaskDelete(NULL);
