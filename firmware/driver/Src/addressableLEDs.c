@@ -50,6 +50,12 @@ ws2812b_status_t setModuleFaultLed(addressable_led_idx moduleLED, ws2812b_color_
   return ws2812b_set_color(&wsHandle, moduleLED, color, delay_ticks);
 }
 
+ws2812b_status_t setRowFaultLed(ws2812b_color_t colors[], addressable_led_idx moduleLED, TickType_t delay_ticks){
+
+  // load a row of fault leds, so the number of colors is 4
+  return ws2812b_load_colors(&wsHandle, colors, moduleLED, NUM_ROW_LEDS, delay_ticks);
+}
+
 void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
 {
     BaseType_t xHigherPriorityTaskWoken = pdFALSE;

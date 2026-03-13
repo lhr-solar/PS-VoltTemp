@@ -11,7 +11,12 @@ void task(){
     clearAddressableColors(portMAX_DELAY);
 
     setModuleFaultLed(MODULE_1_TEMP_LED, FAULT_COLOR, portMAX_DELAY);
+
+    ws2812b_color_t colors[NUM_ROW_LEDS] = {WS2812B_SOLID_GREEN, WS2812B_SOLID_GREEN, WS2812B_SOLID_GREEN, WS2812B_SOLID_GREEN};
+    setRowFaultLed(colors, MODULE_0_VOLTAGE_LED, portMAX_DELAY);
+    
     while(1){
+
 
         toggle_heartbeat();
         vTaskDelay(pdMS_TO_TICKS(1000));
