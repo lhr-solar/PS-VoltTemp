@@ -2,16 +2,7 @@
 
 CAN_HandleTypeDef* voltTempCAN;
 
-SemaphoreHandle_t can_msg_mutex;
-StaticSemaphore_t can_msg_mutex_buffer; 
-
 can_status_t canbus_init(){
-
-    // this mutex prevents threads from concurrently writting to the can message struct.
-    can_msg_mutex = xSemaphoreCreateMutexStatic(&can_msg_mutex_buffer);
-    if(can_msg_mutex == NULL){
-        return CAN_ERR;
-    }
 
     voltTempCAN = hcan1;
 

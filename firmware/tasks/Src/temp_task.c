@@ -44,14 +44,6 @@ void task_temp_read(void *pvParameters){
         printf("-------------------------------------------------------------\r\n");
         printDebugCounter = 0;
       }
-
-      if(xSemaphoreTake(can_msg_mutex, pdMS_TO_TICKS(100)) == pdTRUE){
-        // edit the can message struct
-
-
-        // give back the can message semaphore
-        xSemaphoreGive(can_msg_mutex);
-      }
     }
     printDebugCounter++;
     vTaskDelay(pdMS_TO_TICKS(TEMPERATURE_THREAD_PERIOD_MS));

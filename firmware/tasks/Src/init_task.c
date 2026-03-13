@@ -13,11 +13,12 @@
 #include "canbus.h"
 
 // Buffers for tasks
-StaticTask_t volt_temp_TaskBuffer;
-StackType_t volt_temp_Stack[configVOLTTEMP_STACK_SIZE];
+StaticTask_t voltage_monitor_TaskBuffer;
+StackType_t voltage_monitor_Stack[voltageMonitorStackSize];
 
-StaticTask_t volt_temp_can_TaskBuffer;
-StackType_t volt_temp_can_Stack[configVOLTTEMP_STACK_SIZE];
+StaticTask_t temperature_monitor_TaskBuffer;
+StackType_t temperature_monitor_Stack[temperatureMonitorStackSize];
+
 
 void task_Init(){
 
@@ -47,21 +48,20 @@ void task_Init(){
 
   /* ================= START TASKS ================= */
   xTaskCreateStatic(task_ReadVoltage,
-                  "BQ Test",
-                  configVOLTTEMP_STACK_SIZE,
+                  "Voltage Monitor Task",
+                  voltageMonitorStackSize,
                   NULL,
-                  tskIDLE_PRIORITY + 3,
-                  volt_temp_Stack,
-                  &volt_temp_TaskBuffer);
+                  VOLTAGE_MON_PRIO,
+                  voltage_monitor_Stack,
+                  &voltage_monitor_TaskBuffer);
 
-    xTaskCreateStatic(task_SendMessage,
-                  "BQ Test",
-                  configVOLTTEMP_STACK_SIZE,
+  xTaskCreateStatic(task_temp_read,
+                  "Temperature Monitor Task",
+                  temperatureMonitorStackSize,
                   NULL,
-                  tskIDLE_PRIORITY + 2,
-                  volt_temp_can_Stack,
-                  &volt_temp_can_TaskBuffer);
-  
+                  TEMPERATURE_MON_PRIO,
+                  temperature_monitor_Stack,
+                  &temperature_monitor_TaskBuffer);
   
   // Task kills itself :(
   vTaskDelete(NULL);
