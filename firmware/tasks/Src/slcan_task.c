@@ -7,6 +7,7 @@
 #include "inits.h"
 #include "printf.h"
 #include <string.h>
+#include "queue_ex.h"
 #include "CAN.h"
 #include "canbus.h"
 
@@ -50,10 +51,11 @@ void can_tx_callback_hook(CAN_HandleTypeDef* hcan, const can_tx_payload_t* paylo
     BaseType_t higherPriorityTaskWoken = pdFALSE;
 
     if(canTxTelemetryQueue != NULL){
-        xQueueSendFromISR(
+        xQueueSendCircularBufferFromISR(
             canTxTelemetryQueue,
             payload,
-            &higherPriorityTaskWoken
+            &higherPriorityTaskWoken,
+            sizeof(can_tx_payload_t)
         );
 
     }

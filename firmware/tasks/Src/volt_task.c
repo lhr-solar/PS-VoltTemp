@@ -111,7 +111,7 @@ void task_ReadVoltage(void *pvParameters)
             voltageMsg.BPS_Tap_idx = tapIdxArr[(i)];
 
             // send 1 if no BQ fault
-            voltageMsg.BPS_VoltTemp_BQ_Fault = (cellReadStatus == BQ_OK) ? 1 : 0;
+            voltageMsg.BPS_VoltTemp_BQ_Fault = (cellReadStatus == BQ_OK) ? 0 : 1;
 
             // send max 16 bit number if BQ fault
             voltageMsg.BPS_Voltage_Tap_Data = (cellReadStatus == BQ_OK) ? cell_readings[i] : (0xFFFF);

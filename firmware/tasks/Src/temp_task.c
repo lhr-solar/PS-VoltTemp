@@ -77,7 +77,7 @@ void task_temp_read(void *pvParameters){
     for(uint8_t i = TEMP1; i <  NUM_THERMISTORS - 1; i++){
 
       temperatureMsg.BPS_Tap_idx = tapIdxArr[(i)];
-      temperatureMsg.BPS_Temperature_Tap_Fault = 1;
+      temperatureMsg.BPS_Temperature_Tap_Fault = 0;
       temperatureMsg.BPS_Temperature_Tap_Data = messages[i].temperature;
       temperatureMsg.BPS_Temperature_Tap_RawV = messages[i].raw_voltage;
 

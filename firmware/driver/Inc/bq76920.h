@@ -195,5 +195,5 @@ BQ76920_Status_t get_Voltage_All(uint16_t *voltage_array, TickType_t delay_ticks
  */
 BQ76920_Status_t update_Cell_Voltage(uint16_t cell, uint16_t *voltageMeasurement, TickType_t delay_ticks);
 
-#define BQ_MICRO_TO_MILLI 100
+#define BQ_MICRO_TO_MILLI 1000
 
