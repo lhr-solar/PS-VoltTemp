@@ -81,12 +81,12 @@ void task_ReadVoltage(void *pvParameters)
   // Acquire factory ADC settings
   get_ADC_Info();
 
-  uint8_t printDebugCounter = 0;
+  uint16_t printDebugCounter = 0;
 
   uint16_t cellRegister = 0;
   uint16_t cellVoltageStorage = 0;
 
-  uint8_t heartbeatCount = 0;
+  uint16_t heartbeatCount = 0;
 
   bps_voltage_arr_t voltageMsg = {0};
 
@@ -108,7 +108,7 @@ void task_ReadVoltage(void *pvParameters)
           // no need to send CAN message for top module voltage
           if(cellRegister != BAT){
 
-            voltageMsg.BPS_Tap_idx = (1 << i);
+            voltageMsg.BPS_Tap_idx = tapIdxArr[(i)];
 
             // send 1 if no BQ fault
             voltageMsg.BPS_VoltTemp_BQ_Fault = (cellReadStatus == BQ_OK) ? 1 : 0;
