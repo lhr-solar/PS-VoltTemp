@@ -12,18 +12,26 @@
 #include "printf.h"
 #include "UART.h"
 #include "volttemp.h"
+#include <string.h>
+#include "canbus.h"
+
+typedef struct {
+    uint8_t   BPS_Tap_idx;
+    uint16_t  BPS_Voltage_Tap_Data;
+    uint8_t   BPS_VoltTemp_BQ_Fault;
+} bps_voltage_arr_t;
 
 // number of elements in the cell readings array, add 1 for the total stack voltage
 #define CELL_READINGS_ARR_SIZE (NUM_VOLTAGES_PER_VOLTTEMP + 1)
-// // Stores the cell readings in mV, add 1 for the total stack voltage
-// uint16_t cell_readings[CELL_READINGS_ARR_SIZE];
 
-uint16_t cell_readings[5];
-
-BQ76920_Status_t BQ_STATUS = BQ_OK;
+// Stores the cell readings in mV, add 1 for the total stack voltage
+uint16_t cell_readings[CELL_READINGS_ARR_SIZE];
 
 #define VOLTAGE_PRINT_DEBUG_PERIOD_MS 10000
 #define VOLTAGE_PRINT_DEBUG_COUNT (VOLTAGE_PRINT_DEBUG_PERIOD_MS / VOLTTEMP_THREAD_DELAY_MS)
+
+#define HEARTBEAT_PERIOD_MS 5000
+#define HEARTBEAT_COUNT (HEARTBEAT_PERIOD_MS / VOLTTEMP_THREAD_DELAY_MS)
  
 static uint8_t getCellRegister(uint8_t index, uint16_t *cellRegister){
 
@@ -50,12 +58,23 @@ static uint8_t getCellRegister(uint8_t index, uint16_t *cellRegister){
     default:
       return 0;
       break;
-  }
-
-  
+  }  
   return 1;
-
 } 
+
+static void initVoltageMsgHeader(CAN_TxHeaderTypeDef *voltageMsgHeader){
+  voltageMsgHeader->StdId = CAN_ID_VOLTAGE_MSG;
+  voltageMsgHeader->RTR = CAN_RTR_DATA;
+  voltageMsgHeader->IDE = CAN_ID_STD;
+  voltageMsgHeader->DLC = CAN_ID_VOLTAGE_MSG_DLC;
+  voltageMsgHeader->TransmitGlobalTime = DISABLE;
+}
+
+static void packVoltageMessage(bps_voltage_arr_t msg, uint8_t msgArr[8]){
+  msgArr[0] = (msg.BPS_Tap_idx);
+  memcpy(&msgArr[1], &(msg.BPS_Voltage_Tap_Data), sizeof(uint16_t));
+  msgArr[3] =  (msg.BPS_VoltTemp_BQ_Fault);
+}
 
 void task_ReadVoltage(void *pvParameters)
 {
@@ -66,6 +85,14 @@ void task_ReadVoltage(void *pvParameters)
 
   uint16_t cellRegister = 0;
   uint16_t cellVoltageStorage = 0;
+
+  uint8_t heartbeatCount = 0;
+
+  bps_voltage_arr_t voltageMsg = {0};
+
+  CAN_TxHeaderTypeDef voltageMsgHeader;
+  initVoltageMsgHeader(&voltageMsgHeader);
+  uint8_t voltageMsgData[8];
 
   while (1)
   {
@@ -79,15 +106,22 @@ void task_ReadVoltage(void *pvParameters)
           } 
 
           // no need to send CAN message for top module voltage
-          if(cellRegister != BAT && cellReadStatus == BQ_OK){
-            // send CAN message if we succesfully read voltage
+          if(cellRegister != BAT){
+
+            voltageMsg.BPS_Tap_idx = (1 << i);
+
+            // send 1 if no BQ fault
+            voltageMsg.BPS_VoltTemp_BQ_Fault = (cellReadStatus == BQ_OK) ? 1 : 0;
+
+            // send max 16 bit number if BQ fault
+            voltageMsg.BPS_Voltage_Tap_Data = (cellReadStatus == BQ_OK) ? cell_readings[i] : (0xFFFF);
+
           }
+
+          packVoltageMessage(voltageMsg, voltageMsgData);
+          canbus_send(&voltageMsgHeader, voltageMsgData, BQ_TIMEOUT_TICKS);
         }
      }
-
-    // if(get_Voltage_All(cell_readings, BQ_TIMEOUT_TICKS) != BQ_OK) {
-    //   BQ_STATUS = BQ_ERR;
-    // }
 
     if(printDebugCounter >= VOLTAGE_PRINT_DEBUG_COUNT){
       printf("Voltage Readings:\r\n");
@@ -101,7 +135,11 @@ void task_ReadVoltage(void *pvParameters)
 
     printDebugCounter++;
 
-    toggle_heartbeat();
+    heartbeatCount++;
+    if(heartbeatCount >= HEARTBEAT_COUNT){
+      toggle_heartbeat();
+      heartbeatCount = 0;
+    }
 
     vTaskDelay(pdMS_TO_TICKS(VOLTTEMP_THREAD_DELAY_MS));
   }

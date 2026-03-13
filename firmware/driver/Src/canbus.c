@@ -16,7 +16,7 @@ can_status_t canbus_init(){
     voltTempCAN->Init.TimeTriggeredMode = DISABLE;
     voltTempCAN->Init.AutoBusOff = DISABLE;
     voltTempCAN->Init.AutoWakeUp = DISABLE;
-    voltTempCAN->Init.AutoRetransmission = ENABLE;
+    voltTempCAN->Init.AutoRetransmission = DISABLE;
     voltTempCAN->Init.ReceiveFifoLocked = DISABLE;
 
     // If TransmitFifoPriority is disabled, the hardware selects the mailbox based on the message ID priority. 
