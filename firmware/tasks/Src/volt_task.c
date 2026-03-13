@@ -115,10 +115,11 @@ void task_ReadVoltage(void *pvParameters)
             // send max 16 bit number if BQ fault
             voltageMsg.BPS_Voltage_Tap_Data = (cellReadStatus == BQ_OK) ? cell_readings[i] : (0xFFFF);
 
+            packVoltageMessage(voltageMsg, voltageMsgData);
+            canbus_send(&voltageMsgHeader, voltageMsgData, BQ_TIMEOUT_TICKS);
+
           }
 
-          packVoltageMessage(voltageMsg, voltageMsgData);
-          canbus_send(&voltageMsgHeader, voltageMsgData, BQ_TIMEOUT_TICKS);
         }
      }
 
