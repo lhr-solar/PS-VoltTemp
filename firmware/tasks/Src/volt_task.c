@@ -100,8 +100,13 @@ void task_ReadVoltage(void *pvParameters)
 
   while (1)
   {
+    // update the voltage for each cell, and send it on CAN
      for(uint8_t i = 0; i < CELL_READINGS_ARR_SIZE; i++){
+
+        // hardcoded lookup for cell_reading index to BQ register, if mappings change then this function needs to change
         uint8_t status = getCellRegister(i, &cellRegister);
+
+        // if the lookup was succesful
         if(status == 1){
           BQ76920_Status_t cellReadStatus = update_Cell_Voltage(cellRegister, &cellVoltageStorage, BQ_TIMEOUT_TICKS);
           if(cellReadStatus == BQ_OK){
@@ -114,10 +119,10 @@ void task_ReadVoltage(void *pvParameters)
 
             voltageMsg.BPS_Tap_idx = tapIdxArr[(i)];
 
-            // send 1 if no BQ fault
+            // 1 indicates a BQ fault (likely a timeout error)
             voltageMsg.BPS_VoltTemp_BQ_Fault = (cellReadStatus == BQ_OK) ? 0 : 1;
 
-            // send max 16 bit number if BQ fault
+            // send the max 16 bit number if BQ fault
             voltageMsg.BPS_Voltage_Tap_Data = (cellReadStatus == BQ_OK) ? cell_readings[i] : (0xFFFF);
 
             // pack the voltageMsg struct into bytes to send over CAN

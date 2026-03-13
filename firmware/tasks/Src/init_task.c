@@ -45,7 +45,6 @@ void task_Init(){
   // Init CAN
   canbus_init();
 
-  /* ================= START TASKS ================= */
   xTaskCreateStatic(task_ReadVoltage,
                   "Voltage Monitor Task",
                   voltageMonitorStackSize,
@@ -61,8 +60,9 @@ void task_Init(){
                   TEMPERATURE_MON_PRIO,
                   temperature_monitor_Stack,
                   &temperature_monitor_TaskBuffer);
-                  
 
+
+  // mirror all transmitted CAN messages over USB if (CAN_USB_MIRROR_ENABLED = 1)
 #if (CAN_USB_MIRROR_ENABLED == 1)
   xTaskCreateStatic(task_printSlcan,
                   "Slcan transmit task",

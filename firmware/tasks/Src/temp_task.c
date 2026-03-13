@@ -84,6 +84,7 @@ void task_temp_read(void *pvParameters){
     }
     printDebugCounter++;
 
+    // temp1 is first thermistor and we read, and the last thermistor is an extra unused thermistor
     for(uint8_t i = TEMP1; i <  NUM_THERMISTORS - 1; i++){
 
       temperatureMsg.BPS_Tap_idx = tapIdxArr[(i)];
@@ -93,7 +94,7 @@ void task_temp_read(void *pvParameters){
 
       // pack temperatureMsg data into byte array to send over CAN
       packTemperatureMessage(temperatureMsg, temperatureMsgData);
-      
+
       canbus_send(&tempertaureMsgHeader, temperatureMsgData, TEMPERTURE_READ_TIMEOUT_TICKS);
     }
 
