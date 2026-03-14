@@ -30,6 +30,8 @@ typedef enum
   BQ_ERR,
 } BQ76920_Status_t;
 
+#define BQ_MICRO_TO_MILLI 1000
+
 // Commands
 
 // sys commands
@@ -171,7 +173,7 @@ void protect_Write(ProtectCommands_t Command, uint8_t State, TickType_t delay_ti
 
 
 /**
- * @brief  Acquire the voltage of one cell, microvolts.
+ * @brief  Acquire the voltage of one cell in microvolts.
  * @param  Which cell to read
  * @param  delay for write mutex acquisition
  * @return Reading from the cell
@@ -194,6 +196,4 @@ BQ76920_Status_t get_Voltage_All(uint16_t *voltage_array, TickType_t delay_ticks
  * @return BQ_OK if successful, BQ_ERR otherwise
  */
 BQ76920_Status_t update_Cell_Voltage(uint16_t cell, uint16_t *voltageMeasurement, TickType_t delay_ticks);
-
-#define BQ_MICRO_TO_MILLI 1000
 

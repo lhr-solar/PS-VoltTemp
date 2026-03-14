@@ -15,6 +15,8 @@
 #include <string.h>
 #include "canbus.h"
 
+#define INVALID_VOLTAGE 0xFFFF
+
 typedef struct {
     uint8_t   BPS_Tap_idx;
     uint16_t  BPS_Voltage_Tap_Data;
@@ -31,7 +33,7 @@ uint16_t cell_readings[CELL_READINGS_ARR_SIZE];
 #define VOLTAGE_PRINT_DEBUG_COUNT (VOLTAGE_PRINT_DEBUG_PERIOD_MS / VOLTTEMP_THREAD_DELAY_MS)
 
 #define HEARTBEAT_PERIOD_MS 5000
-#define HEARTBEAT_COUNT (HEARTBEAT_PERIOD_MS / VOLTTEMP_THREAD_DELAY_MS)
+#define HEARTBEAT_TRIGGER_COUNT (HEARTBEAT_PERIOD_MS / VOLTTEMP_THREAD_DELAY_MS)
  
 static uint8_t getCellRegister(uint8_t index, uint16_t *cellRegister){
 
@@ -123,7 +125,7 @@ void task_ReadVoltage(void *pvParameters)
             voltageMsg.BPS_VoltTemp_BQ_Fault = (cellReadStatus == BQ_OK) ? 0 : 1;
 
             // send the max 16 bit number if BQ fault
-            voltageMsg.BPS_Voltage_Tap_Data = (cellReadStatus == BQ_OK) ? cell_readings[i] : (0xFFFF);
+            voltageMsg.BPS_Voltage_Tap_Data = (cellReadStatus == BQ_OK) ? cell_readings[i] : (INVALID_VOLTAGE);
 
             // pack the voltageMsg struct into bytes to send over CAN
             packVoltageMessage(voltageMsg, voltageMsgData);
@@ -148,7 +150,7 @@ void task_ReadVoltage(void *pvParameters)
     printDebugCounter++;
 
     heartbeatCount++;
-    if(heartbeatCount >= HEARTBEAT_COUNT){
+    if(heartbeatCount >= HEARTBEAT_TRIGGER_COUNT){
       toggle_heartbeat();
       heartbeatCount = 0;
     }

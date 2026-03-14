@@ -21,14 +21,6 @@ StackType_t slcan_print_Stack[slcanPrintStackSize];
 
 void task_Init(){
 
-  // initialize the HAL and system clock
-  if (HAL_Init() != HAL_OK)
-    Error_Handler();
-  
-  SystemClock_Config();
-  __HAL_RCC_SYSCFG_CLK_ENABLE();
-  __HAL_RCC_PWR_CLK_ENABLE();
-
   // init & turn on psom leds to show volttemp number
   leds_init();
   volttemp_led_on();
