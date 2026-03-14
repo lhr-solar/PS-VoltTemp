@@ -32,8 +32,9 @@ uint16_t cell_readings[CELL_READINGS_ARR_SIZE];
 #define VOLTAGE_PRINT_DEBUG_PERIOD_MS 10000
 #define VOLTAGE_PRINT_DEBUG_COUNT (VOLTAGE_PRINT_DEBUG_PERIOD_MS / VOLTTEMP_THREAD_DELAY_MS)
 
-#define HEARTBEAT_PERIOD_MS 5000
-#define HEARTBEAT_TRIGGER_COUNT (HEARTBEAT_PERIOD_MS / VOLTTEMP_THREAD_DELAY_MS)
+#define BQ_HEARTBEAT_LED_PERIOD_MS 1000
+#define BQ_HEARTBEAT_LED_TRIGGER_COUNT (BQ_HEARTBEAT_LED_PERIOD_MS / VOLTTEMP_THREAD_DELAY_MS)
+
  
 static uint8_t getCellRegister(uint8_t index, uint16_t *cellRegister){
 
@@ -92,16 +93,17 @@ void task_ReadVoltage(void *pvParameters)
   uint16_t cellRegister = 0;
   uint16_t cellVoltageStorage = 0;
 
-  uint16_t heartbeatCount = 0;
-
   bps_voltage_arr_t voltageMsg = {0};
 
   CAN_TxHeaderTypeDef voltageMsgHeader;
   initVoltageMsgHeader(&voltageMsgHeader);
   uint8_t voltageMsgData[8];
 
+  uint8_t bqHeartbeatLedCounter = 0;
+
   while (1)
   {
+    bqHeartbeatLedCounter++;
     // update the voltage for each cell, and send it on CAN
      for(uint8_t i = 0; i < CELL_READINGS_ARR_SIZE; i++){
 
@@ -110,11 +112,17 @@ void task_ReadVoltage(void *pvParameters)
 
         // if the lookup was succesful
         if(status == 1){
+          set_led(BQ_FAULT, OFF);
           BQ76920_Status_t cellReadStatus = update_Cell_Voltage(cellRegister, &cellVoltageStorage, BQ_TIMEOUT_TICKS);
           if(cellReadStatus == BQ_OK){
             // update cell readings array if we succesfully read
             cell_readings[i] = cellVoltageStorage;
-          } 
+          }
+
+          // for triggering the BQ heartbeat led
+          if(bqHeartbeatLedCounter > BQ_HEARTBEAT_LED_TRIGGER_COUNT && cellReadStatus == BQ_OK){
+            toggle_led(BQ_HEARTBEAT);
+          }
 
           // no need to send CAN message for total module voltage
           if(cellRegister != BAT){
@@ -131,9 +139,10 @@ void task_ReadVoltage(void *pvParameters)
             packVoltageMessage(voltageMsg, voltageMsgData);
             
             canbus_send(&voltageMsgHeader, voltageMsgData, BQ_TIMEOUT_TICKS);
-
           }
-
+        }
+        else{
+          set_led(BQ_FAULT, ON);
         }
      }
 
@@ -148,12 +157,6 @@ void task_ReadVoltage(void *pvParameters)
     }
 
     printDebugCounter++;
-
-    heartbeatCount++;
-    if(heartbeatCount >= HEARTBEAT_TRIGGER_COUNT){
-      toggle_heartbeat();
-      heartbeatCount = 0;
-    }
 
     vTaskDelay(pdMS_TO_TICKS(VOLTTEMP_THREAD_DELAY_MS));
   }

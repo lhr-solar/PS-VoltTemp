@@ -8,6 +8,7 @@
 #include "printf.h"
 #include "volttemp.h"
 #include <string.h>
+#include "leds.h"
 
 typedef struct {
     uint8_t BPS_Tap_idx;
@@ -19,7 +20,10 @@ typedef struct {
 #define TEMPERTURE_READ_TIMEOUT_TICKS pdMS_TO_TICKS(100)
 
 #define TEMPERATURE_PRINTF_PERIOD_MS 20000
-#define TEMPERATURE_PRINTF_COUNT  (TEMPERATURE_PRINTF_PERIOD_MS/TEMPERATURE_THREAD_PERIOD_MS)
+#define TEMPERATURE_PRINTF_TRIGGER_COUNT (TEMPERATURE_PRINTF_PERIOD_MS / TEMPERATURE_PRINTF_PERIOD_MS)
+
+#define HEARTBEAT_PERIOD_MS 1000
+#define HEARTBEAT_TRIGGER_COUNT (HEARTBEAT_PERIOD_MS / TEMPERATURE_THREAD_PERIOD_MS)
 
 static void initTemperatureMsgHeader(CAN_TxHeaderTypeDef *temperatureMsgHeader){
   temperatureMsgHeader->StdId = CAN_ID_TEMPERATURE_MSG;
@@ -57,6 +61,9 @@ void task_temp_read(void *pvParameters){
   bps_temperature_arr_t temperatureMsg= {0};
   uint8_t temperatureMsgData[8] = {0};
 
+  uint16_t heartbeatCount = 0;
+
+
   while(1){
 
     // start sequencing for all temperature channels
@@ -73,7 +80,7 @@ void task_temp_read(void *pvParameters){
         // Error_Handler();
       }
 
-      if(printDebugCounter >= TEMPERATURE_PRINTF_COUNT){
+      if(printDebugCounter >= TEMPERATURE_PRINTF_TRIGGER_COUNT){
         printf("-------------------------------------------------------------\r\n");
         for (thermistor_t i = TEMP1; i < NUM_THERMISTORS - 1; i++) {
             printf("TEMP %u: %ld mC\r\n", i + 1, messages[i].temperature);
@@ -96,6 +103,12 @@ void task_temp_read(void *pvParameters){
       packTemperatureMessage(temperatureMsg, temperatureMsgData);
 
       canbus_send(&tempertaureMsgHeader, temperatureMsgData, TEMPERTURE_READ_TIMEOUT_TICKS);
+    }
+
+    heartbeatCount++;
+    if(heartbeatCount >= HEARTBEAT_TRIGGER_COUNT){
+      toggle_heartbeat();
+      heartbeatCount = 0;
     }
 
     vTaskDelay(pdMS_TO_TICKS(TEMPERATURE_THREAD_PERIOD_MS));
