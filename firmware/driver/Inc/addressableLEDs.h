@@ -2,9 +2,7 @@
 #include "common.h"
 #include "stm32xx_hal.h"
 #include "WS2812B.h"
-
-#define FAULT_COLOR WS2812B_SOLID_RED
-#define NO_FAULT_COLOR WS2812B_SOLID_GREEN
+#include "inits.h"
 
 #define NUM_ROW_LEDS 4
 #define NUM_ADDRESSABLE_LEDS 8
