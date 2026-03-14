@@ -15,7 +15,11 @@ static ws2812b_handle_t wsHandle;
 TIM_HandleTypeDef htim2;
 DMA_HandleTypeDef hdma_tim2_ch3;
 
+uint8_t initializedSucesfully = 0;
+
 ws2812b_status_t addressableLEDInit(){
+
+    initializedSucesfully = 0;
 
     ws2812b_status_t stat = WS2812B_ERROR;
 
@@ -33,23 +37,42 @@ ws2812b_status_t addressableLEDInit(){
         NUM_ADDRESSABLE_LEDS
     );
 
+    if(stat == WS2812B_OK){
+      initializedSucesfully = 1;
+    }
+
     return stat;
 
 }
 
 
 ws2812b_status_t clearAddressableColors(TickType_t delay_ticks){
-  return ws2812b_set_all_leds(&wsHandle, WS2812B_SOLID_OFF, delay_ticks);
+  if(initializedSucesfully == 1){
+    return ws2812b_set_all_leds(&wsHandle, WS2812B_SOLID_OFF, delay_ticks);
+  }
+  return WS2812B_ERROR;
 }
 
 ws2812b_status_t setModuleFaultLed(addressable_led_idx moduleLED, ws2812b_color_t color, TickType_t delay_ticks){
-  return ws2812b_set_color(&wsHandle, moduleLED, color, delay_ticks);
+  if(initializedSucesfully == 1){
+    return ws2812b_set_color(&wsHandle, moduleLED, color, delay_ticks);
+  }
+  return WS2812B_ERROR;
+
 }
 
 ws2812b_status_t setRowFaultLed(ws2812b_color_t colors[], addressable_led_idx moduleLED, TickType_t delay_ticks){
 
-  // load a row of fault leds, so the number of colors is 4
-  return ws2812b_load_colors(&wsHandle, colors, moduleLED, NUM_ROW_LEDS, delay_ticks);
+  if(initializedSucesfully == 1){
+    // load a row of fault leds, so the number of colors is 4
+    return ws2812b_load_colors(&wsHandle, colors, moduleLED, NUM_ROW_LEDS, delay_ticks);
+  }
+  return WS2812B_ERROR;
+
+}
+
+void DMA1_Channel1_IRQHandler(){
+    HAL_DMA_IRQHandler(&hdma_tim2_ch3);
 }
 
 void HAL_TIM_PWM_PulseFinishedCallback(TIM_HandleTypeDef *htim)
