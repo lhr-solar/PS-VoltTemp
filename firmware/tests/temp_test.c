@@ -92,7 +92,7 @@ int main() {
 
     leds_init();
     // turn on psom leds to show volttemp number
-    volttemp_led_on();
+    volttemp_id_led_on();
 
     mx_uart_init();
 
