@@ -1,4 +1,4 @@
-
+#pragma once
 // Configure the system clock for the STM32
 void SystemClock_Config(void);
 

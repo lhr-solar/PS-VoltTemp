@@ -23,7 +23,7 @@ void task_Init(){
 
   // init & turn on psom leds to show volttemp number
   leds_init();
-  volttemp_led_on();
+  volttemp_id_led_on();
 
   // init UART for printing
   mx_uart_init();

@@ -1,3 +1,4 @@
+#pragma once
 #include "CAN.h"
 
 #define VOLTTEMP_MSG_DLC 7
