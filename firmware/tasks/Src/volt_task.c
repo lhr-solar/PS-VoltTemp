@@ -32,7 +32,7 @@ uint16_t cell_readings[CELL_READINGS_ARR_SIZE];
 #define VOLTAGE_PRINT_DEBUG_PERIOD_MS 10000
 #define VOLTAGE_PRINT_DEBUG_COUNT (VOLTAGE_PRINT_DEBUG_PERIOD_MS / VOLTTEMP_THREAD_DELAY_MS)
 
-#define BQ_HEARTBEAT_LED_PERIOD_MS 1000
+#define BQ_HEARTBEAT_LED_PERIOD_MS 5000
 #define BQ_HEARTBEAT_LED_TRIGGER_COUNT (BQ_HEARTBEAT_LED_PERIOD_MS / VOLTTEMP_THREAD_DELAY_MS)
 
  
@@ -112,7 +112,7 @@ void task_ReadVoltage(void *pvParameters)
 
         // if the lookup was succesful
         if(status == 1){
-          set_led(BQ_FAULT, OFF);
+          // set_led(BQ_FAULT, OFF);
           BQ76920_Status_t cellReadStatus = update_Cell_Voltage(cellRegister, &cellVoltageStorage, BQ_TIMEOUT_TICKS);
           if(cellReadStatus == BQ_OK){
             // update cell readings array if we succesfully read
