@@ -2,7 +2,7 @@
 
 static void volttemp_id_leds_init(void);
 static void heartbeat_init(void);
-static void bq_status_init();
+static void bq_status_init(void);
 
 
 void leds_init(void){
@@ -17,10 +17,10 @@ void set_led(voltemp_leds_t led, State pin_state){
             HAL_GPIO_WritePin(HEARTBEAT_PORT, HEARTBEAT_PIN, (pin_state == ON) ? GPIO_PIN_SET : GPIO_PIN_RESET);
             break;
         case BQ_HEARTBEAT:
-            HAL_GPIO_WritePin(HEARTBEAT_PORT, HEARTBEAT_PIN, (pin_state == ON) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+            HAL_GPIO_WritePin(BQ_HEARTBEAT_PORT, BQ_HEARTBEAT_PIN, (pin_state == ON) ? GPIO_PIN_SET : GPIO_PIN_RESET);
             break;
         case BQ_FAULT:
-            HAL_GPIO_WritePin(HEARTBEAT_PORT, HEARTBEAT_PIN, (pin_state == ON) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+            HAL_GPIO_WritePin(BQ_FAULT_PORT, BQ_FAULT_PIN, (pin_state == ON) ? GPIO_PIN_SET : GPIO_PIN_RESET);
             break;
         default:
             break;
