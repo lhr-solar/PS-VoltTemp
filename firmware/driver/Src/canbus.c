@@ -2,11 +2,13 @@
 
 CAN_HandleTypeDef* voltTempCAN;
 
+#define CAN_NVIC_PRIO configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY
+
 can_status_t canbus_init(){
 
     voltTempCAN = hcan1;
 
-    /* CAN1 Init Struct */
+    /* CAN Init Struct */
     // Baud rate is 250 kbit/s
     voltTempCAN->Init.Prescaler = 20;
     voltTempCAN->Init.SyncJumpWidth = CAN_SJW_1TQ;
@@ -16,7 +18,7 @@ can_status_t canbus_init(){
     voltTempCAN->Init.TimeTriggeredMode = DISABLE;
     voltTempCAN->Init.AutoBusOff = DISABLE;
     voltTempCAN->Init.AutoWakeUp = DISABLE;
-    voltTempCAN->Init.AutoRetransmission = DISABLE;
+    voltTempCAN->Init.AutoRetransmission = ENABLE;
     voltTempCAN->Init.ReceiveFifoLocked = DISABLE;
 
     // If TransmitFifoPriority is disabled, the hardware selects the mailbox based on the message ID priority. 
@@ -71,9 +73,9 @@ void HAL_CAN_MspInit(CAN_HandleTypeDef* hcan) {
     HAL_GPIO_Init(CAN_PORT, &GPIO_InitStruct);
 
     /* CAN1 interrupt Init */
-    HAL_NVIC_SetPriority(CAN1_TX_IRQn, configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY, 0);
+    HAL_NVIC_SetPriority(CAN1_TX_IRQn, CAN_NVIC_PRIO, 0);
     HAL_NVIC_EnableIRQ(CAN1_TX_IRQn);
-    HAL_NVIC_SetPriority(CAN1_RX0_IRQn, configLIBRARY_MAX_SYSCALL_INTERRUPT_PRIORITY, 0);
+    HAL_NVIC_SetPriority(CAN1_RX0_IRQn, CAN_NVIC_PRIO, 0);
     HAL_NVIC_EnableIRQ(CAN1_RX0_IRQn);
   }
 }
