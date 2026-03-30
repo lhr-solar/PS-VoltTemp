@@ -24,6 +24,19 @@
 #define PSOM_LED3_PIN       GPIO_PIN_15
 //================================================================================
 
+// Pin configuration for the broken out logic analzyer pins
+//================================================================================
+#define LOGIC_ANALZYER_CH1_PORT GPIOB
+#define LOGIC_ANALZYER_CH1_PIN GPIO_PIN_3
+
+#define LOGIC_ANALZYER_CH2_PORT GPIOB
+#define LOGIC_ANALZYER_CH2_PIN GPIO_PIN_15
+
+#define LOGIC_ANALZYER_CH4_PORT GPIOB
+#define LOGIC_ANALZYER_CH4_PIN GPIO_PIN_14
+//================================================================================
+
+
 
 // Pin configuration for BQ I2C
 //================================================================================
