@@ -112,11 +112,14 @@ void task_ReadVoltage(void *pvParameters)
 
         // if the lookup was succesful
         if(status == 1){
-          // set_led(BQ_FAULT, OFF);
           BQ76920_Status_t cellReadStatus = update_Cell_Voltage(cellRegister, &cellVoltageStorage, BQ_TIMEOUT_TICKS);
           if(cellReadStatus == BQ_OK){
             // update cell readings array if we succesfully read
             cell_readings[i] = cellVoltageStorage;
+            set_led(BQ_FAULT, OFF);
+          }
+          else{
+            set_led(BQ_FAULT, ON);
           }
 
           // for triggering the BQ heartbeat led
