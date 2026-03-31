@@ -10,6 +10,7 @@
 #include "queue_ex.h"
 #include "CAN.h"
 #include "canbus.h"
+#include "debugIO.h"
 
 #define CAN_TX_TELEMETRY_QUEUE_SIZE    32
 
@@ -85,6 +86,9 @@ void task_printSlcan(void *pvParameters){
 
             taskYIELD();
         }
+        
+        // Logic analzyer toggle to profile how often the thread runs
+        debugIO_toggle(logic_analyzer_ch4);
     }
 
 }

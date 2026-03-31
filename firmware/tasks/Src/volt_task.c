@@ -14,6 +14,7 @@
 #include "volttemp.h"
 #include <string.h>
 #include "canbus.h"
+#include "debugIO.h"
 
 #define INVALID_VOLTAGE 0xFFFF
 
@@ -101,6 +102,8 @@ void task_ReadVoltage(void *pvParameters)
 
   uint8_t bqHeartbeatLedCounter = 0;
 
+  TickType_t xLastWakeTime;
+
   while (1)
   {
     bqHeartbeatLedCounter++;
@@ -161,6 +164,9 @@ void task_ReadVoltage(void *pvParameters)
 
     printDebugCounter++;
 
-    vTaskDelay(pdMS_TO_TICKS(VOLTTEMP_THREAD_DELAY_MS));
+    // Logic analzyer toggle to profile how often the thread runs
+    debugIO_toggle(logic_analyzer_ch1);
+
+    vTaskDelayUntil( &xLastWakeTime, pdMS_TO_TICKS(VOLTTEMP_THREAD_DELAY_MS));
   }
 }

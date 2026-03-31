@@ -9,6 +9,7 @@
 #include "volttemp.h"
 #include <string.h>
 #include "leds.h"
+#include "debugIO.h"
 
 typedef struct {
     uint8_t BPS_Tap_idx;
@@ -63,6 +64,7 @@ void task_temp_read(void *pvParameters){
 
   uint16_t heartbeatCount = 0;
 
+  TickType_t xLastWakeTime;
 
   while(1){
 
@@ -111,7 +113,10 @@ void task_temp_read(void *pvParameters){
       heartbeatCount = 0;
     }
 
-    vTaskDelay(pdMS_TO_TICKS(TEMPERATURE_THREAD_PERIOD_MS));
+    // Logic analzyer toggle to profile how often the thread runs
+    debugIO_toggle(logic_analyzer_ch2);
+
+    vTaskDelayUntil( &xLastWakeTime, pdMS_TO_TICKS(TEMPERATURE_THREAD_PERIOD_MS));
 
   }
 }

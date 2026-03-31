@@ -8,6 +8,7 @@
 #include "inits.h"
 #include "canbus.h"
 #include "printf.h" 
+#include "debugIO.h"
 
 // Buffers for tasks
 StaticTask_t voltage_monitor_TaskBuffer;
@@ -33,6 +34,8 @@ void task_Init(){
   // Init I2C, acquire BMS semaphore / mutex
   mx_i2c_init();
   Init_BQ76920();
+
+  debugIO_init();
 
   // Init CAN
   canbus_init();
