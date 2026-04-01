@@ -128,6 +128,7 @@ void task_ReadVoltage(void *pvParameters)
           // for triggering the BQ heartbeat led
           if(bqHeartbeatLedCounter > BQ_HEARTBEAT_LED_TRIGGER_COUNT && cellReadStatus == BQ_OK){
             toggle_led(BQ_HEARTBEAT);
+            bqHeartbeatLedCounter = 0;
           }
 
           // no need to send CAN message for total module voltage
