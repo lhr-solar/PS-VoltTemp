@@ -86,6 +86,11 @@ static void packVoltageMessage(bps_voltage_arr_t msg, uint8_t msgArr[8]){
 
 void task_ReadVoltage(void *pvParameters)
 {
+
+  // Init I2C, acquire BMS semaphore / mutex
+  mx_i2c_init();
+  Init_BQ76920();
+
   // Acquire factory ADC settings
   get_ADC_Info();
 

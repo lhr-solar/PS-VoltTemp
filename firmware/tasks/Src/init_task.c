@@ -31,10 +31,6 @@ void task_Init(){
   UART_Init();
   printf_init(husart1);
 
-  // Init I2C, acquire BMS semaphore / mutex
-  mx_i2c_init();
-  Init_BQ76920();
-
   debugIO_init();
 
   // Init CAN
