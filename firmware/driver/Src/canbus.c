@@ -26,10 +26,21 @@ can_status_t canbus_init(){
     voltTempCAN->Init.TransmitFifoPriority = ENABLE;
 
     /* Create CAN filter */
-    /* For production, reject all incoming IDs */
     CAN_FilterTypeDef  sFilterConfig;
     sFilterConfig.FilterBank = 0;
-    sFilterConfig.FilterActivation = DISABLE;
+    sFilterConfig.FilterMode = CAN_FILTERMODE_IDMASK;
+    sFilterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
+
+    /* reject all incoming IDs */
+    sFilterConfig.FilterIdHigh = 0xFFFF;
+    sFilterConfig.FilterIdLow = 0xFFFF;
+    sFilterConfig.FilterMaskIdHigh = 0xFFFF;
+    sFilterConfig.FilterMaskIdLow = 0xFFFF;
+
+    /* still need to specify a filter bank, even if we're rejecting all IDs*/
+    sFilterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;
+    sFilterConfig.FilterActivation = ENABLE;
+    sFilterConfig.SlaveStartFilterBank = 14;
 
     /* Initialize CAN1 */
     if (can_init(voltTempCAN, &sFilterConfig) != CAN_OK) {
