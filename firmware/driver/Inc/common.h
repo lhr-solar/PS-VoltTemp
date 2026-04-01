@@ -1,7 +1,7 @@
 #pragma once
 #include <stdint.h>
-#include <BPSCAN_can_msgs.h>
-#include <tasks.h>
+#include "BPSCAN_can_msgs.h"
+#include "tasks.h"
 
 typedef enum State_e {OFF = 0, ON} State;
 

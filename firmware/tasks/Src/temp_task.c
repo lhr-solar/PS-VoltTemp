@@ -21,7 +21,7 @@ typedef struct {
 #define TEMPERTURE_READ_TIMEOUT_TICKS pdMS_TO_TICKS(100)
 
 #define TEMPERATURE_PRINTF_PERIOD_MS 20000
-#define TEMPERATURE_PRINTF_TRIGGER_COUNT (TEMPERATURE_PRINTF_PERIOD_MS / TEMPERATURE_PRINTF_PERIOD_MS)
+#define TEMPERATURE_PRINTF_TRIGGER_COUNT (TEMPERATURE_PRINTF_PERIOD_MS / TEMPERATURE_THREAD_PERIOD_MS)
 
 #define HEARTBEAT_PERIOD_MS 1000
 #define HEARTBEAT_TRIGGER_COUNT (HEARTBEAT_PERIOD_MS / TEMPERATURE_THREAD_PERIOD_MS)
@@ -64,7 +64,7 @@ void task_temp_read(void *pvParameters){
 
   uint16_t heartbeatCount = 0;
 
-  TickType_t xLastWakeTime;
+  TickType_t xLastWakeTime = xTaskGetTickCount();
 
   while(1){
 
@@ -84,6 +84,7 @@ void task_temp_read(void *pvParameters){
 
       if(printDebugCounter >= TEMPERATURE_PRINTF_TRIGGER_COUNT){
         printf("-------------------------------------------------------------\r\n");
+        printf("Temperature Readings:\r\n");
         for (thermistor_t i = TEMP1; i < NUM_THERMISTORS - 1; i++) {
             printf("TEMP %u: %ld mC\r\n", i + 1, messages[i].temperature);
         }

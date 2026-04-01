@@ -33,7 +33,7 @@ uint16_t cell_readings[CELL_READINGS_ARR_SIZE];
 #define VOLTAGE_PRINT_DEBUG_PERIOD_MS 10000
 #define VOLTAGE_PRINT_DEBUG_COUNT (VOLTAGE_PRINT_DEBUG_PERIOD_MS / VOLTTEMP_THREAD_DELAY_MS)
 
-#define BQ_HEARTBEAT_LED_PERIOD_MS 5000
+#define BQ_HEARTBEAT_LED_PERIOD_MS 1000
 #define BQ_HEARTBEAT_LED_TRIGGER_COUNT (BQ_HEARTBEAT_LED_PERIOD_MS / VOLTTEMP_THREAD_DELAY_MS)
 
  
@@ -102,7 +102,7 @@ void task_ReadVoltage(void *pvParameters)
 
   uint8_t bqHeartbeatLedCounter = 0;
 
-  TickType_t xLastWakeTime;
+  TickType_t xLastWakeTime = xTaskGetTickCount();
 
   while (1)
   {
@@ -117,13 +117,12 @@ void task_ReadVoltage(void *pvParameters)
         if(status == 1){
           BQ76920_Status_t cellReadStatus = update_Cell_Voltage(cellRegister, &cellVoltageStorage, BQ_TIMEOUT_TICKS);
           if(cellReadStatus == BQ_OK){
+
             // update cell readings array if we succesfully read
             cell_readings[i] = cellVoltageStorage;
-            set_led(BQ_FAULT, OFF);
+
           }
-          else{
-            set_led(BQ_FAULT, ON);
-          }
+          set_led(BQ_FAULT, cellReadStatus == BQ_OK ? OFF : ON);
 
           // for triggering the BQ heartbeat led
           if(bqHeartbeatLedCounter > BQ_HEARTBEAT_LED_TRIGGER_COUNT && cellReadStatus == BQ_OK){
@@ -154,12 +153,15 @@ void task_ReadVoltage(void *pvParameters)
      }
 
     if(printDebugCounter >= VOLTAGE_PRINT_DEBUG_COUNT){
+      printf("-------------------------------------------------------------\r\n");
       printf("Voltage Readings:\r\n");
       printf("Cell 1: %u  \r\n",cell_readings[0]);
       printf("Cell 2: %u  \r\n",cell_readings[1]);
       printf("Cell 3: %u  \r\n",cell_readings[2]);
       printf("Cell 4: %u  \r\n",cell_readings[3]);
       printf("Total : %u  \r\n",cell_readings[4]);
+      printf("Voltage can Errors: %lu\r\n ", canbus_getError());
+      printf("-------------------------------------------------------------\r\n");
       printDebugCounter = 0;
     }
 

@@ -53,6 +53,10 @@ can_status_t canbus_receive(uint16_t id, CAN_RxHeaderTypeDef* header, uint8_t da
 
 }
 
+uint32_t canbus_getError(){
+  return HAL_CAN_GetError(voltTempCAN);
+}
+
 
 void HAL_CAN_MspInit(CAN_HandleTypeDef* hcan) {
   GPIO_InitTypeDef GPIO_InitStruct = {0};
