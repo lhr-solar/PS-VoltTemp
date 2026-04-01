@@ -16,7 +16,7 @@ can_status_t canbus_init(){
     voltTempCAN->Init.TimeSeg2 = CAN_BS2_2TQ;
     voltTempCAN->Init.Mode = CAN_MODE_NORMAL; 
     voltTempCAN->Init.TimeTriggeredMode = DISABLE;
-    voltTempCAN->Init.AutoBusOff = DISABLE;
+    voltTempCAN->Init.AutoBusOff = ENABLE;
     voltTempCAN->Init.AutoWakeUp = DISABLE;
     voltTempCAN->Init.AutoRetransmission = ENABLE;
     voltTempCAN->Init.ReceiveFifoLocked = DISABLE;
