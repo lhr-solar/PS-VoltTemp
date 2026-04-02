@@ -1,5 +1,7 @@
 #pragma once
 #include <stdint.h>
+#include "BPSCAN_can_msgs.h"
+#include "tasks.h"
 
 typedef enum State_e {OFF = 0, ON} State;
 
@@ -17,3 +19,4 @@ struct VoltTempConfig {
 void gpio_clock_enable(uint32_t port);
 
 void Error_Handler(void);
+

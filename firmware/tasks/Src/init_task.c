@@ -1,25 +1,69 @@
+#include <stm32xx_hal.h>
 #include "tasks.h"
-#include "bq76920.h"
+#include <common.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include "pinConfig.h"
+#include "leds.h"
+#include "inits.h"
+#include "canbus.h"
+#include "printf.h" 
+#include "debugIO.h"
 
-// For volttemp
-StaticTask_t volttempt_task_buffer;
-StackType_t  volttemp_task_stack[configMINIMAL_STACK_SIZE];
+// Buffers for tasks
+StaticTask_t voltage_monitor_TaskBuffer;
+StackType_t voltage_monitor_Stack[voltageMonitorStackSize];
 
-void Task_Init(){
-    
-    //Init BQ chip.
-    Init_BQ76920();
+StaticTask_t temperature_monitor_TaskBuffer;
+StackType_t temperature_monitor_Stack[temperatureMonitorStackSize];
 
-    xTaskCreateStatic(
-        volttemp_task,
-        "VoltTemp Task",
-        configMINIMAL_STACK_SIZE,
-        (void*) 1,
-        VOLTTEMP_PRIO,
-        volttemp_task_stack,
-        &volttempt_task_buffer
-    );
+StaticTask_t slcan_print_TaskBuffer;
+StackType_t slcan_print_Stack[slcanPrintStackSize];
 
-   // Delete Init Task
-    vTaskDelete(NULL);
+void task_Init(){
+
+  // init & turn on psom leds to show volttemp number
+  leds_init();
+  volttemp_id_led_on();
+
+  // init UART for printing
+  mx_uart_init();
+  UART_Init();
+  printf_init(husart1);
+
+  debugIO_init();
+
+  // Init CAN
+  canbus_init();
+
+  xTaskCreateStatic(task_ReadVoltage,
+                  "Voltage Monitor Task",
+                  voltageMonitorStackSize,
+                  NULL,
+                  VOLTAGE_MON_PRIO,
+                  voltage_monitor_Stack,
+                  &voltage_monitor_TaskBuffer);
+
+  xTaskCreateStatic(task_temp_read,
+                  "Temperature Monitor Task",
+                  temperatureMonitorStackSize,
+                  NULL,
+                  TEMPERATURE_MON_PRIO,
+                  temperature_monitor_Stack,
+                  &temperature_monitor_TaskBuffer);
+
+
+  // mirror all transmitted CAN messages over USB if (CAN_USB_MIRROR_ENABLED = 1)
+#if (CAN_USB_MIRROR_ENABLED == 1)
+  xTaskCreateStatic(task_printSlcan,
+                  "Slcan transmit task",
+                  slcanPrintStackSize,
+                  NULL,
+                  SLCAN_PRINT_PRIO,
+                  slcan_print_Stack,
+                  &slcan_print_TaskBuffer);
+#endif /*(CAN_USB_MIRROR_ENABLED == 1)*/
+  
+  // Task kills itself :(
+  vTaskDelete(NULL);
 }

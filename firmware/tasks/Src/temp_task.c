@@ -3,17 +3,121 @@
 #include "stdlib.h"
 #include "ADC.h"
 #include "temperature.h"
+#include "config.h"
+#include "canbus.h"
+#include "printf.h"
+#include "volttemp.h"
+#include <string.h>
+#include "leds.h"
+#include "debugIO.h"
 
-/*
-void task_temp_read(void *pvParameters){
-  uint32_t reading = 0;
-  // read once
-    HAL_Delay(100);
-    adc_status_t stat = adc_read(ADC_CHANNEL_1, ADC_SAMPLETIME_2CYCLE_5, ADC_Handle, &readings);
-    if (stat != ADC_OK)Error_Handler();
+typedef struct {
+    uint8_t BPS_Tap_idx;
+    uint8_t BPS_Temperature_Tap_Fault;
+    int32_t BPS_Temperature_Tap_Data;
+    uint16_t BPS_Temperature_Tap_RawV;
+} bps_temperature_arr_t;
 
+#define TEMPERTURE_READ_TIMEOUT_TICKS pdMS_TO_TICKS(100)
 
-    xQueueReceive(xReadings, &reading, 0);
-  
+#define TEMPERATURE_PRINTF_PERIOD_MS 20000
+#define TEMPERATURE_PRINTF_TRIGGER_COUNT (TEMPERATURE_PRINTF_PERIOD_MS / TEMPERATURE_THREAD_PERIOD_MS)
+
+#define HEARTBEAT_PERIOD_MS 1000
+#define HEARTBEAT_TRIGGER_COUNT (HEARTBEAT_PERIOD_MS / TEMPERATURE_THREAD_PERIOD_MS)
+
+static void initTemperatureMsgHeader(CAN_TxHeaderTypeDef *temperatureMsgHeader){
+  temperatureMsgHeader->StdId = CAN_ID_TEMPERATURE_MSG;
+  temperatureMsgHeader->RTR = CAN_RTR_DATA;
+  temperatureMsgHeader->IDE = CAN_ID_STD;
+  temperatureMsgHeader->DLC = CAN_ID_TEMPERATURE_MSG_DLC;
+  temperatureMsgHeader->TransmitGlobalTime = DISABLE;
 }
-    */
+
+static void packTemperatureMessage(bps_temperature_arr_t msg, uint8_t msgArr[8]){
+
+  // first 5 bits of the 0th byte is the tap index
+  msgArr[0] = ((msg.BPS_Tap_idx)) & (0x1F);
+
+  // remaining bits in 0th byte is fault
+  msgArr[0] |= ((msg.BPS_Temperature_Tap_Fault & 0x07) << 5);
+
+  // bytes 1-4(msb) is temperature data
+  memcpy(&msgArr[1], &(msg.BPS_Temperature_Tap_Data), sizeof(int32_t));
+
+  // bytes 5-6(msb) is the raw mV voltage
+  memcpy(&msgArr[5], &(msg.BPS_Temperature_Tap_RawV), sizeof(uint16_t));
+}
+
+void task_temp_read(void *pvParameters){
+
+  temp_status_t status;
+  uint16_t printDebugCounter = 0;
+  Temp_Init();
+
+  TempMsg_t messages[NUM_THERMISTORS_PER_VOLTTEMP] = { 0 };
+
+  CAN_TxHeaderTypeDef tempertaureMsgHeader;
+  initTemperatureMsgHeader(&tempertaureMsgHeader);
+  bps_temperature_arr_t temperatureMsg= {0};
+  uint8_t temperatureMsgData[8] = {0};
+
+  uint16_t heartbeatCount = 0;
+
+  TickType_t xLastWakeTime = xTaskGetTickCount();
+
+  while(1){
+
+    // start sequencing for all temperature channels
+    status = Temp_StartAllADC(false);
+
+    if(status == TEMP_ADC_START_FAIL){
+      // balls
+    }  
+    else{
+      
+      // the delay we wait for should be shorter than the period of the can send task
+      if (Temp_GetAllReadings(messages, TEMPERTURE_READ_TIMEOUT_TICKS) != TEMP_OK) {
+        // printf("Failed to get all readings\r\n");
+        // Error_Handler();
+      }
+
+      if(printDebugCounter >= TEMPERATURE_PRINTF_TRIGGER_COUNT){
+        printf("-------------------------------------------------------------\r\n");
+        printf("Temperature Readings:\r\n");
+        for (thermistor_t i = TEMP1; i < NUM_THERMISTORS - 1; i++) {
+            printf("TEMP %u: %ld mC\r\n", i + 1, messages[i].temperature);
+        }
+        printf("-------------------------------------------------------------\r\n");
+        printDebugCounter = 0;
+      }
+    }
+    printDebugCounter++;
+
+    // temp1 is first thermistor and we read, and the last thermistor is an extra unused thermistor
+    for(uint8_t i = TEMP1; i <  NUM_THERMISTORS - 1; i++){
+
+      temperatureMsg.BPS_Tap_idx = tapIdxArr[(i)];
+      temperatureMsg.BPS_Temperature_Tap_Fault = 0;
+      temperatureMsg.BPS_Temperature_Tap_Data = messages[i].temperature;
+      temperatureMsg.BPS_Temperature_Tap_RawV = messages[i].raw_voltage;
+
+      // pack temperatureMsg data into byte array to send over CAN
+      packTemperatureMessage(temperatureMsg, temperatureMsgData);
+
+      canbus_send(&tempertaureMsgHeader, temperatureMsgData, TEMPERTURE_READ_TIMEOUT_TICKS);
+    }
+
+    heartbeatCount++;
+    if(heartbeatCount >= HEARTBEAT_TRIGGER_COUNT){
+      toggle_heartbeat();
+      heartbeatCount = 0;
+    }
+
+    // Logic analzyer toggle to profile how often the thread runs
+    debugIO_toggle(logic_analyzer_ch2);
+
+    vTaskDelayUntil( &xLastWakeTime, pdMS_TO_TICKS(TEMPERATURE_THREAD_PERIOD_MS));
+
+  }
+}

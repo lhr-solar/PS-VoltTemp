@@ -184,7 +184,7 @@ uint8_t ADC_of_reading = 0;
 
 void get_ADC_Info(void)
 {
-  TickType_t delay_ticks = BQ_DELAY;
+  TickType_t delay_ticks = BQ_TIMEOUT_TICKS;
   // Gain is a minimum of 365 uV, can be set higher
   uint8_t ADC_g_1;
   if (bq76920_Read_1_Reg(ADCGAIN1, &ADC_g_1, delay_ticks) != BQ_OK)
@@ -561,20 +561,33 @@ uint32_t get_Voltage_Cell(uint16_t cell, TickType_t delay_ticks)
   return (((ADC_reading) * (ADC_gain)) + ((ADC_offset)));
 }
 
+BQ76920_Status_t update_Cell_Voltage(uint16_t cell, uint16_t *voltageMeasurement, TickType_t delay_ticks){
+  if(voltageMeasurement == NULL){
+    return BQ_ERR;
+  }
+
+  // Make sure we're reading a correct cell
+  if(cell == VC1 || cell == VC2 || cell == VC3 || cell == VC4 || cell == VC5 || cell == BAT){
+    *voltageMeasurement = (uint16_t)(get_Voltage_Cell(cell, delay_ticks) / BQ_MICRO_TO_MILLI);
+    return BQ_OK;
+  }
+  return BQ_ERR;
+}
+
 // Populates an array with cell voltages.
-BQ76920_Status_t get_Voltage_All(uint32_t *voltage_array, TickType_t delay_ticks)
+BQ76920_Status_t get_Voltage_All(uint16_t *voltage_array, TickType_t delay_ticks)
 {
   // make sure valid pointer
   if (voltage_array == NULL)
     return BQ_ERR;
 
-  voltage_array[0] = get_Voltage_Cell(VC1, delay_ticks);
-  voltage_array[1] = get_Voltage_Cell(VC2, delay_ticks);
-  voltage_array[2] = get_Voltage_Cell(VC3, delay_ticks);
+  voltage_array[0] = (uint16_t)(get_Voltage_Cell(VC1, delay_ticks) / BQ_MICRO_TO_MILLI);
+  voltage_array[1] = (uint16_t)(get_Voltage_Cell(VC2, delay_ticks) / BQ_MICRO_TO_MILLI);
+  voltage_array[2] = (uint16_t)(get_Voltage_Cell(VC3, delay_ticks) / BQ_MICRO_TO_MILLI);
   // VC4 is skipped, as it is the shorted cell for our application
-  voltage_array[3] = get_Voltage_Cell(VC5, delay_ticks);
+  voltage_array[3] = (uint16_t)(get_Voltage_Cell(VC5, delay_ticks) / BQ_MICRO_TO_MILLI);
 
-  voltage_array[4] = (4 * get_Voltage_Cell(BAT, delay_ticks));
+  voltage_array[4] = ((uint16_t)((4 * get_Voltage_Cell(BAT, delay_ticks)) / (BQ_MICRO_TO_MILLI*10)));
 
   return BQ_OK;
 }

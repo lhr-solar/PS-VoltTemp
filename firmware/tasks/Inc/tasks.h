@@ -2,19 +2,34 @@
 
 #include "stm32xx_hal.h"
 #include "common.h"
-
-
-// BQ Task
-extern StaticTask_t volttempt_task_buffer;
-extern StackType_t  volttemp_task_stack[configMINIMAL_STACK_SIZE];
-#define VOLTTEMP_PRIO    tskIDLE_PRIORITY + 1
-#define VOLTTEMP_DELAY   pdMS_TO_TICKS(100)
-
-void volttemp_task(void *pvParameters);
-
+#include <BPSCAN_can_msgs.h>
+#include "bq76920.h"
 
 // Init Tasks
 #define TASK_INIT_PRIO                  tskIDLE_PRIORITY + 1
 #define TASK_INIT_STACK_SIZE            configMINIMAL_STACK_SIZE
 
-void Task_Init();
+// Voltage Monitor Task
+#define voltageMonitorStackSize         configMINIMAL_STACK_SIZE*2
+#define VOLTAGE_MON_PRIO                tskIDLE_PRIORITY + 3
+
+// Temperature Monitor Task
+#define temperatureMonitorStackSize     configMINIMAL_STACK_SIZE*2
+#define TEMPERATURE_MON_PRIO            tskIDLE_PRIORITY + 3
+
+// Slcan Print Task
+#define slcanPrintStackSize             configMINIMAL_STACK_SIZE*8
+#define SLCAN_PRINT_PRIO                tskIDLE_PRIORITY + 1
+
+void task_ReadVoltage(void *pvParameters);
+void task_temp_read(void *pvParameters);
+void task_printSlcan(void *pvParameters);
+
+#define TEMPERATURE_THREAD_PERIOD_MS        250
+#define VOLTTEMP_THREAD_DELAY_MS            300
+
+
+
+void task_Init();
+
+extern uint16_t cell_readings[5];

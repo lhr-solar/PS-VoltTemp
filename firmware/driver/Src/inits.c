@@ -7,6 +7,7 @@
 #include "pinConfig.h"
 #include "inits.h"
 #include "config.h"
+#include "CAN.h"
 #include "printf.h"
 
 // HAL & I2C inits

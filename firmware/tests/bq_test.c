@@ -37,7 +37,7 @@ void Init_Task(void *argument)
   vTaskDelete(NULL);
 }
 
-uint32_t cell_Data[6];
+uint16_t cell_Data[5];
 uint8_t reg_data;
 
 void Task_ReadBQ(void *pvParameters)
@@ -51,15 +51,15 @@ void Task_ReadBQ(void *pvParameters)
     #define BQ_PRINT_READINGS
 
     #ifdef BQ_PRINT_READINGS
-    get_Voltage_All(cell_Data, BQ_DELAY);
+    get_Voltage_All(cell_Data, BQ_TIMEOUT_TICKS);
     
     printf("\033[H");
     printf("Voltage Readings:\r\n");
-    printf("Cell 1: %ld.%.3ld  [V]\r\n",cell_Data[0]/1000000,(cell_Data[0]%1000000)/1000);
-    printf("Cell 2: %ld.%.3ld  [V]\r\n",cell_Data[1]/1000000,(cell_Data[1]%1000000)/1000);
-    printf("Cell 3: %ld.%.3ld  [V]\r\n",cell_Data[2]/1000000,(cell_Data[2]%1000000)/1000);
-    printf("Cell 4: %ld.%.3ld  [V]\r\n",cell_Data[3]/1000000,(cell_Data[3]%1000000)/1000);
-    printf("Total : %ld.%.3ld [V]\r\n",cell_Data[4]/1000000,(cell_Data[4]%1000000)/1000);
+    printf("Cell 1: %d.%.3d  [V]\r\n",cell_Data[0]/1000000,(cell_Data[0]%1000000)/1000);
+    printf("Cell 2: %d.%.3d  [V]\r\n",cell_Data[1]/1000000,(cell_Data[1]%1000000)/1000);
+    printf("Cell 3: %d.%.3d  [V]\r\n",cell_Data[2]/1000000,(cell_Data[2]%1000000)/1000);
+    printf("Cell 4: %d.%.3d  [V]\r\n",cell_Data[3]/1000000,(cell_Data[3]%1000000)/1000);
+    printf("Total : %d.%.3d [V]\r\n",cell_Data[4]/1000000,(cell_Data[4]%1000000)/1000);
     #endif
 
 
@@ -73,7 +73,7 @@ void Task_ReadBQ(void *pvParameters)
     if(reg_data==24)write = 0;
     else write = 1;
     //sys_Write(TEMP_SEL,write);
-    bq76920_W_1_bit(SYS_CTRL1,3,write, BQ_DELAY);
+    bq76920_W_1_bit(SYS_CTRL1,3,write, BQ_TIMEOUT_TICKS);
     #endif
 	
 

@@ -24,6 +24,19 @@
 #define PSOM_LED3_PIN       GPIO_PIN_15
 //================================================================================
 
+// Pin configuration for the broken out logic analzyer pins
+//================================================================================
+#define LOGIC_ANALZYER_CH1_PORT GPIOB
+#define LOGIC_ANALZYER_CH1_PIN GPIO_PIN_3
+
+#define LOGIC_ANALZYER_CH2_PORT GPIOB
+#define LOGIC_ANALZYER_CH2_PIN GPIO_PIN_15
+
+#define LOGIC_ANALZYER_CH4_PORT GPIOB
+#define LOGIC_ANALZYER_CH4_PIN GPIO_PIN_14
+//================================================================================
+
+
 
 // Pin configuration for BQ I2C
 //================================================================================
@@ -49,6 +62,13 @@
 // Temp 5 = OPAMP1_VINP / ADC1_IN5 = PA0
 #define TEMP5_PORT            GPIOA
 #define TEMP5_PIN             GPIO_PIN_0
+//================================================================================
+
+// Pin configuration for BQ CAN 
+//================================================================================
+#define CAN_PORT            GPIOB
+#define CAN_RX              GPIO_PIN_8
+#define CAN_TX              GPIO_PIN_9
 //================================================================================
 
 // USART pins for PSOM

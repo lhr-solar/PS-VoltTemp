@@ -1,4 +1,4 @@
-# ----- BPS-Leader Makefile -----
+# ----- VoltTemp Makefile -----
 
 # crazy colors ------------------
 RED=\033[0;31m
@@ -17,6 +17,16 @@ NC=\033[0m # No Color
 # Project Configuration ----------
 TEST ?= main
 PROJECT_TARGET ?= stm32l431cbt
+CAN_USB_MIRROR ?= 0
+
+ifeq ($(CAN_USB_MIRROR), 1)
+$(info CAN USB MIRRORING ENABLED)
+else
+$(info CAN USB MIRRORING DISABLED)
+endif
+
+# Define the C_DEFS variable using the value of VOLTTEMP
+PROJECT_MACROS = VOLTTEMP_$(VOLTTEMP) USART1_TX_QUEUE_SIZE=100 CAN_USB_MIRROR_ENABLED=$(CAN_USB_MIRROR)
 
 # source and include directories
 PROJECT_C_INCLUDES = $(wildcard */Inc) $(wildcard */inc) $(wildcard */include)
@@ -54,7 +64,7 @@ export PROJECT_TARGET
 export PROJECT_C_SOURCES
 export PROJECT_C_INCLUDES
 export PROJECT_BUILD_DIR
-
+export PROJECT_MACROS
 
 #-------------------------------
 # Clang
