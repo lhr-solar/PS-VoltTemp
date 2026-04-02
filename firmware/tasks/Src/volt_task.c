@@ -129,7 +129,7 @@ void task_ReadVoltage(void *pvParameters)
             // voltage out of bounds
             // TODO: handle this better once CAN DBC is updated and use an enum
             if(cellVoltageStorage >= CELL_VOLTAGE_MV_UPPER_BOUND || cellVoltageStorage <= CELL_VOLTAGE_MV_LOWER_BOUND){
-              cellReadStatus = BQ_ERROR;
+              cellReadStatus = BQ_ERR;
             }
 
           }
