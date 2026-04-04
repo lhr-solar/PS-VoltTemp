@@ -14,6 +14,7 @@ typedef enum
   BAL_OFF
 } cell_num_t;
 
+
 /**
  * @brief  Finds which entry of the voltage reading array is largest
  * @param  which array to check 
