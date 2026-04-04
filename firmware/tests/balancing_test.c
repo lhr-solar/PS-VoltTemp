@@ -15,6 +15,7 @@
 #include <string.h>
 #include "canbus.h"
 #include "debugIO.h"
+#include "balancing.h"
 
 #define INVALID_VOLTAGE 0xFFFF
 
@@ -85,37 +86,7 @@ static void packVoltageMessage(bps_voltage_arr_t msg, uint8_t msgArr[8]){
 }
 
 
-typedef enum
-{
-  CELL_1,
-  CELL_2,
-  CELL_3,
-  CELL_4
-} cell_num_t;
 
-// get largest reading from array 
-cell_num_t get_highest_cell(uint16_t* val_arr){
-  cell_num_t highest_cell = 0;
-  uint16_t highest_reading = val_arr[0];
-  for(uint8_t i = 0; i < BQ_CELL_COUNT; i++){
-    if(val_arr[i] > highest_reading){
-      highest_cell = i;
-      highest_reading = val_arr[i];
-    }
-  }
-  return highest_cell;
-}
-
-BQ76920_Status_t balance_cell(cell_num_t cellnum){
-  // check for valid cell
-  if(cellnum > CELL_4 || cellnum < CELL_1)
-    return BQ_ERR;
-
-  if(bq76920_Write(CELLBAL1,(1 << cellnum),BALANCE_DELAY) != BQ_OK)
-    return BQ_ERR;
-
-  return BQ_OK;
-}
 
 
 void task_balance(void *pvParameters)
