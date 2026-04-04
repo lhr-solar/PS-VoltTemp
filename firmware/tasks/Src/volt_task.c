@@ -18,11 +18,21 @@
 
 #define INVALID_VOLTAGE 0xFFFF
 
+
+// assumes that all volttemps have the same "BPS_VT_Voltage_Arr" message structure
 typedef struct {
     uint8_t   BPS_Tap_idx;
     uint16_t  BPS_Voltage_Tap_Data;
     uint8_t   BPS_VoltTemp_BQ_Fault;
 } bps_voltage_arr_t;
+
+// assumes that all volttemps have the same "BPS_Voltage_Tap_Fault" value table
+typedef enum {
+    BPS_VT_VOLTAGE_ARR_BPS_VOLTAGE_TAP_FAULT_UNDER_VOLTAGE = 3,
+    BPS_VT_VOLTAGE_ARR_BPS_VOLTAGE_TAP_FAULT_OVER_VOLTAGE = 2,
+    BPS_VT_VOLTAGE_ARR_BPS_VOLTAGE_TAP_FAULT_BQ_I2C_READ_ERROR = 1,
+    BPS_VT_VOLTAGE_ARR_BPS_VOLTAGE_TAP_FAULT_OK = 0,
+} bps_voltage_tap_fault_e;
 
 // number of elements in the cell readings array, add 1 for the total stack voltage
 #define CELL_READINGS_ARR_SIZE (NUM_VOLTAGES_PER_VOLTTEMP + 1)
@@ -103,17 +113,24 @@ void task_ReadVoltage(void *pvParameters)
 
   CAN_TxHeaderTypeDef voltageMsgHeader;
   initVoltageMsgHeader(&voltageMsgHeader);
-  uint8_t voltageMsgData[8];
+  uint8_t voltageMsgData[8] = {0};
 
   uint8_t bqHeartbeatLedCounter = 0;
+
+  // status for each tap to send over can
+  bps_voltage_tap_fault_e tap_error = BPS_VT_VOLTAGE_ARR_BPS_VOLTAGE_TAP_FAULT_OK;
 
   TickType_t xLastWakeTime = xTaskGetTickCount();
 
   while (1)
   {
+    
     bqHeartbeatLedCounter++;
     // update the voltage for each cell, and send it on CAN
      for(uint8_t i = 0; i < CELL_READINGS_ARR_SIZE; i++){
+
+        // reset the tap error
+        tap_error = BPS_VT_VOLTAGE_ARR_BPS_VOLTAGE_TAP_FAULT_OK;
 
         // hardcoded lookup for cell_reading index to BQ register, if mappings change then this function needs to change
         uint8_t status = getCellRegister(i, &cellRegister);
@@ -126,14 +143,21 @@ void task_ReadVoltage(void *pvParameters)
             // update cell readings array if we succesfully read
             cell_readings[i] = cellVoltageStorage; // mV
 
-            // voltage out of bounds
-            // TODO: handle this better once CAN DBC is updated and use an enum
-            if(cellVoltageStorage >= CELL_VOLTAGE_MV_UPPER_BOUND || cellVoltageStorage <= CELL_VOLTAGE_MV_LOWER_BOUND){
-              cellReadStatus = BQ_ERR;
+            // check if voltage is out of bounds (most likely due to short or bad wire)
+            if(cellVoltageStorage >= CELL_VOLTAGE_MV_UPPER_BOUND){
+              tap_error = BPS_VT_VOLTAGE_ARR_BPS_VOLTAGE_TAP_FAULT_OVER_VOLTAGE;
+            }
+            if(cellVoltageStorage <= CELL_VOLTAGE_MV_LOWER_BOUND){
+              tap_error = BPS_VT_VOLTAGE_ARR_BPS_VOLTAGE_TAP_FAULT_UNDER_VOLTAGE;
             }
 
           }
-          set_led(BQ_FAULT, cellReadStatus == BQ_OK ? OFF : ON);
+          else{
+            tap_error = BPS_VT_VOLTAGE_ARR_BPS_VOLTAGE_TAP_FAULT_BQ_I2C_READ_ERROR;
+          }
+
+          // if there were any errors then set the BQ fault led
+          set_led(BQ_FAULT, tap_error == BPS_VT_VOLTAGE_ARR_BPS_VOLTAGE_TAP_FAULT_OK ? OFF : ON);
 
           // for triggering the BQ heartbeat led
           if(bqHeartbeatLedCounter > BQ_HEARTBEAT_LED_TRIGGER_COUNT && cellReadStatus == BQ_OK){
@@ -146,8 +170,7 @@ void task_ReadVoltage(void *pvParameters)
 
             voltageMsg.BPS_Tap_idx = tapIdxArr[(i)];
 
-            // 1 indicates a BQ fault (likely a timeout error)
-            voltageMsg.BPS_VoltTemp_BQ_Fault = (cellReadStatus == BQ_OK) ? 0 : 1;
+            voltageMsg.BPS_VoltTemp_BQ_Fault = tap_error;
 
             // send the max 16 bit number if BQ fault
             voltageMsg.BPS_Voltage_Tap_Data = (cellReadStatus == BQ_OK) ? cell_readings[i] : (INVALID_VOLTAGE);
