@@ -18,6 +18,17 @@ typedef struct {
     uint16_t BPS_Temperature_Tap_RawV;
 } bps_temperature_arr_t;
 
+typedef enum {
+    BPS_TEMPERATURE_TAP_FAULT_CHARGE_UNDER_TEMPERATURE = 7,
+    BPS_TEMPERATURE_TAP_FAULT_UNDER_TEMPERATURE = 6,
+    BPS_TEMPERATURE_TAP_FAULT_CHARGE_OVER_TEMPERATURE = 5,
+    BPS_TEMPERATURE_TAP_FAULT_OVER_TEMPERATURE = 4,
+    BPS_TEMPERATURE_TAP_FAULT_DISCONNECTED = 3,
+    BPS_TEMPERATURE_TAP_FAULT_SHORT_TO_VCC = 2,
+    BPS_TEMPERATURE_TAP_FAULT_SHORT_TO_GND = 1,
+    BPS_TEMPERATURE_TAP_FAULT_OK = 0,
+} temperature_tap_fault_e;
+
 #define TEMPERTURE_READ_TIMEOUT_TICKS pdMS_TO_TICKS(100)
 
 #define TEMPERATURE_PRINTF_PERIOD_MS 20000
@@ -98,7 +109,10 @@ void task_temp_read(void *pvParameters){
     for(uint8_t i = TEMP1; i <  NUM_THERMISTORS - 1; i++){
 
       temperatureMsg.BPS_Tap_idx = tapIdxArr[(i)];
+
+      // no tap fault by default, BPS Leader will set the fault accordingly
       temperatureMsg.BPS_Temperature_Tap_Fault = 0;
+      
       temperatureMsg.BPS_Temperature_Tap_Data = messages[i].temperature;
       temperatureMsg.BPS_Temperature_Tap_RawV = messages[i].raw_voltage;
 

@@ -194,7 +194,6 @@ void task_ReadVoltage(void *pvParameters)
       printf("Cell 3: %u  \r\n",cell_readings[2]);
       printf("Cell 4: %u  \r\n",cell_readings[3]);
       printf("Total : %u  \r\n",cell_readings[4]);
-      printf("Voltage can Errors: %lu\r\n ", canbus_getError());
       printf("-------------------------------------------------------------\r\n");
       printDebugCounter = 0;
     }
