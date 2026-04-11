@@ -28,12 +28,15 @@ static void initBalanceMsgHeader(CAN_RxHeaderTypeDef *balanceMsgHeader){
   balanceMsgHeader->RTR = CAN_RTR_DATA;
   balanceMsgHeader->IDE = CAN_ID_STD;
   balanceMsgHeader->DLC = CAN_ID_BALANCE_MSG_DLC;
-  balanceMsgHeader->Timestamp = 4;
 }
 
 cell_num_t cell_to_bal = BAL_OFF;
+uint8_t segment_idx = 0;
 void unpack_balance_data(uint8_t* balanceMsgData){
-  cell_to_bal = BAL_OFF;
+  // seg id is first 3 bits
+  segment_idx = balanceMsgData[0] && (0x07);
+  // cell to balance is last 5 bits
+  cell_to_bal =  balanceMsgData[0] && (0xf8);
 }
 
 void task_balance(void *pvParameters)
@@ -46,15 +49,18 @@ void task_balance(void *pvParameters)
   
   CAN_RxHeaderTypeDef balanceMsgHeader;
   initBalanceMsgHeader(&balanceMsgHeader);
-  uint8_t balanceMsgData[8];
+  uint8_t balanceMsgData[1];
 
   while (1)
   {
     
     canbus_receive(balanceMsgID, &balanceMsgHeader, balanceMsgData, BALANCING_THREAD_DELAY_MS);
-
     
-    balance_cell(cell_to_bal);
+    unpack_balance_data(balanceMsgData);
+
+    // only send cell to balance if segment id is correct
+    if(segment_idx == SEGMENT_ID)
+      balance_cell(cell_to_bal);
 
     uint8_t cellball1_read;
     bq76920_Read_1_Reg(CELLBAL1,&cellball1_read,BALANCE_DELAY);
