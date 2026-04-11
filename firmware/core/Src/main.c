@@ -18,9 +18,9 @@ int main(void) {
   if (HAL_Init() != HAL_OK)
     Error_Handler();
   
-  SystemClock_Config();
-  __HAL_RCC_SYSCFG_CLK_ENABLE();
-  __HAL_RCC_PWR_CLK_ENABLE();
+   SystemClock_Config();
+   __HAL_RCC_SYSCFG_CLK_ENABLE();
+   __HAL_RCC_PWR_CLK_ENABLE();
 
   xTaskCreateStatic(task_Init,
                     "Init Task",

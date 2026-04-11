@@ -111,7 +111,7 @@ static uint8_t CRC8(uint8_t *message, uint8_t len, uint8_t key)
   return (crc);
 }
 
-static BQ76920_Status_t bq76920_Write(uint16_t Mem_Address, uint8_t new_data, TickType_t delay_ticks)
+BQ76920_Status_t bq76920_Write(uint16_t Mem_Address, uint8_t new_data, TickType_t delay_ticks)
 {
   HAL_StatusTypeDef tx_status;
 

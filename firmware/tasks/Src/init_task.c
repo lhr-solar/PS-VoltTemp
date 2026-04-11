@@ -17,6 +17,9 @@ StackType_t voltage_monitor_Stack[voltageMonitorStackSize];
 StaticTask_t temperature_monitor_TaskBuffer;
 StackType_t temperature_monitor_Stack[temperatureMonitorStackSize];
 
+StaticTask_t balance_cells_TaskBuffer;
+StackType_t balance_cells_Stack[BalanceCellsStackSize];
+
 StaticTask_t slcan_print_TaskBuffer;
 StackType_t slcan_print_Stack[slcanPrintStackSize];
 
@@ -36,6 +39,9 @@ void task_Init(){
   // Init CAN
   canbus_init();
 
+  // init i2c for bq chip
+  mx_i2c_init();
+  
   xTaskCreateStatic(task_ReadVoltage,
                   "Voltage Monitor Task",
                   voltageMonitorStackSize,
@@ -51,6 +57,15 @@ void task_Init(){
                   TEMPERATURE_MON_PRIO,
                   temperature_monitor_Stack,
                   &temperature_monitor_TaskBuffer);
+                  
+  xTaskCreateStatic(task_balance,
+                  "Balance Cells Task",
+                  BalanceCellsStackSize,
+                  NULL,
+                  BALANCE_CELLS_PRIO,
+                  balance_cells_Stack,
+                  &balance_cells_TaskBuffer);
+
 
 
   // mirror all transmitted CAN messages over USB if (CAN_USB_MIRROR_ENABLED = 1)

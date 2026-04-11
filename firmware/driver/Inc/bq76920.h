@@ -32,6 +32,9 @@ typedef enum
 
 #define BQ_MICRO_TO_MILLI 1000
 
+#define BQ_CELL_COUNT 4
+#define BALANCE_DELAY pdMS_TO_TICKS(100)
+
 // Commands
 
 // sys commands
@@ -129,6 +132,14 @@ void get_ADC_Info();
  * @return OK If successful, ERR otherwise
  */
 BQ76920_Status_t bq76920_Read_1_Reg(uint16_t Mem_Address, uint8_t *read_Data, TickType_t delay_ticks);
+
+/**
+ * @brief  writes to a BQ76920 Register.
+ * @param  Mem Address on BMS chip
+ * @param  Pointer to where data is stored
+ * @return OK If successful, ERR otherwise
+ */
+BQ76920_Status_t bq76920_Write(uint16_t Mem_Address, uint8_t new_data, TickType_t delay_ticks);
 
 /**
  * @brief  Returns combined data from two mem addresses, many require a HI & LO

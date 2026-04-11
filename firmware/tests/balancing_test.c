@@ -15,6 +15,7 @@
 #include <string.h>
 #include "canbus.h"
 #include "debugIO.h"
+#include "balancing.h"
 
 #define INVALID_VOLTAGE 0xFFFF
 
@@ -28,7 +29,7 @@ typedef struct {
 #define CELL_READINGS_ARR_SIZE (NUM_VOLTAGES_PER_VOLTTEMP + 1)
 
 // Stores the cell readings in mV, add 1 for the total stack voltage
-uint16_t cell_readings[CELL_READINGS_ARR_SIZE];
+//uint16_t cell_readings[CELL_READINGS_ARR_SIZE];
 
 #define VOLTAGE_PRINT_DEBUG_PERIOD_MS 10000
 #define VOLTAGE_PRINT_DEBUG_COUNT (VOLTAGE_PRINT_DEBUG_PERIOD_MS / VOLTTEMP_THREAD_DELAY_MS)
@@ -84,16 +85,19 @@ static void packVoltageMessage(bps_voltage_arr_t msg, uint8_t msgArr[8]){
   msgArr[3] =  (msg.BPS_VoltTemp_BQ_Fault);
 }
 
-void task_ReadVoltage(void *pvParameters)
+
+
+
+
+void task_balance_test(void *pvParameters)
 {
 
-  // acquire BMS semaphore / mutex
+  // Init I2C, acquire BMS semaphore / mutex
+  mx_i2c_init();
   Init_BQ76920();
 
   // Acquire factory ADC settings
   get_ADC_Info();
-
-  uint16_t printDebugCounter = 0;
 
   uint16_t cellRegister = 0;
   uint16_t cellVoltageStorage = 0;
@@ -162,24 +166,90 @@ void task_ReadVoltage(void *pvParameters)
         }
      }
 
-    if(printDebugCounter >= VOLTAGE_PRINT_DEBUG_COUNT){
+     
+     uint8_t highest_cell = get_highest_cell(cell_readings);
+
+     balance_cell(highest_cell);
+
+     uint8_t cellball1_read;
+     bq76920_Read_1_Reg(CELLBAL1,&cellball1_read,pdMS_TO_TICKS(100));
+
+      printf("\033[H");
       printf("-------------------------------------------------------------\r\n");
       printf("Voltage Readings:\r\n");
       printf("Cell 1: %u  \r\n",cell_readings[0]);
       printf("Cell 2: %u  \r\n",cell_readings[1]);
       printf("Cell 3: %u  \r\n",cell_readings[2]);
       printf("Cell 4: %u  \r\n",cell_readings[3]);
-      printf("Total : %u  \r\n",cell_readings[4]);
+      printf("-------------------------------------------------------------\r\n");
+      printf("highest_cell_idx: %u \r\n", highest_cell);
+      printf("cellballreading: %u \r\n", cellball1_read);
       printf("Voltage can Errors: %lu\r\n ", canbus_getError());
       printf("-------------------------------------------------------------\r\n");
-      printDebugCounter = 0;
-    }
-
-    printDebugCounter++;
-
-    // Logic analzyer toggle to profile how often the thread runs
-    debugIO_toggle(logic_analyzer_ch1);
 
     vTaskDelayUntil( &xLastWakeTime, pdMS_TO_TICKS(VOLTTEMP_THREAD_DELAY_MS));
   }
+}
+
+
+
+StaticTask_t xTaskBuffer;
+StackType_t xStack[2048];
+
+StaticTask_t initTaskBuffer;
+StackType_t initTaskStack[512];
+
+// Initialize UART
+void Init_Task(void *argument)
+{
+  // Init UART printf
+  UART_Init();
+
+  // Task kills itself :(
+  vTaskDelete(NULL);
+}
+
+int main()
+{
+  // initialize the HAL and system clock
+  if (HAL_Init() != HAL_OK)
+    Error_Handler();
+  SystemClock_Config();
+
+  __HAL_RCC_SYSCFG_CLK_ENABLE();
+  __HAL_RCC_PWR_CLK_ENABLE();
+
+  leds_init();
+  mx_i2c_init();
+  // turn on psom leds to show volttemp number
+  volttemp_id_led_on();
+
+  mx_uart_init();
+
+  // init the chip with these i2c pins.
+  Init_BQ76920();
+
+  xTaskCreateStatic(Init_Task,
+                    "Init Task",
+                    configMINIMAL_STACK_SIZE,
+                    NULL,
+                    tskIDLE_PRIORITY + 1,
+                    initTaskStack,
+                    &initTaskBuffer);
+
+  xTaskCreateStatic(task_balance_test,
+                    "balance test",
+                    2048,
+                    NULL,
+                    tskIDLE_PRIORITY + 2,
+                    xStack,
+                    &xTaskBuffer);
+
+  vTaskStartScheduler();
+
+  while (1)
+  {
+  }
+
+  return 0;
 }
