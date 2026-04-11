@@ -89,7 +89,7 @@ static void packVoltageMessage(bps_voltage_arr_t msg, uint8_t msgArr[8]){
 
 
 
-void task_balance(void *pvParameters)
+void task_balance_test(void *pvParameters)
 {
 
   // Init I2C, acquire BMS semaphore / mutex
@@ -237,7 +237,7 @@ int main()
                     initTaskStack,
                     &initTaskBuffer);
 
-  xTaskCreateStatic(task_balance,
+  xTaskCreateStatic(task_balance_test,
                     "balance test",
                     2048,
                     NULL,
