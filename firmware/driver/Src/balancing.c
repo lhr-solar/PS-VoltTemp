@@ -36,9 +36,13 @@ BQ76920_Status_t balance_cell(cell_num_t cellnum){
   uint8_t bal_msg = 0x0;
   // check for valid cell
   // bal_msg only nonzero if valid cell passed.
-  if(cellnum < BAL_OFF && cellnum >= CELL_1)
-    bal_msg = (1 << cellnum);
-
+  if(cellnum < BAL_OFF && cellnum >= CELL_1){
+    // actual cell 4 is skipped, check 
+    if(cellnum == CELL_4)
+      bal_msg = (1 << (CELL_4 + 1)); 
+    else bal_msg = (1 << cellnum);
+  }
+  
   // write msg to cell register
   if(bq76920_Write(CELLBAL1,(bal_msg),BALANCE_DELAY) != BQ_OK)
     return BQ_ERR;
