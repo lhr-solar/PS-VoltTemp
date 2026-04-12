@@ -39,13 +39,11 @@ static void packTemperatureMessage(bps_temperature_arr_t msg, uint8_t msgArr[8])
   // first 5 bits of the 0th byte is the tap index
   msgArr[0] = ((msg.BPS_Tap_idx)) & (0x1F);
 
-  // remaining bits in 0th byte is fault
-  msgArr[0] |= ((msg.BPS_Temperature_Tap_Fault & 0x07) << 5);
+  // byte 1 is the fault
+  msgArr[1] = msg.BPS_Temperature_Tap_Fault;
 
-  // bytes 1-4(msb) is temperature data
-  memcpy(&msgArr[1], &(msg.BPS_Temperature_Tap_Data), sizeof(int32_t));
+  memcpy(&msgArr[2], &(msg.BPS_Temperature_Tap_Data), 3);
 
-  // bytes 5-6(msb) is the raw mV voltage
   memcpy(&msgArr[5], &(msg.BPS_Temperature_Tap_RawV), sizeof(uint16_t));
 }
 
