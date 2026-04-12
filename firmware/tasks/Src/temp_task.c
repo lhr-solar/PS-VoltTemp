@@ -39,8 +39,10 @@ static void packTemperatureMessage(bps_temperature_arr_t msg, uint8_t msgArr[8])
   // first 5 bits of the 0th byte is the tap index
   msgArr[0] = ((msg.BPS_Tap_idx)) & (0x1F);
 
-  // bytes 1-3(msb) is temperature data
-  memcpy(&msgArr[1], &(msg.BPS_Temperature_Tap_Data), 3);
+  // bytes 1-3 is temperature data (24-bit signed, little-endian)
+  msgArr[1] = (uint8_t)(msg.BPS_Temperature_Tap_Data & 0xFF);
+  msgArr[2] = (uint8_t)((msg.BPS_Temperature_Tap_Data >> 8) & 0xFF);
+  msgArr[3] = (uint8_t)((msg.BPS_Temperature_Tap_Data >> 16) & 0xFF);
 
   msgArr[4] = msg.BPS_Temperature_Tap_Fault;
 
