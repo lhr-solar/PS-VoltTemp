@@ -14,6 +14,9 @@
 #define BQ_FAULT_PORT      GPIOA
 #define BQ_FAULT_PIN       GPIO_PIN_11
 
+#define BQ_EN_PORT          GPIOA
+#define BQ_EN_PIN           GPIO_PIN_15
+
 #define PSOM_LED1_PORT      GPIOA
 #define PSOM_LED1_PIN       GPIO_PIN_7
 

@@ -197,3 +197,10 @@ BQ76920_Status_t get_Voltage_All(uint16_t *voltage_array, TickType_t delay_ticks
  */
 BQ76920_Status_t update_Cell_Voltage(uint16_t cell, uint16_t *voltageMeasurement, TickType_t delay_ticks);
 
+
+/**
+ * @brief  Toggle the BQ76920 BMS enable pin for 1 ms
+ * @return none
+ */
+void reset_BQ76920();
+

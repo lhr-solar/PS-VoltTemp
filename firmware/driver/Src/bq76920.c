@@ -6,6 +6,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "inits.h"
+#include "pinConfig.h"
 
 // Semaphore and mutex decl.
 SemaphoreHandle_t I2C_semaphore;
@@ -206,6 +207,14 @@ void get_ADC_Info(void)
   ADC_offset = (int8_t)ADC_of_reading * (ADC_TO_UV);
 }
 
+void reset_BQ76920(){
+  
+  HAL_GPIO_WritePin(BQ_EN_PORT, BQ_EN_PIN, GPIO_PIN_SET);
+  vTaskDelay(1);
+  HAL_GPIO_WritePin(BQ_EN_PORT, BQ_EN_PIN, GPIO_PIN_RESET);
+
+}
+
 // Gets chip info
 void Init_BQ76920()
 {
@@ -215,6 +224,18 @@ void Init_BQ76920()
 
   I2C_mutex = xSemaphoreCreateMutexStatic(&I2C_mutex_buffer_pool);
   configASSERT(I2C_mutex != NULL);
+
+    
+  GPIO_InitTypeDef led_config = {
+        .Mode = GPIO_MODE_OUTPUT_PP,
+        .Pull = GPIO_NOPULL,
+        .Pin = (BQ_EN_PIN)
+    };
+  gpio_clock_enable((uint32_t)BQ_EN_PORT);
+  HAL_GPIO_Init(BQ_EN_PORT, &led_config);
+
+  reset_BQ76920();
+
 }
 
 // Protection and control.
