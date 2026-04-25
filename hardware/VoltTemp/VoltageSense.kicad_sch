@@ -12238,7 +12238,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "TP_V_Boot"
+		(property "Value" "VBoot"
 			(at 67.31 145.2879 0)
 			(effects
 				(font
@@ -13366,7 +13366,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "TP_Regout"
+		(property "Value" "Regout"
 			(at 110.49 116.0779 0)
 			(effects
 				(font
@@ -15402,7 +15402,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "bmsGND"
+		(property "Value" "SegGND"
 			(at 110.49 126.2379 0)
 			(effects
 				(font
@@ -16562,7 +16562,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "TP_bmsAlert"
+		(property "Value" "bmsAlert"
 			(at 125.73 116.0779 0)
 			(effects
 				(font

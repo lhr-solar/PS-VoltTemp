@@ -709,6 +709,12 @@
 		)
 		(uuid "b1ac7947-6101-4574-b06a-b757e828b36c")
 	)
+	(junction
+		(at 60.96 69.85)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "5393b52a-db97-4b74-9a45-634e8ea204d0")
+	)
 	(bus_entry
 		(at 60.96 69.85)
 		(size 2.54 2.54)
@@ -866,6 +872,16 @@
 	)
 	(wire
 		(pts
+			(xy 59.69 68.58) (xy 60.96 69.85)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9238f19c-8607-4976-8e2f-032978d53d35")
+	)
+	(wire
+		(pts
 			(xy 59.69 69.85) (xy 60.96 69.85)
 		)
 		(stroke
@@ -883,16 +899,6 @@
 			(type default)
 		)
 		(uuid "96afd8aa-c14e-4512-8791-159e918fbef5")
-	)
-	(wire
-		(pts
-			(xy 59.69 69.85) (xy 59.69 71.12)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9754f007-d934-4729-af13-1ac878a5a6b2")
 	)
 	(bus
 		(pts
@@ -995,14 +1001,14 @@
 		(uuid "fd4ec006-b6f3-4a26-94cd-cc0b60e8bf87")
 	)
 	(label "rawTemperature4"
-		(at 59.69 69.85 180)
+		(at 59.69 68.58 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "071b6b85-6988-4137-b3dc-f1c5ea6262b7")
+		(uuid "80175e26-b2e1-418b-889f-3d67d44eae37")
 	)
 	(label "rawTemperature3"
 		(at 67.31 68.58 0)
@@ -1056,7 +1062,7 @@
 	)
 	(hierarchical_label "rawTemp4"
 		(shape input)
-		(at 59.69 71.12 180)
+		(at 59.69 69.85 180)
 		(effects
 			(font
 				(size 1.27 1.27)

@@ -978,6 +978,12 @@
 		(uuid "04e94a3b-1102-4640-8f4e-dbb546c80edd")
 	)
 	(junction
+		(at 125.73 74.93)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "329fb026-c8a9-44fd-9ed2-6d2136ac85bc")
+	)
+	(junction
 		(at 135.89 83.82)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1096,6 +1102,16 @@
 			(type default)
 		)
 		(uuid "0009bc69-d64b-4e57-9d3d-262ab351f82a")
+	)
+	(wire
+		(pts
+			(xy 105.41 41.91) (xy 105.41 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "07641705-ea7e-40d6-af67-31a8847394df")
 	)
 	(bus
 		(pts
@@ -1229,6 +1245,16 @@
 	)
 	(wire
 		(pts
+			(xy 125.73 74.93) (xy 127 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4efeec68-5d93-4aee-b495-d6c57b8127de")
+	)
+	(wire
+		(pts
 			(xy 114.3 52.07) (xy 127 52.07)
 		)
 		(stroke
@@ -1319,7 +1345,7 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 45.72) (xy 102.87 45.72)
+			(xy 91.44 45.72) (xy 105.41 45.72)
 		)
 		(stroke
 			(width 0)
@@ -1386,6 +1412,16 @@
 			(type default)
 		)
 		(uuid "a361aa5d-d463-4f21-baeb-86a5775f1b2f")
+	)
+	(wire
+		(pts
+			(xy 102.87 41.91) (xy 105.41 41.91)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a3b6bf29-027e-4803-bc91-b6b60456b750")
 	)
 	(wire
 		(pts
@@ -1489,6 +1525,16 @@
 	)
 	(wire
 		(pts
+			(xy 124.46 78.74) (xy 125.73 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d0f5ac58-2306-430f-9cef-c8105b72b558")
+	)
+	(wire
+		(pts
 			(xy 125.73 44.45) (xy 127 44.45)
 		)
 		(stroke
@@ -1516,6 +1562,16 @@
 			(type default)
 		)
 		(uuid "db376093-bd66-49eb-9209-7bd1a03eddf8")
+	)
+	(wire
+		(pts
+			(xy 125.73 74.93) (xy 125.73 78.74)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "dd82fda4-3780-44a5-8096-8698bfd88097")
 	)
 	(wire
 		(pts
@@ -1619,7 +1675,7 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 74.93) (xy 127 74.93)
+			(xy 114.3 74.93) (xy 125.73 74.93)
 		)
 		(stroke
 			(width 0)
@@ -1639,16 +1695,6 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 55.88) (xy 114.3 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fa8da21a-785a-4446-8af7-fe65b2e2a8bd")
-	)
-	(wire
-		(pts
 			(xy 135.89 67.31) (xy 149.86 67.31)
 		)
 		(stroke
@@ -1657,17 +1703,7 @@
 		)
 		(uuid "fe7689a6-b5b2-48d0-b313-71cf44911442")
 	)
-	(wire
-		(pts
-			(xy 102.87 52.07) (xy 102.87 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ff834a65-4569-4716-be39-e4d58b60796c")
-	)
-	(label "1&2COM"
+	(label "1&2COM_Out"
 		(at 114.3 74.93 0)
 		(effects
 			(font
@@ -1776,16 +1812,6 @@
 			(justify right bottom)
 		)
 		(uuid "41f8df66-103c-4001-862d-c64c807791fa")
-	)
-	(label "3&4COM_Out"
-		(at 114.3 59.69 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "43505f2b-b732-40b9-a801-8313abf1ef61")
 	)
 	(label "VC4"
 		(at 161.29 54.61 0)
@@ -1957,6 +1983,16 @@
 		)
 		(uuid "d5c6a824-b222-43c0-99b0-4fe14fd9d51e")
 	)
+	(label "3&4COM"
+		(at 114.3 59.69 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "dda0054b-a7e3-4b45-8449-716e93c1d2f0")
+	)
 	(label "VC1"
 		(at 161.29 77.47 0)
 		(effects
@@ -2009,27 +2045,27 @@
 		)
 		(uuid "6f841f6f-db87-41b6-989e-80c398137761")
 	)
-	(hierarchical_label "3&4Com_Out"
-		(shape input)
-		(at 114.3 55.88 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "af8385c8-52c9-49b9-abb1-cae9b480408c")
-	)
-	(hierarchical_label "3&4Com"
-		(shape input)
-		(at 102.87 52.07 180)
+	(hierarchical_label "1&2Com"
+		(shape output)
+		(at 102.87 41.91 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right)
 		)
-		(uuid "c22b8a3b-2bb5-41ea-bff2-4d683128fa48")
+		(uuid "8b5f3f74-66fd-4f21-af5b-7d37134c7162")
+	)
+	(hierarchical_label "1&2Com_Out"
+		(shape input)
+		(at 124.46 78.74 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "a9902abb-b850-4488-9003-12fbee2f8e5a")
 	)
 	(symbol
 		(lib_id "Device:C")
@@ -2168,7 +2204,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "233ee35b-27ba-46cd-b391-9a3f1a98c02a")
-		(property "Reference" "TP20"
+		(property "Reference" "VC4"
 			(at 168.91 50.0379 0)
 			(effects
 				(font
@@ -2267,7 +2303,7 @@
 		(instances
 			(project "BPS-Voltage_Temp_Board"
 				(path "/286f0d93-2a80-4abf-b115-d33410b730c4/28ab9f86-06e3-4025-a371-5e4e53853fdc"
-					(reference "TP20")
+					(reference "VC4")
 					(unit 1)
 				)
 			)
@@ -2537,7 +2573,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "29082075-d76a-4f94-a6df-b3d23b29142c")
-		(property "Reference" "TP19"
+		(property "Reference" "VC3"
 			(at 168.91 57.6579 0)
 			(effects
 				(font
@@ -2636,7 +2672,7 @@
 		(instances
 			(project "BPS-Voltage_Temp_Board"
 				(path "/286f0d93-2a80-4abf-b115-d33410b730c4/28ab9f86-06e3-4025-a371-5e4e53853fdc"
-					(reference "TP19")
+					(reference "VC3")
 					(unit 1)
 				)
 			)
@@ -3036,7 +3072,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4d9c954d-afcb-4fe7-9800-0a4708f17aac")
-		(property "Reference" "TP18"
+		(property "Reference" "VC2"
 			(at 168.91 65.2779 0)
 			(effects
 				(font
@@ -3135,7 +3171,7 @@
 		(instances
 			(project "BPS-Voltage_Temp_Board"
 				(path "/286f0d93-2a80-4abf-b115-d33410b730c4/28ab9f86-06e3-4025-a371-5e4e53853fdc"
-					(reference "TP18")
+					(reference "VC2")
 					(unit 1)
 				)
 			)
@@ -3151,7 +3187,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "52bbc5c4-106a-4a36-960f-5a910b4f41dd")
-		(property "Reference" "TP16"
+		(property "Reference" "VC0"
 			(at 168.91 89.4079 0)
 			(effects
 				(font
@@ -3250,7 +3286,7 @@
 		(instances
 			(project ""
 				(path "/286f0d93-2a80-4abf-b115-d33410b730c4/28ab9f86-06e3-4025-a371-5e4e53853fdc"
-					(reference "TP16")
+					(reference "VC0")
 					(unit 1)
 				)
 			)
@@ -4040,7 +4076,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "936173bc-fe4f-400c-9067-3357d3b5789d")
-		(property "Reference" "TP17"
+		(property "Reference" "VC1"
 			(at 168.91 72.8979 0)
 			(effects
 				(font
@@ -4139,7 +4175,7 @@
 		(instances
 			(project "BPS-Voltage_Temp_Board"
 				(path "/286f0d93-2a80-4abf-b115-d33410b730c4/28ab9f86-06e3-4025-a371-5e4e53853fdc"
-					(reference "TP17")
+					(reference "VC1")
 					(unit 1)
 				)
 			)
@@ -4281,7 +4317,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9b40e084-ee40-4468-bde7-8e1fc898ac86")
-		(property "Reference" "TP21"
+		(property "Reference" "VC5"
 			(at 168.91 42.4179 0)
 			(effects
 				(font
@@ -4380,7 +4416,7 @@
 		(instances
 			(project "BPS-Voltage_Temp_Board"
 				(path "/286f0d93-2a80-4abf-b115-d33410b730c4/28ab9f86-06e3-4025-a371-5e4e53853fdc"
-					(reference "TP21")
+					(reference "VC5")
 					(unit 1)
 				)
 			)

@@ -3275,10 +3275,6 @@
 		(uuid "2708d863-3220-4785-af00-92a545bba854")
 	)
 	(no_connect
-		(at 157.48 88.9)
-		(uuid "313f23f5-7d18-457a-8ce0-57cef568e5d0")
-	)
-	(no_connect
 		(at 226.06 82.55)
 		(uuid "5188c757-8cef-451e-9103-f742cbd49ae1")
 	)
@@ -10443,7 +10439,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D3.0mm_Drill1.5mm"
 			(at 271.78 142.24 0)
 			(effects
 				(font
@@ -10933,7 +10929,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
+		(property "Footprint" "TestPoint:TestPoint_THTPad_D3.0mm_Drill1.5mm"
 			(at 271.78 149.86 0)
 			(effects
 				(font
@@ -13167,7 +13163,7 @@
 				(justify left top)
 			)
 		)
-		(pin "3&4COM" input
+		(pin "1&2COM" input
 			(at 25.4 48.26 180)
 			(uuid "06a2387d-0a13-46b5-95d4-ee24b777db60")
 			(effects
@@ -13197,7 +13193,7 @@
 				(justify left)
 			)
 		)
-		(pin "3&4COM_OUT" input
+		(pin "1&2COM_OUT" input
 			(at 25.4 50.8 180)
 			(uuid "9c186e74-73e9-45eb-84fe-d20e29785f70")
 			(effects
@@ -13278,7 +13274,7 @@
 				(justify right)
 			)
 		)
-		(pin "3&4Com" input
+		(pin "1&2Com" output
 			(at 25.4 38.1 180)
 			(uuid "0cf0df2b-0213-4ca3-afb5-95a0e6e07faf")
 			(effects
@@ -13288,7 +13284,7 @@
 				(justify left)
 			)
 		)
-		(pin "3&4Com_Out" input
+		(pin "1&2Com_Out" input
 			(at 25.4 30.48 180)
 			(uuid "0da7f6b9-6e5d-47a5-80fb-d15bf22eecde")
 			(effects
