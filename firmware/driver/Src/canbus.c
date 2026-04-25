@@ -32,10 +32,10 @@ can_status_t canbus_init(){
     sFilterConfig.FilterScale = CAN_FILTERSCALE_32BIT;
 
     /* reject all incoming IDs */
-    sFilterConfig.FilterIdHigh = 0xFFFF;
-    sFilterConfig.FilterIdLow = 0xFFFF;
-    sFilterConfig.FilterMaskIdHigh = 0xFFFF;
-    sFilterConfig.FilterMaskIdLow = 0xFFFF;
+    sFilterConfig.FilterIdHigh = 0x0;
+    sFilterConfig.FilterIdLow = 0x0;
+    sFilterConfig.FilterMaskIdHigh = 0x0;
+    sFilterConfig.FilterMaskIdLow = 0x0;
 
     /* still need to specify a filter bank, even if we're rejecting all IDs*/
     sFilterConfig.FilterFIFOAssignment = CAN_RX_FIFO0;

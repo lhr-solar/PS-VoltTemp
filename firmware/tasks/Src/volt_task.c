@@ -15,6 +15,7 @@
 #include <string.h>
 #include "canbus.h"
 #include "debugIO.h"
+#include "balancing.h"
 
 #define INVALID_VOLTAGE 0xFFFF
 
@@ -37,6 +38,20 @@ uint16_t cell_readings[CELL_READINGS_ARR_SIZE];
 #define BQ_HEARTBEAT_LED_TRIGGER_COUNT (BQ_HEARTBEAT_LED_PERIOD_MS / VOLTTEMP_THREAD_DELAY_MS)
 
  
+
+// boot the bms chip :^)
+BQ76920_Status_t boot_BQ76920(){
+  // Pulse the boot pin
+  HAL_GPIO_WritePin(BQ_BOOT_PORT, BQ_BOOT_PIN, GPIO_PIN_SET);
+  HAL_Delay(BQ_BOOT_PULSE);
+  HAL_GPIO_WritePin(BQ_BOOT_PORT, BQ_BOOT_PIN, GPIO_PIN_RESET);
+
+  // check bq status by disabling cell bal
+  // data likely wrong anyways
+  return bq76920_Write(CELLBAL1,BAL_OFF,BALANCE_DELAY);
+}
+
+
 static uint8_t getCellRegister(uint8_t index, uint16_t *cellRegister){
 
   if(index >= CELL_READINGS_ARR_SIZE || cellRegister == NULL){
@@ -128,7 +143,15 @@ void task_ReadVoltage(void *pvParameters)
             // voltage out of bounds
             // TODO: handle this better once CAN DBC is updated and use an enum
             if(cellVoltageStorage >= CELL_VOLTAGE_MV_UPPER_BOUND || cellVoltageStorage <= CELL_VOLTAGE_MV_LOWER_BOUND){
+              
+              // enable fault led, then attempt reboot
               cellReadStatus = BQ_ERR;
+              set_led(BQ_FAULT, ON);
+              
+              // update status
+              if(boot_BQ76920() == BQ_OK)
+                cellReadStatus = BQ_OK;
+
             }
 
           }

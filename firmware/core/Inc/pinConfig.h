@@ -11,8 +11,11 @@
 #define BQ_HEARTBEAT_PORT   GPIOA
 #define BQ_HEARTBEAT_PIN    GPIO_PIN_12
 
-#define BQ_FAULT_PORT      GPIOA
-#define BQ_FAULT_PIN       GPIO_PIN_11
+#define BQ_FAULT_PORT       GPIOA
+#define BQ_FAULT_PIN        GPIO_PIN_11
+
+#define BQ_BOOT_PORT        GPIOB
+#define BQ_BOOT_PIN         GPIO_PIN_0
 
 #define PSOM_LED1_PORT      GPIOA
 #define PSOM_LED1_PIN       GPIO_PIN_7

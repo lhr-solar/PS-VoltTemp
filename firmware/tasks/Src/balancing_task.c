@@ -67,9 +67,9 @@ void task_balance(void *pvParameters)
 
     if(printDebugCounter >= BALANCING_PRINT_DEBUG_COUNT){
       printf("----------------------\r\n");
-      printf("highest cell val: %u \r\n", cell_readings[cell_to_bal]);
-      printf("highest_cell_num: %u \r\n", cell_to_bal+1); // num is 1 higher than idx
-      printf("cellballreg_DEC: %u \r\n", cellball1_read);
+      printf("seg idx: %u \r\n", segment_idx);
+      printf("cell to bal (from can): %u \r\n", cell_to_bal); // num is 1 higher than idx
+      printf("can reading: %u \r\n", balanceMsgData[0]);
       printf("----------------------\r\n");
       printDebugCounter = 0;
     } printDebugCounter++;

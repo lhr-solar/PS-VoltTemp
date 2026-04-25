@@ -35,6 +35,8 @@ typedef enum
 #define BQ_CELL_COUNT 4
 #define BALANCE_DELAY pdMS_TO_TICKS(100)
 
+#define BQ_BOOT_PULSE pdMS_TO_TICKS(1)
+
 // Commands
 
 // sys commands

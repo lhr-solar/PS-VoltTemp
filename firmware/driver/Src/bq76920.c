@@ -217,6 +217,7 @@ void Init_BQ76920()
   configASSERT(I2C_mutex != NULL);
 }
 
+
 // Protection and control.
 
 // Sys read and write
