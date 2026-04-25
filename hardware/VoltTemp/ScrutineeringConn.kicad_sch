@@ -784,7 +784,7 @@
 	)
 	(rectangle
 		(start 91.44 43.18)
-		(end 166.37 74.93)
+		(end 166.37 83.82)
 		(stroke
 			(width 0)
 			(type default)
@@ -796,7 +796,7 @@
 	)
 	(rectangle
 		(start 16.256 43.18)
-		(end 91.44 74.93)
+		(end 91.44 83.82)
 		(stroke
 			(width 0)
 			(type default)
@@ -830,9 +830,9 @@
 		)
 		(uuid "228eb827-0865-4313-9c1c-7188e9dee480")
 	)
-	(text "For scrutineering we're routing one thermistor output to scrut board\nThat output will be disconnected by scrut board and a new signal injected"
+	(text "For scrutineering we're routing one thermistor output to scrut board\nThat output will be disconnected by scrut board and a new signal injected\n\nrawTemperature4_Pre (pin 8) is an output from this board\nrawTemperature4 (pin 6) is an input from the scrutineering board"
 		(exclude_from_sim no)
-		(at 165.354 72.39 0)
+		(at 165.1 73.66 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -841,9 +841,9 @@
 		)
 		(uuid "d16f97cf-90ec-4057-8c4e-df05b846c536")
 	)
-	(text "For voltage scrutineering we will pass one tap to the scrut board\nthat tap will be disconnected for scrutineering and a new signal injected\nthat tap will be routed back to this volttemp"
+	(text "For voltage scrutineering we will pass one tap to the scrut board\nthat tap will be disconnected for scrutineering and a new signal injected\nthat tap will be routed back to this volttemp\n\n1&2COM (pin 3) is an output from this board\n1&2COM_OUT (pin 4) is an input from the scrutineering board"
 		(exclude_from_sim no)
-		(at 89.662 71.882 0)
+		(at 89.662 74.168 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -854,7 +854,7 @@
 	)
 	(text "Only one of 8 volttemps will connect to scrut\nOther volttemps will have 0 ohm bypass"
 		(exclude_from_sim no)
-		(at 111.506 79.502 0)
+		(at 113.03 87.63 0)
 		(effects
 			(font
 				(size 1.27 1.27)
