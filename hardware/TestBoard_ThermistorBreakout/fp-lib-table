@@ -7,4 +7,6 @@
   (lib (name "UTSVT_Power")(type "KiCad")(uri "${KIPRJMOD}/../lib/KiCAD-Sharepoint/UTSVT_Power.pretty")(options "1")(descr "UTSVT_Power"))
   (lib (name "UTSVT_Special")(type "KiCad")(uri "${KIPRJMOD}/../lib/KiCAD-Sharepoint/UTSVT_Special.pretty")(options "1")(descr "UTSVT_Special"))
   (lib (name "VoltTemp")(type "KiCad")(uri "${KIPRJMOD}/../lib/VoltTemp.pretty")(options "1")(descr "VoltTemp"))
+  (lib (name "Scrutineering")(type "KiCad")(uri "C:/Users/cooki/Documents/GitHub/PS-VoltTemp/hardware/lib/Scrutineering.pretty")(options "")(descr ""))
+  (lib (name "Images")(type "KiCad")(uri "${KIPRJMOD}/External/Images.pretty")(options "")(descr ""))
 )
