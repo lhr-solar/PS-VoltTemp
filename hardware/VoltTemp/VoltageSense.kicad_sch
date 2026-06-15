@@ -2314,17 +2314,6 @@
 		)
 		(uuid "28987889-9643-4012-a19f-594e6a7f7404")
 	)
-	(text "V_Boot must range from 1-3.6v for all possible cell voltages.\nassuming a range of 2-6v (very wide range):\n(1/2)2v = 1.00v\n(1/2)6v = 3.00v  :-)\n\n"
-		(exclude_from_sim no)
-		(at 39.37 159.004 0)
-		(effects
-			(font
-				(size 0.762 0.762)
-			)
-			(justify left)
-		)
-		(uuid "2a3234d9-6882-41b9-9813-82f1a7ea744d")
-	)
 	(text "bat and regsrc connected\n"
 		(exclude_from_sim no)
 		(at 132.08 40.64 0)
@@ -2456,6 +2445,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "a312b130-6aa8-4b4f-a216-48e9e64258b8")
+	)
+	(junction
+		(at 54.61 144.78)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "bab35d53-1708-48e7-b0e1-7e057b430816")
 	)
 	(junction
 		(at 110.49 40.64)
@@ -2991,16 +2986,6 @@
 	)
 	(wire
 		(pts
-			(xy 74.93 149.86) (xy 66.04 149.86)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "431f25a3-4517-400b-9f19-f8e32b593ed0")
-	)
-	(wire
-		(pts
 			(xy 191.77 111.76) (xy 189.23 111.76)
 		)
 		(stroke
@@ -3038,16 +3023,6 @@
 			(type default)
 		)
 		(uuid "44b18ecf-9977-43ab-b142-8ae6b4a9bfab")
-	)
-	(wire
-		(pts
-			(xy 64.77 147.32) (xy 64.77 148.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "45094c6e-3e33-4310-8f70-3bb928139d4b")
 	)
 	(wire
 		(pts
@@ -3208,6 +3183,16 @@
 			(type default)
 		)
 		(uuid "64113e6c-0b1a-488d-bc0f-0148289f30ed")
+	)
+	(wire
+		(pts
+			(xy 64.77 144.78) (xy 66.04 146.05)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "64917b7b-b48b-43b8-a99c-d27591e62456")
 	)
 	(wire
 		(pts
@@ -3471,6 +3456,16 @@
 	)
 	(wire
 		(pts
+			(xy 54.61 144.78) (xy 64.77 144.78)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9a39c7d4-de41-4445-9bfd-e6cdb3414186")
+	)
+	(wire
+		(pts
 			(xy 110.49 31.75) (xy 110.49 35.56)
 		)
 		(stroke
@@ -3498,16 +3493,6 @@
 			(type default)
 		)
 		(uuid "9f0a33ab-aecd-4057-a07e-5571a80dec00")
-	)
-	(wire
-		(pts
-			(xy 66.04 149.86) (xy 64.77 148.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9f405c44-01fa-4574-abbf-e045f8a396aa")
 	)
 	(wire
 		(pts
@@ -11875,16 +11860,6 @@
 		)
 		(uuid "ddbe65a6-cb5e-4345-a401-17aceb40ace5")
 	)
-	(label "V_Boot"
-		(at 74.93 149.86 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "e4ebaff3-d4ea-410e-8fd1-9f96abd0ad48")
-	)
 	(label "regout"
 		(at 118.11 120.65 180)
 		(effects
@@ -11967,7 +11942,7 @@
 				)
 			)
 		)
-		(property "Value" "2kΩ"
+		(property "Value" "10kΩ"
 			(at 49.53 144.78 90)
 			(effects
 				(font
@@ -12002,7 +11977,7 @@
 				(hide yes)
 			)
 		)
-		(property "P/N" "CRCW06032K10FKEA "
+		(property "P/N" "CRCW060310K0FKEI "
 			(at 49.53 144.78 0)
 			(effects
 				(font
@@ -12221,7 +12196,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 64.77 147.32 0)
+		(at 66.04 146.05 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12230,25 +12205,25 @@
 		(fields_autoplaced yes)
 		(uuid "17747527-0d59-4f82-923c-c09d6f3d4778")
 		(property "Reference" "TP6"
-			(at 67.31 142.7479 0)
+			(at 68.58 148.0819 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
-		(property "Value" "TP_V_Boot"
-			(at 67.31 145.2879 0)
+		(property "Value" "VBoot"
+			(at 68.58 150.6219 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_1.0x1.0mm"
-			(at 69.85 147.32 0)
+			(at 60.96 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12257,7 +12232,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 69.85 147.32 0)
+			(at 60.96 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12266,7 +12241,7 @@
 			)
 		)
 		(property "Description" "test point"
-			(at 64.77 147.32 0)
+			(at 66.04 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12275,7 +12250,7 @@
 			)
 		)
 		(property "Id" ""
-			(at 64.77 147.32 0)
+			(at 66.04 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12283,7 +12258,7 @@
 			)
 		)
 		(property "MANUFACTURER" ""
-			(at 64.77 147.32 0)
+			(at 66.04 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12291,7 +12266,7 @@
 			)
 		)
 		(property "MAXIMUM_PACKAGE_HEIGHT" ""
-			(at 64.77 147.32 0)
+			(at 66.04 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12299,7 +12274,7 @@
 			)
 		)
 		(property "PARTREV" ""
-			(at 64.77 147.32 0)
+			(at 66.04 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12307,7 +12282,7 @@
 			)
 		)
 		(property "STANDARD" ""
-			(at 64.77 147.32 0)
+			(at 66.04 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12315,7 +12290,7 @@
 			)
 		)
 		(property "Vds" ""
-			(at 64.77 147.32 0)
+			(at 66.04 146.05 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13366,7 +13341,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "TP_Regout"
+		(property "Value" "Regout"
 			(at 110.49 116.0779 0)
 			(effects
 				(font
@@ -15402,7 +15377,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "bmsGND"
+		(property "Value" "SegGND"
 			(at 110.49 126.2379 0)
 			(effects
 				(font
@@ -16472,7 +16447,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "cc151e20-72c7-4f5a-a840-e5811ba24e9c")
 		(property "Reference" "R3"
 			(at 52.578 151.13 90)
@@ -16562,7 +16537,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "TP_bmsAlert"
+		(property "Value" "bmsAlert"
 			(at 125.73 116.0779 0)
 			(effects
 				(font

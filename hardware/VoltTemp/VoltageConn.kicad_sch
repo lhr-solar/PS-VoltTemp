@@ -990,12 +990,6 @@
 		(uuid "4812fb4b-5be5-44fe-af5f-c708ff959e96")
 	)
 	(junction
-		(at 125.73 44.45)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4c01442a-bff0-47c5-b5d3-8f0c68b948ac")
-	)
-	(junction
 		(at 135.89 74.93)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1167,6 +1161,16 @@
 		)
 		(uuid "2f3217c9-c3f3-4cb6-8e50-fa6c468cd61a")
 	)
+	(wire
+		(pts
+			(xy 91.44 45.72) (xy 96.52 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "324a982d-d310-46b3-92cb-613be2abec45")
+	)
 	(bus
 		(pts
 			(xy 152.4 77.47) (xy 152.4 69.85)
@@ -1269,16 +1273,6 @@
 	)
 	(wire
 		(pts
-			(xy 125.73 39.37) (xy 125.73 44.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5bfe8e72-c83e-41cb-aab7-683f4bdeee93")
-	)
-	(wire
-		(pts
 			(xy 71.12 45.72) (xy 86.36 45.72)
 		)
 		(stroke
@@ -1317,16 +1311,6 @@
 		)
 		(uuid "7adb6a6e-950d-49d0-a342-fa9e4a4875aa")
 	)
-	(wire
-		(pts
-			(xy 91.44 45.72) (xy 102.87 45.72)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7c1019a7-f7a5-40b2-af3e-3f45655643c6")
-	)
 	(bus
 		(pts
 			(xy 154.94 41.91) (xy 153.67 41.91)
@@ -1336,16 +1320,6 @@
 			(type default)
 		)
 		(uuid "82d8f27e-7982-4979-8f19-9bff1154e021")
-	)
-	(wire
-		(pts
-			(xy 114.3 44.45) (xy 125.73 44.45)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "95d2e638-53e5-40c9-bea7-63f61873a6e0")
 	)
 	(wire
 		(pts
@@ -1489,13 +1463,13 @@
 	)
 	(wire
 		(pts
-			(xy 125.73 44.45) (xy 127 44.45)
+			(xy 124.46 74.93) (xy 127 74.93)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "d77d9a60-fa68-41b1-82c5-fd0aaff31718")
+		(uuid "d0f5ac58-2306-430f-9cef-c8105b72b558")
 	)
 	(wire
 		(pts
@@ -1569,7 +1543,7 @@
 	)
 	(wire
 		(pts
-			(xy 123.19 39.37) (xy 125.73 39.37)
+			(xy 123.19 44.45) (xy 127 44.45)
 		)
 		(stroke
 			(width 0)
@@ -1619,16 +1593,6 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 74.93) (xy 127 74.93)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f63776b0-96b5-4c05-8392-02a9a40660e8")
-	)
-	(wire
-		(pts
 			(xy 71.12 55.88) (xy 86.36 55.88)
 		)
 		(stroke
@@ -1639,16 +1603,6 @@
 	)
 	(wire
 		(pts
-			(xy 114.3 55.88) (xy 114.3 59.69)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fa8da21a-785a-4446-8af7-fe65b2e2a8bd")
-	)
-	(wire
-		(pts
 			(xy 135.89 67.31) (xy 149.86 67.31)
 		)
 		(stroke
@@ -1656,26 +1610,6 @@
 			(type default)
 		)
 		(uuid "fe7689a6-b5b2-48d0-b313-71cf44911442")
-	)
-	(wire
-		(pts
-			(xy 102.87 52.07) (xy 102.87 55.88)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ff834a65-4569-4716-be39-e4d58b60796c")
-	)
-	(label "1&2COM"
-		(at 114.3 74.93 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "0346dc4c-3e07-4e6d-a48c-dcbbac433067")
 	)
 	(label "4&5COM_ext"
 		(at 50.8 48.26 180)
@@ -1776,16 +1710,6 @@
 			(justify right bottom)
 		)
 		(uuid "41f8df66-103c-4001-862d-c64c807791fa")
-	)
-	(label "3&4COM_Out"
-		(at 114.3 59.69 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "43505f2b-b732-40b9-a801-8313abf1ef61")
 	)
 	(label "VC4"
 		(at 161.29 54.61 0)
@@ -1897,16 +1821,6 @@
 		)
 		(uuid "9338ef37-d50b-48cf-83d6-037c373ad781")
 	)
-	(label "last_cell"
-		(at 114.3 44.45 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "99201fd7-7d7b-492c-addd-0265f3785f1d")
-	)
 	(label "VC2"
 		(at 144.78 67.31 0)
 		(effects
@@ -1927,16 +1841,6 @@
 		)
 		(uuid "a16b1c6f-aa4b-4b8e-9493-87f704c94eaf")
 	)
-	(label "1&2COM"
-		(at 102.87 45.72 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "ae1e2b15-1e8a-4a1c-8c74-1c3b36c53ba9")
-	)
 	(label "3&4COM_ext"
 		(at 50.8 50.8 180)
 		(effects
@@ -1956,6 +1860,16 @@
 			(justify right bottom)
 		)
 		(uuid "d5c6a824-b222-43c0-99b0-4fe14fd9d51e")
+	)
+	(label "3&4COM"
+		(at 114.3 59.69 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "dda0054b-a7e3-4b45-8449-716e93c1d2f0")
 	)
 	(label "VC1"
 		(at 161.29 77.47 0)
@@ -2000,7 +1914,7 @@
 	)
 	(hierarchical_label "last_cell"
 		(shape output)
-		(at 123.19 39.37 180)
+		(at 123.19 44.45 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -2009,27 +1923,27 @@
 		)
 		(uuid "6f841f6f-db87-41b6-989e-80c398137761")
 	)
-	(hierarchical_label "3&4Com_Out"
-		(shape input)
-		(at 114.3 55.88 0)
+	(hierarchical_label "1&2Com"
+		(shape output)
+		(at 96.52 45.72 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "af8385c8-52c9-49b9-abb1-cae9b480408c")
+		(uuid "8b5f3f74-66fd-4f21-af5b-7d37134c7162")
 	)
-	(hierarchical_label "3&4Com"
+	(hierarchical_label "1&2Com_Out"
 		(shape input)
-		(at 102.87 52.07 180)
+		(at 124.46 74.93 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right)
 		)
-		(uuid "c22b8a3b-2bb5-41ea-bff2-4d683128fa48")
+		(uuid "a9902abb-b850-4488-9003-12fbee2f8e5a")
 	)
 	(symbol
 		(lib_id "Device:C")
@@ -2168,7 +2082,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "233ee35b-27ba-46cd-b391-9a3f1a98c02a")
-		(property "Reference" "TP20"
+		(property "Reference" "VC4"
 			(at 168.91 50.0379 0)
 			(effects
 				(font
@@ -2267,7 +2181,7 @@
 		(instances
 			(project "BPS-Voltage_Temp_Board"
 				(path "/286f0d93-2a80-4abf-b115-d33410b730c4/28ab9f86-06e3-4025-a371-5e4e53853fdc"
-					(reference "TP20")
+					(reference "VC4")
 					(unit 1)
 				)
 			)
@@ -2537,7 +2451,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "29082075-d76a-4f94-a6df-b3d23b29142c")
-		(property "Reference" "TP19"
+		(property "Reference" "VC3"
 			(at 168.91 57.6579 0)
 			(effects
 				(font
@@ -2636,7 +2550,7 @@
 		(instances
 			(project "BPS-Voltage_Temp_Board"
 				(path "/286f0d93-2a80-4abf-b115-d33410b730c4/28ab9f86-06e3-4025-a371-5e4e53853fdc"
-					(reference "TP19")
+					(reference "VC3")
 					(unit 1)
 				)
 			)
@@ -3036,7 +2950,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "4d9c954d-afcb-4fe7-9800-0a4708f17aac")
-		(property "Reference" "TP18"
+		(property "Reference" "VC2"
 			(at 168.91 65.2779 0)
 			(effects
 				(font
@@ -3135,7 +3049,7 @@
 		(instances
 			(project "BPS-Voltage_Temp_Board"
 				(path "/286f0d93-2a80-4abf-b115-d33410b730c4/28ab9f86-06e3-4025-a371-5e4e53853fdc"
-					(reference "TP18")
+					(reference "VC2")
 					(unit 1)
 				)
 			)
@@ -3151,7 +3065,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "52bbc5c4-106a-4a36-960f-5a910b4f41dd")
-		(property "Reference" "TP16"
+		(property "Reference" "VC0"
 			(at 168.91 89.4079 0)
 			(effects
 				(font
@@ -3250,7 +3164,7 @@
 		(instances
 			(project ""
 				(path "/286f0d93-2a80-4abf-b115-d33410b730c4/28ab9f86-06e3-4025-a371-5e4e53853fdc"
-					(reference "TP16")
+					(reference "VC0")
 					(unit 1)
 				)
 			)
@@ -4040,7 +3954,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "936173bc-fe4f-400c-9067-3357d3b5789d")
-		(property "Reference" "TP17"
+		(property "Reference" "VC1"
 			(at 168.91 72.8979 0)
 			(effects
 				(font
@@ -4139,7 +4053,7 @@
 		(instances
 			(project "BPS-Voltage_Temp_Board"
 				(path "/286f0d93-2a80-4abf-b115-d33410b730c4/28ab9f86-06e3-4025-a371-5e4e53853fdc"
-					(reference "TP17")
+					(reference "VC1")
 					(unit 1)
 				)
 			)
@@ -4281,7 +4195,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "9b40e084-ee40-4468-bde7-8e1fc898ac86")
-		(property "Reference" "TP21"
+		(property "Reference" "VC5"
 			(at 168.91 42.4179 0)
 			(effects
 				(font
@@ -4380,7 +4294,7 @@
 		(instances
 			(project "BPS-Voltage_Temp_Board"
 				(path "/286f0d93-2a80-4abf-b115-d33410b730c4/28ab9f86-06e3-4025-a371-5e4e53853fdc"
-					(reference "TP21")
+					(reference "VC5")
 					(unit 1)
 				)
 			)
