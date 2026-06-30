@@ -15,7 +15,7 @@ typedef struct {
     uint8_t BPS_Tap_idx;
     uint8_t BPS_Temperature_Tap_Fault;
     int32_t BPS_Temperature_Tap_Data;
-    uint16_t BPS_Temperature_Tap_RawV;
+    uint16_t BPS_Temperature_Tap_ADC;
 } bps_temperature_arr_t;
 
 #define TEMPERTURE_READ_TIMEOUT_TICKS pdMS_TO_TICKS(100)
@@ -46,8 +46,8 @@ static void packTemperatureMessage(bps_temperature_arr_t msg, uint8_t msgArr[8])
 
   msgArr[4] = msg.BPS_Temperature_Tap_Fault;
 
-  // bytes 5-6(msb) is the raw mV voltage
-  memcpy(&msgArr[5], &(msg.BPS_Temperature_Tap_RawV), sizeof(uint16_t));
+  // bytes 5-6(msb) are the raw 12-bit thermistor ADC counts (0-4095)
+  memcpy(&msgArr[5], &(msg.BPS_Temperature_Tap_ADC), sizeof(uint16_t));
   
 }
 
@@ -102,7 +102,7 @@ void task_temp_read(void *pvParameters){
       temperatureMsg.BPS_Tap_idx = tapIdxArr[(i)];
       temperatureMsg.BPS_Temperature_Tap_Fault = 0;
       temperatureMsg.BPS_Temperature_Tap_Data = messages[i].temperature;
-      temperatureMsg.BPS_Temperature_Tap_RawV = messages[i].raw_voltage;
+      temperatureMsg.BPS_Temperature_Tap_ADC = messages[i].adc_counts;
 
       // pack temperatureMsg data into byte array to send over CAN
       packTemperatureMessage(temperatureMsg, temperatureMsgData);
