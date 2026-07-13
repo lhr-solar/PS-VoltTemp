@@ -25,9 +25,8 @@ void task_ReadVoltage(void *pvParameters);
 void task_temp_read(void *pvParameters);
 void task_printSlcan(void *pvParameters);
 
-#define TEMPERATURE_THREAD_PERIOD_MS        100
-#define VOLTTEMP_THREAD_DELAY_MS            100
-
+#define TEMPERATURE_THREAD_PERIOD_MS        290
+#define VOLTTEMP_THREAD_DELAY_MS            290
 
 
 void task_Init();
