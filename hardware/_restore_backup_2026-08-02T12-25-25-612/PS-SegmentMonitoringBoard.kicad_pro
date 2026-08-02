@@ -404,20 +404,6 @@
       "sort_field": "Reference"
     },
     "bus_aliases": {
-      "BQ_I2C": [
-        "BQ_I2C_SDA",
-        "BQ_I2C_SCL"
-      ],
-      "TEMP_THERMS": [
-        "TEMP_THERM_[0..7]"
-      ],
-      "TEMP_THERM_UNFILTERED": [
-        "TEMP_THERM_EXT_[0..7]"
-      ],
-      "USB": [
-        "USB_D+",
-        "USB_D-"
-      ],
       "VCs": [
         "V+_[0..7]",
         "SEG_GND"
@@ -463,7 +449,7 @@
         "uuid": "f5c3f134-fd91-4d3b-aae6-719b554b2d69"
       }
     ],
-    "used_designators": "J3-8,J11,IC1-2,R8-65,#PWR1-14,#PWR17-18,#PWR20,#PWR69-84,#PWR101-116,D8-10,F1-19,TP5,TP11-18,C20-66,U4-5,U7-14,SW5",
+    "used_designators": "R16-36,IC1-2,J3-5,J11,D8-9,#PWR1-9,TP5,F1-19,C24-46",
     "variants": []
   },
   "sheets": [
@@ -472,8 +458,8 @@
       "PS-SegmentMonitoringBoard"
     ],
     [
-      "e732f5c9-c2cd-4d24-b1c2-239613adaf09",
-      "Temp Filter 1"
+      "4b85780b-bcb5-458b-86d0-e65b3d4409a6",
+      "ESP32"
     ],
     [
       "72bcc333-8501-44a9-bda5-d9495ee2c786",
@@ -490,46 +476,6 @@
     [
       "e490cb28-1ad0-438c-b3de-bd01e872a555",
       "Voltage Sense"
-    ],
-    [
-      "4e06cbb6-582d-4dc2-9a3d-da6b09ab0b6f",
-      "3.3V LDO"
-    ],
-    [
-      "c7478f73-40ba-46f6-9785-5b4639caea7e",
-      "3.3V MUX"
-    ],
-    [
-      "880670a3-ca8f-4c72-8c24-c5f384473b51",
-      "USB Receptacle"
-    ],
-    [
-      "427a6e20-5baf-477e-8110-d450686344fb",
-      "Temp Filter 2"
-    ],
-    [
-      "3d2584e7-94b4-4d9e-878e-833200da21c6",
-      "Temp Filter 3"
-    ],
-    [
-      "d5f5e55b-959b-4135-8d30-c5e8b2ca729e",
-      "Temp Filter 4"
-    ],
-    [
-      "46f68a84-542d-4d96-9751-b1770f928c75",
-      "Temp Filter 5"
-    ],
-    [
-      "b8f3e78a-05d2-45f6-8e8c-3f0e8ad64318",
-      "Temp Filter 6"
-    ],
-    [
-      "fb19e1d7-3603-4b94-aeb4-479cc5268363",
-      "Temp Filter 7"
-    ],
-    [
-      "a88f57ba-bf90-4684-93aa-e817163c990e",
-      "Temp Filter 8"
     ]
   ],
   "text_variables": {},

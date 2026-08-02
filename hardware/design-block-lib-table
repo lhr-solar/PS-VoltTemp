@@ -1,0 +1,4 @@
+(design_block_lib_table
+	(version 7)
+	(lib (name "utsvt_design_blocks") (type "KiCad") (uri "${KIPRJMOD}/lib/KiCAD-Sharepoint/UTSVT_Design_Blocks.kicad_blocks") (options "") (descr ""))
+)
