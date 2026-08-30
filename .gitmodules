@@ -2,5 +2,5 @@
 	path = firmware/Embedded-Sharepoint
 	url = https://github.com/lhr-solar/Embedded-Sharepoint.git
 [submodule "hardware/lib/KiCAD-Sharepoint"]
-	path = hardware/KiCAD-Sharepoint
+	path = hardware/lib/KiCAD-Sharepoint
 	url = https://github.com/lhr-solar/KiCAD-Sharepoint.git

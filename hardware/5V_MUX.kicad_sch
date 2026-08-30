@@ -1873,18 +1873,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "cdea4d5c-14cc-422b-b60c-9f4ffab73794")
+			(uuid "31af6d1b-74fc-4bc4-820a-093e09b190d9")
 		)
 		(pin "2"
-			(uuid "93a9476c-00b6-4ffd-89a3-c4e89f8f0675")
+			(uuid "ce259b1d-5cdc-4fee-97af-e91672159ace")
 		)
 		(instances
-			(project "power-mux-block"
-				(path "/c8207045-8aef-4538-bcc4-1e380c549c2c"
-					(reference "C4")
-					(unit 1)
-				)
-			)
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/e0f968a7-05a9-4ebc-9842-a6fd9bfffd76"
 					(reference "C30")
@@ -1969,18 +1963,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "b445130a-0430-46a6-8dbf-c0b321c14d9a")
+			(uuid "62b261b9-bfc2-48da-92b8-7c5121f88ecd")
 		)
 		(pin "2"
-			(uuid "32f29333-9e92-4270-a61d-dc208db62db0")
+			(uuid "49af1abd-85e6-43b8-915d-ccce08b9d755")
 		)
 		(instances
-			(project "power-mux-block"
-				(path "/c8207045-8aef-4538-bcc4-1e380c549c2c"
-					(reference "R1")
-					(unit 1)
-				)
-			)
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/e0f968a7-05a9-4ebc-9842-a6fd9bfffd76"
 					(reference "R21")
@@ -2078,18 +2066,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "15e06278-345c-4cda-89aa-1c631a524a93")
+			(uuid "241ba7da-0fc8-4330-b3a1-fc29eb36aa9a")
 		)
 		(pin "2"
-			(uuid "ab8112d7-4137-4217-a9cc-9d8333976c27")
+			(uuid "c16ce1c1-2701-4390-92e2-600d0808b4b5")
 		)
 		(instances
-			(project "power-mux-block"
-				(path "/c8207045-8aef-4538-bcc4-1e380c549c2c"
-					(reference "C1")
-					(unit 1)
-				)
-			)
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/e0f968a7-05a9-4ebc-9842-a6fd9bfffd76"
 					(reference "C27")
@@ -2223,36 +2205,30 @@
 			)
 		)
 		(pin "6"
-			(uuid "1d71c282-9f81-4cee-abb9-86298b56910c")
+			(uuid "d8a885f8-c799-424e-8fb8-f3c42c5b7daa")
 		)
 		(pin "3"
-			(uuid "7e0f054c-c270-473f-aa7d-2dfc52c79893")
+			(uuid "fdee33a3-d000-4fd0-8fd4-e01c19caa1cb")
 		)
 		(pin "8"
-			(uuid "c52b7078-88bb-4d5d-aa87-c860d18b93de")
+			(uuid "201a97d8-2d8d-4d19-8b8d-5c0cd3493801")
 		)
 		(pin "7"
-			(uuid "dde996d6-302b-482b-b103-33bed2f0833e")
+			(uuid "6cc91aeb-c596-47ef-9983-76bc6cfc49ff")
 		)
 		(pin "5"
-			(uuid "f16d3c24-a256-4973-8aaa-1339966c5b33")
+			(uuid "26554ecd-8fea-4df6-b6d4-341519426902")
 		)
 		(pin "2"
-			(uuid "f3f509c2-d3e6-47a0-8366-eea0c15e95c6")
+			(uuid "87a67cf2-781d-4c3c-b4c4-a6aa2508dd2a")
 		)
 		(pin "4"
-			(uuid "fb25e10c-f87d-4c47-83b1-e7bcdc4a7a3a")
+			(uuid "4881df05-7f04-4edd-90bd-fbb247fb4a9f")
 		)
 		(pin "1"
-			(uuid "15a92dfe-e525-4776-b9da-f1dd7bbc352d")
+			(uuid "2f9c6126-a7b9-4ca9-8823-9fea5590ead4")
 		)
 		(instances
-			(project ""
-				(path "/c8207045-8aef-4538-bcc4-1e380c549c2c"
-					(reference "U1")
-					(unit 1)
-				)
-			)
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/e0f968a7-05a9-4ebc-9842-a6fd9bfffd76"
 					(reference "U3")
@@ -2350,18 +2326,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "e41339b2-0b78-4afa-a522-54a4100e50d6")
+			(uuid "44afd8f0-8dfc-484f-b514-0df57921e4a9")
 		)
 		(pin "2"
-			(uuid "57b62f0e-165c-49b8-9465-a7f35c89d1a2")
+			(uuid "a15064ab-e7e0-4e64-afc2-3440aed15566")
 		)
 		(instances
-			(project "power-mux-block"
-				(path "/c8207045-8aef-4538-bcc4-1e380c549c2c"
-					(reference "C3")
-					(unit 1)
-				)
-			)
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/e0f968a7-05a9-4ebc-9842-a6fd9bfffd76"
 					(reference "C29")
@@ -2459,18 +2429,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "8a22e724-4c34-405a-838f-8e503fe5692a")
+			(uuid "e0d228cd-4b06-41cc-84d8-65e0bdd4f5cb")
 		)
 		(pin "2"
-			(uuid "c01c5550-dc6e-4646-8700-9115763e3ac0")
+			(uuid "44fa722b-bd22-4e6b-9aaa-11855daae6c5")
 		)
 		(instances
-			(project "power-mux-block"
-				(path "/c8207045-8aef-4538-bcc4-1e380c549c2c"
-					(reference "C2")
-					(unit 1)
-				)
-			)
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/e0f968a7-05a9-4ebc-9842-a6fd9bfffd76"
 					(reference "C28")

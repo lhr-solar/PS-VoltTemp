@@ -1934,7 +1934,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "2b102e1c-01e8-4653-92eb-2045626b696c")
-		(property "Reference" "C32"
+		(property "Reference" "C2"
 			(at 113.665 80.0035 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2012,27 +2012,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "8982b71e-8e80-4d1a-b7c6-32345734f6a1")
+			(uuid "5a519448-9a0c-45a5-aabf-fe10f7dee485")
 		)
 		(pin "2"
-			(uuid "aa1ead18-c899-4600-b544-441f9dedd605")
+			(uuid "81c791e7-3898-409a-a7bd-6d548c8bcc3c")
 		)
 		(instances
-			(project "LDO"
-				(path "/8ff43370-8d10-4d2c-b1a3-81d1c2934a98"
-					(reference "C2")
-					(unit 1)
-				)
-			)
-			(project "LeaderSOMBreakout"
-				(path "/e5b32072-3e3d-42a6-9d41-1a76d538e329/f3053c74-1ac6-4a33-80f3-565e8c4c2c7d"
-					(reference "C?")
-					(unit 1)
-				)
-			)
 			(project "PS-SegmentMonitoringBoard"
-				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/0f853b25-e2f5-4198-b067-37aee21ed095"
-					(reference "C32")
+				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/c374ccb1-3fca-459f-ad5f-933aa5d7a29c/a818c6fb-3bbd-452d-9e3e-0949d081e2ed"
+					(reference "C2")
 					(unit 1)
 				)
 			)
@@ -2143,17 +2131,11 @@
 			)
 		)
 		(pin "1"
-			(uuid "01c67387-58e5-48ff-81a2-8ef93a58300b")
+			(uuid "b992551a-ee68-43b6-82d1-9e7b55327000")
 		)
 		(instances
-			(project "LDO"
-				(path "/8ff43370-8d10-4d2c-b1a3-81d1c2934a98"
-					(reference "TP_3.3V1")
-					(unit 1)
-				)
-			)
 			(project "PS-SegmentMonitoringBoard"
-				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/0f853b25-e2f5-4198-b067-37aee21ed095"
+				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/c374ccb1-3fca-459f-ad5f-933aa5d7a29c/a818c6fb-3bbd-452d-9e3e-0949d081e2ed"
 					(reference "TP_3.3V1")
 					(unit 1)
 				)
@@ -2172,7 +2154,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "766d371a-42b5-499b-b058-ab8f85cbe506")
-		(property "Reference" "U5"
+		(property "Reference" "U1"
 			(at 97.79 67.945 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2270,24 +2252,18 @@
 			)
 		)
 		(pin "2"
-			(uuid "3fcec839-284c-4ea8-a79f-01c06ecb6999")
+			(uuid "ca082178-28f0-4c18-9e7a-829efd8fbc1f")
 		)
 		(pin "1"
-			(uuid "995de51d-9d43-4d1a-b9fe-0b2a61d94583")
+			(uuid "27c4beae-18dd-47a4-8dff-e42a838af188")
 		)
 		(pin "3"
-			(uuid "957fe355-65e9-43a7-85ca-76966301f183")
+			(uuid "89c6dc51-04d4-4536-ba04-5644c245d873")
 		)
 		(instances
-			(project ""
-				(path "/8ff43370-8d10-4d2c-b1a3-81d1c2934a98"
-					(reference "U1")
-					(unit 1)
-				)
-			)
 			(project "PS-SegmentMonitoringBoard"
-				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/0f853b25-e2f5-4198-b067-37aee21ed095"
-					(reference "U5")
+				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/c374ccb1-3fca-459f-ad5f-933aa5d7a29c/a818c6fb-3bbd-452d-9e3e-0949d081e2ed"
+					(reference "U1")
 					(unit 1)
 				)
 			)
@@ -2305,7 +2281,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "adbd74cf-e28f-4fcb-b636-d956609f6a8d")
-		(property "Reference" "D3"
+		(property "Reference" "D1"
 			(at 78.994 68.58 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2403,21 +2379,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "07949f2e-a083-4273-9382-0b69eba2a8a9")
+			(uuid "ceb86116-f222-475e-b0c1-d5161a6e13c5")
 		)
 		(pin "2"
-			(uuid "92239788-8b6a-4474-afbc-db272288e943")
+			(uuid "79f0399d-41f2-4ac7-b8a5-1d7f5ab3e5ff")
 		)
 		(instances
-			(project ""
-				(path "/8ff43370-8d10-4d2c-b1a3-81d1c2934a98"
-					(reference "D1")
-					(unit 1)
-				)
-			)
 			(project "PS-SegmentMonitoringBoard"
-				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/0f853b25-e2f5-4198-b067-37aee21ed095"
-					(reference "D3")
+				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/c374ccb1-3fca-459f-ad5f-933aa5d7a29c/a818c6fb-3bbd-452d-9e3e-0949d081e2ed"
+					(reference "D1")
 					(unit 1)
 				)
 			)
@@ -2435,7 +2405,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "f96e3358-3125-41a4-8f93-006fa6c5f6b9")
-		(property "Reference" "C31"
+		(property "Reference" "C1"
 			(at 88.265 80.0035 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2513,27 +2483,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "3c088605-de17-491b-a92c-48312011ee9b")
+			(uuid "0210bc9b-dfa0-481f-9d8f-03d764c8a8d6")
 		)
 		(pin "2"
-			(uuid "7a07c67e-64ee-4191-918c-55b9b7230005")
+			(uuid "b36542e7-9cf0-4838-a96e-f79309cce3d6")
 		)
 		(instances
-			(project "LDO"
-				(path "/8ff43370-8d10-4d2c-b1a3-81d1c2934a98"
-					(reference "C1")
-					(unit 1)
-				)
-			)
-			(project ""
-				(path "/e5b32072-3e3d-42a6-9d41-1a76d538e329/f3053c74-1ac6-4a33-80f3-565e8c4c2c7d"
-					(reference "C?")
-					(unit 1)
-				)
-			)
 			(project "PS-SegmentMonitoringBoard"
-				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/0f853b25-e2f5-4198-b067-37aee21ed095"
-					(reference "C31")
+				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/c374ccb1-3fca-459f-ad5f-933aa5d7a29c/a818c6fb-3bbd-452d-9e3e-0949d081e2ed"
+					(reference "C1")
 					(unit 1)
 				)
 			)

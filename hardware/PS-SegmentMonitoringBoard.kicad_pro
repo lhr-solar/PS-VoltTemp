@@ -293,14 +293,7 @@
       "version": 5
     },
     "net_colors": null,
-    "netclass_assignments": {
-      "/48PinMCU/SWCLK": [
-        "Default"
-      ],
-      "/48PinMCU/SWDIO": [
-        "Default"
-      ]
-    },
+    "netclass_assignments": null,
     "netclass_patterns": []
   },
   "pcbnew": {
@@ -419,6 +412,30 @@
         "CAN_RX",
         "CAN_TX"
       ],
+      "CELL_BALANCING": [
+        "CB7",
+        "CB6",
+        "CB5",
+        "CB4",
+        "CB3",
+        "CB2",
+        "CB1",
+        "CB0"
+      ],
+      "CELL_VOLTAGES": [
+        "VC7",
+        "VC6",
+        "VC5",
+        "VC4",
+        "VC3",
+        "VC2",
+        "VC1",
+        "VC0",
+        "BAT"
+      ],
+      "NTCS": [
+        "NTC[7..0]"
+      ],
       "TEMPS": [
         "TEMP_[0..7]"
       ],
@@ -435,6 +452,16 @@
       "VCs": [
         "V+_[0..7]",
         "SEG_GND"
+      ],
+      "VOLT_TAPS": [
+        "V7",
+        "V6",
+        "V5",
+        "V4",
+        "V3",
+        "V2",
+        "V1",
+        "V0"
       ],
       "V_TAPS": [
         "V+_[0..7]",
@@ -481,7 +508,7 @@
         "uuid": "f5c3f134-fd91-4d3b-aae6-719b554b2d69"
       }
     ],
-    "used_designators": "R8-65,IC1-2,J3-8,J11,D8-10,#PWR1-14,#PWR17-21,#PWR26-29,#PWR69-84,#PWR101-116,TP5,TP11-18,F1-19,C20-66,U4-5,U7-14,SW5",
+    "used_designators": "R8-99,R105-120,IC1-2,J1-8,J11,D1,D8-10,#PWR1-15,#PWR17-21,#PWR26-29,#PWR31-32,#PWR37-39,#PWR69-84,#PWR101-116,TP5,TP11-26,F1-19,C1-2,C20-66,C81-100,C103-134,U1,U4-5,U7-17,SW5,Q1,TP_3.3V1",
     "variants": []
   },
   "sheets": [
@@ -490,52 +517,40 @@
       "PS-SegmentMonitoringBoard"
     ],
     [
+      "d186bc1c-588a-4475-b5af-d76af3fe1d31",
+      "Temp Filters1"
+    ],
+    [
       "da523561-f4b9-4ea1-9488-1eaae537b1f7",
       "Temp Filter 1"
-    ],
-    [
-      "72bcc333-8501-44a9-bda5-d9495ee2c786",
-      "48PinMCU"
-    ],
-    [
-      "b643cd60-7892-417b-9b6c-e0bc8031d340",
-      "5V Buck"
-    ],
-    [
-      "58be8bfa-0fbb-4213-af93-a482b823076e",
-      "Temp Filter 2"
-    ],
-    [
-      "e490cb28-1ad0-438c-b3de-bd01e872a555",
-      "BQ Chip"
-    ],
-    [
-      "e0f968a7-05a9-4ebc-9842-a6fd9bfffd76",
-      "5V MUX"
-    ],
-    [
-      "0f853b25-e2f5-4198-b067-37aee21ed095",
-      "3V3 LDO"
-    ],
-    [
-      "880670a3-ca8f-4c72-8c24-c5f384473b51",
-      "USB"
-    ],
-    [
-      "9b71a6be-5c39-47ce-91f5-51e2aa15a650",
-      "Temp Filters"
     ],
     [
       "0f2a91fc-7795-49a1-b15d-34b2a5202f6f",
       "Temp Filter 3"
     ],
     [
+      "58be8bfa-0fbb-4213-af93-a482b823076e",
+      "Temp Filter 2"
+    ],
+    [
       "de187bf5-2df2-4a3a-8dff-645f04d79293",
       "Temp Filter 4"
     ],
     [
-      "586948dd-f322-4fa9-9a79-8e1d4a4bd311",
-      "CAN Transceiver"
+      "a818c6fb-3bbd-452d-9e3e-0949d081e2ed",
+      "3V3_LDO"
+    ],
+    [
+      "c374ccb1-3fca-459f-ad5f-933aa5d7a29c",
+      "Thermistors"
+    ],
+    [
+      "21351e03-70a0-438e-ae63-3dedb1c82fc6",
+      "Volt_Taps"
+    ],
+    [
+      "d887bdd7-4ddc-43ee-a27d-51208f676d2d",
+      "GND_Bypasses"
     ]
   ],
   "text_variables": {},

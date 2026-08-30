@@ -33753,24 +33753,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "62490040-1afe-4ec9-9fdd-5ae650351c74")
+			(uuid "4528262f-cafd-4c94-aff9-6f43240ec0e9")
 		)
 		(pin "2"
-			(uuid "cfbcadea-96cf-424c-ad91-890e544e6363")
+			(uuid "36ac8b58-4166-4d1a-959d-fe06060ddd2d")
 		)
 		(instances
-			(project ""
-				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb/9d9eae1e-c713-4323-9845-a569cff8d5d3"
-					(reference "C6")
-					(unit 1)
-				)
-			)
-			(project "CAN_Transceiver"
-				(path "/a09f9696-80ee-4697-8aaa-225f287b667b"
-					(reference "C2")
-					(unit 1)
-				)
-			)
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/586948dd-f322-4fa9-9a79-8e1d4a4bd311"
 					(reference "C40")
@@ -33866,24 +33854,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "3b0d596f-f884-4807-ad90-b5139a0a7756")
+			(uuid "cccce80b-3e6c-4bdb-9292-4b570eb4faaf")
 		)
 		(pin "2"
-			(uuid "0f0b5e97-daad-483c-a5d0-5d662ddb8640")
+			(uuid "e75a11e0-3cf0-4b51-b122-620243656cd7")
 		)
 		(instances
-			(project ""
-				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb/9d9eae1e-c713-4323-9845-a569cff8d5d3"
-					(reference "C8")
-					(unit 1)
-				)
-			)
-			(project "CAN_Transceiver"
-				(path "/a09f9696-80ee-4697-8aaa-225f287b667b"
-					(reference "C4")
-					(unit 1)
-				)
-			)
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/586948dd-f322-4fa9-9a79-8e1d4a4bd311"
 					(reference "C42")
@@ -33958,30 +33934,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "f1ec1902-e105-4b87-9a53-3c130be47f4d")
+			(uuid "7ef53922-8dd5-44bb-8ee3-82b90c1f45ce")
 		)
 		(pin "2"
-			(uuid "3d0c2ea2-acd1-49f7-986a-b378f6b430a0")
+			(uuid "a70208ae-748d-4749-b9c4-ca7f57fbfb37")
 		)
 		(instances
-			(project ""
-				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb/9d9eae1e-c713-4323-9845-a569cff8d5d3"
-					(reference "JP2")
-					(unit 1)
-				)
-			)
-			(project ""
-				(path "/81d906df-a099-480a-8398-28a8e913d125"
-					(reference "JP1")
-					(unit 1)
-				)
-			)
-			(project "CAN_Transceiver"
-				(path "/a09f9696-80ee-4697-8aaa-225f287b667b"
-					(reference "JP1")
-					(unit 1)
-				)
-			)
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/586948dd-f322-4fa9-9a79-8e1d4a4bd311"
 					(reference "JP1")
@@ -34079,24 +34037,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "85aa2bda-d2f7-4634-9149-c3a03f575c6e")
+			(uuid "98e8d2e1-d738-431a-8767-8775ebd5fa75")
 		)
 		(pin "2"
-			(uuid "1e6d57eb-788f-4ab6-9e32-f0227f9fcce7")
+			(uuid "2ecc1d81-ce29-4b90-b040-f7964213963a")
 		)
 		(instances
-			(project ""
-				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb/9d9eae1e-c713-4323-9845-a569cff8d5d3"
-					(reference "C7")
-					(unit 1)
-				)
-			)
-			(project "CAN_Transceiver"
-				(path "/a09f9696-80ee-4697-8aaa-225f287b667b"
-					(reference "C3")
-					(unit 1)
-				)
-			)
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/586948dd-f322-4fa9-9a79-8e1d4a4bd311"
 					(reference "C41")
@@ -34194,30 +34140,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "931d7d00-34c0-432f-b957-5973964ff07a")
+			(uuid "bdf5117a-7ef8-41ac-b800-668aa32bf05c")
 		)
 		(pin "2"
-			(uuid "a68fbfcf-27e7-4ded-8e8c-d9afa05a2b87")
+			(uuid "5a6a8d02-8f9f-49b5-a721-52f40384460c")
 		)
 		(instances
-			(project ""
-				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb/9d9eae1e-c713-4323-9845-a569cff8d5d3"
-					(reference "C5")
-					(unit 1)
-				)
-			)
-			(project ""
-				(path "/81d906df-a099-480a-8398-28a8e913d125"
-					(reference "C1")
-					(unit 1)
-				)
-			)
-			(project "CAN_Transceiver"
-				(path "/a09f9696-80ee-4697-8aaa-225f287b667b"
-					(reference "C1")
-					(unit 1)
-				)
-			)
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/586948dd-f322-4fa9-9a79-8e1d4a4bd311"
 					(reference "C39")
@@ -34313,24 +34241,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "9bcdf47c-1070-4824-954d-f11fc9f517da")
+			(uuid "e481b1f0-80db-4e7a-8e31-9dd7e57d511b")
 		)
 		(pin "2"
-			(uuid "eadbc9ef-015e-416b-b429-cb310da85012")
+			(uuid "896dd9a0-2461-4398-bbce-727b79a09330")
 		)
 		(instances
-			(project "kk36984"
-				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb/9d9eae1e-c713-4323-9845-a569cff8d5d3"
-					(reference "R23")
-					(unit 1)
-				)
-			)
-			(project "CAN_Transceiver"
-				(path "/a09f9696-80ee-4697-8aaa-225f287b667b"
-					(reference "R2")
-					(unit 1)
-				)
-			)
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/586948dd-f322-4fa9-9a79-8e1d4a4bd311"
 					(reference "R17")
@@ -34478,27 +34394,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "13cdd691-ca15-475a-aa4d-4c989ce45527")
+			(uuid "ab9cb948-3abd-4255-87fb-2d327c97a2cb")
 		)
 		(pin "2"
-			(uuid "87f00ac4-f9fd-4b58-b326-8eb61cbae89e")
+			(uuid "d578962a-ff17-467a-9e3a-01bb5b14c4db")
 		)
 		(pin "3"
-			(uuid "b0e2adf7-a02b-4ad8-a0aa-e181c8c6489b")
+			(uuid "f43efeab-02f4-4eaf-9e08-f5bd6e8bf563")
 		)
 		(instances
-			(project ""
-				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb/9d9eae1e-c713-4323-9845-a569cff8d5d3"
-					(reference "D8")
-					(unit 1)
-				)
-			)
-			(project "CAN_Transceiver"
-				(path "/a09f9696-80ee-4697-8aaa-225f287b667b"
-					(reference "D1")
-					(unit 1)
-				)
-			)
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/586948dd-f322-4fa9-9a79-8e1d4a4bd311"
 					(reference "D4")
@@ -34646,42 +34550,30 @@
 			)
 		)
 		(pin "1"
-			(uuid "222d85c9-7fcd-4631-a28f-08cf613da8b8")
+			(uuid "39f91a44-a2dd-4ff7-9532-bd7f0e5b9ae0")
 		)
 		(pin "4"
-			(uuid "23dd2ff9-d2a4-4860-b6f6-3dcaf68d823a")
+			(uuid "9e3b8c65-7686-42d2-bc0c-941b12483d21")
 		)
 		(pin "7"
-			(uuid "ae1a45f4-8169-47eb-ab20-7f3a12cc0739")
+			(uuid "74ac09c0-016f-437b-9ee2-a36468b2c24c")
 		)
 		(pin "6"
-			(uuid "28c00350-192e-488d-8eed-1e221a850e3a")
+			(uuid "78a94ce1-2e87-4c52-84dd-3f65a645cd40")
 		)
 		(pin "2"
-			(uuid "37691bbb-c337-4983-bc9a-05ac6e0366bd")
+			(uuid "4e38ffb3-5bdc-4225-90ce-2bbdded16557")
 		)
 		(pin "3"
-			(uuid "3c87ecf4-bb35-4a81-80a2-c831e1b99868")
+			(uuid "23ed9ea1-fd89-45b3-927b-100761c8e81b")
 		)
 		(pin "5"
-			(uuid "6abcd12c-fa9b-4e47-ae0c-626bedaab829")
+			(uuid "4b3ab61d-644c-46f7-b51e-3866055e9c37")
 		)
 		(pin "8"
-			(uuid "bda5a424-c010-4a72-ba4f-0982ceea7b46")
+			(uuid "a88cd7b9-6327-4921-8895-8e493f850a82")
 		)
 		(instances
-			(project ""
-				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb/9d9eae1e-c713-4323-9845-a569cff8d5d3"
-					(reference "IC1")
-					(unit 1)
-				)
-			)
-			(project "CAN_Transceiver"
-				(path "/a09f9696-80ee-4697-8aaa-225f287b667b"
-					(reference "IC1")
-					(unit 1)
-				)
-			)
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/586948dd-f322-4fa9-9a79-8e1d4a4bd311"
 					(reference "IC2")
@@ -34777,30 +34669,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "86d33648-15d7-4302-99c9-26ba60e42db7")
+			(uuid "4f0553bf-db60-4761-beb7-4cd6063b9057")
 		)
 		(pin "2"
-			(uuid "c60f6f6c-5e75-4ba9-87cd-a842ff79f089")
+			(uuid "40f231f4-2754-4ce6-862a-f1a515338d35")
 		)
 		(instances
-			(project ""
-				(path "/69b823fd-c065-40ff-9bb9-c5835555f3eb/9d9eae1e-c713-4323-9845-a569cff8d5d3"
-					(reference "R22")
-					(unit 1)
-				)
-			)
-			(project ""
-				(path "/81d906df-a099-480a-8398-28a8e913d125"
-					(reference "R1")
-					(unit 1)
-				)
-			)
-			(project "CAN_Transceiver"
-				(path "/a09f9696-80ee-4697-8aaa-225f287b667b"
-					(reference "R1")
-					(unit 1)
-				)
-			)
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/586948dd-f322-4fa9-9a79-8e1d4a4bd311"
 					(reference "R16")

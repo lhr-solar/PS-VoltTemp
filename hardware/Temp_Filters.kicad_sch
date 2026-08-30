@@ -819,7 +819,7 @@
 		)
 		(pin "tempOut_2" output
 			(at 118.11 119.38 0)
-			(uuid "3f37e4e3-d061-4a52-a4f6-6aae8bb2d771")
+			(uuid "dd4089d5-5f57-4864-a05e-fc8f252ac858")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -829,7 +829,7 @@
 		)
 		(pin "tempIn_2" input
 			(at 92.71 119.38 180)
-			(uuid "8a4a0a03-1f7a-480e-971a-0aa95bd67d6e")
+			(uuid "40e8fad4-ab34-4834-8513-26f2380a4679")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -839,7 +839,7 @@
 		)
 		(pin "tempOut_1" output
 			(at 118.11 113.03 0)
-			(uuid "aa2e7737-daee-4233-8cb3-06680d0fd92f")
+			(uuid "8baaf9af-526c-453d-9135-31140492bf3f")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -849,7 +849,7 @@
 		)
 		(pin "tempIn_1" input
 			(at 92.71 113.03 180)
-			(uuid "5d805bee-2176-4b97-8dec-efe41a65b29a")
+			(uuid "c7719aef-c7e6-4918-82a3-805f5509312c")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -859,7 +859,7 @@
 		)
 		(pin "GNDA" bidirectional
 			(at 92.71 125.73 180)
-			(uuid "274b458a-8ea2-4235-97d1-1b3142c626eb")
+			(uuid "33c64773-0982-4a9f-b07d-6350bd4ea611")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -869,7 +869,7 @@
 		)
 		(pin "3.3VA" input
 			(at 92.71 106.68 180)
-			(uuid "6b2bc3d1-2d8d-4ae4-b6b2-9796662c7e3e")
+			(uuid "4f92fbd3-ac05-4f19-be03-18dd7f78f3bb")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -879,8 +879,8 @@
 		)
 		(instances
 			(project "PS-SegmentMonitoringBoard"
-				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/9b71a6be-5c39-47ce-91f5-51e2aa15a650"
-					(page "11")
+				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/c374ccb1-3fca-459f-ad5f-933aa5d7a29c/d186bc1c-588a-4475-b5af-d76af3fe1d31"
+					(page "4")
 				)
 			)
 		)
@@ -925,7 +925,7 @@
 		)
 		(pin "tempOut_2" output
 			(at 118.11 78.74 0)
-			(uuid "e571cdf5-ce67-4cd4-af70-89a9c17d3267")
+			(uuid "33c4bfa0-f719-4388-a162-edc818b504ae")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -935,7 +935,7 @@
 		)
 		(pin "tempIn_2" input
 			(at 92.71 78.74 180)
-			(uuid "af9d1863-e1e5-4868-9c4e-34b54e9b5d50")
+			(uuid "ec645021-2f8a-4ba4-a665-5e4c26d294aa")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -945,7 +945,7 @@
 		)
 		(pin "tempOut_1" output
 			(at 118.11 72.39 0)
-			(uuid "38c31da3-6536-495e-82b4-4084a89bcbf9")
+			(uuid "a394ead5-8ce7-4194-90a9-a7f86b1748a1")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -955,7 +955,7 @@
 		)
 		(pin "tempIn_1" input
 			(at 92.71 72.39 180)
-			(uuid "b68b69fc-6744-41f4-8089-f1510c18a960")
+			(uuid "21df2ccd-2242-46ea-8f0e-a2596dd55ae7")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -965,7 +965,7 @@
 		)
 		(pin "GNDA" bidirectional
 			(at 92.71 85.09 180)
-			(uuid "e135fe94-e157-42b0-a2d1-527f133a29dd")
+			(uuid "6d7eb168-e208-4f78-8e72-36d2725e619e")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -975,7 +975,7 @@
 		)
 		(pin "3.3VA" input
 			(at 92.71 66.04 180)
-			(uuid "cd65c68c-5b95-4720-abdd-c22783ad8f8c")
+			(uuid "ed128674-b754-4c21-a538-059d0a10840c")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -985,7 +985,7 @@
 		)
 		(instances
 			(project "PS-SegmentMonitoringBoard"
-				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/9b71a6be-5c39-47ce-91f5-51e2aa15a650"
+				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/c374ccb1-3fca-459f-ad5f-933aa5d7a29c/d186bc1c-588a-4475-b5af-d76af3fe1d31"
 					(page "5")
 				)
 			)
@@ -1031,7 +1031,7 @@
 		)
 		(pin "tempOut_2" output
 			(at 118.11 36.83 0)
-			(uuid "92863cba-c184-460c-b9bb-6b9636178a37")
+			(uuid "99a6ebf6-d2cf-41d4-b9ea-92789cb42989")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1041,7 +1041,7 @@
 		)
 		(pin "tempIn_2" input
 			(at 92.71 36.83 180)
-			(uuid "384d9c1c-6143-4792-aa55-236c558314a5")
+			(uuid "3b563584-3c51-4944-8080-a369839f1e6f")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1051,7 +1051,7 @@
 		)
 		(pin "tempOut_1" output
 			(at 118.11 30.48 0)
-			(uuid "3825792e-0692-4dec-a6c3-ba4da061189c")
+			(uuid "a57551c8-65e0-4dd0-87b6-7480d67dac7d")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1061,7 +1061,7 @@
 		)
 		(pin "tempIn_1" input
 			(at 92.71 30.48 180)
-			(uuid "9d4e4c60-cde0-47e4-b539-0dfbac43dcfb")
+			(uuid "8707ae26-5dda-4bb3-bb1d-e718cf731b6b")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1071,7 +1071,7 @@
 		)
 		(pin "GNDA" bidirectional
 			(at 92.71 43.18 180)
-			(uuid "fc1ba54b-1c8d-4edc-9557-4c51a80c9c9e")
+			(uuid "219f5605-9566-4740-b0e3-b513022f9c8a")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1081,7 +1081,7 @@
 		)
 		(pin "3.3VA" input
 			(at 92.71 24.13 180)
-			(uuid "e49d904a-778d-4abd-9866-ea570e2cb0f0")
+			(uuid "fbc05bf0-e7be-4f71-8d84-512048b1694b")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1091,8 +1091,8 @@
 		)
 		(instances
 			(project "PS-SegmentMonitoringBoard"
-				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/9b71a6be-5c39-47ce-91f5-51e2aa15a650"
-					(page "2")
+				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/c374ccb1-3fca-459f-ad5f-933aa5d7a29c/d186bc1c-588a-4475-b5af-d76af3fe1d31"
+					(page "3")
 				)
 			)
 		)
@@ -1137,7 +1137,7 @@
 		)
 		(pin "tempOut_2" output
 			(at 118.11 161.29 0)
-			(uuid "96ad26a5-b9fe-4bf3-acff-a05f9d8ca98b")
+			(uuid "35506bee-0ec4-427f-8e0d-f8e6c4f8a4b1")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1147,7 +1147,7 @@
 		)
 		(pin "tempIn_2" input
 			(at 92.71 161.29 180)
-			(uuid "c00c0484-4196-435f-a27f-91f697ac1ee8")
+			(uuid "fb7a7649-677e-419f-bed1-f1a523cc5c18")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1157,7 +1157,7 @@
 		)
 		(pin "tempOut_1" output
 			(at 118.11 154.94 0)
-			(uuid "80242454-6110-49dc-bf48-41ec896f1e2b")
+			(uuid "fa4236e3-e23b-44f1-a645-6fd4d20debd0")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1167,7 +1167,7 @@
 		)
 		(pin "tempIn_1" input
 			(at 92.71 154.94 180)
-			(uuid "197ba8cd-c7b2-4cce-ae95-486f6c58d269")
+			(uuid "c3562ca2-737a-4512-94e0-94d84aa4fe1d")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1177,7 +1177,7 @@
 		)
 		(pin "GNDA" bidirectional
 			(at 92.71 167.64 180)
-			(uuid "164ff6a0-7bad-4593-b7db-4f38a09fd8ca")
+			(uuid "c5f69577-578e-4390-85f5-083d95836934")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1187,7 +1187,7 @@
 		)
 		(pin "3.3VA" input
 			(at 92.71 148.59 180)
-			(uuid "6559f682-ea54-48e5-b71f-2c327c2f91e7")
+			(uuid "e1ae8701-2284-4756-80d9-3b02c017dd72")
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1197,8 +1197,8 @@
 		)
 		(instances
 			(project "PS-SegmentMonitoringBoard"
-				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/9b71a6be-5c39-47ce-91f5-51e2aa15a650"
-					(page "12")
+				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/c374ccb1-3fca-459f-ad5f-933aa5d7a29c/d186bc1c-588a-4475-b5af-d76af3fe1d31"
+					(page "6")
 				)
 			)
 		)
