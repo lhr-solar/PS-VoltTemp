@@ -420,7 +420,8 @@
         "CB3",
         "CB2",
         "CB1",
-        "CB0"
+        "CB0",
+        "preBAT"
       ],
       "CELL_VOLTAGES": [
         "VC7",
@@ -430,8 +431,7 @@
         "VC3",
         "VC2",
         "VC1",
-        "VC0",
-        "BAT"
+        "VC0"
       ],
       "NTCS": [
         "NTC[7..0]"
@@ -461,7 +461,8 @@
         "V3",
         "V2",
         "V1",
-        "V0"
+        "V0",
+        "BAT"
       ],
       "V_TAPS": [
         "V+_[0..7]",
@@ -508,7 +509,7 @@
         "uuid": "f5c3f134-fd91-4d3b-aae6-719b554b2d69"
       }
     ],
-    "used_designators": "R8-99,R105-120,IC1-2,J1-8,J11,D1,D8-10,#PWR1-15,#PWR17-21,#PWR26-29,#PWR31-32,#PWR37-39,#PWR69-84,#PWR101-116,TP5,TP11-26,F1-19,C1-2,C20-66,C81-100,C103-134,U1,U4-5,U7-17,SW5,Q1,TP_3.3V1",
+    "used_designators": "R1-6,R8-99,R105-127,IC1-2,J1-8,J11,D1-10,T1-2,#PWR1-21,#PWR26-29,#PWR31-32,#PWR37-39,#PWR69-84,#PWR101-116,TP5,TP11-26,F1-19,C1-16,C20-66,C81-100,C103-142,U1,U4-5,U7-17,SW5,Q1,TP_3.3V1,L1-2,TR1-2",
     "variants": []
   },
   "sheets": [
@@ -517,28 +518,24 @@
       "PS-SegmentMonitoringBoard"
     ],
     [
-      "d186bc1c-588a-4475-b5af-d76af3fe1d31",
-      "Temp Filters1"
+      "b9160b78-ad79-4299-ac76-fc3d5563367b",
+      "Capacitor_Isolation_Ring"
     ],
     [
-      "da523561-f4b9-4ea1-9488-1eaae537b1f7",
-      "Temp Filter 1"
+      "0b2fcaf7-0039-4bf1-a6de-4308a28a2e61",
+      "Cell_Balancing"
     ],
     [
-      "0f2a91fc-7795-49a1-b15d-34b2a5202f6f",
-      "Temp Filter 3"
+      "0f5bcfdc-20b6-4bf4-b7a4-a429fefce66c",
+      "LDOIN_NPN"
     ],
     [
-      "58be8bfa-0fbb-4213-af93-a482b823076e",
-      "Temp Filter 2"
+      "4287d04b-d36d-432c-b4ed-46d8f5b465b5",
+      "Extra_Cells"
     ],
     [
-      "de187bf5-2df2-4a3a-8dff-645f04d79293",
-      "Temp Filter 4"
-    ],
-    [
-      "a818c6fb-3bbd-452d-9e3e-0949d081e2ed",
-      "3V3_LDO"
+      "d92b970b-7f5c-4231-93c3-49a40e55038f",
+      "Capacitor_Isolation_Daisy_Chain"
     ],
     [
       "c374ccb1-3fca-459f-ad5f-933aa5d7a29c",
