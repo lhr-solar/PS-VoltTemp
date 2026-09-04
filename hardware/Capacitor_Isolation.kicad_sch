@@ -808,6 +808,10 @@
 		(color 0 0 0 0)
 		(uuid "904ac1df-4224-40d0-9991-6fa8e9abfb9e")
 	)
+	(no_connect
+		(at 171.45 49.53)
+		(uuid "99e3bbeb-24eb-49ad-a7b8-1f7b8fc48050")
+	)
 	(wire
 		(pts
 			(xy 106.68 40.64) (xy 114.3 40.64)
@@ -2789,7 +2793,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "27870ad9-f07c-473e-8643-cfe71de349ed")
-		(property "Reference" "C6"
+		(property "Reference" "C3"
 			(at 157.734 48.514 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2851,11 +2855,11 @@
 		(instances
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/b9160b78-ad79-4299-ac76-fc3d5563367b"
-					(reference "C6")
+					(reference "C3")
 					(unit 1)
 				)
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/d92b970b-7f5c-4231-93c3-49a40e55038f"
-					(reference "C16")
+					(reference "C18")
 					(unit 1)
 				)
 			)
@@ -2872,7 +2876,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "389b1998-932b-43ca-8616-07f8712153fe")
-		(property "Reference" "#PWR01"
+		(property "Reference" "#PWR017"
 			(at 152.4 55.88 0)
 			(hide yes)
 			(show_name no)
@@ -2932,11 +2936,11 @@
 		(instances
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/b9160b78-ad79-4299-ac76-fc3d5563367b"
-					(reference "#PWR01")
+					(reference "#PWR017")
 					(unit 1)
 				)
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/d92b970b-7f5c-4231-93c3-49a40e55038f"
-					(reference "#PWR02")
+					(reference "#PWR018")
 					(unit 1)
 				)
 			)
@@ -2954,7 +2958,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "557efb73-0ee3-4df4-859a-e6e53372c4e1")
-		(property "Reference" "C14"
+		(property "Reference" "C2"
 			(at 130.81 60.9662 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3018,11 +3022,11 @@
 		(instances
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/b9160b78-ad79-4299-ac76-fc3d5563367b"
-					(reference "C14")
+					(reference "C2")
 					(unit 1)
 				)
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/d92b970b-7f5c-4231-93c3-49a40e55038f"
-					(reference "C4")
+					(reference "C17")
 					(unit 1)
 				)
 			)
@@ -3040,7 +3044,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "b04e6707-fa06-4524-9a36-fc71247fa2c0")
-		(property "Reference" "C13"
+		(property "Reference" "C1"
 			(at 130.81 43.1862 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3104,11 +3108,11 @@
 		(instances
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/b9160b78-ad79-4299-ac76-fc3d5563367b"
-					(reference "C13")
+					(reference "C1")
 					(unit 1)
 				)
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/d92b970b-7f5c-4231-93c3-49a40e55038f"
-					(reference "C3")
+					(reference "C16")
 					(unit 1)
 				)
 			)
@@ -3126,7 +3130,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "c2854743-2911-4fac-8a70-a089df115c26")
-		(property "Reference" "R5"
+		(property "Reference" "R2"
 			(at 144.78 35.56 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3188,11 +3192,11 @@
 		(instances
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/b9160b78-ad79-4299-ac76-fc3d5563367b"
-					(reference "R5")
+					(reference "R2")
 					(unit 1)
 				)
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/d92b970b-7f5c-4231-93c3-49a40e55038f"
-					(reference "R2")
+					(reference "R16")
 					(unit 1)
 				)
 			)
@@ -3210,7 +3214,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "d6a9766b-33b4-4d5e-a321-74c944013f6f")
-		(property "Reference" "R4"
+		(property "Reference" "R1"
 			(at 116.84 48.2599 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3274,11 +3278,11 @@
 		(instances
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/b9160b78-ad79-4299-ac76-fc3d5563367b"
-					(reference "R4")
+					(reference "R1")
 					(unit 1)
 				)
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/d92b970b-7f5c-4231-93c3-49a40e55038f"
-					(reference "R1")
+					(reference "R15")
 					(unit 1)
 				)
 			)
@@ -3296,7 +3300,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "dd38b1dc-0343-4055-9e1a-7a318702e2c3")
-		(property "Reference" "R6"
+		(property "Reference" "R3"
 			(at 144.78 53.34 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3358,11 +3362,11 @@
 		(instances
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/b9160b78-ad79-4299-ac76-fc3d5563367b"
-					(reference "R6")
+					(reference "R3")
 					(unit 1)
 				)
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/d92b970b-7f5c-4231-93c3-49a40e55038f"
-					(reference "R3")
+					(reference "R17")
 					(unit 1)
 				)
 			)

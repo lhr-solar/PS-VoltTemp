@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP HMU1228NL
+D Power Transformers MDL,SIN,XFMR1:1,SMT,4.3KV,TU,NPB
+K
+F https://www.pulseelectronics.com/wp-content/uploads/2020/10/H609.pdf
+$ENDCMP
+#
+#End Doc Library

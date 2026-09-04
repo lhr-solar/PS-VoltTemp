@@ -1,0 +1,9 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP 744242471
+D WE-SLM SMT Common Mode Line Filter L = 470 H; Z = 2200 ; IR = 400 mA; RDC = 0.35 
+K
+F https://www.we-online.com/catalog/datasheet/744242471.pdf
+$ENDCMP
+#
+#End Doc Library

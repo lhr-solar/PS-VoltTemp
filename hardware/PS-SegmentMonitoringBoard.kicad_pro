@@ -248,8 +248,8 @@
       "similar_label_and_power": "warning",
       "similar_labels": "warning",
       "similar_power": "warning",
-      "simulation_model_issue": "ignore",
-      "single_global_label": "ignore",
+      "simulation_model_issue": "warning",
+      "single_global_label": "warning",
       "stacked_pin_name": "warning",
       "unannotated": "error",
       "unconnected_wire_endpoint": "warning",
@@ -421,7 +421,7 @@
         "CB2",
         "CB1",
         "CB0",
-        "preBAT"
+        "extraCells"
       ],
       "CELL_VOLTAGES": [
         "VC7",
@@ -461,8 +461,7 @@
         "V3",
         "V2",
         "V1",
-        "V0",
-        "BAT"
+        "V0"
       ],
       "V_TAPS": [
         "V+_[0..7]",
@@ -509,7 +508,7 @@
         "uuid": "f5c3f134-fd91-4d3b-aae6-719b554b2d69"
       }
     ],
-    "used_designators": "R1-6,R8-99,R105-127,IC1-2,J1-8,J11,D1-10,T1-2,#PWR1-21,#PWR26-29,#PWR31-32,#PWR37-39,#PWR69-84,#PWR101-116,TP5,TP11-26,F1-19,C1-16,C20-66,C81-100,C103-142,U1,U4-5,U7-17,SW5,Q1,TP_3.3V1,L1-2,TR1-2",
+    "used_designators": "R1-99,R105-127,IC1-3,J1-8,J11,D1-10,T1-2,#PWR1-21,#PWR26-29,#PWR31-32,#PWR37-39,#PWR69-84,#PWR101-116,TP5,TP11-26,F1-19,C1-66,C81-100,C103-142,U1,U4-5,U7-17,SW5,Q1-2,TP_3.3V1,L1-2,TR1-3",
     "variants": []
   },
   "sheets": [
@@ -519,7 +518,7 @@
     ],
     [
       "b9160b78-ad79-4299-ac76-fc3d5563367b",
-      "Capacitor_Isolation_Ring"
+      "highSideIsolation"
     ],
     [
       "0b2fcaf7-0039-4bf1-a6de-4308a28a2e61",
@@ -530,12 +529,8 @@
       "LDOIN_NPN"
     ],
     [
-      "4287d04b-d36d-432c-b4ed-46d8f5b465b5",
-      "Extra_Cells"
-    ],
-    [
       "d92b970b-7f5c-4231-93c3-49a40e55038f",
-      "Capacitor_Isolation_Daisy_Chain"
+      "lowSideIsolation"
     ],
     [
       "c374ccb1-3fca-459f-ad5f-933aa5d7a29c",
@@ -544,10 +539,6 @@
     [
       "21351e03-70a0-438e-ae63-3dedb1c82fc6",
       "Volt_Taps"
-    ],
-    [
-      "d887bdd7-4ddc-43ee-a27d-51208f676d2d",
-      "GND_Bypasses"
     ]
   ],
   "text_variables": {},

@@ -2662,7 +2662,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "6c72d161-1478-419a-8309-f9e7cd02b2f7")
-		(property "Reference" "C61"
+		(property "Reference" "C15"
 			(at 62.23 47.498 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2726,7 +2726,7 @@
 		(instances
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/4287d04b-d36d-432c-b4ed-46d8f5b465b5"
-					(reference "C61")
+					(reference "C15")
 					(unit 1)
 				)
 			)
@@ -2744,7 +2744,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "e90fff7a-59e8-4187-9d53-9ee16fdfa37b")
-		(property "Reference" "R28"
+		(property "Reference" "R14"
 			(at 69.85 41.91 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -2806,7 +2806,7 @@
 		(instances
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/4287d04b-d36d-432c-b4ed-46d8f5b465b5"
-					(reference "R28")
+					(reference "R14")
 					(unit 1)
 				)
 			)

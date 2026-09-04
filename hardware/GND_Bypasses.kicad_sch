@@ -496,7 +496,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "0267aa45-7631-44dc-8b78-e1fc02c13fb3")
-		(property "Reference" "C122"
+		(property "Reference" "C39"
 			(at 142.494 92.202 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -558,7 +558,7 @@
 		(instances
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/d887bdd7-4ddc-43ee-a27d-51208f676d2d"
-					(reference "C122")
+					(reference "C39")
 					(unit 1)
 				)
 			)
@@ -575,7 +575,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "657e06d4-43db-4ae3-bca4-7ead3b692e25")
-		(property "Reference" "C123"
+		(property "Reference" "C40"
 			(at 151.384 92.202 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -637,7 +637,7 @@
 		(instances
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/d887bdd7-4ddc-43ee-a27d-51208f676d2d"
-					(reference "C123")
+					(reference "C40")
 					(unit 1)
 				)
 			)
@@ -654,7 +654,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "783cfd05-b0e0-4d41-ba72-e2d4a5fcb191")
-		(property "Reference" "C133"
+		(property "Reference" "C36"
 			(at 114.554 92.202 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -716,7 +716,7 @@
 		(instances
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/d887bdd7-4ddc-43ee-a27d-51208f676d2d"
-					(reference "C133")
+					(reference "C36")
 					(unit 1)
 				)
 			)
@@ -733,7 +733,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "af887cfd-a9e0-47aa-abdf-988fab91fa23")
-		(property "Reference" "C134"
+		(property "Reference" "C38"
 			(at 132.334 92.202 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -795,7 +795,7 @@
 		(instances
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/d887bdd7-4ddc-43ee-a27d-51208f676d2d"
-					(reference "C134")
+					(reference "C38")
 					(unit 1)
 				)
 			)
@@ -813,7 +813,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "b3e3694c-ad63-48bd-b75b-7490f80d4f37")
-		(property "Reference" "C128"
+		(property "Reference" "C41"
 			(at 160.274 92.202 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -875,7 +875,7 @@
 		(instances
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/d887bdd7-4ddc-43ee-a27d-51208f676d2d"
-					(reference "C128")
+					(reference "C41")
 					(unit 1)
 				)
 			)
@@ -892,7 +892,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "cb676282-597f-48b1-93ab-31b2d5888319")
-		(property "Reference" "C129"
+		(property "Reference" "C37"
 			(at 123.444 92.202 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -954,7 +954,7 @@
 		(instances
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/d887bdd7-4ddc-43ee-a27d-51208f676d2d"
-					(reference "C129")
+					(reference "C37")
 					(unit 1)
 				)
 			)
@@ -972,7 +972,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "f317a560-00b6-49ad-989d-0fdd7702476c")
-		(property "Reference" "C130"
+		(property "Reference" "C42"
 			(at 169.164 92.202 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1034,7 +1034,7 @@
 		(instances
 			(project "PS-SegmentMonitoringBoard"
 				(path "/f5c3f134-fd91-4d3b-aae6-719b554b2d69/d887bdd7-4ddc-43ee-a27d-51208f676d2d"
-					(reference "C130")
+					(reference "C42")
 					(unit 1)
 				)
 			)
