@@ -1579,6 +1579,172 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Jumper:Jumper_2_Small_Open"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "JP"
+				(at 0 2.794 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Jumper_2_Small_Open"
+				(at 0 -2.286 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Jumper, 2-pole, small symbol, open"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "Jumper SPST"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Jumper* TestPoint*2Pads* TestPoint*Bridge*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "Jumper_2_Small_Open_0_0"
+				(circle
+					(center -1.016 0)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 1.016 0)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Jumper_2_Small_Open_0_1"
+				(arc
+					(start -0.762 0.7656)
+					(mid 0 1.0189)
+					(end 0.762 0.7656)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Jumper_2_Small_Open_1_1"
+				(pin passive line
+					(at -2.54 0 0)
+					(length 1.27)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 0 180)
+					(length 1.27)
+					(name "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Jumper:SolderJumper_2_Open"
 			(pin_numbers
 				(hide yes)
@@ -2279,6 +2445,30 @@
 		(uuid "00216d72-b8c3-467f-86aa-9bf3b0f5cb56")
 	)
 	(rectangle
+		(start 135.89 129.54)
+		(end 163.83 161.29)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid "087985cf-4198-491d-b5dd-12c2092185a8")
+	)
+	(rectangle
+		(start 48.26 162.56)
+		(end 76.2 194.31)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid "157bcf08-5fd9-4abd-8f4a-13fee5c05678")
+	)
+	(rectangle
 		(start 48.26 129.54)
 		(end 76.2 161.29)
 		(stroke
@@ -2303,6 +2493,30 @@
 		(uuid "1ba64fd7-8aea-4894-81f3-87c4f87eb93b")
 	)
 	(rectangle
+		(start 77.47 162.56)
+		(end 105.41 194.31)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid "33eda9d2-8d35-4c52-b799-af9f7e1c8e74")
+	)
+	(rectangle
+		(start 135.89 162.56)
+		(end 163.83 194.31)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(fill
+			(type none)
+		)
+		(uuid "5e5e8c48-701f-4b31-9176-a16096bf2c99")
+	)
+	(rectangle
 		(start 77.47 129.54)
 		(end 105.41 161.29)
 		(stroke
@@ -2312,43 +2526,7 @@
 		(fill
 			(type none)
 		)
-		(uuid "256e666b-552d-4a78-baf7-80939e666870")
-	)
-	(rectangle
-		(start 106.68 129.54)
-		(end 134.62 161.29)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid "2f589a10-2ebd-45a9-825d-2aa880d702d8")
-	)
-	(rectangle
-		(start 135.89 129.54)
-		(end 163.83 161.29)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid "59d3ef7a-c483-4a19-a64d-175c49260dbc")
-	)
-	(rectangle
-		(start 106.68 162.56)
-		(end 134.62 194.31)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid "6f41e5ea-d29b-4440-8097-7816c275bb8a")
+		(uuid "72dc188d-d5f3-489a-b025-6450a77fe295")
 	)
 	(rectangle
 		(start 13.97 170.18)
@@ -2363,8 +2541,8 @@
 		(uuid "8363f16e-0aed-4452-9767-182af03134e9")
 	)
 	(rectangle
-		(start 135.89 162.56)
-		(end 163.83 194.31)
+		(start 106.68 129.54)
+		(end 134.62 161.29)
 		(stroke
 			(width 0)
 			(type default)
@@ -2372,7 +2550,7 @@
 		(fill
 			(type none)
 		)
-		(uuid "94f5628e-0ec4-44a1-94a0-e833bbe808ca")
+		(uuid "a14b9f99-945a-475f-bb43-bb414ff396b9")
 	)
 	(rectangle
 		(start 16.51 50.8)
@@ -2411,8 +2589,8 @@
 		(uuid "bcbec770-1bc3-480c-a0ec-c2abb410f8d8")
 	)
 	(rectangle
-		(start 48.26 162.56)
-		(end 76.2 194.31)
+		(start 106.68 162.56)
+		(end 134.62 194.31)
 		(stroke
 			(width 0)
 			(type default)
@@ -2420,19 +2598,7 @@
 		(fill
 			(type none)
 		)
-		(uuid "ef8c79de-35b5-453b-b23f-333d356faf28")
-	)
-	(rectangle
-		(start 77.47 162.56)
-		(end 105.41 194.31)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(fill
-			(type none)
-		)
-		(uuid "f4c8ee98-6c0a-43b0-bf6a-84713213ab16")
+		(uuid "d8803958-ea0a-420e-b5a8-2dbfec83a918")
 	)
 	(text "Cell Simulator"
 		(exclude_from_sim no)
@@ -2519,18 +2685,6 @@
 		(uuid "189d74b2-b23e-4d50-ab32-c8f8961554b0")
 	)
 	(junction
-		(at 55.88 176.53)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "23a5b49b-4bab-4a27-a2bc-f82c803cd6c6")
-	)
-	(junction
-		(at 114.3 176.53)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "49c96a30-d2f3-429a-9578-39c4e3544130")
-	)
-	(junction
 		(at 35.56 152.4)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2549,6 +2703,18 @@
 		(uuid "65d0360b-be79-4e7f-96db-a8f0db640874")
 	)
 	(junction
+		(at 143.51 143.51)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6b34c190-a0ee-4932-a08f-f67674751786")
+	)
+	(junction
+		(at 114.3 143.51)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6d4f2b29-4260-4528-8f83-8e93b5c39a52")
+	)
+	(junction
 		(at 64.77 40.64)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -2559,18 +2725,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "890f2be5-1b88-4b23-8f37-7191ff50e247")
-	)
-	(junction
-		(at 114.3 143.51)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "9527640a-bc4b-4553-ae5e-e3e4ccbddc68")
-	)
-	(junction
-		(at 85.09 176.53)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a1352cb6-0ff9-493d-a26d-a437ba68e81a")
 	)
 	(junction
 		(at 55.88 71.12)
@@ -2585,10 +2739,28 @@
 		(uuid "a8465a5e-afa5-4e6e-8c00-b4703e5be7f3")
 	)
 	(junction
+		(at 55.88 176.53)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "aa7e21b8-1953-45f2-b159-a4f9517d4815")
+	)
+	(junction
 		(at 64.77 91.44)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "aa7f4eeb-b845-4adf-adab-90f47cf215b6")
+	)
+	(junction
+		(at 143.51 176.53)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b284d4b0-9d10-458c-94fb-3289a79dcbbf")
+	)
+	(junction
+		(at 85.09 143.51)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "c17f4010-1c40-4d16-8673-f52d246387c0")
 	)
 	(junction
 		(at 55.88 50.8)
@@ -2601,18 +2773,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "c4e9d235-2bd3-4d93-baaa-e44aa085b48a")
-	)
-	(junction
-		(at 85.09 143.51)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c63fa004-88d1-4443-9c6b-d99f47778c28")
-	)
-	(junction
-		(at 143.51 143.51)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "c9899d72-3cd2-43f9-b322-53bf59be01a6")
 	)
 	(junction
 		(at 55.88 81.28)
@@ -2645,10 +2805,16 @@
 		(uuid "eaf11985-b3ab-4dd3-8c24-67a21afb5d5b")
 	)
 	(junction
-		(at 143.51 176.53)
+		(at 114.3 176.53)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "f7ac91a6-02be-47ee-9632-1029929d0453")
+		(uuid "ecdf536f-0d4c-42f8-ab4f-723831e72e83")
+	)
+	(junction
+		(at 85.09 176.53)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "efd19cc9-317b-422a-a77e-58a28c02b535")
 	)
 	(wire
 		(pts
@@ -2669,6 +2835,16 @@
 			(type default)
 		)
 		(uuid "12c5d82e-4f42-4365-b920-2cd0fd10b1b1")
+	)
+	(wire
+		(pts
+			(xy 83.82 176.53) (xy 85.09 176.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "16107f10-97e9-4a8d-a1a7-d4b93d2d90f3")
 	)
 	(wire
 		(pts
@@ -2722,16 +2898,6 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 143.51) (xy 114.3 143.51)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "28c2fded-1704-4bd5-8cb2-579a66a96b5c")
-	)
-	(wire
-		(pts
 			(xy 55.88 71.12) (xy 64.77 71.12)
 		)
 		(stroke
@@ -2782,16 +2948,6 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 143.51) (xy 85.09 143.51)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4ac1ebef-f894-4b90-8e9d-2fc39c250252")
-	)
-	(wire
-		(pts
 			(xy 55.88 49.53) (xy 55.88 50.8)
 		)
 		(stroke
@@ -2799,16 +2955,6 @@
 			(type default)
 		)
 		(uuid "5065e340-75f8-4a59-afec-91190155b866")
-	)
-	(wire
-		(pts
-			(xy 113.03 176.53) (xy 114.3 176.53)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "57ff7ab4-d64d-4123-b93a-fc92ca7cbf77")
 	)
 	(wire
 		(pts
@@ -2832,16 +2978,6 @@
 	)
 	(wire
 		(pts
-			(xy 142.24 143.51) (xy 143.51 143.51)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "5d207294-7e10-4987-8735-b7d58221a0a4")
-	)
-	(wire
-		(pts
 			(xy 55.88 101.6) (xy 55.88 100.33)
 		)
 		(stroke
@@ -2852,23 +2988,13 @@
 	)
 	(wire
 		(pts
-			(xy 83.82 176.53) (xy 85.09 176.53)
+			(xy 54.61 176.53) (xy 55.88 176.53)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "6ce45284-1339-4c14-84a1-3fea1235aec6")
-	)
-	(wire
-		(pts
-			(xy 142.24 176.53) (xy 143.51 176.53)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "722137ae-d0a6-46a2-9706-1b345b37d3e4")
+		(uuid "6827ba79-f621-4879-b731-7375be845b8f")
 	)
 	(wire
 		(pts
@@ -2902,6 +3028,16 @@
 	)
 	(wire
 		(pts
+			(xy 113.03 143.51) (xy 114.3 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "8a337eb8-9d8c-4a05-ad2c-200ca91bff78")
+	)
+	(wire
+		(pts
 			(xy 54.61 91.44) (xy 55.88 91.44)
 		)
 		(stroke
@@ -2922,13 +3058,13 @@
 	)
 	(wire
 		(pts
-			(xy 54.61 176.53) (xy 55.88 176.53)
+			(xy 83.82 143.51) (xy 85.09 143.51)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "91431d85-a28c-4ef3-ad86-ddeaf488153b")
+		(uuid "9aad9193-e264-443f-a14a-d6fd74e2e556")
 	)
 	(wire
 		(pts
@@ -3012,6 +3148,16 @@
 	)
 	(wire
 		(pts
+			(xy 113.03 176.53) (xy 114.3 176.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c4aaf333-ffbc-4792-9202-a2fe5715e753")
+	)
+	(wire
+		(pts
 			(xy 55.88 30.48) (xy 64.77 30.48)
 		)
 		(stroke
@@ -3072,6 +3218,26 @@
 	)
 	(wire
 		(pts
+			(xy 142.24 176.53) (xy 143.51 176.53)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "eea54124-5ea3-412d-aa6f-dd3d41119c8f")
+	)
+	(wire
+		(pts
+			(xy 142.24 143.51) (xy 143.51 143.51)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f69064c4-55af-4fb8-9143-69f6440679a7")
+	)
+	(wire
+		(pts
 			(xy 55.88 52.07) (xy 55.88 50.8)
 		)
 		(stroke
@@ -3120,26 +3286,6 @@
 		)
 		(uuid "0a54fe3f-a9da-4d74-af96-471e5dc9a4d4")
 	)
-	(label "GPIO2"
-		(at 96.52 137.16 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "0acd8fd6-5df4-4305-b04d-6e525dfeef1d")
-	)
-	(label "GPIO8"
-		(at 154.94 170.18 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "0b2c798d-8251-4ae2-bb20-30e3274f6aba")
-	)
 	(label "GPIO6"
 		(at 36.83 179.07 0)
 		(effects
@@ -3149,6 +3295,16 @@
 			(justify left bottom)
 		)
 		(uuid "0eecb80e-01ab-4318-812a-dec5f0663435")
+	)
+	(label "GPIO7"
+		(at 113.03 176.53 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "12513c04-b213-4d80-b713-44da8137b0af")
 	)
 	(label "GPIO3"
 		(at 36.83 186.69 0)
@@ -3170,15 +3326,25 @@
 		)
 		(uuid "1787482f-ec8f-4535-8975-b13332782d2d")
 	)
-	(label "GPIO5"
-		(at 67.31 170.18 180)
+	(label "GPIO6"
+		(at 96.52 168.91 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "1f3dfd66-30d1-4b20-8cba-58a5f3c56abe")
+		(uuid "2060f9e5-2b87-452a-ae39-2a11ceece26f")
+	)
+	(label "GPIO5"
+		(at 54.61 176.53 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "215ebd09-9b7d-4228-b61e-9a0e89894de0")
 	)
 	(label "GPIO2"
 		(at 36.83 189.23 0)
@@ -3190,35 +3356,15 @@
 		)
 		(uuid "2197e76c-ed78-4100-a9e7-d6fc06fae7a4")
 	)
-	(label "GPIO3"
-		(at 113.03 143.51 180)
+	(label "GPIO4"
+		(at 142.24 143.51 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "2ebf0f53-3de5-4b26-9806-0f40fb26c9fe")
-	)
-	(label "GPIO5"
-		(at 54.61 176.53 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "2fb4a693-1cb5-43c0-bb10-d26229b23e1b")
-	)
-	(label "GPIO8"
-		(at 142.24 176.53 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "32b4a50f-7e99-420e-afc8-3531b7166ae8")
+		(uuid "30edf69e-598d-4a93-a077-b4cec101c78a")
 	)
 	(label "GPIO7"
 		(at 36.83 176.53 0)
@@ -3250,8 +3396,18 @@
 		)
 		(uuid "4f92864d-0167-4bf1-b9a3-6619d645b65c")
 	)
+	(label "GPIO6"
+		(at 83.82 176.53 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "5334622e-ec1c-4004-b92e-460ff7cdf045")
+	)
 	(label "GPIO1"
-		(at 67.31 137.16 180)
+		(at 67.31 135.89 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -3259,6 +3415,16 @@
 			(justify right bottom)
 		)
 		(uuid "5baf1139-4fa0-40af-8566-7261c03734ed")
+	)
+	(label "GPIO4"
+		(at 154.94 135.89 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "6adaade0-ed85-4b86-90d7-a2bbbe54586d")
 	)
 	(label "GPIO4"
 		(at 36.83 184.15 0)
@@ -3270,15 +3436,25 @@
 		)
 		(uuid "6cae13a6-53cf-46ca-add2-b15730f13854")
 	)
-	(label "GPIO6"
-		(at 96.52 170.18 180)
+	(label "GPIO2"
+		(at 96.52 135.89 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "79a2695a-6edd-4b10-bb48-e6ce23d31729")
+		(uuid "6ffc143b-766c-4ae2-ad74-2c0bba7ddc79")
+	)
+	(label "GPIO5"
+		(at 67.31 168.91 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "7aa3dadf-7cae-49ee-8b10-a57b30de8b54")
 	)
 	(label "4&5"
 		(at 35.56 91.44 0)
@@ -3320,15 +3496,15 @@
 		)
 		(uuid "86d11577-3a3a-48fe-beff-5b16a0ba81cc")
 	)
-	(label "GPIO4"
-		(at 142.24 143.51 180)
+	(label "GPIO8"
+		(at 142.24 176.53 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "90e061fe-086c-43df-b213-4e22637cc58f")
+		(uuid "8b6dc0a4-97fe-49b7-9707-5e94e7918ef2")
 	)
 	(label "GPIO1"
 		(at 54.61 143.51 180)
@@ -3360,16 +3536,6 @@
 		)
 		(uuid "a6910285-b8c5-4068-bde5-fb30a4187653")
 	)
-	(label "GPIO7"
-		(at 113.03 176.53 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "abb5b273-5421-44bf-8dda-c7668bb77c40")
-	)
 	(label "3&4"
 		(at 35.56 93.98 0)
 		(effects
@@ -3390,45 +3556,15 @@
 		)
 		(uuid "bb6be487-da44-4f80-b86c-34f2903ea530")
 	)
-	(label "GPIO7"
-		(at 125.73 170.18 180)
+	(label "GPIO3"
+		(at 113.03 143.51 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "bedbb4bb-b092-4c4c-a336-283697a18c22")
-	)
-	(label "GPIO4"
-		(at 154.94 137.16 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "c37cc31a-0f8a-47e9-b560-696633d848fe")
-	)
-	(label "GPIO6"
-		(at 83.82 176.53 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "c93824a5-08ad-4c82-b5d9-c256839baf20")
-	)
-	(label "GPIO2"
-		(at 83.82 143.51 180)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right bottom)
-		)
-		(uuid "cf178a8f-43e4-4a4d-a381-d22719d69cdf")
+		(uuid "c59f9120-c3bf-4738-8ebc-64527610152b")
 	)
 	(label "3&4"
 		(at 54.61 81.28 180)
@@ -3460,15 +3596,45 @@
 		)
 		(uuid "da37fa78-a5f9-4fc2-9268-c1223c93384f")
 	)
-	(label "GPIO3"
-		(at 125.73 137.16 180)
+	(label "GPIO8"
+		(at 154.94 168.91 180)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify right bottom)
 		)
-		(uuid "f3d617fc-36dd-436f-8ac1-3d85ecdd3f98")
+		(uuid "e0ea9e56-0560-42b9-9722-11842c2fef2a")
+	)
+	(label "GPIO2"
+		(at 83.82 143.51 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "e1e446c9-a19b-4f05-9b85-d1fa033869f5")
+	)
+	(label "GPIO3"
+		(at 125.73 135.89 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "ee5879b3-5f68-48f0-9757-f6454dc367a0")
+	)
+	(label "GPIO7"
+		(at 125.73 168.91 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "f3e22359-5b12-492c-a0df-b25bcaae6685")
 	)
 	(label "5&6"
 		(at 54.61 60.96 180)
@@ -3479,6 +3645,162 @@
 			(justify right bottom)
 		)
 		(uuid "f9853af6-0289-4fe3-ac92-f2046e953c52")
+	)
+	(symbol
+		(lib_id "power:GND1")
+		(at 143.51 186.69 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "039c87cc-5681-4fc1-af45-40e9c0114dc4")
+		(property "Reference" "#PWR029"
+			(at 143.51 193.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND1"
+			(at 143.51 191.77 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 143.51 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 143.51 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
+			(at 143.51 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b09314f8-a7c7-44c1-a712-afbfb6c07fa4")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "#PWR029")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND1")
+		(at 114.3 153.67 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "050eae4b-ab5a-4e53-8ac8-a7bb556059f6")
+		(property "Reference" "#PWR014"
+			(at 114.3 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND1"
+			(at 114.3 158.75 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 114.3 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 114.3 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
+			(at 114.3 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b30df39f-e7b2-4680-8570-c28a1a342c45")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "#PWR014")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "Jumper:SolderJumper_2_Open")
@@ -3563,8 +3885,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:Thermistor")
-		(at 143.51 148.59 180)
+		(lib_id "power:GND1")
+		(at 85.09 153.67 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3572,31 +3894,31 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "099cf125-a4ce-48e1-8a20-43b80e7881e5")
-		(property "Reference" "TH4"
-			(at 145.288 147.32 0)
+		(fields_autoplaced yes)
+		(uuid "0a3db272-b367-4371-a514-f2f5b9332141")
+		(property "Reference" "#PWR011"
+			(at 85.09 160.02 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
-		(property "Value" "therm"
-			(at 145.288 149.86 0)
+		(property "Value" "GND1"
+			(at 85.09 158.75 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" ""
-			(at 143.51 148.59 0)
+			(at 85.09 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3607,7 +3929,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 143.51 148.59 0)
+			(at 85.09 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3617,8 +3939,8 @@
 				)
 			)
 		)
-		(property "Description" "Temperature dependent resistor"
-			(at 143.51 148.59 0)
+		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
+			(at 85.09 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3629,15 +3951,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "9b49765e-cd79-48a5-95e5-8aa653d49085")
-		)
-		(pin "2"
-			(uuid "a5eba0bb-35a1-4409-9ca3-e9c36eb0f29a")
+			(uuid "7f7f42c3-1595-4426-b42f-56c614086d9d")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "TH4")
+					(reference "#PWR011")
 					(unit 1)
 				)
 			)
@@ -3882,8 +4201,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:Thermistor")
-		(at 55.88 181.61 180)
+		(lib_id "Jumper:Jumper_2_Small_Open")
+		(at 67.31 171.45 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -3891,9 +4210,10 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "1138bebe-b126-4fd5-a1cc-0ff41b884603")
-		(property "Reference" "TH5"
-			(at 57.658 180.34 0)
+		(fields_autoplaced yes)
+		(uuid "0ef37d6a-8f17-4d89-a363-a615bb5ab439")
+		(property "Reference" "JP13"
+			(at 68.58 170.1799 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3903,8 +4223,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "therm"
-			(at 57.658 182.88 0)
+		(property "Value" "Jumper"
+			(at 68.58 172.7199 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -3915,7 +4235,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 55.88 181.61 0)
+			(at 67.31 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3926,7 +4246,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 55.88 181.61 0)
+			(at 67.31 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3936,8 +4256,8 @@
 				)
 			)
 		)
-		(property "Description" "Temperature dependent resistor"
-			(at 55.88 181.61 0)
+		(property "Description" "Jumper, 2-pole, small symbol, open"
+			(at 67.31 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -3948,15 +4268,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "7ddd7a88-6dbd-4518-b1c2-44ac2f45814b")
+			(uuid "e9eca3a9-a7c6-4ac0-ae12-df56179b64e2")
 		)
 		(pin "2"
-			(uuid "0e5736bf-d9a6-44ea-82b2-f3a79d97e07d")
+			(uuid "efed0c6c-beec-439c-81d7-b8ce40e32883")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "TH5")
+					(reference "JP13")
 					(unit 1)
 				)
 			)
@@ -4123,85 +4443,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 125.73 140.97 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp yes)
-		(uuid "14b4de95-17a2-49d7-952b-60daf307f299")
-		(property "Reference" "R14"
-			(at 130.81 139.7 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "250 Ω"
-			(at 130.81 141.732 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 127.508 140.97 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 125.73 140.97 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 125.73 140.97 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "bbb026aa-d6ad-4663-b255-3a80fa6de11d")
-		)
-		(pin "1"
-			(uuid "237ab138-29dd-40e7-bf5c-8d9490aa2504")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "R14")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector_Generic:Conn_01x01")
 		(at 31.75 64.77 180)
 		(unit 1)
@@ -4278,101 +4519,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:LED_Small")
-		(at 154.94 180.34 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "1eee70c1-d9c0-4858-9ac5-faa1563e5fba")
-		(property "Reference" "D8"
-			(at 157.48 179.0064 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "LED"
-			(at 157.48 181.5464 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 154.94 180.34 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 154.94 180.34 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Light emitting diode, small symbol"
-			(at 154.94 180.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 154.94 180.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "d9179e09-8924-439d-8271-63d498c45da3")
-		)
-		(pin "2"
-			(uuid "1a446ef0-43df-44a3-80bc-46bb18f983e1")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "D8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND1")
-		(at 154.94 182.88 0)
+		(at 96.52 186.69 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4381,247 +4529,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "205284de-744c-4f00-917e-71f3356e8091")
-		(property "Reference" "#PWR030"
-			(at 154.94 189.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND1"
-			(at 154.94 187.96 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 154.94 182.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 154.94 182.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 154.94 182.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "1b45a654-ad7b-4a9e-8856-6b761e367373")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "#PWR030")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 55.88 172.72 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "231238ac-5ac4-4751-9e4d-a522811c810c")
-		(property "Reference" "R17"
-			(at 57.404 171.4499 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10 kΩ"
-			(at 57.404 173.99 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 54.102 172.72 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 55.88 172.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 55.88 172.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "1a24f161-b440-415b-af9d-768fb19cc0b3")
-		)
-		(pin "1"
-			(uuid "e3b09a7d-cf53-451a-bab1-6fa20a2704ba")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "R17")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 96.52 173.99 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp yes)
-		(uuid "23b43094-3b8b-4148-a1fc-e1f58f81bbf0")
-		(property "Reference" "R20"
-			(at 101.6 172.72 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "250 Ω"
-			(at 101.6 174.752 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 98.298 173.99 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 96.52 173.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 96.52 173.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "f12854ad-ab36-4a15-8cbc-7ee4b8d65cc1")
-		)
-		(pin "1"
-			(uuid "51a501df-a0f9-44be-b558-922e5d7fd80c")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "R20")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND1")
-		(at 96.52 182.88 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "305523cb-588a-45cd-a631-9fad01cb2553")
+		(uuid "18454507-d0e4-4240-a927-92a85ec0a79c")
 		(property "Reference" "#PWR024"
-			(at 96.52 189.23 0)
+			(at 96.52 193.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4632,7 +4542,7 @@
 			)
 		)
 		(property "Value" "GND1"
-			(at 96.52 187.96 0)
+			(at 96.52 191.77 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4642,7 +4552,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 96.52 182.88 0)
+			(at 96.52 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4653,7 +4563,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 96.52 182.88 0)
+			(at 96.52 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4664,7 +4574,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 96.52 182.88 0)
+			(at 96.52 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4675,7 +4585,7 @@
 			)
 		)
 		(pin "1"
-			(uuid "8f040078-419f-43b9-bf29-ba93ee5f0c99")
+			(uuid "13bc77d4-f265-4557-b658-1823d20ed857")
 		)
 		(instances
 			(project "PS-CellSim"
@@ -4687,209 +4597,40 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND1")
-		(at 96.52 149.86 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "373b9585-9258-4174-9ade-7e92215cb828")
-		(property "Reference" "#PWR012"
-			(at 96.52 156.21 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND1"
-			(at 96.52 154.94 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 96.52 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 96.52 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 96.52 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "1f358a47-a7a3-4a9c-adf6-9cfe2377ac33")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "#PWR012")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED_Small")
-		(at 125.73 180.34 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3d18fe34-3935-4aab-a759-405560278a50")
-		(property "Reference" "D7"
-			(at 128.27 179.0064 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "LED"
-			(at 128.27 181.5464 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 125.73 180.34 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 125.73 180.34 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Light emitting diode, small symbol"
-			(at 125.73 180.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 125.73 180.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "7ce4a9c1-e342-4db9-a929-b9500484a87e")
-		)
-		(pin "2"
-			(uuid "6e4720fa-3ace-45c4-bf61-5b3ab0a40e55")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "D7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
-		(at 67.31 140.97 180)
+		(at 143.51 172.72 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp yes)
-		(uuid "45ccb95d-e6c9-41cc-9f95-375bfe41e251")
-		(property "Reference" "R10"
-			(at 72.39 139.7 0)
+		(dnp no)
+		(uuid "2377cb3c-ee70-4fa4-bfe8-d7912eaa248a")
+		(property "Reference" "R23"
+			(at 145.034 171.4499 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "250 Ω"
-			(at 72.39 141.732 0)
+		(property "Value" "10 kΩ"
+			(at 145.034 173.99 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" ""
-			(at 69.088 140.97 90)
+			(at 141.732 172.72 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4900,7 +4641,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 67.31 140.97 0)
+			(at 143.51 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4911,7 +4652,659 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 67.31 140.97 0)
+			(at 143.51 172.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "b286de7a-c082-45f7-9e88-dde0279bb304")
+		)
+		(pin "1"
+			(uuid "ca0db401-2f62-4bc5-8a50-b7f6732e8061")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "R23")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Jumper:Jumper_2_Small_Open")
+		(at 96.52 138.43 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "24db4034-0e73-4504-81ae-575992910292")
+		(property "Reference" "JP10"
+			(at 97.79 137.1599 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "Jumper"
+			(at 97.79 139.6999 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 96.52 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 96.52 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Jumper, 2-pole, small symbol, open"
+			(at 96.52 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ccad23d1-768c-4a16-b143-068991d9a13a")
+		)
+		(pin "2"
+			(uuid "6fda62ab-94d4-4337-b478-ef83f3a1b6db")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "JP10")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED_Small")
+		(at 96.52 184.15 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "261450a5-fec0-450c-90fb-8d1b2ce46b49")
+		(property "Reference" "D6"
+			(at 99.06 182.8164 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "LED"
+			(at 99.06 185.3564 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 96.52 184.15 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 96.52 184.15 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Light emitting diode, small symbol"
+			(at 96.52 184.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 96.52 184.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "961c3062-dc12-40e1-b358-bb9bb0de737e")
+		)
+		(pin "2"
+			(uuid "9f5205ce-58ba-4646-9641-843400594a4c")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "D6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Jumper:Jumper_2_Small_Open")
+		(at 67.31 138.43 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "34067b33-e258-40cc-9201-b466a9dc91ac")
+		(property "Reference" "JP9"
+			(at 68.58 137.1599 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "Jumper"
+			(at 68.58 139.6999 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 67.31 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 67.31 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Jumper, 2-pole, small symbol, open"
+			(at 67.31 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "eef29b61-98e7-4be3-9ba4-d2b4e10c5cb9")
+		)
+		(pin "2"
+			(uuid "0fbac617-926c-4d7c-a9fc-4bf95b43a735")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "JP9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Jumper:Jumper_2_Small_Open")
+		(at 154.94 171.45 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "39a3f19d-a8f2-45e7-accd-629689d063a1")
+		(property "Reference" "JP16"
+			(at 156.21 170.1799 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "Jumper"
+			(at 156.21 172.7199 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 154.94 171.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 154.94 171.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Jumper, 2-pole, small symbol, open"
+			(at 154.94 171.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7da0366f-d1fc-4b79-a42d-c3d02cc28949")
+		)
+		(pin "2"
+			(uuid "7e558b83-408f-4aff-99a1-e588f3d2bb3f")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "JP16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND1")
+		(at 154.94 153.67 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "3e4c609b-3b45-4312-8e95-b1ffbe3d01e8")
+		(property "Reference" "#PWR018"
+			(at 154.94 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND1"
+			(at 154.94 158.75 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 154.94 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 154.94 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
+			(at 154.94 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "57a3fc4d-897f-485d-a0da-4d4ba684b5d7")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "#PWR018")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND1")
+		(at 143.51 153.67 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "41347c56-240b-461f-9985-f10b5bbeeea0")
+		(property "Reference" "#PWR017"
+			(at 143.51 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND1"
+			(at 143.51 158.75 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 143.51 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 143.51 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
+			(at 143.51 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "361f9c2f-c379-4d5f-9991-b0d225c58fc6")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "#PWR017")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND1")
+		(at 55.88 186.69 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "44b11b15-5c89-464a-9baf-15c95425692b")
+		(property "Reference" "#PWR020"
+			(at 55.88 193.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND1"
+			(at 55.88 191.77 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 55.88 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
+			(at 55.88 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6499fde0-d892-443a-81a3-d9b8647e5321")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "#PWR020")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 67.31 144.78 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "45ccb95d-e6c9-41cc-9f95-375bfe41e251")
+		(property "Reference" "R10"
+			(at 72.39 143.51 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "250 Ω"
+			(at 72.39 145.542 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 69.088 144.78 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 67.31 144.78 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 67.31 144.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5180,17 +5573,17 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 96.52 140.97 180)
+		(at 67.31 177.8 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp yes)
-		(uuid "48e262e4-b7d9-46c5-8eec-215ee553a2f1")
-		(property "Reference" "R12"
-			(at 101.6 139.7 0)
+		(dnp no)
+		(uuid "491570dd-8401-4f2d-aec4-9448094959da")
+		(property "Reference" "R18"
+			(at 72.39 176.53 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5200,7 +5593,7 @@
 			)
 		)
 		(property "Value" "250 Ω"
-			(at 101.6 141.732 0)
+			(at 72.39 178.562 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5210,7 +5603,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 98.298 140.97 90)
+			(at 69.088 177.8 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5221,7 +5614,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 96.52 140.97 0)
+			(at 67.31 177.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5232,7 +5625,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 96.52 140.97 0)
+			(at 67.31 177.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5243,108 +5636,15 @@
 			)
 		)
 		(pin "2"
-			(uuid "33b71233-3823-47da-991d-0d9a9b750210")
+			(uuid "16190dae-6388-488c-af6d-e07f571f69d2")
 		)
 		(pin "1"
-			(uuid "effd32d6-569f-4d2e-a600-5765b704fd61")
+			(uuid "bf6a979d-810f-4d32-afeb-6b9ed663b783")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "R12")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED_Small")
-		(at 67.31 180.34 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "4a869f32-a214-40cc-a830-4161497344f1")
-		(property "Reference" "D5"
-			(at 69.85 179.0064 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "LED"
-			(at 69.85 181.5464 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 67.31 180.34 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 67.31 180.34 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Light emitting diode, small symbol"
-			(at 67.31 180.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 67.31 180.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "95125fcd-8895-4f20-b59c-1307d5e69562")
-		)
-		(pin "2"
-			(uuid "6bf0abaf-86a1-4bfb-b426-34657651371d")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "D5")
+					(reference "R18")
 					(unit 1)
 				)
 			)
@@ -5352,7 +5652,7 @@
 	)
 	(symbol
 		(lib_id "power:+5V")
-		(at 55.88 168.91 0)
+		(at 143.51 135.89 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5360,9 +5660,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "4e93983b-7388-4769-a8fe-89eb0a5d8451")
-		(property "Reference" "#PWR019"
-			(at 55.88 172.72 0)
+		(uuid "507c18a4-2528-409d-b639-960766ae2479")
+		(property "Reference" "#PWR016"
+			(at 143.51 139.7 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5373,7 +5673,7 @@
 			)
 		)
 		(property "Value" "+5V"
-			(at 55.88 164.592 0)
+			(at 143.51 131.572 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5383,7 +5683,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 55.88 168.91 0)
+			(at 143.51 135.89 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5394,7 +5694,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 55.88 168.91 0)
+			(at 143.51 135.89 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5405,7 +5705,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 55.88 168.91 0)
+			(at 143.51 135.89 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5416,12 +5716,93 @@
 			)
 		)
 		(pin "1"
-			(uuid "a653bb1d-f912-43c0-a275-c515bcd09115")
+			(uuid "5fea109f-733f-46fc-a4cd-33958bfe1129")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "#PWR019")
+					(reference "#PWR016")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 85.09 139.7 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "58709520-f9c0-4255-8873-e3fcea34bdb2")
+		(property "Reference" "R11"
+			(at 86.614 138.4299 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10 kΩ"
+			(at 86.614 140.97 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 83.312 139.7 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 85.09 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 85.09 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "e2429c0f-e285-4004-bea5-bc3c3657f451")
+		)
+		(pin "1"
+			(uuid "203e4b24-2e64-444f-8ce4-32e88176b19c")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "R11")
 					(unit 1)
 				)
 			)
@@ -5510,8 +5891,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 114.3 135.89 0)
+		(lib_id "Device:LED_Small")
+		(at 154.94 184.15 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5519,30 +5900,32 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "5aa6f265-77fc-4cbc-ba60-60fd1d28dab4")
-		(property "Reference" "#PWR013"
-			(at 114.3 139.7 0)
-			(hide yes)
+		(fields_autoplaced yes)
+		(uuid "5a4e3134-24b0-4ac2-80ae-21398603a9a7")
+		(property "Reference" "D8"
+			(at 157.48 182.8164 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Value" "+5V"
-			(at 114.3 131.572 0)
+		(property "Value" "LED"
+			(at 157.48 185.3564 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
-			(at 114.3 135.89 0)
+			(at 154.94 184.15 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5553,7 +5936,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 114.3 135.89 0)
+			(at 154.94 184.15 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5563,8 +5946,19 @@
 				)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 114.3 135.89 0)
+		(property "Description" "Light emitting diode, small symbol"
+			(at 154.94 184.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 154.94 184.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5575,12 +5969,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "d4c973e0-b868-4a1b-867b-85c286be33e4")
+			(uuid "4c153a1d-db60-488a-8a00-c15b3d007f9a")
+		)
+		(pin "2"
+			(uuid "24384803-56f9-426e-a6a5-175f43ce719b")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "#PWR013")
+					(reference "D8")
 					(unit 1)
 				)
 			)
@@ -5670,7 +6067,7 @@
 	)
 	(symbol
 		(lib_id "Device:Thermistor")
-		(at 143.51 181.61 180)
+		(at 85.09 148.59 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5678,9 +6075,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "5b3ef11d-eec5-4cf6-841a-e95c99174bd2")
-		(property "Reference" "TH8"
-			(at 145.288 180.34 0)
+		(uuid "5ad27dac-d71e-4adf-9584-e8ca64ba743d")
+		(property "Reference" "TH2"
+			(at 86.868 147.32 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5691,7 +6088,7 @@
 			)
 		)
 		(property "Value" "therm"
-			(at 145.288 182.88 0)
+			(at 86.868 149.86 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5702,7 +6099,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 143.51 181.61 0)
+			(at 85.09 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5713,7 +6110,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 143.51 181.61 0)
+			(at 85.09 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5724,7 +6121,7 @@
 			)
 		)
 		(property "Description" "Temperature dependent resistor"
-			(at 143.51 181.61 0)
+			(at 85.09 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5735,23 +6132,23 @@
 			)
 		)
 		(pin "1"
-			(uuid "9e37c342-3e77-4d8e-a7e0-fc3540c3e0c4")
+			(uuid "c3e2b9ca-dba3-4ce9-ada1-b2ee83caf197")
 		)
 		(pin "2"
-			(uuid "e31eae1a-07fe-4640-b8dc-1dfc0206f684")
+			(uuid "5a54af22-57ee-4762-babe-a732fd5bc0cd")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "TH8")
+					(reference "TH2")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "power:GND1")
-		(at 114.3 153.67 0)
+		(lib_id "Device:Thermistor")
+		(at 55.88 181.61 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5759,31 +6156,31 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "5e61aec9-7e4b-4d73-a1e8-1312ce73bc8c")
-		(property "Reference" "#PWR014"
-			(at 114.3 160.02 0)
-			(hide yes)
+		(uuid "5ae6b9d2-0acd-4fa8-8a2a-3e31c5b174fa")
+		(property "Reference" "TH5"
+			(at 57.658 180.34 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Value" "GND1"
-			(at 114.3 158.75 0)
+		(property "Value" "therm"
+			(at 57.658 182.88 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
-			(at 114.3 153.67 0)
+			(at 55.88 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5794,7 +6191,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 114.3 153.67 0)
+			(at 55.88 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5804,8 +6201,8 @@
 				)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 114.3 153.67 0)
+		(property "Description" "Temperature dependent resistor"
+			(at 55.88 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5816,12 +6213,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "f4faa381-9e37-404b-8cbb-dbd0c0d91982")
+			(uuid "20e88d56-ab23-4fbc-a8c5-e7ca525d225e")
+		)
+		(pin "2"
+			(uuid "e9dc57cd-7327-4f61-bb47-aee1d3103857")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "#PWR014")
+					(reference "TH5")
 					(unit 1)
 				)
 			)
@@ -5829,7 +6229,7 @@
 	)
 	(symbol
 		(lib_id "power:GND1")
-		(at 85.09 153.67 0)
+		(at 154.94 186.69 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5838,9 +6238,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "607dc660-ec86-4bb4-9abe-2a133e93b13f")
-		(property "Reference" "#PWR011"
-			(at 85.09 160.02 0)
+		(uuid "5fed0a63-5653-41bd-985a-f6da85d1ec11")
+		(property "Reference" "#PWR030"
+			(at 154.94 193.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5851,7 +6251,7 @@
 			)
 		)
 		(property "Value" "GND1"
-			(at 85.09 158.75 0)
+			(at 154.94 191.77 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5861,7 +6261,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 85.09 153.67 0)
+			(at 154.94 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5872,7 +6272,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 85.09 153.67 0)
+			(at 154.94 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5883,7 +6283,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 85.09 153.67 0)
+			(at 154.94 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5894,20 +6294,101 @@
 			)
 		)
 		(pin "1"
-			(uuid "3bd5866d-a91f-4856-ba29-8edb2304d0db")
+			(uuid "c77c3719-1d44-42dc-8468-64fe6a19ff3d")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "#PWR011")
+					(reference "#PWR030")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "power:GND1")
-		(at 125.73 182.88 0)
+		(lib_id "Device:Thermistor")
+		(at 114.3 148.59 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "6302d058-dd58-41f2-8a31-f646a4523ac1")
+		(property "Reference" "TH3"
+			(at 116.078 147.32 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "therm"
+			(at 116.078 149.86 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 114.3 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 114.3 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Temperature dependent resistor"
+			(at 114.3 148.59 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "dbdd2d29-1785-4d8a-96ba-a65389d98919")
+		)
+		(pin "2"
+			(uuid "9fe60ad9-fcff-4134-8658-12ada5bfdd92")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "TH3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED_Small")
+		(at 125.73 151.13 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -5916,9 +6397,102 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "62104285-9086-4d78-a1d0-1628e5557364")
-		(property "Reference" "#PWR027"
-			(at 125.73 189.23 0)
+		(uuid "65286d5c-6ec0-4963-a2a2-9c7bf374e895")
+		(property "Reference" "D3"
+			(at 128.27 149.7964 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "LED"
+			(at 128.27 152.3364 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 125.73 151.13 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 125.73 151.13 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Light emitting diode, small symbol"
+			(at 125.73 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 125.73 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1c5df26c-f12d-4bc3-902c-13a669ad8ff1")
+		)
+		(pin "2"
+			(uuid "e392776f-bc30-4aad-9271-04911c4e63f6")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "D3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND1")
+		(at 67.31 186.69 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "6716263e-ad06-4363-917c-0956b4377b86")
+		(property "Reference" "#PWR021"
+			(at 67.31 193.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5929,7 +6503,7 @@
 			)
 		)
 		(property "Value" "GND1"
-			(at 125.73 187.96 0)
+			(at 67.31 191.77 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5939,7 +6513,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 125.73 182.88 0)
+			(at 67.31 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5950,7 +6524,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 125.73 182.88 0)
+			(at 67.31 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5961,7 +6535,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 125.73 182.88 0)
+			(at 67.31 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5972,12 +6546,93 @@
 			)
 		)
 		(pin "1"
-			(uuid "fd4e4c7d-635e-405d-8e87-8e5fdc1e2581")
+			(uuid "b145e1c7-082c-47cd-9f42-44692a493ab1")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "#PWR027")
+					(reference "#PWR021")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 85.09 172.72 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "69eed631-7ef0-4f5a-8652-8a444f893e74")
+		(property "Reference" "R19"
+			(at 86.614 171.4499 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10 kΩ"
+			(at 86.614 173.99 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 83.312 172.72 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 85.09 172.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 85.09 172.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "bb70055f-13d8-416c-8019-2bda9fe1e276")
+		)
+		(pin "1"
+			(uuid "981eeb9a-3f1d-4e31-b9f8-b10453d37962")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "R19")
 					(unit 1)
 				)
 			)
@@ -5993,7 +6648,7 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "64d0e3b7-af6f-4f5c-be8e-42d316e18046")
+		(uuid "6cfd971e-35b7-40f0-a334-e2e6a6adeba5")
 		(property "Reference" "R15"
 			(at 145.034 138.4299 0)
 			(show_name no)
@@ -6050,10 +6705,10 @@
 			)
 		)
 		(pin "2"
-			(uuid "c5b716d0-c942-405e-b2b9-5f5f7b1f373e")
+			(uuid "42531a4a-7f63-4dff-8e5f-6bf6539adb21")
 		)
 		(pin "1"
-			(uuid "e0f59e9c-245c-4706-bb69-786c115b8f62")
+			(uuid "22202fcb-ca09-4cc8-99a7-65cb14457b8f")
 		)
 		(instances
 			(project "PS-CellSim"
@@ -6065,8 +6720,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:Thermistor")
-		(at 85.09 181.61 180)
+		(lib_id "power:+5V")
+		(at 114.3 168.91 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6074,31 +6729,30 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "6929fc0f-bf69-4ef6-a5f8-6491b1b62a2f")
-		(property "Reference" "TH6"
-			(at 86.868 180.34 0)
+		(uuid "7341768c-fae2-4798-bc7e-022205b5c8a1")
+		(property "Reference" "#PWR025"
+			(at 114.3 172.72 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
-		(property "Value" "therm"
-			(at 86.868 182.88 0)
+		(property "Value" "+5V"
+			(at 114.3 164.592 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" ""
-			(at 85.09 181.61 0)
+			(at 114.3 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6109,7 +6763,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 85.09 181.61 0)
+			(at 114.3 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6119,8 +6773,8 @@
 				)
 			)
 		)
-		(property "Description" "Temperature dependent resistor"
-			(at 85.09 181.61 0)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 114.3 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6131,23 +6785,20 @@
 			)
 		)
 		(pin "1"
-			(uuid "34df4bb7-48c9-4358-8dc9-1d27d08684af")
-		)
-		(pin "2"
-			(uuid "89ff1234-6d89-40ce-9d84-d0382c145417")
+			(uuid "0590539f-795f-4bf7-9d24-5d05d0b0a72d")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "TH6")
+					(reference "#PWR025")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 114.3 139.7 0)
+		(lib_id "Jumper:Jumper_2_Small_Open")
+		(at 125.73 171.45 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6155,31 +6806,32 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "743f1590-ae3c-499c-9b9a-13e186a30e3f")
-		(property "Reference" "R13"
-			(at 115.824 138.4299 0)
+		(fields_autoplaced yes)
+		(uuid "743877d8-b1aa-4da9-b4e6-6d12dc01661c")
+		(property "Reference" "JP15"
+			(at 127 170.1799 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
-		(property "Value" "10 kΩ"
-			(at 115.824 140.97 0)
+		(property "Value" "Jumper"
+			(at 127 172.7199 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
-			(at 112.522 139.7 90)
+			(at 125.73 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6190,7 +6842,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 114.3 139.7 0)
+			(at 125.73 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6200,8 +6852,8 @@
 				)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 114.3 139.7 0)
+		(property "Description" "Jumper, 2-pole, small symbol, open"
+			(at 125.73 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6210,17 +6862,17 @@
 					(size 1.27 1.27)
 				)
 			)
-		)
-		(pin "2"
-			(uuid "ac44397f-0a49-4a7f-b584-184b98d83513")
 		)
 		(pin "1"
-			(uuid "4b733e77-2d03-4735-9fff-e3efbe080d33")
+			(uuid "e5ccc026-53b2-482f-8bab-5fa48fe9afe4")
+		)
+		(pin "2"
+			(uuid "bbab6e78-3d40-4ed7-969b-14896874de95")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "R13")
+					(reference "JP15")
 					(unit 1)
 				)
 			)
@@ -6309,6 +6961,84 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND1")
+		(at 125.73 153.67 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "75831a61-6dd1-44d7-93a3-ef35f9319fb3")
+		(property "Reference" "#PWR015"
+			(at 125.73 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND1"
+			(at 125.73 158.75 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 125.73 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 125.73 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
+			(at 125.73 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "70f5cbb9-e145-417b-bf24-7629416b2ff1")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "#PWR015")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Jumper:SolderJumper_2_Open")
 		(at 64.77 86.36 90)
 		(unit 1)
@@ -6385,6 +7115,88 @@
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
 					(reference "JP3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Jumper:Jumper_2_Small_Open")
+		(at 154.94 138.43 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "7864e5ef-9726-402f-8e40-e95ce4799250")
+		(property "Reference" "JP12"
+			(at 156.21 137.1599 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "Jumper"
+			(at 156.21 139.6999 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 154.94 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 154.94 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Jumper, 2-pole, small symbol, open"
+			(at 154.94 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c8717cbf-1eb3-4310-89f2-72a69217a146")
+		)
+		(pin "2"
+			(uuid "e36e9d31-63b0-4a18-a096-e9a71507e0ff")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "JP12")
 					(unit 1)
 				)
 			)
@@ -6549,8 +7361,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:LED_Small")
-		(at 125.73 147.32 90)
+		(lib_id "Device:R")
+		(at 154.94 144.78 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6558,32 +7370,29 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7c3440c7-6a91-40d4-9e00-5f45e906f5c4")
-		(property "Reference" "D3"
-			(at 128.27 145.9864 90)
+		(uuid "7c775d6a-9889-4471-9a20-0433179ddb51")
+		(property "Reference" "R16"
+			(at 160.02 143.51 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
-		(property "Value" "LED"
-			(at 128.27 148.5264 90)
+		(property "Value" "250 Ω"
+			(at 160.02 145.542 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
 			)
 		)
 		(property "Footprint" ""
-			(at 125.73 147.32 90)
+			(at 156.718 144.78 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6594,7 +7403,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 125.73 147.32 90)
+			(at 154.94 144.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6604,8 +7413,8 @@
 				)
 			)
 		)
-		(property "Description" "Light emitting diode, small symbol"
-			(at 125.73 147.32 0)
+		(property "Description" "Resistor"
+			(at 154.94 144.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6614,28 +7423,17 @@
 					(size 1.27 1.27)
 				)
 			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 125.73 147.32 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "1bd96b52-64b1-433a-b8fc-781f5b80c2c0")
 		)
 		(pin "2"
-			(uuid "59c326e9-1a60-4d5d-9f01-f8bb47e966a5")
+			(uuid "a33d04e7-4cd2-46c6-8c62-49487f114007")
+		)
+		(pin "1"
+			(uuid "51d68632-faf5-4261-a7f7-2f5930459829")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "D3")
+					(reference "R16")
 					(unit 1)
 				)
 			)
@@ -6724,8 +7522,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND1")
-		(at 143.51 153.67 0)
+		(lib_id "power:+5V")
+		(at 143.51 168.91 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -6733,10 +7531,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7d29ab30-4b2b-48ad-ad06-8e52d4b2e98e")
-		(property "Reference" "#PWR017"
-			(at 143.51 160.02 0)
+		(uuid "7f255bb4-1f56-4183-b84d-3e6418e91972")
+		(property "Reference" "#PWR028"
+			(at 143.51 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6746,8 +7543,8 @@
 				)
 			)
 		)
-		(property "Value" "GND1"
-			(at 143.51 158.75 0)
+		(property "Value" "+5V"
+			(at 143.51 164.592 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -6757,7 +7554,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 143.51 153.67 0)
+			(at 143.51 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6768,7 +7565,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 143.51 153.67 0)
+			(at 143.51 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6778,86 +7575,8 @@
 				)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 143.51 153.67 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "358bd7e5-b1e1-4c26-875d-8e7ec1f6f308")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "#PWR017")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND1")
-		(at 114.3 186.69 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7e991eb4-a024-47e9-a6e7-258d846f214f")
-		(property "Reference" "#PWR026"
-			(at 114.3 193.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND1"
-			(at 114.3 191.77 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 114.3 186.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 114.3 186.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 114.3 186.69 0)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 143.51 168.91 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -6868,12 +7587,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "514c19f4-6fd7-4e24-82a2-2d4335b9f1a5")
+			(uuid "00d0d91a-eb1f-442a-bb63-9394b88b29a2")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "#PWR026")
+					(reference "#PWR028")
 					(unit 1)
 				)
 			)
@@ -6951,6 +7670,257 @@
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
 					(reference "#PWR08")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:Thermistor")
+		(at 85.09 181.61 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "82090854-f025-4f90-be29-a94b1f56843b")
+		(property "Reference" "TH6"
+			(at 86.868 180.34 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "therm"
+			(at 86.868 182.88 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 85.09 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 85.09 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Temperature dependent resistor"
+			(at 85.09 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "024ee2ac-59ca-4bbe-989a-1a91f24b64bd")
+		)
+		(pin "2"
+			(uuid "93292003-70db-4a5a-81a8-96956084bbca")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "TH6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED_Small")
+		(at 125.73 184.15 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "825891d8-cd40-4fd5-8a08-570fb03072dc")
+		(property "Reference" "D7"
+			(at 128.27 182.8164 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "LED"
+			(at 128.27 185.3564 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 125.73 184.15 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 125.73 184.15 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Light emitting diode, small symbol"
+			(at 125.73 184.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 125.73 184.15 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "d2954c94-ef79-47c6-b14f-674556bbb1cd")
+		)
+		(pin "2"
+			(uuid "40ec85b5-b289-4426-ba19-376886f25c52")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "D7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 55.88 168.91 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "8559fb43-e448-488f-8b85-e309330f9584")
+		(property "Reference" "#PWR019"
+			(at 55.88 172.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+5V"
+			(at 55.88 164.592 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 55.88 168.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 55.88 168.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 55.88 168.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "693266fe-88a1-499e-a133-66e6cf174194")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "#PWR019")
 					(unit 1)
 				)
 			)
@@ -7039,164 +8009,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+5V")
-		(at 85.09 168.91 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "89e6f190-e9af-4994-be17-0738147094f2")
-		(property "Reference" "#PWR022"
-			(at 85.09 172.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 85.09 164.592 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 85.09 168.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 85.09 168.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 85.09 168.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "2de261a6-ec01-4f98-b74b-57735807d898")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "#PWR022")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 154.94 140.97 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp yes)
-		(uuid "8a7bfc46-e047-46b6-b53a-93bcdd9f19da")
-		(property "Reference" "R16"
-			(at 160.02 139.7 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "250 Ω"
-			(at 160.02 141.732 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 156.718 140.97 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 154.94 140.97 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 154.94 140.97 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "97f66364-bced-4408-89ca-260525f5466c")
-		)
-		(pin "1"
-			(uuid "7e17c623-3a51-499a-b2c5-b7922c249da1")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "R16")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND1")
-		(at 85.09 186.69 0)
+		(at 125.73 186.69 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7205,9 +8019,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "8cc1c5f1-31ac-403a-9715-3081e98149a7")
-		(property "Reference" "#PWR023"
-			(at 85.09 193.04 0)
+		(uuid "8f1ad7f0-6c1e-4f03-ba5f-1a5923fc60d5")
+		(property "Reference" "#PWR027"
+			(at 125.73 193.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7218,7 +8032,7 @@
 			)
 		)
 		(property "Value" "GND1"
-			(at 85.09 191.77 0)
+			(at 125.73 191.77 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7228,7 +8042,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 85.09 186.69 0)
+			(at 125.73 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7239,7 +8053,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 85.09 186.69 0)
+			(at 125.73 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7250,7 +8064,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 85.09 186.69 0)
+			(at 125.73 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7261,12 +8075,12 @@
 			)
 		)
 		(pin "1"
-			(uuid "eaad2d76-b979-45be-a2fa-2a5b28fa4558")
+			(uuid "1ca32c16-40fb-4485-982a-96c21dd8f24c")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "#PWR023")
+					(reference "#PWR027")
 					(unit 1)
 				)
 			)
@@ -7274,7 +8088,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 85.09 139.7 0)
+		(at 114.3 172.72 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7282,9 +8096,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "8d53433b-6e73-429a-8caf-487ee9232c5c")
-		(property "Reference" "R11"
-			(at 86.614 138.4299 0)
+		(uuid "923087ff-a25d-4523-b7cc-2ebfb31e3ff9")
+		(property "Reference" "R21"
+			(at 115.824 171.4499 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7295,7 +8109,7 @@
 			)
 		)
 		(property "Value" "10 kΩ"
-			(at 86.614 140.97 0)
+			(at 115.824 173.99 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7306,7 +8120,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 83.312 139.7 90)
+			(at 112.522 172.72 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7317,7 +8131,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 85.09 139.7 0)
+			(at 114.3 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7328,7 +8142,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 85.09 139.7 0)
+			(at 114.3 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7339,262 +8153,15 @@
 			)
 		)
 		(pin "2"
-			(uuid "1503c066-f870-4851-b150-1e22e8999f0c")
+			(uuid "6f14ca16-cf76-4091-9120-60444b2b1142")
 		)
 		(pin "1"
-			(uuid "fb41d5d1-36a9-42c5-a22b-731caf61cea2")
+			(uuid "bbfed97c-fb5a-45fc-8b96-9070cfd83efd")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "R11")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 143.51 168.91 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "9283430a-fdb1-4852-a2d2-2e78a538e28f")
-		(property "Reference" "#PWR028"
-			(at 143.51 172.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 143.51 164.592 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 143.51 168.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 143.51 168.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 143.51 168.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "b520f563-4174-408d-8d62-03c2a4bd7dee")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "#PWR028")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 143.51 135.89 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "950f73da-a88e-4e9b-b705-44beebf46794")
-		(property "Reference" "#PWR016"
-			(at 143.51 139.7 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 143.51 131.572 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 143.51 135.89 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 143.51 135.89 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 143.51 135.89 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "d60b76fa-7d6a-4be6-9484-fa949a5f69ba")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "#PWR016")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:LED_Small")
-		(at 96.52 147.32 90)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "95d47d4e-7d3a-45f5-95bb-c5f395294c98")
-		(property "Reference" "D2"
-			(at 99.06 145.9864 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "LED"
-			(at 99.06 148.5264 90)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 96.52 147.32 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 96.52 147.32 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Light emitting diode, small symbol"
-			(at 96.52 147.32 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 96.52 147.32 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "29f60a89-696c-40a7-9553-91257dbad6cb")
-		)
-		(pin "2"
-			(uuid "2c735508-5847-4885-b967-f5fea1f2a7a0")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "D2")
+					(reference "R21")
 					(unit 1)
 				)
 			)
@@ -7776,8 +8343,87 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 125.73 177.8 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "99541b9c-5775-44dc-bfff-f5721dafa747")
+		(property "Reference" "R22"
+			(at 130.81 176.53 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "250 Ω"
+			(at 130.81 178.562 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 127.508 177.8 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 125.73 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 125.73 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "781fe747-fa33-4b13-9c0d-83c9c7810db9")
+		)
+		(pin "1"
+			(uuid "98740058-5ae7-48dd-97ff-f5f2ebb97b76")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "R22")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND1")
-		(at 55.88 186.69 0)
+		(at 114.3 186.69 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7786,9 +8432,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "98436289-5888-4aeb-9f9a-1c0c844f159b")
-		(property "Reference" "#PWR020"
-			(at 55.88 193.04 0)
+		(uuid "9b9ce57d-9e16-41be-a31b-7144b7eeb80e")
+		(property "Reference" "#PWR026"
+			(at 114.3 193.04 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7799,7 +8445,7 @@
 			)
 		)
 		(property "Value" "GND1"
-			(at 55.88 191.77 0)
+			(at 114.3 191.77 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7809,7 +8455,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 55.88 186.69 0)
+			(at 114.3 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7820,7 +8466,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 55.88 186.69 0)
+			(at 114.3 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7831,7 +8477,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 55.88 186.69 0)
+			(at 114.3 186.69 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7842,12 +8488,93 @@
 			)
 		)
 		(pin "1"
-			(uuid "74ede12c-ddf9-428d-beeb-367a122407e6")
+			(uuid "a806d1e3-98ea-4f26-8bd4-dbe11df64cc9")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "#PWR020")
+					(reference "#PWR026")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 114.3 139.7 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a1e1b252-ccef-4000-a0e7-fc963dc1f424")
+		(property "Reference" "R13"
+			(at 115.824 138.4299 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10 kΩ"
+			(at 115.824 140.97 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 112.522 139.7 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 114.3 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 114.3 139.7 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "09823b0c-2120-4332-9822-00739e789095")
+		)
+		(pin "1"
+			(uuid "d079eb01-a238-4b51-8aeb-439c596a47d6")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "R13")
 					(unit 1)
 				)
 			)
@@ -7855,7 +8582,7 @@
 	)
 	(symbol
 		(lib_id "Device:LED_Small")
-		(at 154.94 147.32 90)
+		(at 67.31 184.15 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -7864,9 +8591,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "9c792497-ef5a-4a64-8032-1414f395854d")
-		(property "Reference" "D4"
-			(at 157.48 145.9864 90)
+		(uuid "a480c43c-ccbd-4a31-b506-14642948db8b")
+		(property "Reference" "D5"
+			(at 69.85 182.8164 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7877,7 +8604,7 @@
 			)
 		)
 		(property "Value" "LED"
-			(at 157.48 148.5264 90)
+			(at 69.85 185.3564 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -7888,7 +8615,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 154.94 147.32 90)
+			(at 67.31 184.15 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7899,7 +8626,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 154.94 147.32 90)
+			(at 67.31 184.15 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7910,7 +8637,7 @@
 			)
 		)
 		(property "Description" "Light emitting diode, small symbol"
-			(at 154.94 147.32 0)
+			(at 67.31 184.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7921,7 +8648,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 154.94 147.32 0)
+			(at 67.31 184.15 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7932,254 +8659,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "ecf4bbc9-ae85-4a33-8142-8b202bbb5426")
+			(uuid "6d2c3dc6-4d7b-4832-9786-0b6a633e9c00")
 		)
 		(pin "2"
-			(uuid "b92ec492-fd1f-426f-8f9e-19a9976bb888")
+			(uuid "14d79a41-0520-4d2d-8e51-cbab95527458")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "D4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:Thermistor")
-		(at 114.3 148.59 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "9d76f1e0-919d-46f4-b34f-16609bc4a480")
-		(property "Reference" "TH3"
-			(at 116.078 147.32 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "therm"
-			(at 116.078 149.86 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 114.3 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 114.3 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Temperature dependent resistor"
-			(at 114.3 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "6314f560-3006-4841-b74f-7887ba352f71")
-		)
-		(pin "2"
-			(uuid "83dc7aad-0b15-4ef1-a417-4e075fbd8a9c")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "TH3")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:Thermistor")
-		(at 114.3 181.61 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "9de562c2-e4e5-41b3-8043-b9dfe1c0361a")
-		(property "Reference" "TH7"
-			(at 116.078 180.34 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "therm"
-			(at 116.078 182.88 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 114.3 181.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 114.3 181.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Temperature dependent resistor"
-			(at 114.3 181.61 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "6be6250c-7359-4a03-ae1d-cb5755ccc4e9")
-		)
-		(pin "2"
-			(uuid "f8934e93-26a0-4d3c-8576-3cc8cdd0df82")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "TH7")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+5V")
-		(at 114.3 168.91 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "a09c52cf-5fdc-4c2f-a37d-131b2cecc118")
-		(property "Reference" "#PWR025"
-			(at 114.3 172.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "+5V"
-			(at 114.3 164.592 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 114.3 168.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 114.3 168.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+5V\""
-			(at 114.3 168.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "1c59574d-616b-4e6d-bf9f-4b8a277f3364")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "#PWR025")
+					(reference "D5")
 					(unit 1)
 				)
 			)
@@ -8187,7 +8675,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 114.3 172.72 0)
+		(at 55.88 172.72 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -8195,9 +8683,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "a4ce40eb-a9dc-485b-b0c9-2d284aaa9181")
-		(property "Reference" "R21"
-			(at 115.824 171.4499 0)
+		(uuid "af3e51d3-c038-4ab3-8c5f-2c8c4dbec8f2")
+		(property "Reference" "R17"
+			(at 57.404 171.4499 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8208,7 +8696,7 @@
 			)
 		)
 		(property "Value" "10 kΩ"
-			(at 115.824 173.99 0)
+			(at 57.404 173.99 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -8219,7 +8707,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 112.522 172.72 90)
+			(at 54.102 172.72 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8230,7 +8718,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 114.3 172.72 0)
+			(at 55.88 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8241,7 +8729,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 114.3 172.72 0)
+			(at 55.88 172.72 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8252,175 +8740,15 @@
 			)
 		)
 		(pin "2"
-			(uuid "cf72cab2-e9a4-45eb-9d47-b506b79eced5")
+			(uuid "b6691efa-c260-4735-897f-93f25d6a5d91")
 		)
 		(pin "1"
-			(uuid "beed6181-c490-4d01-b7ae-286bf11dfdfd")
+			(uuid "01b62057-fba4-43a5-9adb-d3a1dcd106e8")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "R21")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 85.09 172.72 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "a4f857df-cbdb-4ba7-878b-3b70fafba2c7")
-		(property "Reference" "R19"
-			(at 86.614 171.4499 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10 kΩ"
-			(at 86.614 173.99 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 83.312 172.72 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 85.09 172.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 85.09 172.72 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "025a8951-5ded-4f83-8ab4-914dbb33194d")
-		)
-		(pin "1"
-			(uuid "3faa31dd-72ff-44df-9521-9b205d5da873")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "R19")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 125.73 173.99 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp yes)
-		(uuid "a721c89a-8be2-4b74-a2d7-ac030ae8fa35")
-		(property "Reference" "R22"
-			(at 130.81 172.72 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "250 Ω"
-			(at 130.81 174.752 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 127.508 173.99 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 125.73 173.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 125.73 173.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "a38844ea-5789-4185-a608-ab2ae7cf5957")
-		)
-		(pin "1"
-			(uuid "dd0b2343-7783-4136-9793-7b18c65431eb")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "R22")
+					(reference "R17")
 					(unit 1)
 				)
 			)
@@ -8591,162 +8919,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND1")
-		(at 143.51 186.69 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b5d67e5d-00cc-41eb-b75e-f9b4715492fc")
-		(property "Reference" "#PWR029"
-			(at 143.51 193.04 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND1"
-			(at 143.51 191.77 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 143.51 186.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 143.51 186.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 143.51 186.69 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "00692306-4d71-4578-9428-a500862019ba")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "#PWR029")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND1")
-		(at 154.94 149.86 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "b7ae49fc-efc5-4658-8ba4-b7679e04e1af")
-		(property "Reference" "#PWR018"
-			(at 154.94 156.21 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND1"
-			(at 154.94 154.94 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 154.94 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 154.94 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 154.94 149.86 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "c241a0d6-77d4-4368-9041-bd1a811a19ef")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "#PWR018")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND")
 		(at 36.83 64.77 0)
 		(unit 1)
@@ -8819,84 +8991,6 @@
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
 					(reference "#PWR04")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND1")
-		(at 67.31 182.88 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "bb0191b6-c38a-4e5e-bf0d-1f94a30573d1")
-		(property "Reference" "#PWR021"
-			(at 67.31 189.23 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "GND1"
-			(at 67.31 187.96 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 67.31 182.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 67.31 182.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 67.31 182.88 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "2b47ab5f-3a86-468f-9587-82f08d473e2d")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "#PWR021")
 					(unit 1)
 				)
 			)
@@ -9076,7 +9170,7 @@
 	)
 	(symbol
 		(lib_id "Device:R")
-		(at 143.51 172.72 0)
+		(at 96.52 144.78 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9084,31 +9178,29 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "c1017dee-8571-427e-951f-f39f30858a96")
-		(property "Reference" "R23"
-			(at 145.034 171.4499 0)
+		(uuid "c0230b44-4b5b-4151-8bd2-488af2a0496c")
+		(property "Reference" "R12"
+			(at 101.6 143.51 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
-		(property "Value" "10 kΩ"
-			(at 145.034 173.99 0)
+		(property "Value" "250 Ω"
+			(at 101.6 145.542 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" ""
-			(at 141.732 172.72 90)
+			(at 98.298 144.78 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9119,7 +9211,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 143.51 172.72 0)
+			(at 96.52 144.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9130,7 +9222,7 @@
 			)
 		)
 		(property "Description" "Resistor"
-			(at 143.51 172.72 0)
+			(at 96.52 144.78 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9141,23 +9233,23 @@
 			)
 		)
 		(pin "2"
-			(uuid "a0a93bf6-0884-4097-ac78-bea310ffa21c")
+			(uuid "0c22b2eb-851a-451c-9b62-3eafe45d5e29")
 		)
 		(pin "1"
-			(uuid "89013803-f4f8-4ec2-a3d9-f1a0fc3a69ce")
+			(uuid "4e88574f-3220-487e-8972-03f1f147d57e")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "R23")
+					(reference "R12")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Device:LED_Small")
-		(at 96.52 180.34 90)
+		(lib_id "Device:Thermistor")
+		(at 143.51 148.59 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9165,10 +9257,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "c1aa48f2-fb50-4035-aa3d-a5617cbfecd6")
-		(property "Reference" "D6"
-			(at 99.06 179.0064 90)
+		(uuid "c06cbdf5-1b03-46c8-a749-ddd4b15b8b7f")
+		(property "Reference" "TH4"
+			(at 145.288 147.32 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9178,8 +9269,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
-			(at 99.06 181.5464 90)
+		(property "Value" "therm"
+			(at 145.288 149.86 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9190,7 +9281,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 96.52 180.34 90)
+			(at 143.51 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9201,7 +9292,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 96.52 180.34 90)
+			(at 143.51 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9211,19 +9302,8 @@
 				)
 			)
 		)
-		(property "Description" "Light emitting diode, small symbol"
-			(at 96.52 180.34 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Sim.Pins" "1=K 2=A"
-			(at 96.52 180.34 0)
+		(property "Description" "Temperature dependent resistor"
+			(at 143.51 148.59 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9234,15 +9314,94 @@
 			)
 		)
 		(pin "1"
-			(uuid "69badbdc-2324-46a1-b875-d8ea1f3c5474")
+			(uuid "dc07fabc-9af1-41eb-b78d-61c26e115880")
 		)
 		(pin "2"
-			(uuid "b78ea408-1fb1-4bd1-9d1f-9bacfee06112")
+			(uuid "3b70dc5e-ae0a-47c1-b3b8-447e27b6743a")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "D6")
+					(reference "TH4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 154.94 177.8 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "c2184d39-3e31-4b27-b2a5-4438540fcb45")
+		(property "Reference" "R24"
+			(at 160.02 176.53 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "250 Ω"
+			(at 160.02 178.562 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 156.718 177.8 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 154.94 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 154.94 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "8b01bb87-2f9a-4cdf-80f2-6ae7d8ca3f22")
+		)
+		(pin "1"
+			(uuid "e95b98d9-4b20-45c2-9644-1cfaec1ac734")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "R24")
 					(unit 1)
 				)
 			)
@@ -9330,6 +9489,165 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND1")
+		(at 96.52 153.67 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c8d95f2c-2072-43ad-9df1-5be65f430c89")
+		(property "Reference" "#PWR012"
+			(at 96.52 160.02 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND1"
+			(at 96.52 158.75 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 96.52 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 96.52 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
+			(at 96.52 153.67 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "ab4dd16c-c418-4af1-b2e9-6ae0ccbc12de")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "#PWR012")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:Thermistor")
+		(at 114.3 181.61 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ca0a2fdd-51f8-40fc-961a-436f7abe8cde")
+		(property "Reference" "TH7"
+			(at 116.078 180.34 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "therm"
+			(at 116.078 182.88 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 114.3 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 114.3 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Temperature dependent resistor"
+			(at 114.3 181.61 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "c47aefdc-b3ac-4bab-8f47-790152620b26")
+		)
+		(pin "2"
+			(uuid "184b2f4e-7970-4474-90aa-825460d07aef")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "TH7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+5V")
 		(at 85.09 135.89 0)
 		(unit 1)
@@ -9339,7 +9657,7 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(uuid "cb18030a-839b-48cb-a827-53453e79652f")
+		(uuid "ccf1cc33-0a76-482c-8b3c-b4b36103d6ac")
 		(property "Reference" "#PWR010"
 			(at 85.09 139.7 0)
 			(hide yes)
@@ -9395,12 +9713,169 @@
 			)
 		)
 		(pin "1"
-			(uuid "2b1ccfc4-a349-46fe-81be-021ef1f18fd7")
+			(uuid "876d1714-41ab-4139-8ce3-6dee262bbb9f")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
 					(reference "#PWR010")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND1")
+		(at 85.09 186.69 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "cdc58c0e-9a1f-465c-b7ab-86f501417b76")
+		(property "Reference" "#PWR023"
+			(at 85.09 193.04 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND1"
+			(at 85.09 191.77 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 85.09 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 85.09 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
+			(at 85.09 186.69 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "6917ab48-1ade-449f-91f1-cead51d6cc13")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "#PWR023")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 96.52 177.8 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "cfcc9ad7-666a-4b95-9d98-f35f0a5c5aa3")
+		(property "Reference" "R20"
+			(at 101.6 176.53 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "250 Ω"
+			(at 101.6 178.562 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 98.298 177.8 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 96.52 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 96.52 177.8 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "a292d26f-3cfe-480f-9c3b-4cb61bb1a0c2")
+		)
+		(pin "1"
+			(uuid "0980d19e-3153-4b18-b197-c94bb18af838")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "R20")
 					(unit 1)
 				)
 			)
@@ -9489,168 +9964,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 154.94 173.99 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp yes)
-		(uuid "d4e0ed91-32a4-449a-9536-141990b75098")
-		(property "Reference" "R24"
-			(at 160.02 172.72 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "250 Ω"
-			(at 160.02 174.752 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 156.718 173.99 90)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 154.94 173.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Resistor"
-			(at 154.94 173.99 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "2"
-			(uuid "dd832a46-31e7-4e5b-81c6-233a1840fe68")
-		)
-		(pin "1"
-			(uuid "9e4c06be-af23-4681-87b9-4a0572eebf7a")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "R24")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:Thermistor")
-		(at 85.09 148.59 180)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "da009641-74e3-46b8-86c0-b4ac5d8cfdec")
-		(property "Reference" "TH2"
-			(at 86.868 147.32 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "therm"
-			(at 86.868 149.86 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" ""
-			(at 85.09 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 85.09 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" "Temperature dependent resistor"
-			(at 85.09 148.59 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "c9d0cb72-d7a8-479a-92fb-5c8fbde0abb6")
-		)
-		(pin "2"
-			(uuid "c9ac990c-0d4c-4bcb-8a3d-621092c85ada")
-		)
-		(instances
-			(project "PS-CellSim"
-				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "TH2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:GND1")
-		(at 67.31 149.86 0)
+		(at 67.31 153.67 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9661,7 +9976,7 @@
 		(fields_autoplaced yes)
 		(uuid "db7e6a43-5976-4eb4-9307-639d93325fbc")
 		(property "Reference" "#PWR09"
-			(at 67.31 156.21 0)
+			(at 67.31 160.02 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9672,7 +9987,7 @@
 			)
 		)
 		(property "Value" "GND1"
-			(at 67.31 154.94 0)
+			(at 67.31 158.75 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9682,7 +9997,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 67.31 149.86 0)
+			(at 67.31 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9693,7 +10008,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 67.31 149.86 0)
+			(at 67.31 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9704,7 +10019,7 @@
 			)
 		)
 		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 67.31 149.86 0)
+			(at 67.31 153.67 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9727,8 +10042,8 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND1")
-		(at 125.73 149.86 0)
+		(lib_id "Device:Thermistor")
+		(at 143.51 181.61 180)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9736,31 +10051,31 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "dcf2d091-4d2a-45af-8de6-2600f482bd5f")
-		(property "Reference" "#PWR015"
-			(at 125.73 156.21 0)
-			(hide yes)
+		(uuid "dd7474a4-29b5-45ad-aa65-067ad82c371c")
+		(property "Reference" "TH8"
+			(at 145.288 180.34 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
-		(property "Value" "GND1"
-			(at 125.73 154.94 0)
+		(property "Value" "therm"
+			(at 145.288 182.88 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify right)
 			)
 		)
 		(property "Footprint" ""
-			(at 125.73 149.86 0)
+			(at 143.51 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9771,7 +10086,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 125.73 149.86 0)
+			(at 143.51 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9781,8 +10096,8 @@
 				)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"GND1\" , ground"
-			(at 125.73 149.86 0)
+		(property "Description" "Temperature dependent resistor"
+			(at 143.51 181.61 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9793,12 +10108,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "52433951-bada-48e3-bc1a-c122858156e4")
+			(uuid "b7c315ba-fc6f-4b4a-822d-a60400e155f2")
+		)
+		(pin "2"
+			(uuid "d1e6a5ae-4d1f-4d6a-899e-c8884cb1f7ce")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "#PWR015")
+					(reference "TH8")
 					(unit 1)
 				)
 			)
@@ -9887,8 +10205,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:LED_Small")
-		(at 67.31 147.32 90)
+		(lib_id "Jumper:Jumper_2_Small_Open")
+		(at 96.52 171.45 90)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -9897,9 +10215,9 @@
 		(in_pos_files yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "ef74afdb-1a99-4409-9256-36bba1b49a9a")
-		(property "Reference" "D1"
-			(at 69.85 145.9864 90)
+		(uuid "e1a94162-752d-4c9b-a58e-c7ed451c0097")
+		(property "Reference" "JP14"
+			(at 97.79 170.1799 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9909,8 +10227,8 @@
 				(justify right)
 			)
 		)
-		(property "Value" "LED"
-			(at 69.85 148.5264 90)
+		(property "Value" "Jumper"
+			(at 97.79 172.7199 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9921,7 +10239,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 67.31 147.32 90)
+			(at 96.52 171.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9932,7 +10250,89 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 67.31 147.32 90)
+			(at 96.52 171.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Jumper, 2-pole, small symbol, open"
+			(at 96.52 171.45 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "adc076eb-22fa-4ae9-9cfc-0e77f785d5ea")
+		)
+		(pin "2"
+			(uuid "86a62475-f89f-49c8-b65c-f88d27b58e5c")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "JP14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED_Small")
+		(at 67.31 151.13 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ef74afdb-1a99-4409-9256-36bba1b49a9a")
+		(property "Reference" "D1"
+			(at 69.85 149.7964 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "LED"
+			(at 69.85 152.3364 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 67.31 151.13 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 67.31 151.13 90)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9943,7 +10343,7 @@
 			)
 		)
 		(property "Description" "Light emitting diode, small symbol"
-			(at 67.31 147.32 0)
+			(at 67.31 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9954,7 +10354,7 @@
 			)
 		)
 		(property "Sim.Pins" "1=K 2=A"
-			(at 67.31 147.32 0)
+			(at 67.31 151.13 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10062,18 +10462,19 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 67.31 173.99 180)
+		(lib_id "power:+5V")
+		(at 114.3 135.89 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(in_pos_files yes)
-		(dnp yes)
-		(uuid "f35db147-3a89-45f1-b156-f410aef9e0e8")
-		(property "Reference" "R18"
-			(at 72.39 172.72 0)
+		(dnp no)
+		(uuid "f2d5993d-e6b0-404e-99d5-7afa676fa0cc")
+		(property "Reference" "#PWR013"
+			(at 114.3 139.7 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10082,8 +10483,8 @@
 				)
 			)
 		)
-		(property "Value" "250 Ω"
-			(at 72.39 174.752 0)
+		(property "Value" "+5V"
+			(at 114.3 131.572 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -10093,7 +10494,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 69.088 173.99 90)
+			(at 114.3 135.89 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10104,7 +10505,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 67.31 173.99 0)
+			(at 114.3 135.89 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10114,8 +10515,8 @@
 				)
 			)
 		)
-		(property "Description" "Resistor"
-			(at 67.31 173.99 0)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 114.3 135.89 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10124,17 +10525,107 @@
 					(size 1.27 1.27)
 				)
 			)
-		)
-		(pin "2"
-			(uuid "90d4e592-1cbd-4003-9b88-cdfff6334216")
 		)
 		(pin "1"
-			(uuid "3c7a7c07-119a-4279-8169-1910c5be7337")
+			(uuid "25a9fe8c-1a63-449b-901a-0ffe071e8d45")
 		)
 		(instances
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
-					(reference "R18")
+					(reference "#PWR013")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED_Small")
+		(at 154.94 151.13 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "f7eff51f-d239-4dbc-ab26-21b424db80bd")
+		(property "Reference" "D4"
+			(at 157.48 149.7964 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "LED"
+			(at 157.48 152.3364 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 154.94 151.13 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 154.94 151.13 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Light emitting diode, small symbol"
+			(at 154.94 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 154.94 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "8c7989aa-cce5-4e2c-a081-fc7cfa90898f")
+		)
+		(pin "2"
+			(uuid "5662a779-61b4-4bd2-b64a-1099c05f84fd")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "D4")
 					(unit 1)
 				)
 			)
@@ -10223,6 +10714,176 @@
 		)
 	)
 	(symbol
+		(lib_id "power:+5V")
+		(at 85.09 168.91 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "fa9db22c-c406-44f4-b19a-57a7af6bc069")
+		(property "Reference" "#PWR022"
+			(at 85.09 172.72 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "+5V"
+			(at 85.09 164.592 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 85.09 168.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 85.09 168.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 85.09 168.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "e85977ea-caf8-48cd-8f9b-f88629769b16")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "#PWR022")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:LED_Small")
+		(at 96.52 151.13 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fbaf8237-df60-41af-8212-cbdb21f0c225")
+		(property "Reference" "D2"
+			(at 99.06 149.7964 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "LED"
+			(at 99.06 152.3364 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 96.52 151.13 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 96.52 151.13 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Light emitting diode, small symbol"
+			(at 96.52 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Sim.Pins" "1=K 2=A"
+			(at 96.52 151.13 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "bb52b05b-eb9f-4a21-9c31-df2cd304188d")
+		)
+		(pin "2"
+			(uuid "bcf5917f-d0db-42e2-b202-3754f737dc62")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "D2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:VCC")
 		(at 36.83 58.42 0)
 		(unit 1)
@@ -10295,6 +10956,167 @@
 			(project "PS-CellSim"
 				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
 					(reference "#PWR03")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Jumper:Jumper_2_Small_Open")
+		(at 125.73 138.43 90)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "fe9cbfbe-9671-4c63-a4b3-35e351651ea9")
+		(property "Reference" "JP11"
+			(at 127 137.1599 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "Jumper"
+			(at 127 139.6999 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 125.73 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 125.73 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Jumper, 2-pole, small symbol, open"
+			(at 125.73 138.43 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "f25986e4-7081-4d0d-a78c-6a030fbd77a7")
+		)
+		(pin "2"
+			(uuid "9410cd62-db70-4233-ae9e-bd0236e08ed6")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "JP11")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 125.73 144.78 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "ff02dedc-9472-4f49-99f7-23a27cd9a444")
+		(property "Reference" "R14"
+			(at 130.81 143.51 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "250 Ω"
+			(at 130.81 145.542 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 127.508 144.78 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 125.73 144.78 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 125.73 144.78 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "2"
+			(uuid "3ad84264-ab03-425e-9ba7-7a86a59e532e")
+		)
+		(pin "1"
+			(uuid "cc3c1145-22c6-4218-862a-5de7c5d1460a")
+		)
+		(instances
+			(project "PS-CellSim"
+				(path "/5fba92c0-171f-4c0d-b864-cd1d1f6fd0f4"
+					(reference "R14")
 					(unit 1)
 				)
 			)
