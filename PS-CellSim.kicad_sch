@@ -3344,16 +3344,6 @@
 		)
 		(uuid "ff6fe5db-597e-4ec9-bd96-21ca55422fe5")
 	)
-	(label "Therm1"
-		(at 152.4 63.5 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "005200a1-0812-43d6-984c-4387b4470c9e")
-	)
 	(label "7&8"
 		(at 35.56 83.82 0)
 		(effects
@@ -3504,15 +3494,15 @@
 		)
 		(uuid "3ec7ae0b-9ee1-4f53-a7d1-861e086cf18f")
 	)
-	(label "Therm5"
-		(at 152.4 48.26 0)
+	(label "Therm2"
+		(at 152.4 58.42 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "3fb04148-2176-42a5-9e66-019995898dc7")
+		(uuid "469f6377-f949-446f-8d87-0f40fd7673db")
 	)
 	(label "6&7"
 		(at 35.56 86.36 0)
@@ -3534,25 +3524,15 @@
 		)
 		(uuid "5334622e-ec1c-4004-b92e-460ff7cdf045")
 	)
-	(label "Therm4"
-		(at 152.4 55.88 0)
+	(label "Therm6"
+		(at 152.4 43.18 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "55f69323-9194-4b97-9f85-61560b370397")
-	)
-	(label "Therm3"
-		(at 152.4 58.42 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "5ac68094-f510-4fc0-b94f-25785a8085a4")
+		(uuid "5aaeef3d-1e4d-4c72-9ae1-e1011601586c")
 	)
 	(label "GPIO1"
 		(at 185.42 21.59 180)
@@ -3584,6 +3564,16 @@
 		)
 		(uuid "6cae13a6-53cf-46ca-add2-b15730f13854")
 	)
+	(label "Therm7"
+		(at 152.4 45.72 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6edfce0b-333e-4743-91d8-949bb1f6d316")
+	)
 	(label "GPIO2"
 		(at 214.63 21.59 180)
 		(effects
@@ -3603,6 +3593,16 @@
 			(justify left bottom)
 		)
 		(uuid "75238289-c3d9-4424-a155-7f8fea85e555")
+	)
+	(label "Therm8"
+		(at 152.4 48.26 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "79cb16a1-2f7f-4c35-997e-db07387b9a5e")
 	)
 	(label "GPIO5"
 		(at 185.42 54.61 180)
@@ -3664,7 +3664,7 @@
 		)
 		(uuid "8b6dc0a4-97fe-49b7-9707-5e94e7918ef2")
 	)
-	(label "Therm2"
+	(label "Therm3"
 		(at 152.4 60.96 0)
 		(effects
 			(font
@@ -3672,17 +3672,7 @@
 			)
 			(justify left bottom)
 		)
-		(uuid "8bb8b649-2e7e-4024-b9dc-fa384bb254db")
-	)
-	(label "Therm8"
-		(at 152.4 40.64 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "9120ccf7-166b-4143-b612-b0f210b27270")
+		(uuid "8f67afe3-ce05-475f-9a96-5bea5854184d")
 	)
 	(label "GPIO1"
 		(at 172.72 29.21 180)
@@ -3714,6 +3704,16 @@
 		)
 		(uuid "a6910285-b8c5-4068-bde5-fb30a4187653")
 	)
+	(label "Therm1"
+		(at 152.4 55.88 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "a90c30ec-a6a4-4a2e-85e2-25e58975d583")
+	)
 	(label "3&4"
 		(at 35.56 93.98 0)
 		(effects
@@ -3734,16 +3734,6 @@
 		)
 		(uuid "bb6be487-da44-4f80-b86c-34f2903ea530")
 	)
-	(label "Therm7"
-		(at 152.4 43.18 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "bef3cd25-a744-4c74-8d18-fe61eaa1eb49")
-	)
 	(label "Therm1"
 		(at 173.99 34.29 0)
 		(effects
@@ -3763,6 +3753,16 @@
 			(justify right bottom)
 		)
 		(uuid "c59f9120-c3bf-4738-8ebc-64527610152b")
+	)
+	(label "Therm5"
+		(at 152.4 40.64 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "cdb5377c-c2b7-412a-9af8-9721d70fc2d3")
 	)
 	(label "Therm3"
 		(at 232.41 34.29 0)
@@ -3844,6 +3844,16 @@
 		)
 		(uuid "ee5879b3-5f68-48f0-9757-f6454dc367a0")
 	)
+	(label "Therm4"
+		(at 152.4 63.5 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ef6847bb-bd3e-40bc-bbfe-287af4f714db")
+	)
 	(label "GPIO7"
 		(at 243.84 54.61 180)
 		(effects
@@ -3853,16 +3863,6 @@
 			(justify right bottom)
 		)
 		(uuid "f3e22359-5b12-492c-a0df-b25bcaae6685")
-	)
-	(label "Therm6"
-		(at 152.4 45.72 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "f921dc34-e0bc-44bd-aa9e-a5521297fbb6")
 	)
 	(label "5&6"
 		(at 54.61 60.96 180)
@@ -4466,7 +4466,7 @@
 				)
 			)
 		)
-		(property "Value" "Conn_01x01"
+		(property "Value" "bench_gnd"
 			(at 23.876 65.278 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4796,7 +4796,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0201_0603Metric"
+		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
 			(at 214.63 69.85 90)
 			(hide yes)
 			(show_name no)
@@ -4867,7 +4867,7 @@
 		(dnp no)
 		(uuid "28398c87-73f7-4fa8-b2a0-76de77a163b4")
 		(property "Reference" "J5"
-			(at 107.95 62.992 0)
+			(at 106.172 62.992 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4876,8 +4876,8 @@
 				)
 			)
 		)
-		(property "Value" "Conn_01x04"
-			(at 107.95 65.532 0)
+		(property "Value" "bms_gpio_set2"
+			(at 106.172 65.532 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5203,7 +5203,7 @@
 				)
 			)
 		)
-		(property "Value" "Conn_01x05"
+		(property "Value" "therm_set2"
 			(at 139.7 45.974 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5452,7 +5452,7 @@
 				)
 			)
 		)
-		(property "Value" "Conn_01x02"
+		(property "Value" "bms_ref"
 			(at 105.918 43.688 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5863,7 +5863,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0201_0603Metric"
+		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
 			(at 273.05 69.85 90)
 			(hide yes)
 			(show_name no)
@@ -6116,7 +6116,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0201_0603Metric"
+		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
 			(at 243.84 36.83 90)
 			(hide yes)
 			(show_name no)
@@ -6919,7 +6919,7 @@
 				)
 			)
 		)
-		(property "Value" "Conn_01x01"
+		(property "Value" "bench_vcc"
 			(at 24.13 58.928 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -7169,7 +7169,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0201_0603Metric"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 121.92 41.91 0)
 			(hide yes)
 			(show_name no)
@@ -7405,7 +7405,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0201_0603Metric"
+		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
 			(at 243.84 69.85 90)
 			(hide yes)
 			(show_name no)
@@ -8131,7 +8131,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0201_0603Metric"
+		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
 			(at 185.42 69.85 90)
 			(hide yes)
 			(show_name no)
@@ -8211,7 +8211,7 @@
 				)
 			)
 		)
-		(property "Value" "Conn_01x05"
+		(property "Value" "therm_set1"
 			(at 139.7 61.214 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -8700,7 +8700,7 @@
 				)
 			)
 		)
-		(property "Value" "Conn_01x07"
+		(property "Value" "bms_taps"
 			(at 22.86 91.694 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9024,7 +9024,7 @@
 		(dnp no)
 		(uuid "c53ba0a0-2a91-4eb3-a04a-6cb86f6ff389")
 		(property "Reference" "J6"
-			(at 107.95 74.168 0)
+			(at 106.172 74.168 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9033,8 +9033,8 @@
 				)
 			)
 		)
-		(property "Value" "Conn_01x04"
-			(at 107.95 76.708 0)
+		(property "Value" "bms_gpio_set1"
+			(at 106.172 76.708 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9689,7 +9689,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0201_0603Metric"
+		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
 			(at 185.42 36.83 90)
 			(hide yes)
 			(show_name no)
@@ -9941,7 +9941,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0201_0603Metric"
+		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
 			(at 273.05 36.83 90)
 			(hide yes)
 			(show_name no)
@@ -10193,7 +10193,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "LED_SMD:LED_0201_0603Metric"
+		(property "Footprint" "LED_SMD:LED_0603_1608Metric"
 			(at 214.63 36.83 90)
 			(hide yes)
 			(show_name no)
